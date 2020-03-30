@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 import com.kel1.kouveepetshop.DAO.customerDAO;
+import com.kel1.kouveepetshop.DAO.produkDAO;
 
 public class Respon {
 
@@ -14,10 +15,14 @@ public class Respon {
 
     @SerializedName("message")
     @Expose
-    private List<customerDAO> message;
+    private List<customerDAO> customerDAOList;
+
+    @SerializedName("message")
+    @Expose
+    private List<produkDAO> message;
 
     public  String getError() {return error;}
 
-    public List<customerDAO> getMessage() {return message;}
+    public List<produkDAO> getMessage() {return message;}
 
 }
