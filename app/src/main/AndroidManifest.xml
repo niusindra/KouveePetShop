@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.kel1.kouveepetshop">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".View.Admin.dashboard">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".View.Admin.register_admin"></activity>
+        <activity android:name=".View.Customer.customerMain"></activity>
+        <activity android:name=".View.Customer.customerAdd"></activity>
+        <activity android:name=".View.Customer.customerShow"></activity>
+        <activity android:name=".View.Hewan.hewanMain"></activity>
+        <activity android:name=".View.JenisHewan.jenisHewanMain"></activity>
+        <activity android:name=".View.Layanan.layananMain"></activity>
+        <activity android:name=".View.Produk.produkMain"></activity>
+        <activity android:name=".View.Supplier.supplierMain"></activity>
+        <activity android:name=".View.UkuranHewan.ukuranMain"></activity>
+
+    </application>
+
+</manifest>
