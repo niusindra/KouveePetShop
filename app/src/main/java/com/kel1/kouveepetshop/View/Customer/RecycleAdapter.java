@@ -55,8 +55,8 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHo
         customerDAO customerDAO=result.get(i);
         myViewHolder.mNama.setText("Nama\t: "+customerDAO.getNama_customer());
         myViewHolder.mAlamat.setText("Alamat\t: "+customerDAO.getAlamat_customer());
-        myViewHolder.mTgllahir.setText("Tgl Lahir\t: "+customerDAO.getTgllahir_customer()+"\n");
-        myViewHolder.mTelp.setText("Telp\t: "+customerDAO.getTelp_customer());
+        myViewHolder.mTgllahir.setText("Tgl Lahir\t: "+customerDAO.getTgllahir_customer());
+        myViewHolder.mTelp.setText("Telp\t: "+customerDAO.getTelp_customer()+"\n");
 //        myViewHolder.mParent.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {

@@ -60,7 +60,6 @@
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:paddingLeft="15dp"
-            android:inputType="textPassword"
             android:background="@drawable/btn"
             android:textColorHint="@color/fullwhite"
             />
@@ -75,14 +74,11 @@
             android:clickable="false"
             android:contextClickable="false"
             android:elevation="5dp"
-            android:focusable="auto"
-            android:focusableInTouchMode="false"
-            android:focusedByDefault="false"
             android:hint="Tanggal Lahir Customer"
             android:paddingLeft="15dp"
             android:textColorHint="@color/fullwhite" />
         <EditText
-            android:id="@+id/password1"
+            android:id="@+id/telpTxt"
             android:layout_width="280dp"
             android:layout_height="45dp"
             android:hint="Telp Customer"
@@ -90,12 +86,11 @@
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:paddingLeft="15dp"
-            android:inputType="textPassword"
             android:background="@drawable/btn"
             android:textColorHint="@color/fullwhite"
             />
         <Button
-            android:id="@+id/loginBtn"
+            android:id="@+id/addBtn"
             android:layout_width="280dp"
             android:layout_height="45dp"
             android:layout_gravity="center"

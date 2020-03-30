@@ -1,4 +1,4 @@
-package com.kel1.kouveepetshop.Api;
+package com.kel1.kouveepetshop.Respon;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 import com.kel1.kouveepetshop.DAO.customerDAO;
 
-public class Respon {
+public class readCustomer {
 
     @SerializedName("error")
     @Expose

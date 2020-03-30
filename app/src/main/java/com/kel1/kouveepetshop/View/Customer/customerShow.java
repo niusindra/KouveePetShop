@@ -19,7 +19,7 @@ import retrofit2.Response;
 
 import com.kel1.kouveepetshop.Api.ApiClient;
 import com.kel1.kouveepetshop.Api.ApiInterface;
-import com.kel1.kouveepetshop.Api.Respon;
+import com.kel1.kouveepetshop.Respon.readCustomer;
 import com.kel1.kouveepetshop.DAO.customerDAO;
 
 public class customerShow extends AppCompatActivity {
@@ -44,21 +44,18 @@ public class customerShow extends AppCompatActivity {
 
     private void setRecycleView(){
         ApiInterface apiService=ApiClient.getClient().create(ApiInterface.class);
-        Call<Respon> customer = apiService.getCustomer();
-//        mListStudent.addAll(response.body().getMessage());
-//        recycleAdapter.notifyDataSetChanged();
-//        Toast.makeText(ShowActivity.this,"Welcome",Toast.LENGTH_SHORT).show();
-        customer.enqueue(new Callback<Respon>(){
+        Call<readCustomer> customer = apiService.getCustomer();
+        customer.enqueue(new Callback<readCustomer>(){
 
             @Override
-            public void onResponse(Call<Respon> call, Response<Respon> response) {
+            public void onResponse(Call<readCustomer> call, Response<readCustomer> response) {
                 mListStudent.addAll(response.body().getMessage());
                 recycleAdapter.notifyDataSetChanged();
                 Toast.makeText(customerShow.this,"Welcome",Toast.LENGTH_SHORT).show();
             }
 
             @Override
-            public void onFailure(Call<Respon> call, Throwable t) {
+            public void onFailure(Call<readCustomer> call, Throwable t) {
 
             }
         });

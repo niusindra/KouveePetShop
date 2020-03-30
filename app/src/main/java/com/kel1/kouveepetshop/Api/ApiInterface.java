@@ -9,23 +9,25 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 import com.kel1.kouveepetshop.DAO.customerDAO;
+import com.kel1.kouveepetshop.Respon.cudCustomer;
+import com.kel1.kouveepetshop.Respon.readCustomer;
 
 public interface ApiInterface {
 //    =============================READ========================================================
     @GET("customer")
-    Call<Respon> getCustomer();
+    Call<readCustomer> getCustomer();
     @GET("produk")
-    Call<Respon> getProduk();
+    Call<readCustomer> getProduk();
     @GET("layanan")
-    Call<Respon> getLayanan();
+    Call<readCustomer> getLayanan();
     @GET("hewan")
-    Call<Respon> getHewan();
+    Call<readCustomer> getHewan();
     @GET("jenishewan")
-    Call<Respon> getJenisHewan();
+    Call<readCustomer> getJenisHewan();
     @GET("ukuranhewan")
-    Call<Respon> getUkuranHewan();
+    Call<readCustomer> getUkuranHewan();
     @GET("supplier")
-    Call<Respon> getSupplier();
+    Call<readCustomer> getSupplier();
 
 
 //    =============================SEARCH========================================================
@@ -45,13 +47,13 @@ public interface ApiInterface {
     Call<customerDAO> getSupplier(@Path("id")String id);
 
 //    =============================CREATE========================================================
-    @POST("customer/")
     @FormUrlEncoded
-    Call<String> addCustomer(@Field("nama_customer")String nama_customer,
-                             @Field("alamat_customer")String alamat_customer,
-                             @Field("tgllahir_customer")String tgllahir_customer,
-                             @Field("telp_customer")String telp_customer,
-                             @Field("cust_created_by")String cust_created_by);
+    @POST("customer/")
+    Call<cudCustomer> addCustomer(@Field("nama_customer")String nama_customer,
+                                  @Field("alamat_customer")String alamat_customer,
+                                  @Field("tgllahir_customer")String tgllahir_customer,
+                                  @Field("telp_customer")String telp_customer,
+                                  @Field("cust_created_by")String cust_created_by);
 
     @POST("produk/")
     @FormUrlEncoded

@@ -22,6 +22,15 @@ public class customerDAO{
         return id_customer;
     }
 
+    public customerDAO(){}
+    public customerDAO(String id_customer, String nama_customer, String alamat_customer, String tgllahir_customer, String telp_customer)
+    {
+        this.id_customer=id_customer;
+        this.nama_customer=nama_customer;
+        this.alamat_customer=alamat_customer;
+        this.tgllahir_customer=tgllahir_customer;
+        this.telp_customer=telp_customer;
+    }
     public String getNama_customer() {
         return nama_customer;
     }

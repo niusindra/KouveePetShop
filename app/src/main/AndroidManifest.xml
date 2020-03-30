@@ -12,17 +12,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".View.Customer.customerShow">
+
+        </activity>
+        <activity android:name=".View.Admin.dashboard">
+
+        </activity>
+        <activity android:name=".View.Customer.customerMain" />
+        <activity android:name=".View.Customer.customerAdd" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".View.Admin.dashboard">
-
-        </activity>
-        <activity android:name=".View.Customer.customerMain" />
-        <activity android:name=".View.Customer.customerAdd" />
         <activity android:name=".View.Hewan.hewanMain" />
         <activity android:name=".View.JenisHewan.jenisHewanMain" />
         <activity android:name=".View.Layanan.layananMain" />
