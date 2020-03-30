@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
-    android:background="@color/kvBackground">
+    android:background="@color/kvBackground"
+    tools:context=".View.Customer.customerAdd">
 
     <LinearLayout
         android:layout_width="match_parent"

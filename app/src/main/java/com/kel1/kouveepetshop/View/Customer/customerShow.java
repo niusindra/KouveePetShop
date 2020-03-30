@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.widget.Toast;
 
 import com.kel1.kouveepetshop.R;
 
@@ -31,7 +30,7 @@ public class customerShow extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_customer_show);
+        setContentView(R.layout.customer_show);
         mListStudent=new ArrayList<>();
         recyclerView=(RecyclerView)findViewById(R.id.recycler_view);
         recycleAdapter=new RecycleAdapter(this,mListStudent);
