@@ -24,7 +24,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class login_admin extends AppCompatActivity {
+public class login_pegawai extends AppCompatActivity {
 
 //    public Button Login;
 //    public TextView signUp;
@@ -35,7 +35,7 @@ public class login_admin extends AppCompatActivity {
 //    @Override
 //    protected void onCreate(Bundle savedInstanceState) {
 //        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.login_admin);
+//        setContentView(R.layout.login_pegawai);
 //        setAtribut ();
 //
 //
@@ -68,7 +68,7 @@ public class login_admin extends AppCompatActivity {
 //                                    username.setText("");
 //                                    password.setText("");
 //                                } else if (decrypted.equals(password.getText().toString())) {
-//                                    Intent intent = new Intent(login_admin.this, produkMain.class);
+//                                    Intent intent = new Intent(login_pegawai.this, produkMain.class);
 //                                    intent.putExtra("id", mUser.getId());
 //                                    startActivity(intent);
 //                                } else {
@@ -91,7 +91,7 @@ public class login_admin extends AppCompatActivity {
 //        signUp.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                Intent intent = new Intent(login_admin.this, register_admin.class);
+//                Intent intent = new Intent(login_pegawai.this, register_admin.class);
 //                startActivity(intent);
 //            }
 //        });

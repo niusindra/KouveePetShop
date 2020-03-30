@@ -16,7 +16,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".View.Admin.register_admin"></activity>
         <activity android:name=".View.Customer.customerMain"></activity>
         <activity android:name=".View.Customer.customerAdd"></activity>
         <activity android:name=".View.Customer.customerShow"></activity>

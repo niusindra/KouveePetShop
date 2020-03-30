@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:padding="10dp"
     android:background="@color/kvBackground"
-    tools:context=".View.Admin.login_admin">
+    tools:context=".View.Admin.login_pegawai">
 
     <LinearLayout
         android:layout_width="match_parent"
