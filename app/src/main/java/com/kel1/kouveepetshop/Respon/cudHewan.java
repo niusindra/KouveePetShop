@@ -12,9 +12,9 @@ public class cudHewan {
 
     @SerializedName("message")
     @Expose
-    private hewanDAO message;
+    private String message;
 
-    public hewanDAO getMessage() {
+    public String getMessage() {
         return message;
     }
 
@@ -26,7 +26,7 @@ public class cudHewan {
         this.error = error;
     }
 
-    public void setMessage(hewanDAO message) {
+    public void setMessage(String message) {
         this.message = message;
     }
 }

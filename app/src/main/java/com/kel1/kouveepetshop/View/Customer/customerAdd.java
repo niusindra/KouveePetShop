@@ -44,11 +44,11 @@ public class customerAdd extends AppCompatActivity {
                             telp.getText().toString(),nama.getText().toString());
                     customerCall.enqueue(new Callback<cudCustomer>(){
                         public void onResponse(Call<cudCustomer> call, Response<cudCustomer> response){
-                            Toast.makeText(customerAdd.this,"Success",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(customerAdd.this,"Hapie Success",Toast.LENGTH_SHORT).show();
                             startIntent();
                         }
                         public void onFailure(Call<cudCustomer> call, Throwable t){
-                            Toast.makeText(customerAdd.this,"Connection Problem",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(customerAdd.this,"Hapie eror",Toast.LENGTH_SHORT).show();
                             startIntent();
                         }
                     });

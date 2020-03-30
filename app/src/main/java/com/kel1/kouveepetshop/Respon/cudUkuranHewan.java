@@ -12,9 +12,9 @@ public class cudUkuranHewan {
 
     @SerializedName("message")
     @Expose
-    private ukuranhewanDAO message;
+    private String message;
 
-    public ukuranhewanDAO getMessage() {
+    public String getMessage() {
         return message;
     }
 
@@ -26,7 +26,7 @@ public class cudUkuranHewan {
         this.error = error;
     }
 
-    public void setMessage(ukuranhewanDAO message) {
+    public void setMessage(String message) {
         this.message = message;
     }
 }

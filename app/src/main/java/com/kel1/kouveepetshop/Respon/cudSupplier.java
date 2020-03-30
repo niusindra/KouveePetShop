@@ -12,9 +12,9 @@ public class cudSupplier {
 
     @SerializedName("message")
     @Expose
-    private supplierDAO message;
+    private String message;
 
-    public supplierDAO getMessage() {
+    public String getMessage() {
         return message;
     }
 
@@ -26,7 +26,7 @@ public class cudSupplier {
         this.error = error;
     }
 
-    public void setMessage(supplierDAO message) {
+    public void setMessage(String message) {
         this.message = message;
     }
 }

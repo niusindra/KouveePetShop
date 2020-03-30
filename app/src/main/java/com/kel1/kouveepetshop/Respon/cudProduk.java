@@ -12,9 +12,9 @@ public class cudProduk {
 
     @SerializedName("message")
     @Expose
-    private produkDAO message;
+    private String message;
 
-    public produkDAO getMessage() {
+    public String getMessage() {
         return message;
     }
 
@@ -26,7 +26,7 @@ public class cudProduk {
         this.error = error;
     }
 
-    public void setMessage(produkDAO message) {
+    public void setMessage(String message) {
         this.message = message;
     }
 }

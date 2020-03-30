@@ -20,4 +20,11 @@ public class readCustomer {
 
     public List<customerDAO> getMessage() {return message;}
 
+    public void setMessage(List<customerDAO> message) {
+        this.message = message;
+    }
+
+    public void setError(String error) {
+        this.error = error;
+    }
 }

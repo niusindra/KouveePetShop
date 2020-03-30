@@ -12,9 +12,9 @@ public class cudJenisHewan {
 
     @SerializedName("message")
     @Expose
-    private jenishewanDAO message;
+    private String message;
 
-    public jenishewanDAO getMessage() {
+    public String getMessage() {
         return message;
     }
 
@@ -26,7 +26,7 @@ public class cudJenisHewan {
         this.error = error;
     }
 
-    public void setMessage(jenishewanDAO message) {
+    public void setMessage(String message) {
         this.message = message;
     }
 }

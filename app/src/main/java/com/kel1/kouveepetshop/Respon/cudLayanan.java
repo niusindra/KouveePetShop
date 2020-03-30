@@ -12,9 +12,9 @@ public class cudLayanan {
 
     @SerializedName("message")
     @Expose
-    private layananDAO message;
+    private String message;
 
-    public layananDAO getMessage() {
+    public String getMessage() {
         return message;
     }
 
@@ -26,7 +26,7 @@ public class cudLayanan {
         this.error = error;
     }
 
-    public void setMessage(layananDAO message) {
+    public void setMessage(String message) {
         this.message = message;
     }
 }

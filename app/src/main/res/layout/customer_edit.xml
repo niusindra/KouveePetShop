@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="@color/kvBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/backBtn"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="start"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/iconback" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="285dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:src="@drawable/kouveelogo" />
+        </LinearLayout>
+        <EditText
+            android:id="@+id/namaTxt"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:hint="Nama Customer"
+            android:elevation="5dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:paddingLeft="15dp"
+            android:background="@drawable/btn"
+            android:textColorHint="@color/fullwhite"/>
+        <EditText
+            android:id="@+id/alamatTxt"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:hint="Alamat Customer"
+            android:elevation="5dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="15dp"
+            android:background="@drawable/btn"
+            android:textColorHint="@color/fullwhite"
+            />
+
+        <EditText
+            android:id="@+id/dateTxt"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn"
+            android:clickable="false"
+            android:contextClickable="false"
+            android:elevation="5dp"
+            android:hint="Tanggal Lahir Customer"
+            android:paddingLeft="15dp"
+            android:textColorHint="@color/fullwhite" />
+        <EditText
+            android:id="@+id/telpTxt"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:hint="Telp Customer"
+            android:elevation="5dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="15dp"
+            android:background="@drawable/btn"
+            android:textColorHint="@color/fullwhite"
+            />
+        <Button
+            android:id="@+id/editBtn"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:text="Edit Customer"
+            android:textAllCaps="false"
+            android:background="@drawable/joinbtn"
+            android:textColor="@color/testcolorblue"/>
+    </LinearLayout>
+
+</LinearLayout>

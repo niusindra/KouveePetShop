@@ -2,7 +2,6 @@ package com.kel1.kouveepetshop.Respon;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.kel1.kouveepetshop.DAO.customerDAO;
 
 import java.util.List;
 
@@ -14,9 +13,9 @@ public class cudCustomer {
 
     @SerializedName("message")
     @Expose
-    private customerDAO message;
+    private String message;
 
-    public customerDAO getMessage() {
+    public String getMessage() {
         return message;
     }
 
@@ -28,7 +27,7 @@ public class cudCustomer {
         this.error = error;
     }
 
-    public void setMessage(customerDAO message) {
+    public void setMessage(String message) {
         this.message = message;
     }
 }

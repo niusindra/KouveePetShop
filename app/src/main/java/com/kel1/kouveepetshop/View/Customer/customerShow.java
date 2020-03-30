@@ -51,7 +51,6 @@ public class customerShow extends AppCompatActivity {
             public void onResponse(Call<readCustomer> call, Response<readCustomer> response) {
                 mListStudent.addAll(response.body().getMessage());
                 recycleAdapter.notifyDataSetChanged();
-                Toast.makeText(customerShow.this,"Welcome",Toast.LENGTH_SHORT).show();
             }
 
             @Override
