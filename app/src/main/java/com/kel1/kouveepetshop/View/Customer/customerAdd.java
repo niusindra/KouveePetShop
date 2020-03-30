@@ -9,10 +9,10 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.kel1.kouveepetshop.R;
-import com.kel1.kouveepetshop.View.Admin.dashboard;
 
 
 public class customerAdd extends AppCompatActivity {
+    //aaa
     public ImageView back;
     public EditText date;
     protected void onCreate(Bundle savedInstanceState) {
