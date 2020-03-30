@@ -1,0 +1,50 @@
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:id="@+id/RC_Customer_cardView"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".View.Customer.RecycleAdapter"
+    android:layout_marginBottom="10dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/RC_Admin_Event_Parent"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:background="@color/whitecolor"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/RC_Costumer_Name"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:hint="Nama" />
+
+            <TextView
+                android:id="@+id/RC_Alamat"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:hint="Alamat" />
+
+            <TextView
+                android:id="@+id/RC_TanggalLahir"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:hint="Tanggal Lahir" />
+
+            <TextView
+                android:id="@+id/RC_Telp"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:hint="Telp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

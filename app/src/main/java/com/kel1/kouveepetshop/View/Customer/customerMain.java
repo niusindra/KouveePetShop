@@ -15,6 +15,7 @@ import com.kel1.kouveepetshop.View.Admin.dashboard;
 public class customerMain extends AppCompatActivity {
     public ImageView back;
     public CardView add;
+    public CardView show;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.customer_main);
@@ -33,10 +34,18 @@ public class customerMain extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        show.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(customerMain.this, customerShow.class);
+                startActivity(intent);
+            }
+        });
     }
     public void setAtribut (){
         back = findViewById(R.id.backBtn);
         add = findViewById(R.id.addBtn);
+        show = findViewById(R.id.showBtn);
     }
 
 }

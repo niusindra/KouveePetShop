@@ -1,13 +1,18 @@
 package com.kel1.kouveepetshop.View.Customer;
 
+import android.os.Bundle;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Bundle;
-
+import com.kel1.kouveepetshop.Api.ApiClient;
+import com.kel1.kouveepetshop.Api.ApiInterface;
+import com.kel1.kouveepetshop.DAO.customerDAO;
 import com.kel1.kouveepetshop.R;
+import com.kel1.kouveepetshop.Respon.readCustomer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,11 +20,6 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
-import com.kel1.kouveepetshop.Api.ApiClient;
-import com.kel1.kouveepetshop.Api.ApiInterface;
-import com.kel1.kouveepetshop.Respon.readCustomer;
-import com.kel1.kouveepetshop.DAO.customerDAO;
 
 public class customerShow extends AppCompatActivity {
 
@@ -32,7 +32,7 @@ public class customerShow extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.customer_show);
         mListStudent=new ArrayList<>();
-        recyclerView=(RecyclerView)findViewById(R.id.recycler_view);
+        recyclerView=(RecyclerView)findViewById(R.id.RC_Customer);
         recycleAdapter=new RecycleAdapter(this,mListStudent);
         RecyclerView.LayoutManager mLayoutManager=new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
@@ -48,13 +48,15 @@ public class customerShow extends AppCompatActivity {
 
             @Override
             public void onResponse(Call<readCustomer> call, Response<readCustomer> response) {
-                mListStudent.addAll(response.body().getMessage());
-                recycleAdapter.notifyDataSetChanged();
+                if(response.body()!=null) {
+                    mListStudent.addAll(response.body().getMessage());
+                    recycleAdapter.notifyDataSetChanged();
+                }
             }
 
             @Override
             public void onFailure(Call<readCustomer> call, Throwable t) {
-
+                Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
             }
         });
     }
