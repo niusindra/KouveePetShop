@@ -3,19 +3,19 @@ package com.kel1.kouveepetshop.DAO;
 import com.google.gson.annotations.SerializedName;
 
 public class customerDAO{
-    @SerializedName("id_customer")
+    @SerializedName("ID_CUSTOMER")
     private  String id_customer;
 
-    @SerializedName("nama_customer")
+    @SerializedName("NAMA_CUSTOMER")
     private  String nama_customer;
 
-    @SerializedName("alamat_customer")
+    @SerializedName("ALAMAT_CUSTOMER")
     private  String alamat_customer;
 
-    @SerializedName("tgllahir_customer")
+    @SerializedName("TGLLAHIR_CUSTOMER")
     private  String tgllahir_customer;
 
-    @SerializedName("telp_customer")
+    @SerializedName("TELP_CUSTOMER")
     private  String telp_customer;
 
     public String getId_customer() {

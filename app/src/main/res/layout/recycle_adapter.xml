@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content" android:layout_height="wrap_content"
+    tools:context=".View.Customer.RecycleAdapter"
+    >
+    <LinearLayout
+        android:id="@+id/Parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtNama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nama" />
+
+        <TextView
+            android:id="@+id/txtAlamat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NIM" />
+
+        <TextView
+            android:id="@+id/txtTgllahir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fakultas" />
+
+        <TextView
+            android:id="@+id/txtTelp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Prodi" />
+    </LinearLayout>
+</LinearLayout>

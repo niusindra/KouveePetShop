@@ -3,38 +3,59 @@ package com.kel1.kouveepetshop.DAO;
 import com.google.gson.annotations.SerializedName;
 
 public class produkDAO {
-    @SerializedName("id_customer")
-    private  String id_customer;
+    @SerializedName("id_produk")
+    private  String id_produk;
 
-    @SerializedName("nama_customer")
-    private  String nama_customer;
+    @SerializedName("id_supplier")
+    private  String id_supplier;
 
-    @SerializedName("alamat_customer")
-    private  String alamat_customer;
+    @SerializedName("nama_produk")
+    private  String nama_produk;
 
-    @SerializedName("tgllahir_customer")
-    private  String tgllahir_customer;
+    @SerializedName("foto_produk")
+    private  String foto_produk;
 
-    @SerializedName("telp_customer")
-    private  String telp_customer;
+    @SerializedName("harga_beli_produk")
+    private  String harga_beli_produk;
 
-    public String getId_customer() {
-        return id_customer;
+    @SerializedName("harga_jual_produk")
+    private  String harga_jual_produk;
+
+    @SerializedName("stok")
+    private  String stok;
+
+    @SerializedName("min_stok")
+    private  String min_stok;
+
+    public String getId_produk() {
+        return id_produk;
     }
 
-    public String getNama_customer() {
-        return nama_customer;
+    public String getId_supplier() {
+        return id_supplier;
     }
 
-    public String getAlamat_customer() {
-        return alamat_customer;
+    public String getNama_produk() {
+        return nama_produk;
     }
 
-    public String getTelp_customer() {
-        return telp_customer;
+    public String getFoto_produk() {
+        return foto_produk;
     }
 
-    public String getTgllahir_customer() {
-        return tgllahir_customer;
+    public String getHarga_beli_produk() {
+        return harga_beli_produk;
+    }
+
+    public String getHarga_jual_produk() {
+        return harga_jual_produk;
+    }
+
+    public String getStok() {
+        return stok;
+    }
+
+    public String getMin_stok() {
+        return min_stok;
     }
 }
