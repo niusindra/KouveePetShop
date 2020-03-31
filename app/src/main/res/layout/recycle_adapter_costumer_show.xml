@@ -13,38 +13,54 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_margin="30dp"
+            android:background="@drawable/iconcustomer"
+            android:gravity="end" />
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/joinbtn"
+/>
         <LinearLayout
             android:id="@+id/RC_Admin_Event_Parent"
-            android:layout_width="300dp"
+            android:layout_width="250dp"
+            android:layout_margin="10dp"
             android:layout_height="wrap_content"
             android:background="@color/whitecolor"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/RC_Costumer_Name"
-                android:layout_width="300dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nama" />
 
             <TextView
                 android:id="@+id/RC_Alamat"
-                android:layout_width="300dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Alamat" />
 
             <TextView
                 android:id="@+id/RC_TanggalLahir"
-                android:layout_width="300dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Tanggal Lahir" />
 
             <TextView
                 android:id="@+id/RC_Telp"
-                android:layout_width="300dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Telp" />
 
+
         </LinearLayout>
+
+
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

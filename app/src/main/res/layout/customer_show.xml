@@ -5,20 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/kvBackground">
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="477dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="118dp"
-        android:layout_marginEnd="-1dp"
-        android:layout_marginBottom="4dp"
-        android:id="@+id/RC_Customer"/>
-
     <TextView
         android:id="@+id/textView27"
         android:layout_width="wrap_content"
@@ -27,8 +13,31 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
         android:text="DAFTAR CUSTOMER"
+        android:fontFamily="sans-serif-condensed"
         android:textColor="@color/testcolorblue"
         android:textSize="30dp"
         android:textStyle="bold" />
+
+    <ImageView
+        android:layout_marginTop="20dp"
+        android:id="@+id/border"
+        android:layout_width="match_parent"
+        android:layout_height="14dp"
+        android:layout_below="@+id/textView27"
+        android:background="@drawable/joinbtn" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/RC_Customer"
+        android:layout_width="match_parent"
+        android:layout_height="559dp"
+        android:layout_below="@+id/border"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="-1dp"
+        android:layout_marginBottom="4dp"></androidx.recyclerview.widget.RecyclerView>
+
 
 </RelativeLayout>
