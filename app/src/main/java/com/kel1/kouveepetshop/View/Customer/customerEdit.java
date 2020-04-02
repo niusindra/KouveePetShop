@@ -25,12 +25,13 @@ public class customerEdit extends AppCompatActivity {
     public EditText nama;
     public EditText alamat;
     public EditText telp;
-    public Button addBtn;
+    public Button editBtn;
+    public Button delBtn;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.customer_edit);
         setAtribut();
-        addBtn.setOnClickListener(new View.OnClickListener() {
+        editBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(nama.getText().toString().isEmpty() || alamat.getText().toString().isEmpty() || date.getText().toString().isEmpty() || telp.getText().toString().isEmpty()){
@@ -53,6 +54,22 @@ public class customerEdit extends AppCompatActivity {
                 }
             }
         });
+        delBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+                Call<cudCustomer> customerCall = apiService.deleteCustomer(11,"Pelangi");
+                customerCall.enqueue(new Callback<cudCustomer>(){
+                    public void onResponse(Call<cudCustomer> call, Response<cudCustomer> response){
+                        Toast.makeText(customerEdit.this,"Berhasil dihapus",Toast.LENGTH_SHORT).show();
+                        startIntent();
+                    }
+                    public void onFailure(Call<cudCustomer> call,Throwable t){
+                        Toast.makeText(customerEdit.this,"Connection Problem",Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,12 +80,13 @@ public class customerEdit extends AppCompatActivity {
 
     }
     public void setAtribut (){
-        back = findViewById(R.id.backBtn);
-        date = findViewById(R.id.dateTxt);
-        addBtn = findViewById(R.id.addBtn);
-        nama = findViewById(R.id.namaTxt);
-        alamat = findViewById(R.id.alamatTxt);
-        telp = findViewById(R.id.telpTxt);
+        back = findViewById(R.id.backBtn1);
+        date = findViewById(R.id.dateTxt1);
+        editBtn = findViewById(R.id.editBtn1);
+        nama = findViewById(R.id.namaTxt1);
+        alamat = findViewById(R.id.alamatTxt1);
+        telp = findViewById(R.id.telpTxt1);
+        delBtn = findViewById(R.id.delBtn1);
     }
     private void startIntent(){
         Intent intent=new Intent(getApplicationContext(),customerShow.class);

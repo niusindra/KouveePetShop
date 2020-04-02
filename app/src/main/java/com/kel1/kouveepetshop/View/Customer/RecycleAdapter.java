@@ -1,6 +1,7 @@
 package com.kel1.kouveepetshop.View.Customer;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,13 +61,13 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHo
         myViewHolder.mAlamat.setText("Alamat\t: "+customerDAO.getAlamat_customer());
         myViewHolder.mTgllahir.setText("Tgl Lahir\t: "+customerDAO.getTgllahir_customer());
         myViewHolder.mTelp.setText("Telp\t: "+customerDAO.getTelp_customer()+"\n");
-//        myViewHolder.mParent.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Toast.makeText(context,"Oh you touch me?",Toast.LENGTH_SHORT).show();
-//                context.startActivity(new Intent(context,CRUD.class));
-//            }
-//        });
+        myViewHolder.mParent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context,"Oh you touch me?",Toast.LENGTH_SHORT).show();
+                context.startActivity(new Intent(context,customerEdit.class));
+            }
+        });
     }
 
     @Override

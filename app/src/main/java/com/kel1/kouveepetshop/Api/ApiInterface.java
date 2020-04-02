@@ -47,8 +47,8 @@ public interface ApiInterface {
     Call<customerDAO> getSupplier(@Path("id")int id);
 
 //    =============================CREATE========================================================
-    @FormUrlEncoded
     @POST("customer/")
+    @FormUrlEncoded
     Call<cudCustomer> addCustomer(@Field("nama_customer")String nama_customer,
                                   @Field("alamat_customer")String alamat_customer,
                                   @Field("tgllahir_customer")String tgllahir_customer,
@@ -142,20 +142,27 @@ public interface ApiInterface {
                              @Field("telp_supplier")String telp_customer);
 
 //    =============================DELETE========================================================
-    @DELETE("customer/{id}")
-    Call<String> deleteCustomer(@Path("id") int id,
+    @POST("customer/delete/{id}")
+    @FormUrlEncoded
+    Call<cudCustomer> deleteCustomer(@Path("id") int id,
                                 @Field("cust_deleted_by")String cust_deleted_by);
-    @DELETE("produk/{id}")
+    @POST("produk/delete/{id}")
+    @FormUrlEncoded
     Call<customerDAO> deleteProduk(@Path("id")int id);
-    @DELETE("layanan/{id}")
+    @POST("layanan/delete/{id}")
+    @FormUrlEncoded
     Call<customerDAO> deleteLayanan(@Path("id")int id);
-    @DELETE("hewan/{id}")
+    @POST("hewan/delete/{id}")
+    @FormUrlEncoded
     Call<customerDAO> deleteHewan(@Path("id")int id,
                                   @Field("hwn_deleted_by")String hwn_deleted_by);
-    @DELETE("jenishewan/{id}")
+    @POST("jenishewan/delete/{id}")
+    @FormUrlEncoded
     Call<customerDAO> deleteJenisHewan(@Path("id")int id);
-    @DELETE("ukuranhewan/{id}")
+    @POST("ukuranhewan/delete/{id}")
+    @FormUrlEncoded
     Call<customerDAO> deleteUkuranHewan(@Path("id")int id);
-    @DELETE("supplier/{id}")
+    @POST("supplier/delete/{id}")
+    @FormUrlEncoded
     Call<customerDAO> deleteSupplier(@Path("id")int id);
 }

@@ -73,7 +73,7 @@ public class customerAdd extends AppCompatActivity {
         telp = findViewById(R.id.telpTxt);
     }
     private void startIntent(){
-        Intent intent=new Intent(getApplicationContext(),customerShow.class);
+        Intent intent=new Intent(getApplicationContext(),customerEdit.class);
         startActivity(intent);
     }
 }
