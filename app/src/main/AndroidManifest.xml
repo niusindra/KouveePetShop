@@ -23,7 +23,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".View.Customer.customerAdd" />
+        <activity android:name=".View.Customer.customerAdd">
+
+        </activity>
+        <activity android:name=".View.Customer.customerEdit">
+
+        </activity>
         <activity android:name=".View.Hewan.hewanMain" />
         <activity android:name=".View.JenisHewan.jenisHewanMain" />
         <activity android:name=".View.Layanan.layananMain" />

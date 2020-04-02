@@ -16,7 +16,7 @@
         android:padding="10dp">
 
         <ImageView
-            android:id="@+id/backBtn"
+            android:id="@+id/backBtn1"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_gravity="start"
@@ -42,7 +42,7 @@
                 android:src="@drawable/kouveelogo" />
         </LinearLayout>
         <EditText
-            android:id="@+id/namaTxt"
+            android:id="@+id/namaTxt1"
             android:layout_width="280dp"
             android:layout_height="45dp"
             android:hint="Nama Customer"
@@ -53,7 +53,7 @@
             android:background="@drawable/btn"
             android:textColorHint="@color/fullwhite"/>
         <EditText
-            android:id="@+id/alamatTxt"
+            android:id="@+id/alamatTxt1"
             android:layout_width="280dp"
             android:layout_height="45dp"
             android:hint="Alamat Customer"
@@ -66,7 +66,7 @@
             />
 
         <EditText
-            android:id="@+id/dateTxt"
+            android:id="@+id/dateTxt1"
             android:layout_width="280dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
@@ -79,7 +79,7 @@
             android:paddingLeft="15dp"
             android:textColorHint="@color/fullwhite" />
         <EditText
-            android:id="@+id/telpTxt"
+            android:id="@+id/telpTxt1"
             android:layout_width="280dp"
             android:layout_height="45dp"
             android:hint="Telp Customer"
@@ -91,7 +91,7 @@
             android:textColorHint="@color/fullwhite"
             />
         <Button
-            android:id="@+id/editBtn"
+            android:id="@+id/editBtn1"
             android:layout_width="280dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
