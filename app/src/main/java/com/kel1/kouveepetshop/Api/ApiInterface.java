@@ -9,11 +9,15 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 import com.kel1.kouveepetshop.DAO.customerDAO;
+import com.kel1.kouveepetshop.DAO.pegawaiDAO;
 import com.kel1.kouveepetshop.Respon.cudCustomer;
 import com.kel1.kouveepetshop.Respon.readCustomer;
+import com.kel1.kouveepetshop.Respon.verifyPegawai;
 
 public interface ApiInterface {
 //    =============================READ========================================================
+    @GET("pegawai")
+    Call<readCustomer> getPegawai();
     @GET("customer")
     Call<readCustomer> getCustomer();
     @GET("produk")
@@ -31,6 +35,8 @@ public interface ApiInterface {
 
 
 //    =============================SEARCH========================================================
+    @GET("pegawai/{id}")
+    Call<pegawaiDAO> getPegawai(@Path("id")int id);
     @GET("customer/{id}")
     Call<customerDAO> getCustomer(@Path("id")int id);
     @GET("produk/{id}")
@@ -47,6 +53,10 @@ public interface ApiInterface {
     Call<customerDAO> getSupplier(@Path("id")int id);
 
 //    =============================CREATE========================================================
+    @POST("pegawai/verify")
+    @FormUrlEncoded
+    Call<verifyPegawai> verifyPegawai(@Field("username")String username,
+                                  @Field("password")String password);
     @POST("customer/")
     @FormUrlEncoded
     Call<cudCustomer> addCustomer(@Field("nama_customer")String nama_customer,
