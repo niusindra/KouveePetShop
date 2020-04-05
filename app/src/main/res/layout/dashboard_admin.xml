@@ -39,11 +39,13 @@
 
         </LinearLayout>
         <LinearLayout
+            android:layout_marginTop="15dp"
             android:clipToPadding="false"
             android:gravity="center"
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="130dp"
+            android:layout_marginBottom="10dp">
             <androidx.cardview.widget.CardView
                 android:id="@+id/customerBtn"
                 android:foreground="?android:attr/selectableItemBackground"
@@ -51,23 +53,26 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_margin="10dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:background="@color/kvBackground"
-                    android:gravity="center">
+                    android:background="@color/red"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
                     <ImageView
                         android:layout_width="64dp"
                         android:layout_height="64dp"
                         android:background="@drawable/iconcustomer"
-                        android:padding="10dp"/>
+                        android:padding="10dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="15dp"
                         android:layout_marginTop="10dp"
                         android:text="Customer"
+                        android:textColor="@color/whitecolor"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -83,14 +88,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:background="@color/kvBackground"
+                    android:background="@color/yellow"
                     android:gravity="center">
                     <ImageView
+                        android:backgroundTint="@color/orange"
                         android:layout_width="64dp"
                         android:layout_height="64dp"
                         android:background="@drawable/iconproduk"
                         android:padding="10dp"/>
                     <TextView
+                        android:textColor="@color/orange"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
@@ -106,7 +113,8 @@
             android:gravity="center"
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="130dp"
+            android:layout_marginBottom="10dp">
             <androidx.cardview.widget.CardView
                 android:id="@+id/layananBtn"
                 android:foreground="?android:attr/selectableItemBackground"
@@ -118,19 +126,22 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:background="@color/kvBackground"
+                    android:background="@color/lime"
                     android:gravity="center">
                     <ImageView
+                        android:backgroundTint="@color/orange"
                         android:layout_width="64dp"
                         android:layout_height="64dp"
                         android:background="@drawable/iconlayanan"
                         android:padding="10dp"/>
                     <TextView
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
                         android:layout_marginTop="10dp"
-                        android:text="Layanan"/>
+                        android:text="Layanan"
+                        android:textColor="@color/orange"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
@@ -144,14 +155,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:background="@color/kvBackground"
+                    android:background="@color/green"
                     android:gravity="center">
                     <ImageView
+                        android:backgroundTint="@color/whitecolor"
                         android:layout_width="64dp"
                         android:layout_height="64dp"
                         android:background="@drawable/iconsupplier"
                         android:padding="10dp"/>
                     <TextView
+                        android:textColor="@color/whitecolor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
@@ -167,7 +180,8 @@
             android:gravity="center"
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="130dp"
+            android:layout_marginBottom="10dp">
             <androidx.cardview.widget.CardView
                 android:id="@+id/btnHewan"
                 android:foreground="?android:attr/selectableItemBackground"
@@ -179,9 +193,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:background="@color/kvBackground"
+                    android:background="@color/navi"
                     android:gravity="center">
                     <ImageView
+                        android:backgroundTint="@color/whitecolor"
                         android:layout_width="64dp"
                         android:layout_height="64dp"
                         android:background="@drawable/iconhewan"
@@ -191,7 +206,8 @@
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
                         android:layout_marginTop="10dp"
-                        android:text="Hewan"/>
+                        android:text="Hewan"
+                        android:textColor="@color/whitecolor"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
@@ -205,62 +221,71 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/blue"
                     android:gravity="center"
-                    android:background="@color/kvBackground"
                     android:orientation="vertical">
 
                     <ImageView
                         android:layout_width="64dp"
-                        android:background="@drawable/iconjenishewan"
                         android:layout_height="64dp"
-                        android:padding="10dp"
-                         />
+                        android:background="@drawable/iconjenishewan"
+                        android:backgroundTint="@color/orange"
+                        android:padding="10dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="Jenis Hewan"
+                        android:textColor="@color/orange"
                         android:textStyle="bold" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
         </LinearLayout>
+
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
             android:clipToPadding="false"
             android:gravity="center"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:orientation="horizontal">
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/uhewanBtn"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true"
                 android:layout_width="320dp"
                 android:layout_height="150dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="40dp"
+                android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp">
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="40dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground">
+
                 <LinearLayout
 
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:background="@color/kvBackground"
-                    android:gravity="center">
+                    android:background="@color/whitecolor"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
                     <ImageView
                         android:layout_width="80dp"
                         android:layout_height="64dp"
                         android:background="@drawable/iconukuranhewan"
-                        android:padding="10dp"/>
+                        android:backgroundTint="@color/colorAccent"
+                        android:padding="10dp" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textStyle="bold"
                         android:layout_marginTop="10dp"
-                        android:text="Ukuran Hewan"/>
+                        android:text="Ukuran Hewan"
+                        android:textColor="@color/colorAccent"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>

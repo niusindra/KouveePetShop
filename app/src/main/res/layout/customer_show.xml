@@ -5,39 +5,52 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/kvBackground">
-    <TextView
-        android:id="@+id/textView27"
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:id="@+id/Layout1"
+        android:layout_width="215dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
-        android:text="DAFTAR CUSTOMER"
-        android:fontFamily="sans-serif-condensed"
-        android:textColor="@color/testcolorblue"
-        android:textSize="30dp"
-        android:textStyle="bold" />
+        android:background="@drawable/btn"
+        android:backgroundTint="@color/blackcolor">
 
+        <TextView
+            android:id="@+id/textView27"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:text="DAFTAR CUSTOMER"
+            android:textAlignment="center"
+            android:textColor="@color/yello"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
     <ImageView
         android:layout_marginTop="20dp"
         android:id="@+id/border"
         android:layout_width="match_parent"
         android:layout_height="14dp"
-        android:layout_below="@+id/textView27"
-        android:background="@drawable/joinbtn" />
+        android:layout_below="@+id/Layout1"
+        android:background="@color/blackcolor" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/RC_Customer"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="559dp"
-        android:layout_below="@+id/border"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="-1dp"
-        android:layout_marginBottom="4dp"></androidx.recyclerview.widget.RecyclerView>
+        android:layout_height="699dp"
+        android:layout_marginBottom="0dp"
+        android:layout_below="@+id/border">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RC_Customer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="0dp">
+
+        </androidx.recyclerview.widget.RecyclerView>
+    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>

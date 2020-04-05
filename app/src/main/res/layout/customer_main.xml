@@ -48,7 +48,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:background="@color/kvBackground"
+                android:background="@color/blue_dark"
                 android:gravity="center">
                 <ImageView
                     android:layout_width="64dp"
@@ -60,7 +60,8 @@
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
                     android:layout_marginTop="10dp"
-                    android:text="Add Customer"/>
+                    android:text="Add Customer"
+                    android:textColor="@color/whitecolor"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
@@ -74,7 +75,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:background="@color/kvBackground"
+                android:background="@color/colorAccent"
                 android:gravity="center">
 
                 <ImageView
@@ -87,7 +88,8 @@
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
                     android:layout_marginTop="10dp"
-                    android:text="Delete Customer"/>
+                    android:text="Delete Customer"
+                    android:textColor="@color/whitecolor"/>
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -110,7 +112,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:background="@color/kvBackground"
+                android:background="@color/yello"
                 android:gravity="center">
                 <ImageView
                     android:layout_width="64dp"
@@ -122,7 +124,8 @@
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
                     android:layout_marginTop="10dp"
-                    android:text="Edit Customer"/>
+                    android:text="Edit Customer"
+                    android:textColor="@color/whitecolor"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
@@ -137,7 +140,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:background="@color/kvBackground"
+                android:background="@color/navi"
                 android:orientation="vertical">
 
                 <ImageView
@@ -152,7 +155,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="Search Customer"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textColor="@color/whitecolor"/>
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -178,11 +182,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:background="@color/kvBackground"
+                android:background="@color/whitecolor"
                 android:gravity="center">
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="64dp"
+                    android:backgroundTint="@color/red"
                     android:background="@drawable/iconcustomer"
                     android:padding="10dp"/>
                 <TextView
@@ -190,7 +195,8 @@
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
                     android:layout_marginTop="10dp"
-                    android:text="Show Customer"/>
+                    android:text="Show Customer"
+                    android:textColor="@color/red"/>
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>

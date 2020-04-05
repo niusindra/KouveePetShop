@@ -7,59 +7,88 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".View.Customer.RecycleAdapter"
     android:layout_marginBottom="10dp">
-
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="37dp"
-            android:layout_height="35dp"
-            android:layout_margin="30dp"
-            android:background="@drawable/iconcustomer"
-            android:gravity="end" />
-
-        <ImageView
-            android:layout_width="10dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/joinbtn" />
-
         <LinearLayout
-            android:id="@+id/RC_Admin_Event_Parent"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@color/whitecolor"
-            android:orientation="vertical">
+            android:layout_width="match_parent"
+            android:layout_height="117dp"
+            android:layout_gravity="center"
+            android:background="@color/yello"
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/RC_Costumer_Name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Nama" />
+            <LinearLayout
+                android:layout_width="51dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:background="@color/blackcolor">
 
-            <TextView
-                android:id="@+id/RC_Alamat"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Alamat" />
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/iconcustomer"
+                    android:backgroundTint="@color/yello" />
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/RC_TanggalLahir"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Tanggal Lahir" />
 
-            <TextView
-                android:id="@+id/RC_Telp"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:id="@+id/RC_Admin_Event_Parent"
+                android:layout_width="207dp"
                 android:layout_height="wrap_content"
-                android:hint="Telp" />
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/RC_Costumer_Name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:hint="Nama"
+                    android:textColor="@color/blackcolor"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/RC_Alamat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:hint="Alamat"
+                    android:textColor="@color/blackcolor"/>
+
+                <TextView
+                    android:id="@+id/RC_TanggalLahir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:hint="Tanggal Lahir"
+                    android:textColor="@color/blackcolor"/>
+
+                <TextView
+                    android:id="@+id/RC_Telp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:hint="Telp"
+                    android:textColor="@color/blackcolor"/>
+
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="129dp"
+                android:layout_height="44dp"
+                android:layout_gravity="bottom"
+                android:layout_marginRight="2dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/kouveelogo" />
 
 
         </LinearLayout>
-
-
-    </LinearLayout>
+    </RelativeLayout>
 </androidx.cardview.widget.CardView>

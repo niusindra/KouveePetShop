@@ -14,10 +14,10 @@
         <activity android:name=".View.Admin.login_pegawai">
 
         </activity>
-        <activity android:name=".View.Admin.dashboard"/>
+        <activity android:name=".View.Customer.customerShow"/>
         <activity android:name=".View.Customer.customerMain" />
 
-        <activity android:name=".View.Customer.customerShow">
+        <activity android:name=".View.Admin.dashboard">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
