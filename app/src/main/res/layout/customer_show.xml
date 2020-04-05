@@ -34,12 +34,17 @@
         android:layout_height="14dp"
         android:layout_below="@+id/Layout1"
         android:background="@color/blackcolor" />
-
+    <EditText
+        android:id="@+id/searchCustomer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/border"
+        android:layout_marginTop="0dp" />
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="699dp"
         android:layout_marginBottom="0dp"
-        android:layout_below="@+id/border">
+        android:layout_below="@+id/searchCustomer">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/RC_Customer"
