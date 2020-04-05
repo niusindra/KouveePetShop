@@ -23,9 +23,10 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHo
     private Context context;
     private List<customerDAO> result;
     public CardView cardView;
-    public static final String EXTRA_TEXT = "com.kel1.kouveepetshop.EXTRA_TEXT";
 
+    public static final String EXTRA_TEXT = "com.kel1.kouveepetshop.EXTRA_TEXT";
     public static final String EXTRA_NUMBER = "com.kel1.kouveepetshop.EXTRA_NUMBER";
+
     public RecycleAdapter(Context context, List<customerDAO> result){
         this.context=context;
         this.result=result;
@@ -68,10 +69,9 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHo
         myViewHolder.mParent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context,"Oh you touch me?",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(context,customerEdit.class);
-                intent.putExtra(EXTRA_TEXT, new String[] {customerDAO.getNama_customer(),customerDAO.getAlamat_customer(),customerDAO.getTgllahir_customer()
-                ,customerDAO.getTelp_customer()});
+                intent.putExtra(EXTRA_TEXT, new String[] {customerDAO.getNama_customer(),customerDAO.getAlamat_customer(),
+                        customerDAO.getTgllahir_customer(),customerDAO.getTelp_customer()});
                 intent.putExtra(EXTRA_NUMBER, customerDAO.getId_customer());
                 context.startActivity(intent);
             }

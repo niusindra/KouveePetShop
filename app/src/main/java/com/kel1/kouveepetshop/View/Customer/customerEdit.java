@@ -9,11 +9,13 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import com.kel1.kouveepetshop.Api.ApiClient;
 import com.kel1.kouveepetshop.Api.ApiInterface;
 import com.kel1.kouveepetshop.R;
 import com.kel1.kouveepetshop.Respon.cudCustomer;
+import com.kel1.kouveepetshop.View.DatePickerFragment;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -37,11 +39,20 @@ public class customerEdit extends AppCompatActivity {
         customer = intent.getStringArrayExtra(RecycleAdapter.EXTRA_TEXT);
         number = intent.getIntExtra(RecycleAdapter.EXTRA_NUMBER,0);
         setText(customer[0],customer[1],customer[2],customer[3]);
+
+        date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DialogFragment datePicker = new DatePickerFragment();
+                datePicker.show(getSupportFragmentManager(), "date picker");
+            }
+        });
+
         editBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(nama.getText().toString().isEmpty() || alamat.getText().toString().isEmpty() || date.getText().toString().isEmpty() || telp.getText().toString().isEmpty()){
-                    Toast.makeText(getApplicationContext(), "Field can't be empty!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Data harus terisi semua!", Toast.LENGTH_SHORT).show();
                 }else{
                     ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
                     Call<cudCustomer> customerCall = apiService.editCustomer(number,nama.getText().toString(),
@@ -49,11 +60,11 @@ public class customerEdit extends AppCompatActivity {
                             telp.getText().toString(),nama.getText().toString());
                     customerCall.enqueue(new Callback<cudCustomer>(){
                         public void onResponse(Call<cudCustomer> call, Response<cudCustomer> response){
-                            Toast.makeText(customerEdit.this,"Hapie Success",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(customerEdit.this,"Berhasil edit",Toast.LENGTH_SHORT).show();
                             startIntent();
                         }
                         public void onFailure(Call<cudCustomer> call, Throwable t){
-                            Toast.makeText(customerEdit.this,"Hapie error",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(customerEdit.this,"Masalah koneksi",Toast.LENGTH_SHORT).show();
                             startIntent();
                         }
                     });
@@ -71,7 +82,7 @@ public class customerEdit extends AppCompatActivity {
                         startIntent();
                     }
                     public void onFailure(Call<cudCustomer> call,Throwable t){
-                        Toast.makeText(customerEdit.this,"Connection Problem",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(customerEdit.this,"Masalah koneksi",Toast.LENGTH_SHORT).show();
                     }
                 });
             }

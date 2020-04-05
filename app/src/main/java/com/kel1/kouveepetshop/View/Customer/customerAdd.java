@@ -41,7 +41,7 @@ public class customerAdd extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(nama.getText().toString().isEmpty() || alamat.getText().toString().isEmpty() || date.getText().toString().isEmpty() || telp.getText().toString().isEmpty()){
-                    Toast.makeText(getApplicationContext(), "Field can't be empty!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Data harus terisi semua!", Toast.LENGTH_SHORT).show();
                 }else{
                     final HashMap<String, String> userDetails = session.getUserDetails();
                     ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
@@ -50,11 +50,11 @@ public class customerAdd extends AppCompatActivity {
                             telp.getText().toString(),userDetails.get(SessionManager.KEY_NAME));
                     customerCall.enqueue(new Callback<cudCustomer>(){
                         public void onResponse(Call<cudCustomer> call, Response<cudCustomer> response){
-                            Toast.makeText(customerAdd.this,"Hapie Success",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(customerAdd.this,"Berhasil tambah",Toast.LENGTH_SHORT).show();
                             startIntent();
                         }
                         public void onFailure(Call<cudCustomer> call, Throwable t){
-                            Toast.makeText(customerAdd.this,"Hapie eror",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(customerAdd.this,"Masalah koneksi",Toast.LENGTH_SHORT).show();
                             startIntent();
                         }
                     });
