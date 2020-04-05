@@ -9,14 +9,12 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
 
 import com.kel1.kouveepetshop.Api.ApiClient;
 import com.kel1.kouveepetshop.Api.ApiInterface;
 import com.kel1.kouveepetshop.R;
 import com.kel1.kouveepetshop.Respon.cudCustomer;
 import com.kel1.kouveepetshop.SessionManager;
-import com.kel1.kouveepetshop.View.DatePickerFragment;
 
 import java.util.HashMap;
 
@@ -54,25 +52,48 @@ public class customerEdit extends AppCompatActivity {
         enableNama.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                nama.setEnabled(true);
+                if(nama.isEnabled()){
+                    nama.setEnabled(false);
+                }
+                else {
+                    nama.setEnabled(true);
+                }
             }
         });
         enableAlamat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                alamat.setEnabled(true);
+                if(alamat.isEnabled())
+                {
+                    nama.setEnabled(false);
+                }
+                else {
+                    alamat.setEnabled(true);
+                }
             }
         });
         enableDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                date.setEnabled(true);
+                if(date.isEnabled())
+                {
+                    date.setEnabled(false);
+                }
+                else {
+                    date.setEnabled(true);
+                }
             }
         });
         enableTelp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                telp.setEnabled(true);
+                if(telp.isEnabled())
+                {
+                    telp.setEnabled(false);
+                }
+                else {
+                    telp.setEnabled(true);
+                }
             }
         });
 

@@ -26,7 +26,7 @@ import retrofit2.Response;
 
 public class customerShow extends AppCompatActivity {
 
-    private List<customerDAO> mListStudent=new ArrayList<>();
+    private List<customerDAO> mListCustomer=new ArrayList<>();
     private RecyclerView recyclerView;
     private RecycleAdapter recycleAdapter;
     private RecyclerView.LayoutManager layoutManager;
@@ -35,13 +35,8 @@ public class customerShow extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.customer_show);
-        mListStudent=new ArrayList<>();
-        recyclerView=(RecyclerView)findViewById(R.id.RC_Customer);
-        recycleAdapter=new RecycleAdapter(this,mListStudent);
-        RecyclerView.LayoutManager mLayoutManager=new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(recycleAdapter);
+        mListCustomer=new ArrayList<>();
+        setRecycleAdapter();
         searchCustomer = findViewById(R.id.searchCustomer);
         searchCustomer.addTextChangedListener(new TextWatcher() {
             @Override
@@ -65,8 +60,10 @@ public class customerShow extends AppCompatActivity {
     private void filter(String text) {
         List<customerDAO> filteredList = new ArrayList<>();
 
-        for (customerDAO item : mListStudent) {
-            if (item.getNama_customer().toLowerCase().contains(text.toLowerCase())) {
+        for (customerDAO item : mListCustomer) {
+            if (item.getNama_customer().toLowerCase().contains(text.toLowerCase()) ||
+                    item.getAlamat_customer().toLowerCase().contains(text.toLowerCase()) ||
+                    item.getTelp_customer().toLowerCase().contains(text.toLowerCase())) {
                 filteredList.add(item);
             }
         }
@@ -74,15 +71,24 @@ public class customerShow extends AppCompatActivity {
         recycleAdapter.filterList(filteredList);
     }
 
+    private void setRecycleAdapter(){
+        recyclerView=findViewById(R.id.RC_Customer);
+        recycleAdapter=new RecycleAdapter(this,mListCustomer);
+        RecyclerView.LayoutManager mLayoutManager=new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(recycleAdapter);
+    }
+
     private void setRecycleView(){
         ApiInterface apiService=ApiClient.getClient().create(ApiInterface.class);
-        Call<readCustomer> customer = apiService.getCustomer();
-        customer.enqueue(new Callback<readCustomer>(){
+        Call<readCustomer> customerCall = apiService.getCustomer();
+        customerCall.enqueue(new Callback<readCustomer>(){
 
             @Override
             public void onResponse(Call<readCustomer> call, Response<readCustomer> response) {
                 if(response.body()!=null) {
-                    mListStudent.addAll(response.body().getMessage());
+                    mListCustomer.addAll(response.body().getMessage());
                     recycleAdapter.notifyDataSetChanged();
                 }
             }
