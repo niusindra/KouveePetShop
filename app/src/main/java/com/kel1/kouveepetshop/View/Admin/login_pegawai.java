@@ -18,6 +18,8 @@ import com.kel1.kouveepetshop.EmailDialog;
 import com.kel1.kouveepetshop.R;
 import com.kel1.kouveepetshop.Respon.verifyPegawai;
 import com.kel1.kouveepetshop.SessionManager;
+import com.kel1.kouveepetshop.View.Customer.customerAdd;
+import com.kel1.kouveepetshop.View.Customer.customerShow;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -53,7 +55,7 @@ public class login_pegawai extends AppCompatActivity {
                         public void onResponse(Call<verifyPegawai> call, Response<verifyPegawai> response) {
                             if (response.body() != null) {
                                 session.createLoginSession(response.body().getNama_pegawai(),response.body().getId_pegawai());
-                                Intent i = new Intent(getApplicationContext(), dashboard.class);
+                                Intent i = new Intent(getApplicationContext(), customerAdd.class);
                                 startActivity(i);
                                 finish();
                                 Toast.makeText(getApplicationContext(),"Login Success",Toast.LENGTH_SHORT).show();

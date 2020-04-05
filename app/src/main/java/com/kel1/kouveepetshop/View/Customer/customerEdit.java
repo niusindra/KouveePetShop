@@ -9,13 +9,16 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import com.kel1.kouveepetshop.Api.ApiClient;
 import com.kel1.kouveepetshop.Api.ApiInterface;
-import com.kel1.kouveepetshop.DAO.customerDAO;
 import com.kel1.kouveepetshop.R;
 import com.kel1.kouveepetshop.Respon.cudCustomer;
-import com.kel1.kouveepetshop.View.Customer.customerShow;
+import com.kel1.kouveepetshop.SessionManager;
+import com.kel1.kouveepetshop.View.DatePickerFragment;
+
+import java.util.HashMap;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -29,6 +32,11 @@ public class customerEdit extends AppCompatActivity {
     public EditText telp;
     public Button editBtn;
     public Button delBtn;
+    public Button enableNama;
+    public Button enableAlamat;
+    public Button enableDate;
+    public Button enableTelp;
+    public SessionManager session;
     public String customer[];
     public int number;
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,23 +47,53 @@ public class customerEdit extends AppCompatActivity {
         customer = intent.getStringArrayExtra(RecycleAdapter.EXTRA_TEXT);
         number = intent.getIntExtra(RecycleAdapter.EXTRA_NUMBER,0);
         setText(customer[0],customer[1],customer[2],customer[3]);
+
+        session = new SessionManager(getApplicationContext());
+        final HashMap<String, String> userDetails = session.getUserDetails();
+
+        enableNama.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                nama.setEnabled(true);
+            }
+        });
+        enableAlamat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alamat.setEnabled(true);
+            }
+        });
+        enableDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                date.setEnabled(true);
+            }
+        });
+        enableTelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                telp.setEnabled(true);
+            }
+        });
+
         editBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(nama.getText().toString().isEmpty() || alamat.getText().toString().isEmpty() || date.getText().toString().isEmpty() || telp.getText().toString().isEmpty()){
-                    Toast.makeText(getApplicationContext(), "Field can't be empty!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Data harus terisi semua!", Toast.LENGTH_SHORT).show();
                 }else{
+
                     ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-                    Call<cudCustomer> customerCall = apiService.editCustomer(11,nama.getText().toString(),
+                    Call<cudCustomer> customerCall = apiService.editCustomer(number,nama.getText().toString(),
                             alamat.getText().toString(),date.getText().toString(),
-                            telp.getText().toString(),nama.getText().toString());
+                            telp.getText().toString(),userDetails.get(SessionManager.KEY_NAME));
                     customerCall.enqueue(new Callback<cudCustomer>(){
                         public void onResponse(Call<cudCustomer> call, Response<cudCustomer> response){
-                            Toast.makeText(customerEdit.this,"Hapie Success",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(customerEdit.this,"Berhasil edit",Toast.LENGTH_SHORT).show();
                             startIntent();
                         }
                         public void onFailure(Call<cudCustomer> call, Throwable t){
-                            Toast.makeText(customerEdit.this,"Hapie error",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(customerEdit.this,"Masalah koneksi",Toast.LENGTH_SHORT).show();
                             startIntent();
                         }
                     });
@@ -66,14 +104,14 @@ public class customerEdit extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-                Call<cudCustomer> customerCall = apiService.deleteCustomer(11,"Pelangi");
+                Call<cudCustomer> customerCall = apiService.deleteCustomer(number,userDetails.get(SessionManager.KEY_NAME));
                 customerCall.enqueue(new Callback<cudCustomer>(){
                     public void onResponse(Call<cudCustomer> call, Response<cudCustomer> response){
                         Toast.makeText(customerEdit.this,"Berhasil dihapus",Toast.LENGTH_SHORT).show();
                         startIntent();
                     }
                     public void onFailure(Call<cudCustomer> call,Throwable t){
-                        Toast.makeText(customerEdit.this,"Connection Problem",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(customerEdit.this,"Masalah koneksi",Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -95,6 +133,10 @@ public class customerEdit extends AppCompatActivity {
         alamat = findViewById(R.id.alamatTxt1);
         telp = findViewById(R.id.telpTxt1);
         delBtn = findViewById(R.id.delBtn1);
+        enableNama = findViewById(R.id.enableNama1);
+        enableAlamat = findViewById(R.id.enableAlamat1);
+        enableDate = findViewById(R.id.enableDate1);
+        enableTelp = findViewById(R.id.enableTelp1);
     }
 
     public void setText(String nama, String alamat, String tgllahir, String telp){
