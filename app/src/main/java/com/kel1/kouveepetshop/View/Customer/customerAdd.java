@@ -14,6 +14,9 @@ import com.kel1.kouveepetshop.Api.ApiClient;
 import com.kel1.kouveepetshop.Api.ApiInterface;
 import com.kel1.kouveepetshop.Respon.cudCustomer;
 import com.kel1.kouveepetshop.R;
+import com.kel1.kouveepetshop.SessionManager;
+
+import java.util.HashMap;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -28,20 +31,23 @@ public class customerAdd extends AppCompatActivity {
     public EditText alamat;
     public EditText telp;
     public Button addBtn;
+    public SessionManager session;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.customer_add);
         setAtribut();
-        addBtn.setOnClickListener(new View.OnClickListener() {
+        session = new SessionManager(getApplicationContext())
+;        addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(nama.getText().toString().isEmpty() || alamat.getText().toString().isEmpty() || date.getText().toString().isEmpty() || telp.getText().toString().isEmpty()){
                     Toast.makeText(getApplicationContext(), "Field can't be empty!", Toast.LENGTH_SHORT).show();
                 }else{
+                    final HashMap<String, String> userDetails = session.getUserDetails();
                     ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
                     Call<cudCustomer> customerCall = apiService.addCustomer(nama.getText().toString(),
                             alamat.getText().toString(),date.getText().toString(),
-                            telp.getText().toString(),nama.getText().toString());
+                            telp.getText().toString(),userDetails.get(SessionManager.KEY_NAME));
                     customerCall.enqueue(new Callback<cudCustomer>(){
                         public void onResponse(Call<cudCustomer> call, Response<cudCustomer> response){
                             Toast.makeText(customerAdd.this,"Hapie Success",Toast.LENGTH_SHORT).show();

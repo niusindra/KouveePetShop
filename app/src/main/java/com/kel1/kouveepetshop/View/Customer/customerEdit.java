@@ -12,8 +12,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.kel1.kouveepetshop.Api.ApiClient;
 import com.kel1.kouveepetshop.Api.ApiInterface;
+import com.kel1.kouveepetshop.DAO.customerDAO;
 import com.kel1.kouveepetshop.R;
 import com.kel1.kouveepetshop.Respon.cudCustomer;
+import com.kel1.kouveepetshop.View.Customer.customerShow;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -27,10 +29,16 @@ public class customerEdit extends AppCompatActivity {
     public EditText telp;
     public Button editBtn;
     public Button delBtn;
+    public String customer[];
+    public int number;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.customer_edit);
         setAtribut();
+        Intent intent = getIntent();
+        customer = intent.getStringArrayExtra(RecycleAdapter.EXTRA_TEXT);
+        number = intent.getIntExtra(RecycleAdapter.EXTRA_NUMBER,0);
+        setText(customer[0],customer[1],customer[2],customer[3]);
         editBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -88,6 +96,14 @@ public class customerEdit extends AppCompatActivity {
         telp = findViewById(R.id.telpTxt1);
         delBtn = findViewById(R.id.delBtn1);
     }
+
+    public void setText(String nama, String alamat, String tgllahir, String telp){
+        this.nama.setText(nama);
+        this.alamat.setText(alamat);
+        this.date.setText(tgllahir);
+        this.telp.setText(telp);
+    }
+
     private void startIntent(){
         Intent intent=new Intent(getApplicationContext(),customerShow.class);
         startActivity(intent);

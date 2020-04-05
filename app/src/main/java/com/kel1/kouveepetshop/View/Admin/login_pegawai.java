@@ -16,12 +16,8 @@ import com.kel1.kouveepetshop.Api.ApiClient;
 import com.kel1.kouveepetshop.Api.ApiInterface;
 import com.kel1.kouveepetshop.EmailDialog;
 import com.kel1.kouveepetshop.R;
-import com.kel1.kouveepetshop.DAO.pegawaiDAO;
 import com.kel1.kouveepetshop.Respon.verifyPegawai;
-import com.kel1.kouveepetshop.View.Customer.customerAdd;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.kel1.kouveepetshop.SessionManager;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -32,14 +28,13 @@ public class login_pegawai extends AppCompatActivity {
     public Button Login;
     public TextView signUp;
     public EditText username,password;
-    private String decrypted = "";
-    private String encrypted;
+    public SessionManager session;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_pegawai);
         setAtribut ();
-
+        session = new SessionManager(getApplicationContext());
 
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,8 +52,10 @@ public class login_pegawai extends AppCompatActivity {
                         @Override
                         public void onResponse(Call<verifyPegawai> call, Response<verifyPegawai> response) {
                             if (response.body() != null) {
-                                Intent i = new Intent(getApplicationContext(),customerAdd.class);
+                                session.createLoginSession(response.body().getNama_pegawai(),response.body().getId_pegawai());
+                                Intent i = new Intent(getApplicationContext(), dashboard.class);
                                 startActivity(i);
+                                finish();
                                 Toast.makeText(getApplicationContext(),"Login Success",Toast.LENGTH_SHORT).show();
                             }
                         }
