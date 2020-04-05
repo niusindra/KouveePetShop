@@ -59,7 +59,7 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHo
     }
 
     @Override
-    public void onBindViewHolder(final MyViewHolder myViewHolder, int i) {
+    public void onBindViewHolder(final MyViewHolder myViewHolder, final int i) {
         final customerDAO customerDAO=result.get(i);
         myViewHolder.mNama.setText("Nama\t: "+customerDAO.getNama_customer());
         myViewHolder.mAlamat.setText("Alamat\t: "+customerDAO.getAlamat_customer());
@@ -81,5 +81,10 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHo
     @Override
     public int getItemCount() {
         return result.size();
+    }
+
+    public void filterList(List<customerDAO> filteredList) {
+        result = filteredList;
+        notifyDataSetChanged();
     }
 }

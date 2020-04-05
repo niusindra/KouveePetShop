@@ -12,10 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.kel1.kouveepetshop.Api.ApiClient;
 import com.kel1.kouveepetshop.Api.ApiInterface;
-import com.kel1.kouveepetshop.DAO.customerDAO;
 import com.kel1.kouveepetshop.R;
 import com.kel1.kouveepetshop.Respon.cudCustomer;
-import com.kel1.kouveepetshop.View.Customer.customerShow;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -46,7 +44,7 @@ public class customerEdit extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Field can't be empty!", Toast.LENGTH_SHORT).show();
                 }else{
                     ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-                    Call<cudCustomer> customerCall = apiService.editCustomer(11,nama.getText().toString(),
+                    Call<cudCustomer> customerCall = apiService.editCustomer(number,nama.getText().toString(),
                             alamat.getText().toString(),date.getText().toString(),
                             telp.getText().toString(),nama.getText().toString());
                     customerCall.enqueue(new Callback<cudCustomer>(){
@@ -66,7 +64,7 @@ public class customerEdit extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-                Call<cudCustomer> customerCall = apiService.deleteCustomer(11,"Pelangi");
+                Call<cudCustomer> customerCall = apiService.deleteCustomer(number,"Pelangi");
                 customerCall.enqueue(new Callback<cudCustomer>(){
                     public void onResponse(Call<cudCustomer> call, Response<cudCustomer> response){
                         Toast.makeText(customerEdit.this,"Berhasil dihapus",Toast.LENGTH_SHORT).show();

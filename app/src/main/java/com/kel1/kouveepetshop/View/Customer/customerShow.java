@@ -1,6 +1,9 @@
 package com.kel1.kouveepetshop.View.Customer;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,6 +30,7 @@ public class customerShow extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecycleAdapter recycleAdapter;
     private RecyclerView.LayoutManager layoutManager;
+    private EditText searchCustomer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +42,36 @@ public class customerShow extends AppCompatActivity {
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(recycleAdapter);
+        searchCustomer = findViewById(R.id.searchCustomer);
+        searchCustomer.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                filter(editable.toString());
+            }
+        });
         setRecycleView();
+    }
+
+    private void filter(String text) {
+        List<customerDAO> filteredList = new ArrayList<>();
+
+        for (customerDAO item : mListStudent) {
+            if (item.getNama_customer().toLowerCase().contains(text.toLowerCase())) {
+                filteredList.add(item);
+            }
+        }
+
+        recycleAdapter.filterList(filteredList);
     }
 
     private void setRecycleView(){
