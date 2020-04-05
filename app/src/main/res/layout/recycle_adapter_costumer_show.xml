@@ -34,7 +34,6 @@
                     android:backgroundTint="@color/yello" />
             </LinearLayout>
 
-
             <LinearLayout
                 android:id="@+id/RC_Admin_Event_Parent"
                 android:layout_width="207dp"
