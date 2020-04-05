@@ -55,7 +55,6 @@ public class customerAdd extends AppCompatActivity {
                         }
                         public void onFailure(Call<cudCustomer> call, Throwable t){
                             Toast.makeText(customerAdd.this,"Masalah koneksi",Toast.LENGTH_SHORT).show();
-                            startIntent();
                         }
                     });
                 }
@@ -79,7 +78,7 @@ public class customerAdd extends AppCompatActivity {
         telp = findViewById(R.id.telpTxt);
     }
     private void startIntent(){
-        Intent intent=new Intent(getApplicationContext(),customerEdit.class);
+        Intent intent=new Intent(getApplicationContext(),customerShow.class);
         startActivity(intent);
     }
 }

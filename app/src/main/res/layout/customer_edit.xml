@@ -39,60 +39,105 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
+                android:layout_marginBottom="20dp"
                 android:src="@drawable/kouveelogo" />
         </LinearLayout>
-        <EditText
-            android:id="@+id/namaTxt1"
-            android:layout_width="280dp"
-            android:layout_height="45dp"
-            android:hint="Nama Customer"
-            android:elevation="5dp"
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
-            android:paddingLeft="15dp"
-            android:background="@drawable/btn"
-            android:textColorHint="@color/fullwhite"/>
-        <EditText
-            android:id="@+id/alamatTxt1"
-            android:layout_width="280dp"
-            android:layout_height="45dp"
-            android:hint="Alamat Customer"
-            android:inputType="textPostalAddress"
-            android:elevation="5dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:paddingLeft="15dp"
-            android:background="@drawable/btn"
-            android:textColorHint="@color/fullwhite"
-            />
+            android:layout_margin="5dp"
+            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/namaTxt1"
+                android:layout_width="280dp"
+                android:layout_height="45dp"
+                android:hint="Nama Customer"
+                android:elevation="5dp"
+                android:enabled="false"
+                android:layout_gravity="center"
+                android:paddingLeft="15dp"
+                android:background="@drawable/btn"
+                android:textColorHint="@color/fullwhite"/>
 
-        <EditText
-            android:id="@+id/dateTxt1"
-            android:layout_width="280dp"
-            android:layout_height="45dp"
+            <Button
+                android:id="@+id/enableNama1"
+                android:layout_width="43dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/btn"
-            android:clickable="true"
-            android:inputType="date"
-            android:contextClickable="false"
-            android:elevation="5dp"
-            android:hint="Tanggal Lahir Customer"
-            android:paddingLeft="15dp"
-            android:textColorHint="@color/fullwhite"/>
-        <EditText
-            android:id="@+id/telpTxt1"
-            android:layout_width="280dp"
-            android:layout_height="45dp"
-            android:hint="Telp Customer"
-            android:inputType="phone"
-            android:elevation="5dp"
+            android:layout_margin="5dp"
+            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/alamatTxt1"
+                android:layout_width="280dp"
+                android:layout_height="45dp"
+                android:hint="Alamat Customer"
+                android:enabled="false"
+                android:inputType="textPostalAddress"
+                android:elevation="5dp"
+                android:layout_gravity="center"
+                android:paddingLeft="15dp"
+                android:background="@drawable/btn"
+                android:textColorHint="@color/fullwhite"
+                />
+            <Button
+                android:id="@+id/enableAlamat1"
+                android:layout_width="43dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:paddingLeft="15dp"
-            android:background="@drawable/btn"
-            android:textColorHint="@color/fullwhite"
-            />
+            android:layout_margin="5dp"
+            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/dateTxt1"
+                android:layout_width="280dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:background="@drawable/btn"
+                android:clickable="true"
+                android:enabled="false"
+                android:inputType="date"
+                android:contextClickable="false"
+                android:elevation="5dp"
+                android:hint="Tanggal Lahir Customer"
+                android:paddingLeft="15dp"
+                android:textColorHint="@color/fullwhite"/>
+            <Button
+                android:id="@+id/enableDate1"
+                android:layout_width="43dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/telpTxt1"
+                android:layout_width="280dp"
+                android:layout_height="45dp"
+                android:hint="Telp Customer"
+                android:enabled="false"
+                android:inputType="phone"
+                android:elevation="5dp"
+                android:layout_gravity="center"
+                android:paddingLeft="15dp"
+                android:background="@drawable/btn"
+                android:textColorHint="@color/fullwhite"
+                />
+            <Button
+                android:id="@+id/enableTelp1"
+                android:layout_width="43dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/editBtn1"

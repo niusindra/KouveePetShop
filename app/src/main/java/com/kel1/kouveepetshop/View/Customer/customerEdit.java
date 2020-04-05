@@ -15,7 +15,10 @@ import com.kel1.kouveepetshop.Api.ApiClient;
 import com.kel1.kouveepetshop.Api.ApiInterface;
 import com.kel1.kouveepetshop.R;
 import com.kel1.kouveepetshop.Respon.cudCustomer;
+import com.kel1.kouveepetshop.SessionManager;
 import com.kel1.kouveepetshop.View.DatePickerFragment;
+
+import java.util.HashMap;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -29,6 +32,11 @@ public class customerEdit extends AppCompatActivity {
     public EditText telp;
     public Button editBtn;
     public Button delBtn;
+    public Button enableNama;
+    public Button enableAlamat;
+    public Button enableDate;
+    public Button enableTelp;
+    public SessionManager session;
     public String customer[];
     public int number;
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,11 +48,31 @@ public class customerEdit extends AppCompatActivity {
         number = intent.getIntExtra(RecycleAdapter.EXTRA_NUMBER,0);
         setText(customer[0],customer[1],customer[2],customer[3]);
 
-        date.setOnClickListener(new View.OnClickListener() {
+        session = new SessionManager(getApplicationContext());
+        final HashMap<String, String> userDetails = session.getUserDetails();
+
+        enableNama.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DialogFragment datePicker = new DatePickerFragment();
-                datePicker.show(getSupportFragmentManager(), "date picker");
+                nama.setEnabled(true);
+            }
+        });
+        enableAlamat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alamat.setEnabled(true);
+            }
+        });
+        enableDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                date.setEnabled(true);
+            }
+        });
+        enableTelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                telp.setEnabled(true);
             }
         });
 
@@ -54,10 +82,11 @@ public class customerEdit extends AppCompatActivity {
                 if(nama.getText().toString().isEmpty() || alamat.getText().toString().isEmpty() || date.getText().toString().isEmpty() || telp.getText().toString().isEmpty()){
                     Toast.makeText(getApplicationContext(), "Data harus terisi semua!", Toast.LENGTH_SHORT).show();
                 }else{
+
                     ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
                     Call<cudCustomer> customerCall = apiService.editCustomer(number,nama.getText().toString(),
                             alamat.getText().toString(),date.getText().toString(),
-                            telp.getText().toString(),nama.getText().toString());
+                            telp.getText().toString(),userDetails.get(SessionManager.KEY_NAME));
                     customerCall.enqueue(new Callback<cudCustomer>(){
                         public void onResponse(Call<cudCustomer> call, Response<cudCustomer> response){
                             Toast.makeText(customerEdit.this,"Berhasil edit",Toast.LENGTH_SHORT).show();
@@ -75,7 +104,7 @@ public class customerEdit extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-                Call<cudCustomer> customerCall = apiService.deleteCustomer(number,"Pelangi");
+                Call<cudCustomer> customerCall = apiService.deleteCustomer(number,userDetails.get(SessionManager.KEY_NAME));
                 customerCall.enqueue(new Callback<cudCustomer>(){
                     public void onResponse(Call<cudCustomer> call, Response<cudCustomer> response){
                         Toast.makeText(customerEdit.this,"Berhasil dihapus",Toast.LENGTH_SHORT).show();
@@ -104,6 +133,10 @@ public class customerEdit extends AppCompatActivity {
         alamat = findViewById(R.id.alamatTxt1);
         telp = findViewById(R.id.telpTxt1);
         delBtn = findViewById(R.id.delBtn1);
+        enableNama = findViewById(R.id.enableNama1);
+        enableAlamat = findViewById(R.id.enableAlamat1);
+        enableDate = findViewById(R.id.enableDate1);
+        enableTelp = findViewById(R.id.enableTelp1);
     }
 
     public void setText(String nama, String alamat, String tgllahir, String telp){
