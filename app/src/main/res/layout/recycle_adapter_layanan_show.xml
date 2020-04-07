@@ -12,6 +12,7 @@
         android:orientation="horizontal">
 
         <LinearLayout
+            android:id="@+id/RC_Layanan_Event_Parent"
             android:layout_width="match_parent"
             android:layout_height="117dp"
             android:layout_gravity="center"
@@ -34,7 +35,6 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/RC_Layanan_Event_Parent"
                 android:layout_width="207dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"

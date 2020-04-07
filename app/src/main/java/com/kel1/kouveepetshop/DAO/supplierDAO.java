@@ -15,6 +15,15 @@ public class supplierDAO {
     @SerializedName("telp_supplier")
     private  String telp_supplier;
 
+    @SerializedName("sup_created_at")
+    private  String sup_created_at;
+
+    @SerializedName("sup_edited_at")
+    private  String sup_edited_at;
+
+    @SerializedName("sup_deleted_at")
+    private  String sup_deleted_at;
+
     public int getId_supplier() {
         return id_supplier;
     }
@@ -29,5 +38,17 @@ public class supplierDAO {
 
     public String getTelp_supplier() {
         return telp_supplier;
+    }
+
+    public String getSup_created_at() {
+        return sup_created_at;
+    }
+
+    public String getSup_deleted_at() {
+        return sup_deleted_at;
+    }
+
+    public String getSup_edited_at() {
+        return sup_edited_at;
     }
 }

@@ -28,6 +28,15 @@ public class produkDAO {
     @SerializedName("min_stok")
     private  String min_stok;
 
+    @SerializedName("produk_created_at")
+    private  String produk_created_at;
+
+    @SerializedName("produk_edited_at")
+    private  String produk_edited_at;
+
+    @SerializedName("produk_deleted_at")
+    private  String produk_deleted_at;
+
     public int getId_produk() {
         return id_produk;
     }
@@ -58,5 +67,17 @@ public class produkDAO {
 
     public String getMin_stok() {
         return min_stok;
+    }
+
+    public String getProduk_created_at() {
+        return produk_created_at;
+    }
+
+    public String getProduk_deleted_at() {
+        return produk_deleted_at;
+    }
+
+    public String getProduk_edited_at() {
+        return produk_edited_at;
     }
 }

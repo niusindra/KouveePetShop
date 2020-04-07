@@ -34,7 +34,7 @@ public class layananEdit extends AppCompatActivity {
         Intent intent = getIntent();
         layanan = intent.getStringArrayExtra(RecycleAdapterLayanan.EXTRA_TEXT);
         number = intent.getIntExtra(RecycleAdapterLayanan.EXTRA_NUMBER,0);
-        setText(layanan[0],layanan[1],layanan[2]);
+        setText(layanan[0]);
 
         enableNama.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,14 +98,14 @@ public class layananEdit extends AppCompatActivity {
 
     }
     public void setAtribut (){
-        back = findViewById(R.id.backBtnsupp1);
-        editBtn = findViewById(R.id.editsuppBtn1);
-        nama = findViewById(R.id.namasuppTxt1);
-        delBtn = findViewById(R.id.delsuppBtn1);
-        enableNama = findViewById(R.id.enablesuppNama1);
+        back = findViewById(R.id.backBtnlay1);
+        editBtn = findViewById(R.id.editlayBtn1);
+        nama = findViewById(R.id.namalayTxt1);
+        delBtn = findViewById(R.id.dellayBtn1);
+        enableNama = findViewById(R.id.enablelayNama1);
     }
 
-    public void setText(String nama, String alamat, String telp){
+    public void setText(String nama){
         this.nama.setText(nama);
     }
 

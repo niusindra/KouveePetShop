@@ -6,8 +6,10 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,10 +33,12 @@ import retrofit2.Response;
 
 public class customerShow extends AppCompatActivity {
 
-    public ImageView back;
+    private ImageView back;
+    private Switch aSwitch;
     private List<customerDAO> mListCustomer=new ArrayList<>();
     private RecyclerView recyclerView;
     private RecycleAdapter recycleAdapter;
+    private RecycleAdapterLog recycleAdapterLog;
     private RecyclerView.LayoutManager layoutManager;
     private EditText searchCustomer;
     @Override
@@ -43,8 +47,10 @@ public class customerShow extends AppCompatActivity {
         getWindow().setSoftInputMode(
                 WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN
         );
+
         setContentView(R.layout.customer_show);
         setAtribut();
+
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,8 +58,11 @@ public class customerShow extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         mListCustomer=new ArrayList<>();
         setRecycleAdapter();
+        searchCustomer = findViewById(R.id.searchCustomer);
+
         searchCustomer.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -71,6 +80,19 @@ public class customerShow extends AppCompatActivity {
             }
         });
         setRecycleView();
+        aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b){
+                    setRecycleViewLog();
+                }else{
+                    setRecycleView();
+                }
+            }
+        });
+        if(aSwitch.isChecked()){
+            setRecycleViewLog();
+        }
     }
 
     private void filter(String text) {
@@ -88,13 +110,14 @@ public class customerShow extends AppCompatActivity {
     private void setRecycleAdapter(){
         recyclerView=findViewById(R.id.RC_Customer);
         recycleAdapter=new RecycleAdapter(this,mListCustomer);
+        recycleAdapterLog=new RecycleAdapterLog(this,mListCustomer);
         RecyclerView.LayoutManager mLayoutManager=new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(recycleAdapter);
     }
 
     private void setRecycleView(){
+        recyclerView.setAdapter(recycleAdapter);
         ApiInterface apiService=ApiClient.getClient().create(ApiInterface.class);
         Call<readCustomer> customerCall = apiService.getCustomer();
         customerCall.enqueue(new Callback<readCustomer>(){
@@ -102,6 +125,7 @@ public class customerShow extends AppCompatActivity {
             @Override
             public void onResponse(Call<readCustomer> call, Response<readCustomer> response) {
                 if(response.body()!=null) {
+                    mListCustomer.clear();
                     mListCustomer.addAll(response.body().getMessage());
                     recycleAdapter.notifyDataSetChanged();
                 }
@@ -113,8 +137,31 @@ public class customerShow extends AppCompatActivity {
             }
         });
     }
+
+    private void setRecycleViewLog(){
+        recyclerView.setAdapter(recycleAdapterLog);
+        ApiInterface apiService=ApiClient.getClient().create(ApiInterface.class);
+        Call<readCustomer> customerCall = apiService.getCustomerLog();
+        customerCall.enqueue(new Callback<readCustomer>(){
+
+            @Override
+            public void onResponse(Call<readCustomer> call, Response<readCustomer> response) {
+                if(response.body()!=null) {
+                    mListCustomer.clear();
+                    mListCustomer.addAll(response.body().getMessage());
+                    recycleAdapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<readCustomer> call, Throwable t) {
+                Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
     public void setAtribut() {
         back = findViewById(R.id.btnBack);
-        searchCustomer = findViewById(R.id.searchCustomer);
+        aSwitch = findViewById(R.id.switchLogCust);
     }
 }

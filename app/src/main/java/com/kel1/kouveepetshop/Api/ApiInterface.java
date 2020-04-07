@@ -1,7 +1,6 @@
 package com.kel1.kouveepetshop.Api;
 
 import com.kel1.kouveepetshop.DAO.customerDAO;
-import com.kel1.kouveepetshop.DAO.pegawaiDAO;
 import com.kel1.kouveepetshop.Respon.cudCustomer;
 import com.kel1.kouveepetshop.Respon.readCustomer;
 import com.kel1.kouveepetshop.Respon.readHewan;
@@ -36,10 +35,22 @@ public interface ApiInterface {
     @GET("supplier")
     Call<readSupplier> getSupplier();
 
+    @GET("customer/log")
+    Call<readCustomer> getCustomerLog();
+    @GET("produk/log")
+    Call<readProduk> getProdukLog();
+    @GET("layanan/log")
+    Call<readLayanan> getLayananLog();
+    @GET("hewan/log")
+    Call<readHewan> getHewanLog();
+    @GET("jenishewan/log")
+    Call<readJenisHewan> getJenisHewanLog();
+    @GET("ukuranhewan/log")
+    Call<readUkuranHewan> getUkuranHewanLog();
+    @GET("supplier/log")
+    Call<readSupplier> getSupplierLog();
 
 //    =============================SEARCH========================================================
-    @GET("pegawai/{id}")
-    Call<pegawaiDAO> getPegawai(@Path("id")int id);
     @GET("customer/{id}")
     Call<customerDAO> getCustomer(@Path("id")int id);
     @GET("produk/{id}")
@@ -124,10 +135,10 @@ public interface ApiInterface {
                            @Field("stok")int stok,
                            @Field("min_stok")int min_stok);
 
-    @POST("supplier/{id}")
+    @POST("layanan/{id}")
     @FormUrlEncoded
     Call<cudCustomer> editLayanan(@Path("id")int id,
-                                   @Field("nama_supplier")String nama_layanan);
+                                   @Field("nama_layanan")String nama_layanan);
     @POST("hewan/{id}")
     @FormUrlEncoded
     Call<cudCustomer> editHewan(@Path("id")int id,

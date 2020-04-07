@@ -37,6 +37,10 @@
             android:textSize="20sp"
             android:textStyle="bold" />
     </LinearLayout>
+    <Switch
+        android:id="@+id/switchLogCust"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
     <LinearLayout
         android:gravity="center"
         android:id="@+id/searchTextHolder"

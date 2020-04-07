@@ -15,6 +15,24 @@ public class hewanDAO {
     @SerializedName("tgl_lahir_hewan")
     private  String tgl_lahir_hewan;
 
+    @SerializedName("hwn_created_at")
+    private  String hwn_created_at;
+
+    @SerializedName("hwn_edited_at")
+    private  String hwn_edited_at;
+
+    @SerializedName("hwn_deleted_at")
+    private  String hwn_deleted_at;
+
+    @SerializedName("hwn_created_by")
+    private  String hwn_created_by;
+
+    @SerializedName("hwn_edited_by")
+    private  String hwn_edited_by;
+
+    @SerializedName("hwn_deleted_by")
+    private  String hwn_deleted_by;
+
     public int getId_customer() {
         return id_customer;
     }
@@ -29,5 +47,29 @@ public class hewanDAO {
 
     public String getTgl_lahir_hewan() {
         return tgl_lahir_hewan;
+    }
+
+    public String getHwn_created_at() {
+        return hwn_created_at;
+    }
+
+    public String getHwn_created_by() {
+        return hwn_created_by;
+    }
+
+    public String getHwn_deleted_at() {
+        return hwn_deleted_at;
+    }
+
+    public String getHwn_deleted_by() {
+        return hwn_deleted_by;
+    }
+
+    public String getHwn_edited_at() {
+        return hwn_edited_at;
+    }
+
+    public String getHwn_edited_by() {
+        return hwn_edited_by;
     }
 }

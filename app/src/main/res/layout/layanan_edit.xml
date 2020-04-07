@@ -15,7 +15,7 @@
         android:padding="10dp">
 
         <ImageView
-            android:id="@+id/backBtnsupp1"
+            android:id="@+id/backBtnlay1"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_gravity="start"
@@ -48,7 +48,7 @@
             android:layout_margin="5dp"
             android:orientation="horizontal">
             <EditText
-                android:id="@+id/namasuppTxt1"
+                android:id="@+id/namalayTxt1"
                 android:layout_width="280dp"
                 android:layout_height="45dp"
                 android:hint="Nama Layanan"
@@ -60,7 +60,7 @@
                 android:textColorHint="@color/fullwhite"/>
 
             <Button
-                android:id="@+id/enablesuppNama1"
+                android:id="@+id/enablelayNama1"
                 android:background="@drawable/lock"
                 android:layout_marginLeft="10dp"
                 android:layout_width="43dp"
@@ -70,7 +70,7 @@
 
 
         <Button
-            android:id="@+id/editBtn"
+            android:id="@+id/editlayBtn1"
             android:layout_width="227dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
@@ -81,7 +81,7 @@
             android:textColor="@color/testcolorblue" />
 
         <Button
-            android:id="@+id/delBtn"
+            android:id="@+id/dellayBtn1"
             android:layout_width="227dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
