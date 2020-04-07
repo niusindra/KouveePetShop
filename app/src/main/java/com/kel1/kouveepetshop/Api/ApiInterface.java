@@ -1,12 +1,5 @@
 package com.kel1.kouveepetshop.Api;
 
-import retrofit2.Call;
-import retrofit2.http.Field;
-import retrofit2.http.FormUrlEncoded;
-import retrofit2.http.GET;
-import retrofit2.http.POST;
-import retrofit2.http.Path;
-
 import com.kel1.kouveepetshop.DAO.customerDAO;
 import com.kel1.kouveepetshop.DAO.pegawaiDAO;
 import com.kel1.kouveepetshop.Respon.cudCustomer;
@@ -18,6 +11,13 @@ import com.kel1.kouveepetshop.Respon.readProduk;
 import com.kel1.kouveepetshop.Respon.readSupplier;
 import com.kel1.kouveepetshop.Respon.readUkuranHewan;
 import com.kel1.kouveepetshop.Respon.verifyPegawai;
+
+import retrofit2.Call;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
+import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface ApiInterface {
 //    =============================READ========================================================
@@ -124,11 +124,10 @@ public interface ApiInterface {
                            @Field("stok")int stok,
                            @Field("min_stok")int min_stok);
 
-    @POST("layanan/{id}")
+    @POST("supplier/{id}")
     @FormUrlEncoded
-    Call<cudCustomer> addLayanan(@Path("id")int id,
-                            @Field("nama_layanan")String nama_layanan);
-
+    Call<cudCustomer> editLayanan(@Path("id")int id,
+                                   @Field("nama_supplier")String nama_layanan);
     @POST("hewan/{id}")
     @FormUrlEncoded
     Call<cudCustomer> editHewan(@Path("id")int id,

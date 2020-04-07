@@ -20,4 +20,12 @@ public class readLayanan {
 
     public List<layananDAO> getMessage() {return message;}
 
+    public void setMessage(List<layananDAO> message) {
+        this.message = message;
+    }
+
+    public void setError(String error) {
+        this.error = error;
+    }
+
 }

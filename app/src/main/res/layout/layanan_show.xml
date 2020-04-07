@@ -31,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="monospace"
-            android:text="DAFTAR CUSTOMER"
+            android:text="DAFTAR LAYANAN"
             android:textAlignment="center"
             android:textColor="@color/yello"
             android:textSize="20sp"
