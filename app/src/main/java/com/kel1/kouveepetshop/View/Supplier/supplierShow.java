@@ -1,4 +1,4 @@
-package com.kel1.kouveepetshop.View.Customer;
+package com.kel1.kouveepetshop.View.Supplier;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,9 +17,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.kel1.kouveepetshop.Api.ApiClient;
 import com.kel1.kouveepetshop.Api.ApiInterface;
-import com.kel1.kouveepetshop.DAO.customerDAO;
+import com.kel1.kouveepetshop.DAO.supplierDAO;
 import com.kel1.kouveepetshop.R;
 import com.kel1.kouveepetshop.Respon.readCustomer;
+import com.kel1.kouveepetshop.Respon.readSupplier;
 import com.kel1.kouveepetshop.View.Admin.dashboard;
 
 import java.util.ArrayList;
@@ -29,12 +30,12 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class customerShow extends AppCompatActivity {
+public class supplierShow extends AppCompatActivity {
 
     public ImageView back;
-    private List<customerDAO> mListCustomer=new ArrayList<>();
+    private List<supplierDAO> mListCustomer=new ArrayList<>();
     private RecyclerView recyclerView;
-    private RecycleAdapter recycleAdapter;
+    private RecycleAdapterSupplier recycleAdapterSupplier;
     private RecyclerView.LayoutManager layoutManager;
     private EditText searchCustomer;
     @Override
@@ -43,12 +44,12 @@ public class customerShow extends AppCompatActivity {
         getWindow().setSoftInputMode(
                 WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN
         );
-        setContentView(R.layout.customer_show);
+        setContentView(R.layout.supplier_show);
         setAtribut();
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(customerShow.this, dashboard.class);
+                Intent intent = new Intent(supplierShow.this, supplierMain.class);
                 startActivity(intent);
             }
         });
@@ -75,41 +76,41 @@ public class customerShow extends AppCompatActivity {
     }
 
     private void filter(String text) {
-        List<customerDAO> filteredList = new ArrayList<>();
-        for (customerDAO item : mListCustomer) {
-            if (item.getNama_customer().toLowerCase().contains(text.toLowerCase()) ||
-                    item.getAlamat_customer().toLowerCase().contains(text.toLowerCase()) ||
-                    item.getTelp_customer().toLowerCase().contains(text.toLowerCase())) {
+        List<supplierDAO> filteredList = new ArrayList<>();
+        for (supplierDAO item : mListCustomer) {
+            if (item.getNama_supplier().toLowerCase().contains(text.toLowerCase()) ||
+                    item.getAlamat_supplier().toLowerCase().contains(text.toLowerCase()) ||
+                    item.getTelp_supplier().toLowerCase().contains(text.toLowerCase())) {
                 filteredList.add(item);
             }
         }
 
-        recycleAdapter.filterList(filteredList);
+        recycleAdapterSupplier.filterList(filteredList);
     }
     private void setRecycleAdapter(){
         recyclerView=findViewById(R.id.RC_Customer);
-        recycleAdapter=new RecycleAdapter(this,mListCustomer);
+        recycleAdapterSupplier =new RecycleAdapterSupplier(this,mListCustomer);
         RecyclerView.LayoutManager mLayoutManager=new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(recycleAdapter);
+        recyclerView.setAdapter(recycleAdapterSupplier);
     }
 
     private void setRecycleView(){
         ApiInterface apiService=ApiClient.getClient().create(ApiInterface.class);
-        Call<readCustomer> customerCall = apiService.getCustomer();
-        customerCall.enqueue(new Callback<readCustomer>(){
+        Call<readSupplier> customerCall = apiService.getSupplier();
+        customerCall.enqueue(new Callback<readSupplier>(){
 
             @Override
-            public void onResponse(Call<readCustomer> call, Response<readCustomer> response) {
+            public void onResponse(Call<readSupplier> call, Response<readSupplier> response) {
                 if(response.body()!=null) {
                     mListCustomer.addAll(response.body().getMessage());
-                    recycleAdapter.notifyDataSetChanged();
+                    recycleAdapterSupplier.notifyDataSetChanged();
                 }
             }
 
             @Override
-            public void onFailure(Call<readCustomer> call, Throwable t) {
+            public void onFailure(Call<readSupplier> call, Throwable t) {
                 Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
             }
         });

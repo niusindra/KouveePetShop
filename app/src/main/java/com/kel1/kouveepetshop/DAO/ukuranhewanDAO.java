@@ -4,12 +4,12 @@ import com.google.gson.annotations.SerializedName;
 
 public class ukuranhewanDAO {
     @SerializedName("id_ukuran")
-    private  String id_ukuran;
+    private  int id_ukuran;
 
     @SerializedName("ukuran")
     private  String ukuran;
 
-    public String getId_ukuran() {
+    public int getId_ukuran() {
         return id_ukuran;
     }
 

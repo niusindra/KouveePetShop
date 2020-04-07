@@ -6,13 +6,18 @@ import android.view.View;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.kel1.kouveepetshop.R;
 import com.kel1.kouveepetshop.View.Admin.dashboard;
+import com.kel1.kouveepetshop.View.Customer.customerAdd;
 import com.kel1.kouveepetshop.View.Customer.customerMain;
+import com.kel1.kouveepetshop.View.Customer.customerShow;
 
 public class supplierMain extends AppCompatActivity {
     public ImageView back;
+    public CardView add;
+    public CardView show;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.supplier_main);
@@ -24,10 +29,25 @@ public class supplierMain extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(supplierMain.this, supplierAdd.class);
+                startActivity(intent);
+            }
+        });
+        show.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(supplierMain.this, supplierShow.class);
+                startActivity(intent);
+            }
+        });
     }
     public void setAtribut (){
         back = findViewById(R.id.backBtn);
+        add = findViewById(R.id.addBtn);
+        show = findViewById(R.id.showBtn);
     }
-
 }
 

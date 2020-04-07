@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class supplierDAO {
     @SerializedName("id_supplier")
-    private  String id_supplier;
+    private  int id_supplier;
 
     @SerializedName("nama_supplier")
     private  String nama_supplier;
@@ -15,7 +15,7 @@ public class supplierDAO {
     @SerializedName("telp_supplier")
     private  String telp_supplier;
 
-    public String getId_supplier() {
+    public int getId_supplier() {
         return id_supplier;
     }
 

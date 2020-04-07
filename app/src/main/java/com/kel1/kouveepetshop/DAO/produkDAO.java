@@ -4,10 +4,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class produkDAO {
     @SerializedName("id_produk")
-    private  String id_produk;
+    private  int id_produk;
 
     @SerializedName("id_supplier")
-    private  String id_supplier;
+    private  int id_supplier;
 
     @SerializedName("nama_produk")
     private  String nama_produk;
@@ -27,11 +27,11 @@ public class produkDAO {
     @SerializedName("min_stok")
     private  String min_stok;
 
-    public String getId_produk() {
+    public int getId_produk() {
         return id_produk;
     }
 
-    public String getId_supplier() {
+    public int getId_supplier() {
         return id_supplier;
     }
 

@@ -4,10 +4,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class hewanDAO {
     @SerializedName("id_hewan")
-    private  String id_hewan;
+    private  int id_hewan;
 
     @SerializedName("id_customer")
-    private  String id_customer;
+    private  int id_customer;
 
     @SerializedName("nama_hewan")
     private  String nama_hewan;
@@ -15,11 +15,11 @@ public class hewanDAO {
     @SerializedName("tgl_lahir_hewan")
     private  String tgl_lahir_hewan;
 
-    public String getId_customer() {
+    public int getId_customer() {
         return id_customer;
     }
 
-    public String getId_hewan() {
+    public int getId_hewan() {
         return id_hewan;
     }
 
