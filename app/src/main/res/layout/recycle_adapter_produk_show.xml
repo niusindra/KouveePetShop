@@ -1,0 +1,100 @@
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".View.Supplier.RecycleAdapterSupplier"
+    android:layout_marginBottom="10dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:layout_gravity="center"
+            android:background="@color/yello"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="51dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:background="@color/blackcolor">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/iconproduk"
+                    android:backgroundTint="@color/yello" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/RC_Supplier_Event_Parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"/>
+                <LinearLayout
+                    android:layout_marginLeft="15dp"
+                    android:layout_width="207dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/adapterNamaPro"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="serif"
+                        android:hint="Nama Produk"
+                        android:textColor="@color/blackcolor"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/adapterHargaB"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="serif"
+                        android:hint="Harga Beli"
+                        android:textColor="@color/blackcolor"/>
+
+                    <TextView
+                        android:id="@+id/adapterHargaJ"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="serif"
+                        android:hint="Harga Jual"
+                        android:textColor="@color/blackcolor"/>
+                    <TextView
+                        android:id="@+id/adapterStok"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="serif"
+                        android:hint="Stok"
+                        android:textColor="@color/blackcolor"/>
+
+                    <TextView
+                        android:id="@+id/adapterMinStok"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="serif"
+                        android:hint="Min Stok"
+                        android:textColor="@color/blackcolor"/>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

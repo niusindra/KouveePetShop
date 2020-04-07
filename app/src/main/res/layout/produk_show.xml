@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".View.Customer.RecycleAdapter"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blackcolor">
+
+    <LinearLayout
+        android:id="@+id/Layout1"
+        android:layout_width="300dp"
+        android:padding="10dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/btn"
+        android:backgroundTint="@color/blackcolor">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="top"
+            android:background="@drawable/iconback"
+            android:backgroundTint="@color/yello" />
+
+        <TextView
+            android:id="@+id/textView27"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:text="DAFTAR PRODUK"
+            android:textAlignment="center"
+            android:textColor="@color/yello"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="center"
+        android:id="@+id/searchTextHolder"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/kvBackground"
+        android:layout_below="@+id/Layout1">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:backgroundTint="@color/blackcolor"
+            android:background="@drawable/iconsearch"
+
+            />
+
+        <EditText
+            android:id="@+id/searchProduk"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="0dp"
+            android:defaultFocusHighlightEnabled="false"
+            android:layout_marginBottom="5dp"
+            android:focusable="auto"
+            android:focusedByDefault="true"
+            android:textColor="@color/blackcolor"
+            android:textCursorDrawable="@color/blackcolor" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/LayoutBorderProduk"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_above="@id/RC_Placeholder"
+        android:layout_marginTop="-60dp"
+        android:background="@color/blackcolor"
+        android:orientation="horizontal"></LinearLayout>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/RC_Placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="699dp"
+        android:layout_marginBottom="0dp"
+        android:layout_below="@+id/searchTextHolder"
+        android:backgroundTint="@color/kvBackground">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RC_Produk"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="0dp">
+
+        </androidx.recyclerview.widget.RecyclerView>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
