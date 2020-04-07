@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.Admin.dashboard"
+    tools:context=".View.Customer.customerMain"
     android:orientation="vertical"
     android:padding="10dp"
     android:background="@color/kvBackground"
@@ -13,26 +11,25 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="120dp"
         android:orientation="horizontal"
         android:padding="10dp">
 
         <ImageView
             android:id="@+id/backBtn"
-            android:layout_width="31dp"
-            android:layout_height="match_parent"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             android:layout_gravity="start"
             android:layout_marginLeft="10dp"
             android:background="@drawable/iconback" />
 
         <ImageView
             android:layout_width="279dp"
-            android:layout_height="32dp"
+            android:layout_height="100dp"
             android:gravity="end"
             android:src="@drawable/kouveelogo" />
 
     </LinearLayout>
-
     <LinearLayout
         android:clipToPadding="false"
         android:gravity="center"
@@ -40,60 +37,41 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <androidx.cardview.widget.CardView
-            android:id="@+id/layananBtn"
+            android:id="@+id/addBtn"
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="true"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_margin="10dp">
+            android:layout_width="320dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:background="@color/kvBackground"
-                android:gravity="center">
+                android:background="@color/green"
+                android:gravity="center"
+                android:orientation="vertical">
+
                 <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:backgroundTint="@color/whitecolor"
                     android:background="@drawable/iconadd"
-                    android:padding="10dp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:layout_marginTop="10dp"
-                    android:text="Add Supplier"/>
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:id="@+id/supplierBtn"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_margin="10dp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:background="@color/kvBackground"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:background="@drawable/icondelete"
                     android:padding="10dp" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
                     android:layout_marginTop="10dp"
-                    android:text="Delete Supplier"/>
-
+                    android:layout_marginBottom="10dp"
+                    android:textSize="30sp"
+                    android:text="TAMBAH"
+                    android:textColor="@color/whitecolor"
+                    android:textStyle="bold" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-
     </LinearLayout>
     <LinearLayout
         android:clipToPadding="false"
@@ -102,101 +80,57 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <androidx.cardview.widget.CardView
-            android:id="@+id/btnHewan"
+            android:id="@+id/showBtn"
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="true"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_margin="10dp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:background="@color/kvBackground"
-                android:gravity="center">
-                <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:background="@drawable/iconedit"
-                    android:padding="10dp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:layout_marginTop="10dp"
-                    android:text="Edit Supplier"/>
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:id="@+id/jhewanBtn"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_margin="10dp">
+            android:layout_width="320dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="316dp"
+                android:layout_height="198dp"
+                android:background="@color/whitecolor"
                 android:gravity="center"
-                android:background="@color/kvBackground"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="64dp"
-                    android:background="@drawable/iconsearch"
-                    android:layout_height="64dp"
-                    android:padding="10dp"
-                    />
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/iconproduk"
+                    android:backgroundTint="@color/red"
+                    android:padding="10dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Search Supplier"
+                    android:text="KELOLA DATA"
+                    android:textColor="@color/red"
+                    android:textSize="30sp"
                     android:textStyle="bold" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
+
+
     </LinearLayout>
     <LinearLayout
-        android:clipToPadding="false"
-        android:gravity="center"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <androidx.cardview.widget.CardView
-            android:id="@+id/uhewanBtn"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true"
-            android:layout_width="320dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="40dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp">
-            <LinearLayout
-
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:background="@color/kvBackground"
-                android:gravity="center">
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="64dp"
-                    android:background="@drawable/iconsupplier"
-                    android:padding="10dp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:layout_marginTop="10dp"
-                    android:text="Show Supplier"/>
-
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-
+        android:layout_height="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@color/colorAccent"
+        android:layout_gravity="center">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="SUPPLIER"
+            android:textAlignment="center"
+            android:textColor="@color/whitecolor"
+            android:textSize="20sp"/>
     </LinearLayout>
 </LinearLayout>

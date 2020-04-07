@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-            <activity android:name=".View.Admin.dashboard">
+        <activity android:name=".View.Customer.customerEdit"/>
+        <activity android:name=".View.Admin.dashboard">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,9 +28,7 @@
         <activity android:name=".View.Customer.customerAdd">
 
         </activity>
-        <activity android:name=".View.Customer.customerEdit">
 
-        </activity>
         <activity android:name=".View.Hewan.hewanMain" />
         <activity android:name=".View.JenisHewan.jenisHewanMain" />
         <activity android:name=".View.Layanan.layananMain" />

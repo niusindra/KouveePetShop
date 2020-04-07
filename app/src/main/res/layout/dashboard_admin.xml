@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -33,7 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
                 android:gravity="end"
-                android:text="Log Out"
+                android:text="LOG OUT"
                 android:textColor="@color/blackcolor"
                 android:textSize="15dp" />
 
@@ -71,7 +69,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="15dp"
                         android:layout_marginTop="10dp"
-                        android:text="Customer"
+                        android:text="CUSTOMER"
                         android:textColor="@color/whitecolor"
                         android:textStyle="bold" />
 
@@ -102,7 +100,7 @@
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
                         android:layout_marginTop="10dp"
-                        android:text="Produk"/>
+                        android:text="PRODUK"/>
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -140,7 +138,7 @@
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
                         android:layout_marginTop="10dp"
-                        android:text="Layanan"
+                        android:text="LAYANAN"
                         android:textColor="@color/orange"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -169,7 +167,7 @@
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
                         android:layout_marginTop="10dp"
-                        android:text="Supplier"/>
+                        android:text="SUPPLIER"/>
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -206,7 +204,7 @@
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
                         android:layout_marginTop="10dp"
-                        android:text="Hewan"
+                        android:text="HEWAN"
                         android:textColor="@color/whitecolor"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -236,7 +234,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="Jenis Hewan"
+                        android:text="JENIS HEWAN"
                         android:textColor="@color/orange"
                         android:textStyle="bold" />
 
@@ -283,7 +281,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="Ukuran Hewan"
+                        android:text="UKURAN HEWAN"
                         android:textColor="@color/colorAccent"
                         android:textStyle="bold" />
 

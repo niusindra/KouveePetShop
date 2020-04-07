@@ -1,9 +1,12 @@
 package com.kel1.kouveepetshop.View.Customer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +19,7 @@ import com.kel1.kouveepetshop.Api.ApiInterface;
 import com.kel1.kouveepetshop.DAO.customerDAO;
 import com.kel1.kouveepetshop.R;
 import com.kel1.kouveepetshop.Respon.readCustomer;
+import com.kel1.kouveepetshop.View.Admin.dashboard;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +30,7 @@ import retrofit2.Response;
 
 public class customerShow extends AppCompatActivity {
 
+    public ImageView back;
     private List<customerDAO> mListCustomer=new ArrayList<>();
     private RecyclerView recyclerView;
     private RecycleAdapter recycleAdapter;
@@ -35,6 +40,14 @@ public class customerShow extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.customer_show);
+        setAtribut();
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(customerShow.this, dashboard.class);
+                startActivity(intent);
+            }
+        });
         mListCustomer=new ArrayList<>();
         setRecycleAdapter();
         searchCustomer = findViewById(R.id.searchCustomer);
@@ -59,7 +72,6 @@ public class customerShow extends AppCompatActivity {
 
     private void filter(String text) {
         List<customerDAO> filteredList = new ArrayList<>();
-
         for (customerDAO item : mListCustomer) {
             if (item.getNama_customer().toLowerCase().contains(text.toLowerCase()) ||
                     item.getAlamat_customer().toLowerCase().contains(text.toLowerCase()) ||
@@ -70,7 +82,6 @@ public class customerShow extends AppCompatActivity {
 
         recycleAdapter.filterList(filteredList);
     }
-
     private void setRecycleAdapter(){
         recyclerView=findViewById(R.id.RC_Customer);
         recycleAdapter=new RecycleAdapter(this,mListCustomer);
@@ -98,5 +109,8 @@ public class customerShow extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
             }
         });
+    }
+    public void setAtribut() {
+        back = findViewById(R.id.btnBack);
     }
 }

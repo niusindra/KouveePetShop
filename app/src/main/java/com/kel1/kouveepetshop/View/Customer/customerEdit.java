@@ -53,9 +53,11 @@ public class customerEdit extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(nama.isEnabled()){
+                    enableNama.setBackgroundResource(R.drawable.lock);
                     nama.setEnabled(false);
                 }
                 else {
+                    enableNama.setBackgroundResource(R.drawable.unlocked);
                     nama.setEnabled(true);
                 }
             }
@@ -65,9 +67,11 @@ public class customerEdit extends AppCompatActivity {
             public void onClick(View view) {
                 if(alamat.isEnabled())
                 {
-                    nama.setEnabled(false);
+                    enableAlamat.setBackgroundResource(R.drawable.lock);
+                    alamat.setEnabled(false);
                 }
                 else {
+                    enableAlamat.setBackgroundResource(R.drawable.unlocked);
                     alamat.setEnabled(true);
                 }
             }
@@ -77,9 +81,11 @@ public class customerEdit extends AppCompatActivity {
             public void onClick(View view) {
                 if(date.isEnabled())
                 {
+                    enableDate.setBackgroundResource(R.drawable.lock);
                     date.setEnabled(false);
                 }
                 else {
+                    enableDate.setBackgroundResource(R.drawable.unlocked);
                     date.setEnabled(true);
                 }
             }
@@ -89,9 +95,11 @@ public class customerEdit extends AppCompatActivity {
             public void onClick(View view) {
                 if(telp.isEnabled())
                 {
+                    enableTelp.setBackgroundResource(R.drawable.lock);
                     telp.setEnabled(false);
                 }
                 else {
+                    enableTelp.setBackgroundResource(R.drawable.unlocked);
                     telp.setEnabled(true);
                 }
             }
@@ -140,7 +148,7 @@ public class customerEdit extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(customerEdit.this, customerMain.class);
+                Intent intent = new Intent(customerEdit.this, customerShow.class);
                 startActivity(intent);
             }
         });
