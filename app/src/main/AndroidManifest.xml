@@ -12,13 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".View.Admin.dashboard">
+
+        </activity>
+        <activity android:name=".View.Admin.login_pegawai">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".View.Admin.login_pegawai"/>
         <activity android:name=".View.Customer.customerMain" />
 
         <activity android:name=".View.Customer.customerShow">
@@ -35,6 +37,8 @@
         <activity android:name=".View.Layanan.layananEdit" />
         <activity android:name=".View.Layanan.layananAdd" />
         <activity android:name=".View.Produk.produkMain" />
+        <activity android:name=".View.Produk.produkAdd" />
+        <activity android:name=".View.Produk.produkShow" />
         <activity android:name=".View.Supplier.supplierMain" />
         <activity android:name=".View.Supplier.supplierAdd" />
         <activity android:name=".View.Supplier.supplierEdit" />

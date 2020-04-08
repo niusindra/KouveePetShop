@@ -170,22 +170,17 @@ public interface ApiInterface {
     Call<cudCustomer> deleteCustomer(@Path("id") int id,
                                 @Field("cust_deleted_by")String cust_deleted_by);
     @POST("produk/delete/{id}")
-    @FormUrlEncoded
     Call<cudCustomer> deleteProduk(@Path("id")int id);
     @POST("layanan/delete/{id}")
-    @FormUrlEncoded
     Call<cudCustomer> deleteLayanan(@Path("id")int id);
     @POST("hewan/delete/{id}")
     @FormUrlEncoded
     Call<cudCustomer> deleteHewan(@Path("id")int id,
                                   @Field("hwn_deleted_by")String hwn_deleted_by);
     @POST("jenishewan/delete/{id}")
-    @FormUrlEncoded
     Call<cudCustomer> deleteJenisHewan(@Path("id")int id);
     @POST("ukuranhewan/delete/{id}")
-    @FormUrlEncoded
     Call<cudCustomer> deleteUkuranHewan(@Path("id")int id);
     @POST("supplier/delete/{id}")
-    @FormUrlEncoded
     Call<cudCustomer> deleteSupplier(@Path("id")int id);
 }

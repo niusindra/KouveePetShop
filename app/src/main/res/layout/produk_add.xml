@@ -15,7 +15,7 @@
         android:padding="10dp">
 
         <ImageView
-            android:id="@+id/backBtn"
+            android:id="@+id/backBtnProduk"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_gravity="start"
@@ -41,7 +41,7 @@
                 android:src="@drawable/kouveelogo" />
         </LinearLayout>
         <EditText
-            android:id="@+id/id"
+            android:id="@+id/idsuppProduk"
             android:layout_width="280dp"
             android:layout_height="45dp"
             android:hint="Id Supplier"
@@ -50,8 +50,13 @@
             android:layout_marginTop="30dp"
             android:paddingLeft="15dp"
             android:background="@drawable/btn"/>
+        <Spinner
+            android:id="@+id/supplierSpin"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"/>
         <EditText
-            android:id="@+id/namaTxt"
+            android:id="@+id/namaProdukTxt"
             android:layout_width="280dp"
             android:layout_height="45dp"
             android:hint="Nama Produk"
@@ -62,11 +67,11 @@
             android:background="@drawable/btn"
             android:textColorHint="@color/fullwhite"/>
         <EditText
-            android:id="@+id/alamatTxt"
+            android:id="@+id/beliProdukTxt"
             android:layout_width="280dp"
             android:layout_height="45dp"
             android:hint="Harga Beli Produk"
-            android:inputType="textPostalAddress"
+            android:inputType="number"
             android:elevation="5dp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
@@ -76,21 +81,21 @@
             />
 
         <EditText
-            android:id="@+id/dateTxt"
+            android:id="@+id/jualProdukTxt"
             android:layout_width="280dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:background="@drawable/btn"
             android:clickable="true"
-            android:inputType="date"
+            android:inputType="number"
             android:contextClickable="false"
             android:elevation="5dp"
             android:hint="Harga Jual Produk"
             android:paddingLeft="15dp"
             android:textColorHint="@color/fullwhite" />
         <EditText
-            android:id="@+id/stok"
+            android:id="@+id/stokProduk"
             android:layout_width="280dp"
             android:layout_height="45dp"
             android:hint="Stok"
@@ -103,7 +108,7 @@
             android:textColorHint="@color/fullwhite"
             />
         <EditText
-            android:id="@+id/minstok"
+            android:id="@+id/minstokProduk"
             android:layout_width="280dp"
             android:layout_height="45dp"
             android:hint="Min Stok"
@@ -120,18 +125,24 @@
             android:layout_height="200dp"
             android:orientation="vertical"
             android:gravity="center_horizontal">
+
             <Button
                 android:id="@+id/addFotoBtn"
                 android:layout_width="280dp"
-                android:layout_height="45dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
+                android:background="@drawable/joinbtn"
                 android:gravity="center"
                 android:text="Tambah Foto Produk"
                 android:textAllCaps="false"
-                android:background="@drawable/joinbtn"
-                android:textColor="@color/testcolorblue"/>
+                android:textColor="@color/testcolorblue" />
+
+            <ImageView
+                android:id="@+id/showImageUload"
+                android:layout_width="280dp"
+                android:layout_height="100dp" />
             <Button
-                android:id="@+id/addBtn"
+                android:id="@+id/addProdukBtn"
                 android:layout_width="280dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="10dp"

@@ -55,8 +55,10 @@ public class login_pegawai extends AppCompatActivity {
                         public void onResponse(Call<verifyPegawai> call, Response<verifyPegawai> response) {
                             if (response.body() != null) {
                                 session.createLoginSession(response.body().getNama_pegawai(),response.body().getId_pegawai());
-                                Intent i = new Intent(getApplicationContext(), customerAdd.class);
-                                startActivity(i);
+                                if(response.body().getRole_pegawai().equalsIgnoreCase("admin")) {
+                                    Intent i = new Intent(getApplicationContext(), dashboard.class);
+                                    startActivity(i);
+                                }
                                 finish();
                                 Toast.makeText(getApplicationContext(),"Login Success",Toast.LENGTH_SHORT).show();
                             }

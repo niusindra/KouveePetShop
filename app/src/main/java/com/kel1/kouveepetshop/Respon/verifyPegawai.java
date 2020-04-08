@@ -13,6 +13,10 @@ public class verifyPegawai {
     @Expose
     private String nama_pegawai;
 
+    @SerializedName("role_pegawai")
+    @Expose
+    private String role_pegawai;
+
     public String getNama_pegawai() {
         return nama_pegawai;
     }
@@ -21,4 +25,7 @@ public class verifyPegawai {
         return id_pegawai;
     }
 
+    public String getRole_pegawai() {
+        return role_pegawai;
+    }
 }

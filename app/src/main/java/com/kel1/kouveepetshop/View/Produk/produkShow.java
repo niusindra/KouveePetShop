@@ -1,4 +1,4 @@
-package com.kel1.kouveepetshop.View.Layanan;
+package com.kel1.kouveepetshop.View.Produk;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,6 +19,8 @@ import com.kel1.kouveepetshop.Api.ApiInterface;
 import com.kel1.kouveepetshop.DAO.layananDAO;
 import com.kel1.kouveepetshop.R;
 import com.kel1.kouveepetshop.Respon.readLayanan;
+import com.kel1.kouveepetshop.View.Layanan.RecycleAdapterLayanan;
+import com.kel1.kouveepetshop.View.Layanan.layananMain;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,10 +29,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class layananShow extends AppCompatActivity {
+public class produkShow extends AppCompatActivity {
 
     public ImageView back;
-    private List<layananDAO> mListCustomer;
+    private List<layananDAO> mListCustomer=new ArrayList<>();
     private RecyclerView recyclerView;
     private RecycleAdapterLayanan recycleAdapter;
     private RecyclerView.LayoutManager layoutManager;
@@ -38,12 +40,12 @@ public class layananShow extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layanan_show);
+        setContentView(R.layout.produk_show);
         setAtribut();
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(layananShow.this, layananMain.class);
+                Intent intent = new Intent(produkShow.this, layananMain.class);
                 startActivity(intent);
             }
         });
