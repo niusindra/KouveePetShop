@@ -2,10 +2,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:id="@+id/RC_Layanan_Log_cardView"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".View.Customer.RecycleAdapter"
+    tools:context=".View.Supplier.RecycleAdapterSupplier"
     android:layout_marginBottom="10dp">
     <RelativeLayout
         android:layout_width="match_parent"
@@ -13,8 +12,9 @@
         android:orientation="horizontal">
 
         <LinearLayout
+            android:id="@+id/RC_Supplier_Event_Log_Parent"
             android:layout_width="match_parent"
-            android:layout_height="269dp"
+            android:layout_height="180dp"
             android:layout_gravity="center"
             android:background="@color/yello"
             android:orientation="horizontal">
@@ -30,12 +30,11 @@
                     android:layout_height="25dp"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
-                    android:background="@drawable/iconcustomer"
+                    android:background="@drawable/iconsupplier"
                     android:backgroundTint="@color/yello" />
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/RC_Admin_Event_Parent"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -44,7 +43,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/RC_Costumer_Name"
+                    android:id="@+id/adapterNamaSuppLog"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
@@ -53,7 +52,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/RC_Alamat"
+                    android:id="@+id/adapterAlamatSuppLog"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
@@ -61,15 +60,7 @@
                     android:textColor="@color/blackcolor" />
 
                 <TextView
-                    android:id="@+id/RC_TanggalLahir"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="serif"
-                    android:hint="Tanggal Lahir"
-                    android:textColor="@color/blackcolor" />
-
-                <TextView
-                    android:id="@+id/RC_Telp"
+                    android:id="@+id/adapterTelpSuppLog"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
@@ -77,51 +68,29 @@
                     android:textColor="@color/blackcolor" />
 
                 <TextView
-                    android:id="@+id/custcreatedat"
+                    android:id="@+id/custcreatedatsup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:fontFamily="serif"
                     android:hint="Dibuat pada "
                     android:textColor="@color/blackcolor" />
+
                 <TextView
-                    android:id="@+id/custcreatedby"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="serif"
-                    android:hint="Dibuat oleh "
-                    android:textColor="@color/blackcolor"/>
-                <TextView
-                    android:id="@+id/custeditedat"
+                    android:id="@+id/custeditedatsup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:hint="Diedit pada "
-                    android:textColor="@color/blackcolor"/>
+                    android:textColor="@color/blackcolor" />
+
                 <TextView
-                    android:id="@+id/custeditedby"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="serif"
-                    android:hint="Diedit oleh "
-                    android:textColor="@color/blackcolor"/>
-                <TextView
-                    android:id="@+id/custdeletedat"
+                    android:id="@+id/custdeletedatsup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:hint="Dihapus pada"
-                    android:textColor="@color/blackcolor"/>
-                <TextView
-                    android:id="@+id/custdeletedby"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="serif"
-                    android:hint="Dihapus oleh"
-                    android:textColor="@color/blackcolor"/>
-
-
-
+                    android:textColor="@color/blackcolor" />
             </LinearLayout>
 
             <ImageView

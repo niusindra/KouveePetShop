@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,8 +20,6 @@ import com.kel1.kouveepetshop.Api.ApiInterface;
 import com.kel1.kouveepetshop.DAO.supplierDAO;
 import com.kel1.kouveepetshop.R;
 import com.kel1.kouveepetshop.Respon.readSupplier;
-
-
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -33,6 +32,7 @@ import retrofit2.Response;
 public class produkAdd extends AppCompatActivity {
     private static final int PICK_IMAGE_REQUEST = 1;
     public ImageView back;
+    public TextView namaSupplier;
     public EditText nama;
     public EditText beli;
     public EditText jual;
@@ -64,7 +64,7 @@ public class produkAdd extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 supplierDAO user = (supplierDAO) parent.getItemAtPosition(position);
                 displayUserData(user);
-                nama.setText(user.getNama_supplier());
+                namaSupplier.setText(user.getNama_supplier());
             }
 
             @Override
@@ -82,6 +82,7 @@ public class produkAdd extends AppCompatActivity {
     }
 
     public void setAtribut(){
+        namaSupplier = findViewById(R.id.namaSupplierTxt);
         nama = findViewById(R.id.namaProdukTxt);
         beli = findViewById(R.id.beliProdukTxt);
         jual = findViewById(R.id.jualProdukTxt);

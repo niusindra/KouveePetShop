@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,9 +32,11 @@ import retrofit2.Response;
 public class layananShow extends AppCompatActivity {
 
     public ImageView back;
+    public Switch aSwitch;
     private List<layananDAO> mListCustomer;
     private RecyclerView recyclerView;
     private RecycleAdapterLayanan recycleAdapter;
+    private RecycleAdapterLayananLog recycleAdapterLayananLog;
     private RecyclerView.LayoutManager layoutManager;
     private EditText searchCustomer;
     @Override
@@ -66,6 +70,19 @@ public class layananShow extends AppCompatActivity {
             }
         });
         setRecycleView();
+        aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b){
+                    setRecycleViewLog();
+                }else{
+                    setRecycleView();
+                }
+            }
+        });
+        if(aSwitch.isChecked()){
+            setRecycleViewLog();
+        }
     }
 
     private void filter(String text) {
@@ -81,13 +98,14 @@ public class layananShow extends AppCompatActivity {
     private void setRecycleAdapter(){
         recyclerView=findViewById(R.id.RC_Customer);
         recycleAdapter=new RecycleAdapterLayanan(this,mListCustomer);
+        recycleAdapterLayananLog=new RecycleAdapterLayananLog(this,mListCustomer);
         RecyclerView.LayoutManager mLayoutManager=new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(recycleAdapter);
     }
 
     private void setRecycleView(){
+        recyclerView.setAdapter(recycleAdapter);
         ApiInterface apiService=ApiClient.getClient().create(ApiInterface.class);
         Call<readLayanan> layananCall = apiService.getLayanan();
         layananCall.enqueue(new Callback<readLayanan>(){
@@ -95,6 +113,28 @@ public class layananShow extends AppCompatActivity {
             @Override
             public void onResponse(Call<readLayanan> call, Response<readLayanan> response) {
                 if(response.body()!=null) {
+                    mListCustomer.clear();
+                    mListCustomer.addAll(response.body().getMessage());
+                    recycleAdapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<readLayanan> call, Throwable t) {
+                Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    private void setRecycleViewLog(){
+        recyclerView.setAdapter(recycleAdapterLayananLog);
+        ApiInterface apiService=ApiClient.getClient().create(ApiInterface.class);
+        Call<readLayanan> layananCall = apiService.getLayananLog();
+        layananCall.enqueue(new Callback<readLayanan>(){
+
+            @Override
+            public void onResponse(Call<readLayanan> call, Response<readLayanan> response) {
+                if(response.body()!=null) {
+                    mListCustomer.clear();
                     mListCustomer.addAll(response.body().getMessage());
                     recycleAdapter.notifyDataSetChanged();
                 }
@@ -108,6 +148,7 @@ public class layananShow extends AppCompatActivity {
     }
     public void setAtribut() {
         back = findViewById(R.id.btnBack);
+        aSwitch = findViewById(R.id.switchLogLay);
         searchCustomer = findViewById(R.id.searchCustomer);
     }
 }

@@ -76,7 +76,7 @@ public class layananEdit extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-                Call<cudCustomer> supplierCall = apiService.deleteSupplier(number);
+                Call<cudCustomer> supplierCall = apiService.deleteLayanan(number);
                 supplierCall.enqueue(new Callback<cudCustomer>(){
                     public void onResponse(Call<cudCustomer> call, Response<cudCustomer> response){
                         Toast.makeText(layananEdit.this,"Berhasil dihapus",Toast.LENGTH_SHORT).show();
