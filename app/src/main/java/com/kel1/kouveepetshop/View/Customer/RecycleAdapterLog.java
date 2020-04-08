@@ -23,22 +23,19 @@ public class RecycleAdapterLog extends RecyclerView.Adapter<RecycleAdapterLog.My
     private List<customerDAO> result;
     public CardView cardView;
 
-    public static final String EXTRA_TEXT = "com.kel1.kouveepetshop.EXTRA_TEXT";
-    public static final String EXTRA_NUMBER = "com.kel1.kouveepetshop.EXTRA_NUMBER";
-
     public RecycleAdapterLog(Context context, List<customerDAO> result){
         this.context=context;
         this.result=result;
     }
 
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i){
-        View v = LayoutInflater.from(context).inflate(R.layout.recycle_adapter_costumer_show,viewGroup,false);
+        View v = LayoutInflater.from(context).inflate(R.layout.recycle_adapter_costumer_show_log,viewGroup,false);
         final MyViewHolder holder = new MyViewHolder(v);
         return  holder;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        public TextView mNama, mAlamat, mTgllahir, mTelp;
+        public TextView mNama, mAlamat, mTgllahir, mTelp, mDeletedAt, mCreatedAt, mEditedAt, mCreatedBy, mEditedBy,mDeletedBy;
         private LinearLayout mParent;
 
         public MyViewHolder(@NonNull View itemView){
@@ -47,6 +44,12 @@ public class RecycleAdapterLog extends RecyclerView.Adapter<RecycleAdapterLog.My
             mAlamat=itemView.findViewById(R.id.RC_Alamat);
             mTgllahir=itemView.findViewById(R.id.RC_TanggalLahir);
             mTelp=itemView.findViewById(R.id.RC_Telp);
+            mCreatedAt=itemView.findViewById(R.id.custcreatedat);
+            mCreatedBy=itemView.findViewById(R.id.custcreatedby);
+            mEditedAt=itemView.findViewById(R.id.custeditedat);
+            mEditedBy=itemView.findViewById(R.id.custeditedby);
+            mDeletedAt=itemView.findViewById(R.id.custdeletedat);
+            mDeletedBy=itemView.findViewById(R.id.custdeletedby);
             mParent=itemView.findViewById(R.id.RC_Admin_Event_Parent);
             cardView =itemView.findViewById(R.id.RC_Customer_cardView);
             context = itemView.getContext();
@@ -61,18 +64,19 @@ public class RecycleAdapterLog extends RecyclerView.Adapter<RecycleAdapterLog.My
     @Override
     public void onBindViewHolder(final MyViewHolder myViewHolder, final int i) {
         final customerDAO customerDAO=result.get(i);
-        myViewHolder.mNama.setText("Nama\t: "+customerDAO.getCust_created_at());
+        myViewHolder.mNama.setText("Nama\t: "+customerDAO.getNama_customer());
         myViewHolder.mAlamat.setText("Alamat\t: "+customerDAO.getAlamat_customer());
         myViewHolder.mTgllahir.setText("Tgl Lahir\t: "+customerDAO.getTgllahir_customer());
-        myViewHolder.mTelp.setText("Telp\t: "+customerDAO.getTelp_customer()+"\n");
+        myViewHolder.mTelp.setText("Telp\t: "+customerDAO.getTelp_customer());
+        myViewHolder.mCreatedAt.setText("Dibuat pada\t: "+customerDAO.getCust_created_at());
+        myViewHolder.mCreatedBy.setText("Dibuat oleh\t: "+customerDAO.getCust_created_by());
+        myViewHolder.mEditedAt.setText("Diedit pada\t: "+customerDAO.getCust_edited_at());
+        myViewHolder.mEditedBy.setText("Diedit oleh\t: "+customerDAO.getCust_edited_by());
+        myViewHolder.mDeletedAt.setText("Dihapus pada\t: "+customerDAO.getCust_deleted_at());
+        myViewHolder.mDeletedBy.setText("Dihapus oleh\t: "+customerDAO.getCust_deleted_by());
         myViewHolder.mParent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context,customerLog.class);
-                intent.putExtra(EXTRA_TEXT, new String[] {customerDAO.getNama_customer(),customerDAO.getAlamat_customer(),
-                        customerDAO.getTgllahir_customer(),customerDAO.getTelp_customer()});
-                intent.putExtra(EXTRA_NUMBER, customerDAO.getId_customer());
-                context.startActivity(intent);
             }
         });
     }
