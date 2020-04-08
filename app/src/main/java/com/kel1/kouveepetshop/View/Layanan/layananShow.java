@@ -94,6 +94,7 @@ public class layananShow extends AppCompatActivity {
         }
 
         recycleAdapter.filterList(filteredList);
+        recycleAdapterLayananLog.filterList(filteredList);
     }
     private void setRecycleAdapter(){
         recyclerView=findViewById(R.id.RC_Customer);

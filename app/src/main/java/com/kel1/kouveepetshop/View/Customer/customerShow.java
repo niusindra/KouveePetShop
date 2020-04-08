@@ -106,6 +106,7 @@ public class customerShow extends AppCompatActivity {
         }
 
         recycleAdapter.filterList(filteredList);
+        recycleAdapterLog.filterList(filteredList);
     }
     private void setRecycleAdapter(){
         recyclerView=findViewById(R.id.RC_Customer);

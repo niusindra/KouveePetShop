@@ -40,4 +40,5 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.0.2'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'net.gotev:uploadservice:2.1'
 }

@@ -74,11 +74,6 @@ public class RecycleAdapterLog extends RecyclerView.Adapter<RecycleAdapterLog.My
         myViewHolder.mEditedBy.setText("Diedit oleh\t: "+customerDAO.getCust_edited_by());
         myViewHolder.mDeletedAt.setText("Dihapus pada\t: "+customerDAO.getCust_deleted_at());
         myViewHolder.mDeletedBy.setText("Dihapus oleh\t: "+customerDAO.getCust_deleted_by());
-        myViewHolder.mParent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-            }
-        });
     }
 
     @Override

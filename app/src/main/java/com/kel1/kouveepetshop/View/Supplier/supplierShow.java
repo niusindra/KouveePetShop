@@ -101,6 +101,7 @@ public class supplierShow extends AppCompatActivity {
         }
 
         recycleAdapterSupplier.filterList(filteredList);
+        recycleAdapterSupplierLog.filterList(filteredList);
     }
     private void setRecycleAdapter(){
         recyclerView=findViewById(R.id.RC_Customer);
