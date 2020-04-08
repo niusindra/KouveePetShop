@@ -1,5 +1,7 @@
 package com.kel1.kouveepetshop.DAO;
 
+import androidx.annotation.NonNull;
+
 import com.google.gson.annotations.SerializedName;
 
 public class supplierDAO {
@@ -50,5 +52,11 @@ public class supplierDAO {
 
     public String getSup_edited_at() {
         return sup_edited_at;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return nama_supplier;
     }
 }

@@ -43,7 +43,7 @@ public class produkAdd extends AppCompatActivity {
     public Button uploadBtn;
     public Button addBtn;
 
-    private List<supplierDAO> mListSupplier=new ArrayList<>();
+    private List<supplierDAO> mListSupplier;
 
     private Uri mImageUri;
 
@@ -53,7 +53,7 @@ public class produkAdd extends AppCompatActivity {
         setAtribut();
         getSupplier();
 
-        ArrayAdapter<supplierDAO> adapter = new ArrayAdapter<supplierDAO>(this,
+        ArrayAdapter<supplierDAO> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, mListSupplier);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
@@ -62,8 +62,9 @@ public class produkAdd extends AppCompatActivity {
         mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                supplierDAO user = (supplierDAO) parent.getSelectedItem();
+                supplierDAO user = (supplierDAO) parent.getItemAtPosition(position);
                 displayUserData(user);
+                nama.setText(user.getNama_supplier());
             }
 
             @Override
@@ -110,6 +111,7 @@ public class produkAdd extends AppCompatActivity {
     }
 
     private void getSupplier(){
+        mListSupplier=new ArrayList<>();
         ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
         Call<readSupplier> layananCall = apiService.getSupplier();
         layananCall.enqueue(new Callback<readSupplier>(){
@@ -126,11 +128,6 @@ public class produkAdd extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
             }
         });
-    }
-
-    public void getSelectedUser(View v) {
-        supplierDAO user = (supplierDAO) mSpinner.getSelectedItem();
-        displayUserData(user);
     }
 
     private void displayUserData(supplierDAO user) {

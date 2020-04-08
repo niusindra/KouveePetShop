@@ -58,9 +58,16 @@ public class login_pegawai extends AppCompatActivity {
                                 if(response.body().getRole_pegawai().equalsIgnoreCase("admin")) {
                                     Intent i = new Intent(getApplicationContext(), dashboard.class);
                                     startActivity(i);
+                                    Toast.makeText(getApplicationContext(),"Login Success",Toast.LENGTH_SHORT).show();
+                                }else if(response.body().getRole_pegawai().equalsIgnoreCase("customer service")){
+                                    Intent i = new Intent(getApplicationContext(), dashboard.class);
+                                    startActivity(i);
+                                    Toast.makeText(getApplicationContext(),"Login Success",Toast.LENGTH_SHORT).show();
+                                }else{
+                                    Toast.makeText(getApplicationContext(),"Anda Kasir",Toast.LENGTH_SHORT).show();
                                 }
                                 finish();
-                                Toast.makeText(getApplicationContext(),"Login Success",Toast.LENGTH_SHORT).show();
+
                             }
                         }
 

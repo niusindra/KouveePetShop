@@ -40,21 +40,24 @@
                 android:layout_height="60dp"
                 android:src="@drawable/kouveelogo" />
         </LinearLayout>
-        <EditText
-            android:id="@+id/idsuppProduk"
+        <TextView
+            android:id="@+id/suppTV"
             android:layout_width="280dp"
-            android:layout_height="45dp"
-            android:hint="Id Supplier"
+            android:layout_height="wrap_content"
+            android:hint="Supplier:"
             android:elevation="5dp"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
-            android:paddingLeft="15dp"
-            android:background="@drawable/btn"/>
+            android:paddingLeft="15dp"/>
+
         <Spinner
             android:id="@+id/supplierSpin"
             android:layout_width="280dp"
             android:layout_height="45dp"
-            android:layout_gravity="center"/>
+
+            android:elevation="5dp"
+            android:layout_gravity="center"
+            android:background="@drawable/btn"/>
         <EditText
             android:id="@+id/namaProdukTxt"
             android:layout_width="280dp"
