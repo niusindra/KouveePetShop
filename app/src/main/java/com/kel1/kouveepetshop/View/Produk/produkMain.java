@@ -33,6 +33,13 @@ public class produkMain extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        show.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(produkMain.this, produkShow.class);
+                startActivity(intent);
+            }
+        });
     }
     public void setAtribut (){
         back = findViewById(R.id.backBtn);

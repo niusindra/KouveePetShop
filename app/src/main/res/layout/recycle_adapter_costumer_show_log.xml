@@ -5,7 +5,7 @@
     android:id="@+id/RC_Layanan_Log_cardView"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".View.Customer.RecycleAdapter"
+    tools:context=".View.Customer.RecycleAdapterLog"
     android:layout_marginBottom="10dp">
     <RelativeLayout
         android:layout_width="match_parent"

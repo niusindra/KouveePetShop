@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,11 +18,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.kel1.kouveepetshop.Api.ApiClient;
 import com.kel1.kouveepetshop.Api.ApiInterface;
-import com.kel1.kouveepetshop.DAO.layananDAO;
+import com.kel1.kouveepetshop.DAO.produkDAO;
 import com.kel1.kouveepetshop.R;
-import com.kel1.kouveepetshop.Respon.readLayanan;
-import com.kel1.kouveepetshop.View.Layanan.RecycleAdapterLayanan;
-import com.kel1.kouveepetshop.View.Layanan.layananMain;
+import com.kel1.kouveepetshop.Respon.readProduk;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,20 +32,22 @@ import retrofit2.Response;
 public class produkShow extends AppCompatActivity {
 
     public ImageView back;
-    private List<layananDAO> mListCustomer=new ArrayList<>();
+    public Switch aSwitch;
+    private List<produkDAO> mListCustomer;
     private RecyclerView recyclerView;
-    private RecycleAdapterLayanan recycleAdapter;
+    private RecycleAdapterProduk recycleAdapter;
+    private RecycleAdapterProdukLog recycleAdapterProdukLog;
     private RecyclerView.LayoutManager layoutManager;
     private EditText searchCustomer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.produk_show);
+        setContentView(R.layout.layanan_show);
         setAtribut();
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(produkShow.this, layananMain.class);
+                Intent intent = new Intent(produkShow.this, produkMain.class);
                 startActivity(intent);
             }
         });
@@ -68,48 +70,86 @@ public class produkShow extends AppCompatActivity {
             }
         });
         setRecycleView();
+        aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b){
+                    setRecycleViewLog();
+                }else{
+                    setRecycleView();
+                }
+            }
+        });
+        if(aSwitch.isChecked()){
+            setRecycleViewLog();
+        }
     }
 
     private void filter(String text) {
-        List<layananDAO> filteredList = new ArrayList<>();
-        for (layananDAO item : mListCustomer) {
-            if (item.getNama_layanan().toLowerCase().contains(text.toLowerCase())) {
+        List<produkDAO> filteredList = new ArrayList<>();
+        for (produkDAO item : mListCustomer) {
+            if (item.getNama_produk().toLowerCase().contains(text.toLowerCase())) {
                 filteredList.add(item);
             }
         }
 
         recycleAdapter.filterList(filteredList);
+        recycleAdapterProdukLog.filterList(filteredList);
     }
     private void setRecycleAdapter(){
         recyclerView=findViewById(R.id.RC_Customer);
-        recycleAdapter=new RecycleAdapterLayanan(this,mListCustomer);
+        recycleAdapter=new RecycleAdapterProduk(this,mListCustomer);
+        recycleAdapterProdukLog =new RecycleAdapterProdukLog(this,mListCustomer);
         RecyclerView.LayoutManager mLayoutManager=new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(recycleAdapter);
     }
 
     private void setRecycleView(){
+        recyclerView.setAdapter(recycleAdapter);
         ApiInterface apiService=ApiClient.getClient().create(ApiInterface.class);
-        Call<readLayanan> layananCall = apiService.getLayanan();
-        layananCall.enqueue(new Callback<readLayanan>(){
+        Call<readProduk> layananCall = apiService.getProduk();
+        layananCall.enqueue(new Callback<readProduk>(){
 
             @Override
-            public void onResponse(Call<readLayanan> call, Response<readLayanan> response) {
+            public void onResponse(Call<readProduk> call, Response<readProduk> response) {
                 if(response.body()!=null) {
+                    mListCustomer.clear();
                     mListCustomer.addAll(response.body().getMessage());
                     recycleAdapter.notifyDataSetChanged();
                 }
             }
 
             @Override
-            public void onFailure(Call<readLayanan> call, Throwable t) {
+            public void onFailure(Call<readProduk> call, Throwable t) {
+                Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    private void setRecycleViewLog(){
+        recyclerView.setAdapter(recycleAdapterProdukLog);
+        ApiInterface apiService=ApiClient.getClient().create(ApiInterface.class);
+        Call<readProduk> layananCall = apiService.getProdukLog();
+        layananCall.enqueue(new Callback<readProduk>(){
+
+            @Override
+            public void onResponse(Call<readProduk> call, Response<readProduk> response) {
+                if(response.body()!=null) {
+                    mListCustomer.clear();
+                    mListCustomer.addAll(response.body().getMessage());
+                    recycleAdapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<readProduk> call, Throwable t) {
                 Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
             }
         });
     }
     public void setAtribut() {
         back = findViewById(R.id.btnBack);
+        aSwitch = findViewById(R.id.switchLogLay);
         searchCustomer = findViewById(R.id.searchCustomer);
     }
 }

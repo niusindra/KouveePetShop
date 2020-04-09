@@ -1,20 +1,12 @@
 package com.kel1.kouveepetshop.View.Produk;
 
 import android.Manifest;
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.provider.SyncStateContract;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -26,7 +18,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -37,16 +28,11 @@ import com.kel1.kouveepetshop.DAO.supplierDAO;
 import com.kel1.kouveepetshop.R;
 import com.kel1.kouveepetshop.Respon.cudCustomer;
 import com.kel1.kouveepetshop.Respon.readSupplier;
-import com.kel1.kouveepetshop.SessionManager;
-import com.kel1.kouveepetshop.View.Customer.customerAdd;
-import com.squareup.picasso.Picasso;
-
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -55,7 +41,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class produkAdd extends AppCompatActivity {
+public class produkEdit extends AppCompatActivity {
     private static final int PICK_IMAGE_REQUEST = 1;
     public ImageView back;
     public TextView namaSupplier;
@@ -178,11 +164,11 @@ public class produkAdd extends AppCompatActivity {
             Call<cudCustomer> customerCall = apiService.addProduk(1,Rnama,photoPart,Rbeli,Rjual,Rstok,Rminstok);
             customerCall.enqueue(new Callback<cudCustomer>(){
                 public void onResponse(Call<cudCustomer> call, Response<cudCustomer> response){
-                    Toast.makeText(produkAdd.this,"Berhasil tambah",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(produkEdit.this,"Berhasil tambah",Toast.LENGTH_SHORT).show();
                     startIntent();
                 }
                 public void onFailure(Call<cudCustomer> call, Throwable t){
-                    Toast.makeText(produkAdd.this,"Masalah koneksi",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(produkEdit.this,"Masalah koneksi",Toast.LENGTH_SHORT).show();
                 }
             });
         }
