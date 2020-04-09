@@ -1,7 +1,7 @@
 package com.kel1.kouveepetshop.Api;
 
 import com.kel1.kouveepetshop.DAO.customerDAO;
-import com.kel1.kouveepetshop.Respon.cudCustomer;
+import com.kel1.kouveepetshop.Respon.cudDataMaster;
 import com.kel1.kouveepetshop.Respon.readCustomer;
 import com.kel1.kouveepetshop.Respon.readHewan;
 import com.kel1.kouveepetshop.Respon.readJenisHewan;
@@ -77,114 +77,114 @@ public interface ApiInterface {
                                   @Field("password")String password);
     @POST("customer/")
     @FormUrlEncoded
-    Call<cudCustomer> addCustomer(@Field("nama_customer")String nama_customer,
-                                  @Field("alamat_customer")String alamat_customer,
-                                  @Field("tgllahir_customer")String tgllahir_customer,
-                                  @Field("telp_customer")String telp_customer,
-                                  @Field("cust_created_by")String cust_created_by);
+    Call<cudDataMaster> addCustomer(@Field("nama_customer")String nama_customer,
+                                    @Field("alamat_customer")String alamat_customer,
+                                    @Field("tgllahir_customer")String tgllahir_customer,
+                                    @Field("telp_customer")String telp_customer,
+                                    @Field("cust_created_by")String cust_created_by);
 
     @POST("produk/")
     @Multipart
-    Call<cudCustomer> addProduk(@Part ("id_supplier") Integer id_supplier,
-                                @Part ("nama_produk") RequestBody nama_produk,
-                                @Part MultipartBody.Part foto_produk,
-                              @Part ("harga_beli_produk") Integer harga_beli_produk,
-                              @Part ("harga_jual_produk") Integer harga_jual_produk,
-                              @Part ("stok") Integer stok,
-                              @Part ("min_stok") Integer min_stok);
+    Call<cudDataMaster> addProduk(@Part ("id_supplier") Integer id_supplier,
+                                  @Part ("nama_produk") RequestBody nama_produk,
+                                  @Part MultipartBody.Part foto_produk,
+                                  @Part ("harga_beli_produk") Integer harga_beli_produk,
+                                  @Part ("harga_jual_produk") Integer harga_jual_produk,
+                                  @Part ("stok") Integer stok,
+                                  @Part ("min_stok") Integer min_stok);
 
     @POST("layanan/")
     @FormUrlEncoded
-    Call<cudCustomer> addLayanan(@Field("nama_layanan")String nama_layanan);
+    Call<cudDataMaster> addLayanan(@Field("nama_layanan")String nama_layanan);
 
     @POST("hewan/")
     @FormUrlEncoded
-    Call<cudCustomer> addHewan(@Field("id_customer")int id_customer,
-                            @Field("nama_hewan")String nama_hewan,
-                            @Field("tgl_lahir_hewan")String tgl_lahir_hewan,
-                            @Field("hwn_created_by")String hwn_created_by);
+    Call<cudDataMaster> addHewan(@Field("id_customer")int id_customer,
+                                 @Field("nama_hewan")String nama_hewan,
+                                 @Field("tgl_lahir_hewan")String tgl_lahir_hewan,
+                                 @Field("hwn_created_by")String hwn_created_by);
 
     @POST("jenishewan/")
     @FormUrlEncoded
-    Call<cudCustomer> addJenisHewan(@Field("jenis")String jenis);
+    Call<cudDataMaster> addJenisHewan(@Field("jenis")String jenis);
 
     @POST("ukuranhewan/")
     @FormUrlEncoded
-    Call<cudCustomer> addUkuranHewan(@Field("ukuran")String ukuran);
+    Call<cudDataMaster> addUkuranHewan(@Field("ukuran")String ukuran);
 
     @POST("supplier/")
     @FormUrlEncoded
-    Call<cudCustomer> addSupplier(@Field("nama_supplier")String nama_supplier,
-                                  @Field("alamat_supplier")String alamat_supplier,
-                                  @Field("telp_supplier")String telp_supplier);
+    Call<cudDataMaster> addSupplier(@Field("nama_supplier")String nama_supplier,
+                                    @Field("alamat_supplier")String alamat_supplier,
+                                    @Field("telp_supplier")String telp_supplier);
 
 //    =============================UPDATE========================================================
     @POST("customer/{id}")
     @FormUrlEncoded
-    Call<cudCustomer> editCustomer(@Path("id")int id,
-                              @Field("nama_customer")String nama_customer,
-                              @Field("alamat_customer")String alamat_customer,
-                              @Field("tgllahir_customer")String tgllahir_customer,
-                              @Field("telp_customer")String telp_customer,
-                              @Field("cust_edited_by")String cust_edited_by);
+    Call<cudDataMaster> editCustomer(@Path("id")int id,
+                                     @Field("nama_customer")String nama_customer,
+                                     @Field("alamat_customer")String alamat_customer,
+                                     @Field("tgllahir_customer")String tgllahir_customer,
+                                     @Field("telp_customer")String telp_customer,
+                                     @Field("cust_edited_by")String cust_edited_by);
 
     @POST("produk/{id}")
     @Multipart
-    Call<cudCustomer> editProduk(@Path("id")int id,
-                           @Field("id_supplier")int id_supplier,
-                           @Field("nama_produk")String nama_produk,
-                           @Field("foto_produk")String foto_produk,
-                           @Field("harga_beli_produk")int harga_beli_produk,
-                           @Field("harga_jual_produk")int harga_jual_produk,
-                           @Field("stok")int stok,
-                           @Field("min_stok")int min_stok);
+    Call<cudDataMaster> editProduk(@Path("id")int id,
+                                   @Field("id_supplier")int id_supplier,
+                                   @Field("nama_produk")String nama_produk,
+                                   @Field("foto_produk")String foto_produk,
+                                   @Field("harga_beli_produk")int harga_beli_produk,
+                                   @Field("harga_jual_produk")int harga_jual_produk,
+                                   @Field("stok")int stok,
+                                   @Field("min_stok")int min_stok);
 
     @POST("layanan/{id}")
     @FormUrlEncoded
-    Call<cudCustomer> editLayanan(@Path("id")int id,
-                                   @Field("nama_layanan")String nama_layanan);
+    Call<cudDataMaster> editLayanan(@Path("id")int id,
+                                    @Field("nama_layanan")String nama_layanan);
     @POST("hewan/{id}")
     @FormUrlEncoded
-    Call<cudCustomer> editHewan(@Path("id")int id,
-                          @Field("id_customer")int id_customer,
-                          @Field("nama_hewan")String nama_hewan,
-                          @Field("tgl_lahir_hewan")String tgl_lahir_hewan,
-                          @Field("hwn_edited_by")String hwn_edited_by);
+    Call<cudDataMaster> editHewan(@Path("id")int id,
+                                  @Field("id_customer")int id_customer,
+                                  @Field("nama_hewan")String nama_hewan,
+                                  @Field("tgl_lahir_hewan")String tgl_lahir_hewan,
+                                  @Field("hwn_edited_by")String hwn_edited_by);
 
     @POST("jenishewan/{id}")
     @FormUrlEncoded
-    Call<cudCustomer> editJenisHewan(@Path("id")int id,
-                               @Field("jenis")String jenis);
+    Call<cudDataMaster> editJenisHewan(@Path("id")int id,
+                                       @Field("jenis")String jenis);
 
     @POST("ukuranhewan/{id}")
     @FormUrlEncoded
-    Call<cudCustomer> editUkuranHewan(@Path("id")int id,
-                                         @Field("ukuran")String ukuran);
+    Call<cudDataMaster> editUkuranHewan(@Path("id")int id,
+                                        @Field("ukuran")String ukuran);
 
     @POST("supplier/{id}")
     @FormUrlEncoded
-    Call<cudCustomer> editSupplier(@Path("id")int id,
-                             @Field("nama_supplier")String nama_supplier,
-                             @Field("alamat_supplier")String alamat_supplier,
-                             @Field("telp_supplier")String telp_supplier);
+    Call<cudDataMaster> editSupplier(@Path("id")int id,
+                                     @Field("nama_supplier")String nama_supplier,
+                                     @Field("alamat_supplier")String alamat_supplier,
+                                     @Field("telp_supplier")String telp_supplier);
 
 //    =============================DELETE========================================================
     @POST("customer/delete/{id}")
     @FormUrlEncoded
-    Call<cudCustomer> deleteCustomer(@Path("id") int id,
-                                @Field("cust_deleted_by")String cust_deleted_by);
+    Call<cudDataMaster> deleteCustomer(@Path("id") int id,
+                                       @Field("cust_deleted_by")String cust_deleted_by);
     @POST("produk/delete/{id}")
-    Call<cudCustomer> deleteProduk(@Path("id")int id);
+    Call<cudDataMaster> deleteProduk(@Path("id")int id);
     @POST("layanan/delete/{id}")
-    Call<cudCustomer> deleteLayanan(@Path("id")int id);
+    Call<cudDataMaster> deleteLayanan(@Path("id")int id);
     @POST("hewan/delete/{id}")
     @FormUrlEncoded
-    Call<cudCustomer> deleteHewan(@Path("id")int id,
-                                  @Field("hwn_deleted_by")String hwn_deleted_by);
+    Call<cudDataMaster> deleteHewan(@Path("id")int id,
+                                    @Field("hwn_deleted_by")String hwn_deleted_by);
     @POST("jenishewan/delete/{id}")
-    Call<cudCustomer> deleteJenisHewan(@Path("id")int id);
+    Call<cudDataMaster> deleteJenisHewan(@Path("id")int id);
     @POST("ukuranhewan/delete/{id}")
-    Call<cudCustomer> deleteUkuranHewan(@Path("id")int id);
+    Call<cudDataMaster> deleteUkuranHewan(@Path("id")int id);
     @POST("supplier/delete/{id}")
-    Call<cudCustomer> deleteSupplier(@Path("id")int id);
+    Call<cudDataMaster> deleteSupplier(@Path("id")int id);
 }

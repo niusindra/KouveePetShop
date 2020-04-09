@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.kel1.kouveepetshop.Api.ApiClient;
 import com.kel1.kouveepetshop.Api.ApiInterface;
 import com.kel1.kouveepetshop.R;
-import com.kel1.kouveepetshop.Respon.cudCustomer;
+import com.kel1.kouveepetshop.Respon.cudDataMaster;
 import com.kel1.kouveepetshop.SessionManager;
 
 import retrofit2.Call;
@@ -41,14 +41,14 @@ public class supplierAdd extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Data harus terisi semua!", Toast.LENGTH_SHORT).show();
                 }else{
                     ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-                    Call<cudCustomer> supplierCall = apiService.addSupplier(nama.getText().toString(),
+                    Call<cudDataMaster> supplierCall = apiService.addSupplier(nama.getText().toString(),
                             alamat.getText().toString(),telp.getText().toString());
-                    supplierCall.enqueue(new Callback<cudCustomer>(){
-                        public void onResponse(Call<cudCustomer> call, Response<cudCustomer> response){
+                    supplierCall.enqueue(new Callback<cudDataMaster>(){
+                        public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response){
                             Toast.makeText(supplierAdd.this,"Berhasil tambah",Toast.LENGTH_SHORT).show();
                             startIntent();
                         }
-                        public void onFailure(Call<cudCustomer> call, Throwable t){
+                        public void onFailure(Call<cudDataMaster> call, Throwable t){
                             Toast.makeText(supplierAdd.this,"Masalah koneksi",Toast.LENGTH_SHORT).show();
                         }
                     });

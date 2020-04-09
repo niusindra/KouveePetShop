@@ -13,10 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.kel1.kouveepetshop.Api.ApiClient;
 import com.kel1.kouveepetshop.Api.ApiInterface;
 import com.kel1.kouveepetshop.R;
-import com.kel1.kouveepetshop.Respon.cudCustomer;
-import com.kel1.kouveepetshop.SessionManager;
-
-import java.util.HashMap;
+import com.kel1.kouveepetshop.Respon.cudDataMaster;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -94,14 +91,14 @@ public class supplierEdit extends AppCompatActivity {
                 }else{
 
                     ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-                    Call<cudCustomer> customerCall = apiService.editSupplier(number,nama.getText().toString(),
+                    Call<cudDataMaster> customerCall = apiService.editSupplier(number,nama.getText().toString(),
                             alamat.getText().toString(),telp.getText().toString());
-                    customerCall.enqueue(new Callback<cudCustomer>(){
-                        public void onResponse(Call<cudCustomer> call, Response<cudCustomer> response){
+                    customerCall.enqueue(new Callback<cudDataMaster>(){
+                        public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response){
                             Toast.makeText(supplierEdit.this,"Berhasil edit",Toast.LENGTH_SHORT).show();
                             startIntent();
                         }
-                        public void onFailure(Call<cudCustomer> call, Throwable t){
+                        public void onFailure(Call<cudDataMaster> call, Throwable t){
                             Toast.makeText(supplierEdit.this,"Masalah koneksi",Toast.LENGTH_SHORT).show();
                             startIntent();
                         }
@@ -113,13 +110,13 @@ public class supplierEdit extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-                Call<cudCustomer> supplierCall = apiService.deleteSupplier(number);
-                supplierCall.enqueue(new Callback<cudCustomer>(){
-                    public void onResponse(Call<cudCustomer> call, Response<cudCustomer> response){
+                Call<cudDataMaster> supplierCall = apiService.deleteSupplier(number);
+                supplierCall.enqueue(new Callback<cudDataMaster>(){
+                    public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response){
                         Toast.makeText(supplierEdit.this,"Berhasil dihapus",Toast.LENGTH_SHORT).show();
                         startIntent();
                     }
-                    public void onFailure(Call<cudCustomer> call,Throwable t){
+                    public void onFailure(Call<cudDataMaster> call, Throwable t){
                         Toast.makeText(supplierEdit.this,"Masalah koneksi",Toast.LENGTH_SHORT).show();
                     }
                 });

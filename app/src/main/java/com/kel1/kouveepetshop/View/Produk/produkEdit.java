@@ -26,7 +26,7 @@ import com.kel1.kouveepetshop.Api.ApiClient;
 import com.kel1.kouveepetshop.Api.ApiInterface;
 import com.kel1.kouveepetshop.DAO.supplierDAO;
 import com.kel1.kouveepetshop.R;
-import com.kel1.kouveepetshop.Respon.cudCustomer;
+import com.kel1.kouveepetshop.Respon.cudDataMaster;
 import com.kel1.kouveepetshop.Respon.readSupplier;
 
 import java.io.File;
@@ -161,13 +161,13 @@ public class produkEdit extends AppCompatActivity {
             int Rminstok = Integer.parseInt(this.minstok.getText().toString());
 
             ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-            Call<cudCustomer> customerCall = apiService.addProduk(1,Rnama,photoPart,Rbeli,Rjual,Rstok,Rminstok);
-            customerCall.enqueue(new Callback<cudCustomer>(){
-                public void onResponse(Call<cudCustomer> call, Response<cudCustomer> response){
+            Call<cudDataMaster> customerCall = apiService.addProduk(1,Rnama,photoPart,Rbeli,Rjual,Rstok,Rminstok);
+            customerCall.enqueue(new Callback<cudDataMaster>(){
+                public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response){
                     Toast.makeText(produkEdit.this,"Berhasil tambah",Toast.LENGTH_SHORT).show();
                     startIntent();
                 }
-                public void onFailure(Call<cudCustomer> call, Throwable t){
+                public void onFailure(Call<cudDataMaster> call, Throwable t){
                     Toast.makeText(produkEdit.this,"Masalah koneksi",Toast.LENGTH_SHORT).show();
                 }
             });

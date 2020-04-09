@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.kel1.kouveepetshop.Api.ApiClient;
 import com.kel1.kouveepetshop.Api.ApiInterface;
 import com.kel1.kouveepetshop.R;
-import com.kel1.kouveepetshop.Respon.cudCustomer;
+import com.kel1.kouveepetshop.Respon.cudDataMaster;
 import com.kel1.kouveepetshop.SessionManager;
 
 import java.text.SimpleDateFormat;
@@ -51,15 +51,15 @@ public class customerAdd extends AppCompatActivity {
                 }else{
                     final HashMap<String, String> userDetails = session.getUserDetails();
                     ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-                    Call<cudCustomer> customerCall = apiService.addCustomer(nama.getText().toString(),
+                    Call<cudDataMaster> customerCall = apiService.addCustomer(nama.getText().toString(),
                             alamat.getText().toString(),tanggal.getText().toString(),
                             telp.getText().toString(),userDetails.get(SessionManager.KEY_NAME));
-                    customerCall.enqueue(new Callback<cudCustomer>(){
-                        public void onResponse(Call<cudCustomer> call, Response<cudCustomer> response){
+                    customerCall.enqueue(new Callback<cudDataMaster>(){
+                        public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response){
                             Toast.makeText(customerAdd.this,"Berhasil tambah",Toast.LENGTH_SHORT).show();
                             startIntent();
                         }
-                        public void onFailure(Call<cudCustomer> call, Throwable t){
+                        public void onFailure(Call<cudDataMaster> call, Throwable t){
                             Toast.makeText(customerAdd.this,"Masalah koneksi",Toast.LENGTH_SHORT).show();
                         }
                     });
