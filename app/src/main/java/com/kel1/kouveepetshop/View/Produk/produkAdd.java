@@ -35,17 +35,25 @@ import com.kel1.kouveepetshop.Api.ApiClient;
 import com.kel1.kouveepetshop.Api.ApiInterface;
 import com.kel1.kouveepetshop.DAO.supplierDAO;
 import com.kel1.kouveepetshop.R;
+import com.kel1.kouveepetshop.Respon.cudCustomer;
 import com.kel1.kouveepetshop.Respon.readSupplier;
+import com.kel1.kouveepetshop.SessionManager;
+import com.kel1.kouveepetshop.View.Customer.customerAdd;
 import com.squareup.picasso.Picasso;
 
 import net.gotev.uploadservice.MultipartUploadRequest;
 import net.gotev.uploadservice.UploadNotificationConfig;
+import net.gotev.uploadservice.UploadService;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -71,13 +79,11 @@ public class produkAdd extends AppCompatActivity {
     private Bitmap bitmap;
 
     private static final int STORAGE_PERMISSION_CODE = 123;
-    public static final String UPLOAD_URL = "http://api.kouvee.site/produk/upload";
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.produk_add);
 
-        requestStoragePermission();
         setAtribut();
         getSupplier();
 
@@ -110,7 +116,9 @@ public class produkAdd extends AppCompatActivity {
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                uploadMultipart();
+                requestStoragePermission();
+                File file = new File(filePath.getPath());
+                uploadMultipart(file);
             }
         });
     }
@@ -156,28 +164,27 @@ public class produkAdd extends AppCompatActivity {
         Toast.makeText(this, userData, Toast.LENGTH_LONG).show();
     }
 
-    public void uploadMultipart() {
-        //getting name for the image
-        String name = nama.getText().toString().trim();
+    public void uploadMultipart(File file) {
+        RequestBody photoBody = RequestBody.create(MediaType.parse("image/*"), file);
+        MultipartBody.Part photoPart = MultipartBody.Part.createFormData("foto_produk", file.getName(), photoBody);
+        RequestBody Rsupp = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(1));
+        RequestBody Rnama = RequestBody.create(MediaType.parse("text/plain"), this.nama.getText().toString());
+        RequestBody Rbeli = RequestBody.create(MediaType.parse("text/plain"), this.beli.getText().toString());
+        RequestBody Rjual = RequestBody.create(MediaType.parse("text/plain"), this.jual.getText().toString());
+        RequestBody Rstok = RequestBody.create(MediaType.parse("text/plain"), this.stok.getText().toString());
+        RequestBody Rminstok = RequestBody.create(MediaType.parse("text/plain"), this.minstok.getText().toString());
 
-        //getting the actual path of the image
-        String path = getPath(filePath);
-
-        //Uploading code
-        try {
-            String uploadId = UUID.randomUUID().toString();
-
-            //Creating a multi part request
-            new MultipartUploadRequest(this,UPLOAD_URL)
-                    .addFileToUpload(path, "image") //Adding file
-                    .addParameter("name", name) //Adding text parameter to the request
-//                    .setNotificationConfig(new UploadNotificationConfig())
-                    .setMaxRetries(2)
-                    .startUpload(); //Starting the upload
-
-        } catch (Exception exc) {
-            Toast.makeText(this, exc.getMessage(), Toast.LENGTH_SHORT).show();
-        }
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        Call<cudCustomer> customerCall = apiService.addProduk(1,Rnama,photoPart,1,1,1,1);
+        customerCall.enqueue(new Callback<cudCustomer>(){
+            public void onResponse(Call<cudCustomer> call, Response<cudCustomer> response){
+                Toast.makeText(produkAdd.this,"Berhasil tambah",Toast.LENGTH_SHORT).show();
+                startIntent();
+            }
+            public void onFailure(Call<cudCustomer> call, Throwable t){
+                Toast.makeText(produkAdd.this,"Masalah koneksi",Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 
@@ -256,6 +263,10 @@ public class produkAdd extends AppCompatActivity {
                 Toast.makeText(this, "Oops you just denied the permission", Toast.LENGTH_LONG).show();
             }
         }
+    }
+    private void startIntent(){
+        Intent intent=new Intent(getApplicationContext(),produkShow.class);
+        startActivity(intent);
     }
 }
 

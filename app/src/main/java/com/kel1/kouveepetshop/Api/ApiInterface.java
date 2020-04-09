@@ -11,11 +11,15 @@ import com.kel1.kouveepetshop.Respon.readSupplier;
 import com.kel1.kouveepetshop.Respon.readUkuranHewan;
 import com.kel1.kouveepetshop.Respon.verifyPegawai;
 
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 import retrofit2.http.Path;
 
 public interface ApiInterface {
@@ -80,14 +84,14 @@ public interface ApiInterface {
                                   @Field("cust_created_by")String cust_created_by);
 
     @POST("produk/")
-    @FormUrlEncoded
-    Call<cudCustomer> addProduk(@Field("id_supplier")int id_supplier,
-                              @Field("nama_produk")String nama_produk,
-                              @Field("foto_produk")String foto_produk,
-                              @Field("harga_beli_produk")String harga_beli_produk,
-                              @Field("harga_jual_produk")String harga_jual_produk,
-                              @Field("stok")String stok,
-                              @Field("min_stok")String min_stok);
+    @Multipart
+    Call<cudCustomer> addProduk(@Part ("id_supplier") Integer id_supplier,
+                                @Part ("nama_produk") RequestBody nama_produk,
+                                @Part MultipartBody.Part foto_produk,
+                              @Part ("harga_beli_produk") Integer harga_beli_produk,
+                              @Part ("harga_jual_produk") Integer harga_jual_produk,
+                              @Part ("stok") Integer stok,
+                              @Part ("min_stok") Integer min_stok);
 
     @POST("layanan/")
     @FormUrlEncoded
@@ -125,7 +129,7 @@ public interface ApiInterface {
                               @Field("cust_edited_by")String cust_edited_by);
 
     @POST("produk/{id}")
-    @FormUrlEncoded
+    @Multipart
     Call<cudCustomer> editProduk(@Path("id")int id,
                            @Field("id_supplier")int id_supplier,
                            @Field("nama_produk")String nama_produk,
