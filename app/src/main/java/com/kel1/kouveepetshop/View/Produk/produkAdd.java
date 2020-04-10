@@ -52,11 +52,12 @@ public class produkAdd extends AppCompatActivity {
     public EditText stok;
     public EditText minstok;
     public Spinner mSpinner;
+    public String test;
     public ImageView mImageView;
     public Button uploadBtn;
     public Button addBtn;
 
-    private List<supplierDAO> mListSupplier;
+    public List<supplierDAO> mListSupplier;
 
     private Uri filePath;
 
@@ -67,11 +68,10 @@ public class produkAdd extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.produk_add);
-
         setAtribut();
         getSupplier();
 
-        ArrayAdapter<supplierDAO> adapter = new ArrayAdapter<>(this,
+        final ArrayAdapter<supplierDAO> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, mListSupplier);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
@@ -80,9 +80,8 @@ public class produkAdd extends AppCompatActivity {
         mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                supplierDAO user = (supplierDAO) parent.getItemAtPosition(position);
-                displayUserData(user);
-                namaSupplier.setText(user.getNama_supplier());
+                //supplierDAO user = (supplierDAO) parent.getItemAtPosition(position);
+                //displayUserData(user);
             }
 
             @Override
@@ -106,7 +105,13 @@ public class produkAdd extends AppCompatActivity {
             }
         });
     }
+    private void displayUserData(supplierDAO user) {
+        String name = user.getNama_supplier();
 
+        String userData = "Name: " + name;
+
+        Toast.makeText(this, userData, Toast.LENGTH_LONG).show();
+    }
     public void setAtribut(){
         namaSupplier = findViewById(R.id.namaSupplierTxt);
         nama = findViewById(R.id.namaProdukTxt);
@@ -140,13 +145,6 @@ public class produkAdd extends AppCompatActivity {
         });
     }
 
-    private void displayUserData(supplierDAO user) {
-        String name = user.getNama_supplier();
-
-        String userData = "Name: " + name;
-
-        Toast.makeText(this, userData, Toast.LENGTH_LONG).show();
-    }
 
     public void uploadMultipart(File file) {
         if(nama.getText().toString().isEmpty() || nama.getText().toString().isEmpty() || beli.getText().toString().isEmpty() ||

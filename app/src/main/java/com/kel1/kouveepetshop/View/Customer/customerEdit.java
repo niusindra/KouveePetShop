@@ -1,6 +1,8 @@
 package com.kel1.kouveepetshop.View.Customer;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -138,17 +140,35 @@ public class customerEdit extends AppCompatActivity {
         delBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-                Call<cudDataMaster> customerCall = apiService.deleteCustomer(number,userDetails.get(SessionManager.KEY_NAME));
-                customerCall.enqueue(new Callback<cudDataMaster>(){
-                    public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response){
-                        Toast.makeText(customerEdit.this,"Berhasil dihapus",Toast.LENGTH_SHORT).show();
-                        startIntent();
-                    }
-                    public void onFailure(Call<cudDataMaster> call, Throwable t){
-                        Toast.makeText(customerEdit.this,"Masalah koneksi",Toast.LENGTH_SHORT).show();
-                    }
-                });
+                AlertDialog.Builder builder = new AlertDialog.Builder(customerEdit.this);
+
+                builder.setMessage("Anda yakin untuk menghapus data")
+                        .setCancelable(false)
+                        .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+                                Call<cudDataMaster> customerCall = apiService.deleteCustomer(number,userDetails.get(SessionManager.KEY_NAME));
+                                customerCall.enqueue(new Callback<cudDataMaster>(){
+                                    public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response){
+                                        Toast.makeText(customerEdit.this,"Berhasil dihapus",Toast.LENGTH_SHORT).show();
+                                        startIntent();
+                                    }
+                                    public void onFailure(Call<cudDataMaster> call, Throwable t){
+                                        Toast.makeText(customerEdit.this,"Masalah koneksi",Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                            }
+                        })
+                        .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
+                        });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+
             }
         });
         back.setOnClickListener(new View.OnClickListener() {
