@@ -16,7 +16,7 @@ import com.kel1.kouveepetshop.Api.ApiClient;
 import com.kel1.kouveepetshop.Api.ApiInterface;
 import com.kel1.kouveepetshop.R;
 import com.kel1.kouveepetshop.Respon.cudDataMaster;
-import com.kel1.kouveepetshop.View.Customer.customerEdit;
+import com.kel1.kouveepetshop.View.ErrorCatch;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -68,8 +68,8 @@ public class layananEdit extends AppCompatActivity {
                             startIntent();
                         }
                         public void onFailure(Call<cudDataMaster> call, Throwable t){
-                            Toast.makeText(layananEdit.this,"Masalah koneksi",Toast.LENGTH_SHORT).show();
-                            startIntent();
+                            Intent intent=new Intent(getApplicationContext(), ErrorCatch.class);
+                            startActivity(intent);
                         }
                     });
                 }
@@ -93,7 +93,8 @@ public class layananEdit extends AppCompatActivity {
                                         startIntent();
                                     }
                                     public void onFailure(Call<cudDataMaster> call, Throwable t){
-                                        Toast.makeText(layananEdit.this,"Masalah koneksi",Toast.LENGTH_SHORT).show();
+                                        Intent intent=new Intent(getApplicationContext(), ErrorCatch.class);
+                                        startActivity(intent);
                                     }
                                 });
                             }
@@ -130,6 +131,11 @@ public class layananEdit extends AppCompatActivity {
     }
 
     private void startIntent(){
+        Intent intent=new Intent(getApplicationContext(), layananShow.class);
+        startActivity(intent);
+    }
+    public void onBackPressed() {
+        super.onBackPressed();
         Intent intent=new Intent(getApplicationContext(), layananShow.class);
         startActivity(intent);
     }

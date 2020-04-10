@@ -19,6 +19,7 @@ import com.kel1.kouveepetshop.Api.ApiInterface;
 import com.kel1.kouveepetshop.R;
 import com.kel1.kouveepetshop.Respon.cudDataMaster;
 import com.kel1.kouveepetshop.SessionManager;
+import com.kel1.kouveepetshop.View.ErrorCatch;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -130,8 +131,8 @@ public class customerEdit extends AppCompatActivity {
                             startIntent();
                         }
                         public void onFailure(Call<cudDataMaster> call, Throwable t){
-                            Toast.makeText(customerEdit.this,"Masalah koneksi",Toast.LENGTH_SHORT).show();
-                            startIntent();
+                            Intent intent=new Intent(getApplicationContext(), ErrorCatch.class);
+                            startActivity(intent);
                         }
                     });
                 }
@@ -155,7 +156,8 @@ public class customerEdit extends AppCompatActivity {
                                         startIntent();
                                     }
                                     public void onFailure(Call<cudDataMaster> call, Throwable t){
-                                        Toast.makeText(customerEdit.this,"Masalah koneksi",Toast.LENGTH_SHORT).show();
+                                        Intent intent=new Intent(getApplicationContext(), ErrorCatch.class);
+                                        startActivity(intent);
                                     }
                                 });
                             }
@@ -230,7 +232,11 @@ public class customerEdit extends AppCompatActivity {
         this.tanggal.setText(tgllahir);
         this.telp.setText(telp);
     }
-
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent=new Intent(getApplicationContext(), customerShow.class);
+        startActivity(intent);
+    }
     private void startIntent(){
         Intent intent=new Intent(getApplicationContext(),customerShow.class);
         startActivity(intent);

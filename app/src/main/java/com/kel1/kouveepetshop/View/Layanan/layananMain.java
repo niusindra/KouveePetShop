@@ -46,5 +46,10 @@ public class layananMain extends AppCompatActivity {
         add = findViewById(R.id.addBtn);
         show = findViewById(R.id.showBtn);
     }
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent=new Intent(getApplicationContext(), dashboard.class);
+        startActivity(intent);
+    }
 
 }

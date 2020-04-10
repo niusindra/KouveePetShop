@@ -17,6 +17,7 @@ import com.kel1.kouveepetshop.Api.ApiInterface;
 import com.kel1.kouveepetshop.R;
 import com.kel1.kouveepetshop.Respon.cudDataMaster;
 import com.kel1.kouveepetshop.SessionManager;
+import com.kel1.kouveepetshop.View.ErrorCatch;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -60,7 +61,8 @@ public class customerAdd extends AppCompatActivity {
                             startIntent();
                         }
                         public void onFailure(Call<cudDataMaster> call, Throwable t){
-                            Toast.makeText(customerAdd.this,"Masalah koneksi",Toast.LENGTH_SHORT).show();
+                            Intent intent=new Intent(getApplicationContext(), ErrorCatch.class);
+                            startActivity(intent);
                         }
                     });
                 }
@@ -99,6 +101,11 @@ public class customerAdd extends AppCompatActivity {
             }
         });
 
+    }
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent=new Intent(getApplicationContext(), customerMain.class);
+        startActivity(intent);
     }
     public void setAtribut (){
         back = findViewById(R.id.backBtn);

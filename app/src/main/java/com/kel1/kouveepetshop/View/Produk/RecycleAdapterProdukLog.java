@@ -37,19 +37,22 @@ public class RecycleAdapterProdukLog extends RecyclerView.Adapter<RecycleAdapter
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        public TextView mNama, mBeli, mJual, mStok, mMinStok;
+        public TextView mNama, mBeli, mJual, mStok, mMinStok, mDeletedAt, mCreatedAt, mEditedAt;
         public ImageView mfoto;
         private LinearLayout mParent;
 
         public MyViewHolder(@NonNull View itemView){
             super(itemView);
-            mfoto=itemView.findViewById(R.id.fotoproduk);
-            mNama=itemView.findViewById(R.id.adapterNamaPro);
-            mBeli=itemView.findViewById(R.id.adapterHargaB);
-            mJual=itemView.findViewById(R.id.adapterHargaJ);
-            mStok=itemView.findViewById(R.id.adapterStok);
-            mMinStok=itemView.findViewById(R.id.adapterMinStok);
-            mParent=itemView.findViewById(R.id.RC_Layanan_Event_Parent);
+            mfoto=itemView.findViewById(R.id.fotoprodukLog);
+            mNama=itemView.findViewById(R.id.adapterNamaProdukLog);
+            mBeli=itemView.findViewById(R.id.adapterHargaBeliLog);
+            mJual=itemView.findViewById(R.id.adapterHargaJualLog);
+            mStok=itemView.findViewById(R.id.adapterStokHargaLog);
+            mMinStok=itemView.findViewById(R.id.adapterMinStokHargaLog);
+            mParent=itemView.findViewById(R.id.RC_Produk_Event_Parent);
+            mCreatedAt=itemView.findViewById(R.id.createdatpro);
+            mEditedAt=itemView.findViewById(R.id.editedatpro);
+            mDeletedAt=itemView.findViewById(R.id.deletedatpro);
             context = itemView.getContext();
         }
 
@@ -68,6 +71,9 @@ public class RecycleAdapterProdukLog extends RecyclerView.Adapter<RecycleAdapter
         myViewHolder.mJual.setText("Harga Jual\t: "+produkDAO.getHarga_jual_produk());
         myViewHolder.mStok.setText("Stok\t: "+produkDAO.getStok());
         myViewHolder.mMinStok.setText("Minimal Stok\t: "+produkDAO.getMin_stok());
+        myViewHolder.mCreatedAt.setText("Dibuat pada\t: "+produkDAO.getProduk_created_at());
+        myViewHolder.mEditedAt.setText("Diedit pada\t: "+produkDAO.getProduk_edited_at());
+        myViewHolder.mDeletedAt.setText("Dihapus pada\t: "+produkDAO.getProduk_deleted_at());
 //        myViewHolder.mParent.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {

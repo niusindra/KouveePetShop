@@ -1,7 +1,5 @@
 package com.kel1.kouveepetshop.View.Admin;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -12,14 +10,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.kel1.kouveepetshop.Api.ApiClient;
 import com.kel1.kouveepetshop.Api.ApiInterface;
 import com.kel1.kouveepetshop.EmailDialog;
 import com.kel1.kouveepetshop.R;
 import com.kel1.kouveepetshop.Respon.verifyPegawai;
 import com.kel1.kouveepetshop.SessionManager;
-import com.kel1.kouveepetshop.View.Customer.customerAdd;
-import com.kel1.kouveepetshop.View.Customer.customerShow;
+import com.kel1.kouveepetshop.View.ErrorCatch;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -73,7 +72,8 @@ public class login_pegawai extends AppCompatActivity {
 
                         @Override
                         public void onFailure(Call<verifyPegawai> call, Throwable t) {
-                            Toast.makeText(getApplicationContext(), "Login Failed", Toast.LENGTH_SHORT).show();
+                            Intent intent=new Intent(getApplicationContext(), ErrorCatch.class);
+                            startActivity(intent);
                         }
                     });
 

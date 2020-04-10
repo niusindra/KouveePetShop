@@ -28,6 +28,7 @@ import com.kel1.kouveepetshop.DAO.supplierDAO;
 import com.kel1.kouveepetshop.R;
 import com.kel1.kouveepetshop.Respon.cudDataMaster;
 import com.kel1.kouveepetshop.Respon.readSupplier;
+import com.kel1.kouveepetshop.View.ErrorCatch;
 
 import java.io.File;
 import java.io.IOException;
@@ -115,7 +116,11 @@ public class produkAdd extends AppCompatActivity {
         mSpinner = findViewById(R.id.supplierSpin);
         mImageView = findViewById(R.id.showImageUload);
     }
-
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent=new Intent(getApplicationContext(), produkMain.class);
+        startActivity(intent);
+    }
     private void getSupplier(){
         mListSupplier=new ArrayList<>();
         ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
@@ -164,7 +169,8 @@ public class produkAdd extends AppCompatActivity {
                     startIntent();
                 }
                 public void onFailure(Call<cudDataMaster> call, Throwable t){
-                    Toast.makeText(produkAdd.this,"Masalah koneksi",Toast.LENGTH_SHORT).show();
+                    Intent intent=new Intent(getApplicationContext(), ErrorCatch.class);
+                    startActivity(intent);
                 }
             });
         }

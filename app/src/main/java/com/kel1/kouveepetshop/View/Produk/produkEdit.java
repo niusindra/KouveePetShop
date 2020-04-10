@@ -105,7 +105,11 @@ public class produkEdit extends AppCompatActivity {
             }
         });
     }
-
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent=new Intent(getApplicationContext(), produkShow.class);
+        startActivity(intent);
+    }
     public void setAtribut(){
         nama = findViewById(R.id.namaProdukTxt);
         beli = findViewById(R.id.beliProdukTxt);

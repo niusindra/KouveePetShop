@@ -41,6 +41,11 @@ public class produkMain extends AppCompatActivity {
             }
         });
     }
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent=new Intent(getApplicationContext(), dashboard.class);
+        startActivity(intent);
+    }
     public void setAtribut (){
         back = findViewById(R.id.backBtn);
         add = findViewById(R.id.addBtn);

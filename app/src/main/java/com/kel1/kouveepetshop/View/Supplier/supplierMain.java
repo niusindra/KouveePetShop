@@ -10,9 +10,6 @@ import androidx.cardview.widget.CardView;
 
 import com.kel1.kouveepetshop.R;
 import com.kel1.kouveepetshop.View.Admin.dashboard;
-import com.kel1.kouveepetshop.View.Customer.customerAdd;
-import com.kel1.kouveepetshop.View.Customer.customerMain;
-import com.kel1.kouveepetshop.View.Customer.customerShow;
 
 public class supplierMain extends AppCompatActivity {
     public ImageView back;
@@ -48,6 +45,11 @@ public class supplierMain extends AppCompatActivity {
         back = findViewById(R.id.backBtn);
         add = findViewById(R.id.addBtn);
         show = findViewById(R.id.showBtn);
+    }
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent=new Intent(getApplicationContext(), dashboard.class);
+        startActivity(intent);
     }
 }
 

@@ -75,4 +75,9 @@ public class supplierAdd extends AppCompatActivity {
         Intent intent=new Intent(getApplicationContext(), supplierShow.class);
         startActivity(intent);
     }
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent=new Intent(getApplicationContext(), supplierMain.class);
+        startActivity(intent);
+    }
 }

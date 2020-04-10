@@ -16,7 +16,6 @@ import com.kel1.kouveepetshop.Api.ApiClient;
 import com.kel1.kouveepetshop.Api.ApiInterface;
 import com.kel1.kouveepetshop.R;
 import com.kel1.kouveepetshop.Respon.cudDataMaster;
-import com.kel1.kouveepetshop.View.Layanan.layananEdit;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -170,6 +169,11 @@ public class supplierEdit extends AppCompatActivity {
     }
 
     private void startIntent(){
+        Intent intent=new Intent(getApplicationContext(), supplierShow.class);
+        startActivity(intent);
+    }
+    public void onBackPressed() {
+        super.onBackPressed();
         Intent intent=new Intent(getApplicationContext(), supplierShow.class);
         startActivity(intent);
     }

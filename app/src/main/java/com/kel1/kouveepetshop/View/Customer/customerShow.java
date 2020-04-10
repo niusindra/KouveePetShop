@@ -10,7 +10,6 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Switch;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -23,6 +22,7 @@ import com.kel1.kouveepetshop.DAO.customerDAO;
 import com.kel1.kouveepetshop.R;
 import com.kel1.kouveepetshop.Respon.readCustomer;
 import com.kel1.kouveepetshop.View.Admin.dashboard;
+import com.kel1.kouveepetshop.View.ErrorCatch;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -138,7 +138,8 @@ public class customerShow extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<readCustomer> call, Throwable t) {
-                Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(getApplicationContext(), ErrorCatch.class);
+                startActivity(intent);
             }
         });
     }
@@ -160,8 +161,9 @@ public class customerShow extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<readCustomer> call, Throwable t) {
-                Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
-            }
+                Intent intent=new Intent(getApplicationContext(), ErrorCatch.class);
+                startActivity(intent);
+        }
         });
     }
 
