@@ -46,13 +46,12 @@ public class produkAdd extends AppCompatActivity {
     public ImageView back;
     public TextView namaSupplier;
     public EditText nama;
+    public TextView idsup;
     public EditText beli;
     public EditText jual;
     public EditText stok;
-    public Integer idsup;
     public EditText minstok;
     public Spinner mSpinner;
-    public String test;
     public ImageView mImageView;
     public Button uploadBtn;
     public Button addBtn;
@@ -79,14 +78,13 @@ public class produkAdd extends AppCompatActivity {
             public void onResponse(Call<readSupplier> call, Response<readSupplier> response) {
                 if(response.body()!=null) {
                     List<supplierDAO> supplieritems = response.body().getMessage();
-                    List<String> listspinner = new ArrayList<String>();
-                    List<Integer> idsup = new ArrayList<Integer>();
+                    List<supplierDAO> supplierid = new ArrayList<supplierDAO>();
                     for(int i = 0; i < supplieritems.size(); i++)
                     {
-                        listspinner.add(supplieritems.get(i).getNama_supplier());
+                        supplierid.add(supplieritems.get(i));
                     }
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(produkAdd.this,
-                            android.R.layout.simple_spinner_item, listspinner);
+                    ArrayAdapter<supplierDAO> adapter = new ArrayAdapter<supplierDAO>(produkAdd.this,
+                            android.R.layout.simple_spinner_item, supplierid);
                     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
                     mSpinner.setAdapter(adapter);
@@ -103,15 +101,20 @@ public class produkAdd extends AppCompatActivity {
         mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+                supplierDAO user = (supplierDAO) parent.getSelectedItem();
+                displayUserData(user);
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
+            public void displayUserData(supplierDAO user) {
+                int id = user.getId_supplier();
+                String userData = String.valueOf(id);
+                idsup.setText(userData);
+                Toast.makeText(produkAdd.this, userData, Toast.LENGTH_LONG).show();
+            }
         });
-
         uploadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -128,6 +131,7 @@ public class produkAdd extends AppCompatActivity {
         });
     }
     public void setAtribut(){
+        idsup = findViewById(R.id.idSup);
         nama = findViewById(R.id.namaProdukTxt);
         beli = findViewById(R.id.beliProdukTxt);
         jual = findViewById(R.id.jualProdukTxt);
@@ -168,13 +172,14 @@ public class produkAdd extends AppCompatActivity {
             RequestBody photoBody = RequestBody.create(MediaType.parse("image/*"), file);
             MultipartBody.Part photoPart = MultipartBody.Part.createFormData("foto_produk", file.getName(), photoBody);
             RequestBody Rnama = RequestBody.create(MediaType.parse("text/plain"), this.nama.getText().toString());
+            int Rid = Integer.parseInt(this.idsup.getText().toString()) ;
             int Rbeli = Integer.parseInt(this.beli.getText().toString()) ;
             int Rjual = Integer.parseInt(this.jual.getText().toString());
             int Rstok = Integer.parseInt(this.stok.getText().toString());
             int Rminstok = Integer.parseInt(this.minstok.getText().toString());
 
             ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-            Call<cudDataMaster> customerCall = apiService.addProduk(1,Rnama,photoPart,Rbeli,Rjual,Rstok,Rminstok);
+            Call<cudDataMaster> customerCall = apiService.addProduk(Rid,Rnama,photoPart,Rbeli,Rjual,Rstok,Rminstok);
             customerCall.enqueue(new Callback<cudDataMaster>(){
                 public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response){
                     Toast.makeText(produkAdd.this,"Berhasil tambah",Toast.LENGTH_SHORT).show();
