@@ -57,15 +57,16 @@ public class login_pegawai extends AppCompatActivity {
                                 if(response.body().getRole_pegawai().equalsIgnoreCase("admin")) {
                                     Intent i = new Intent(getApplicationContext(), dashboard.class);
                                     startActivity(i);
-                                    Toast.makeText(getApplicationContext(),"Login Success",Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(),"Login admin sukses",Toast.LENGTH_SHORT).show();
+                                    finish();
                                 }else if(response.body().getRole_pegawai().equalsIgnoreCase("customer service")){
                                     Intent i = new Intent(getApplicationContext(), dashboard.class);
                                     startActivity(i);
-                                    Toast.makeText(getApplicationContext(),"Login Success",Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(),"Login CS sukses ",Toast.LENGTH_SHORT).show();
+                                    finish();
                                 }else{
-                                    Toast.makeText(getApplicationContext(),"Anda Kasir",Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(),"Kasir tidak memiliki hak akses",Toast.LENGTH_SHORT).show();
                                 }
-                                finish();
 
                             }
                         }
@@ -90,7 +91,6 @@ public class login_pegawai extends AppCompatActivity {
 
     public void setAtribut (){
         Login = findViewById(R.id.loginBtn);
-        signUp = findViewById(R.id.signUpBtn);
         username = findViewById(R.id.usernameTxt);
         password = findViewById(R.id.passwordTxt);
     }

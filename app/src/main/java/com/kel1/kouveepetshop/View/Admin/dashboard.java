@@ -6,8 +6,10 @@ import androidx.cardview.widget.CardView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.kel1.kouveepetshop.R;
+import com.kel1.kouveepetshop.SessionManager;
 import com.kel1.kouveepetshop.View.Customer.customerMain;
 import com.kel1.kouveepetshop.View.JenisHewan.jenisHewanMain;
 import com.kel1.kouveepetshop.View.Layanan.layananMain;
@@ -24,10 +26,16 @@ public class dashboard extends AppCompatActivity {
     public CardView layanan;
     public CardView uhewan;
     public CardView supplier;
+    public TextView logout;
+
+    public SessionManager session;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard_admin);
+        session = new SessionManager(getApplicationContext());
+        session.checkLogin();
+
         setAtribut();
         hewan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,6 +86,13 @@ public class dashboard extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                session.logoutUser();
+                finish();
+            }
+        });
     }
     public void setAtribut(){
         produk = findViewById(R.id.produkbtn);
@@ -87,6 +102,7 @@ public class dashboard extends AppCompatActivity {
         uhewan = findViewById(R.id.uhewanBtn);
         customer = findViewById(R.id.customerBtn);
         supplier = findViewById(R.id.supplierBtn);
+        logout = findViewById(R.id.logOutBtn);
     }
 }
 
