@@ -94,7 +94,11 @@ public class customerShow extends AppCompatActivity {
             setRecycleViewLog();
         }
     }
-
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent=new Intent(getApplicationContext(), customerMain.class);
+        startActivity(intent);
+    }
     private void filter(String text) {
         List<customerDAO> filteredList = new ArrayList<>();
         for (customerDAO item : mListCustomer) {

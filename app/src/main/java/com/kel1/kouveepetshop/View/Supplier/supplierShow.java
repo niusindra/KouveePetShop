@@ -133,6 +133,11 @@ public class supplierShow extends AppCompatActivity {
             }
         });
     }
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent=new Intent(getApplicationContext(), supplierMain.class);
+        startActivity(intent);
+    }
     private void setRecycleViewLog(){
         recyclerView.setAdapter(recycleAdapterSupplierLog);
         ApiInterface apiService=ApiClient.getClient().create(ApiInterface.class);

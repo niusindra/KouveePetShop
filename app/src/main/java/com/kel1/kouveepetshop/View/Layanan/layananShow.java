@@ -147,6 +147,11 @@ public class layananShow extends AppCompatActivity {
             }
         });
     }
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent=new Intent(getApplicationContext(), layananMain.class);
+        startActivity(intent);
+    }
     public void setAtribut() {
         back = findViewById(R.id.btnBack);
         aSwitch = findViewById(R.id.switchLogLay);

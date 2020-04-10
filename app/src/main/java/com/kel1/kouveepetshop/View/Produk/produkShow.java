@@ -85,6 +85,12 @@ public class produkShow extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent=new Intent(getApplicationContext(),produkMain.class);
+        startActivity(intent);
+    }
     private void filter(String text) {
         List<produkDAO> filteredList = new ArrayList<>();
         for (produkDAO item : mListCustomer) {

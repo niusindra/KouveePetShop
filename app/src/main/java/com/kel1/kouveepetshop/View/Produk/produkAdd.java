@@ -102,6 +102,7 @@ public class produkAdd extends AppCompatActivity {
             }
         });
     }
+
     public void setAtribut(){
         idsup = findViewById(R.id.idSup);
         nama = findViewById(R.id.namaProdukTxt);
