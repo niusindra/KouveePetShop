@@ -60,6 +60,14 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/adaptersuppProLog"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="serif"
+                        android:hint="Supplier"
+                        android:textColor="@color/blackcolor"/>
+
+                    <TextView
                         android:id="@+id/adapterHargaBeliLog"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

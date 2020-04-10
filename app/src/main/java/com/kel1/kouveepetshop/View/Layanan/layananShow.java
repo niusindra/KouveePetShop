@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -42,6 +43,9 @@ public class layananShow extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setSoftInputMode(
+                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN
+        );
         setContentView(R.layout.layanan_show);
         setAtribut();
         back.setOnClickListener(new View.OnClickListener() {
@@ -106,7 +110,7 @@ public class layananShow extends AppCompatActivity {
     }
 
     private void setRecycleView(){
-        recyclerView.setAdapter(recycleAdapter);
+
         ApiInterface apiService=ApiClient.getClient().create(ApiInterface.class);
         Call<readLayanan> layananCall = apiService.getLayanan();
         layananCall.enqueue(new Callback<readLayanan>(){
@@ -116,6 +120,7 @@ public class layananShow extends AppCompatActivity {
                 if(response.body()!=null) {
                     mListCustomer.clear();
                     mListCustomer.addAll(response.body().getMessage());
+                    recyclerView.setAdapter(recycleAdapter);
                     recycleAdapter.notifyDataSetChanged();
                 }
             }
@@ -127,7 +132,7 @@ public class layananShow extends AppCompatActivity {
         });
     }
     private void setRecycleViewLog(){
-        recyclerView.setAdapter(recycleAdapterLayananLog);
+
         ApiInterface apiService=ApiClient.getClient().create(ApiInterface.class);
         Call<readLayanan> layananCall = apiService.getLayananLog();
         layananCall.enqueue(new Callback<readLayanan>(){
@@ -137,6 +142,7 @@ public class layananShow extends AppCompatActivity {
                 if(response.body()!=null) {
                     mListCustomer.clear();
                     mListCustomer.addAll(response.body().getMessage());
+                    recyclerView.setAdapter(recycleAdapterLayananLog);
                     recycleAdapter.notifyDataSetChanged();
                 }
             }

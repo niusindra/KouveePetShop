@@ -122,7 +122,7 @@ public class customerShow extends AppCompatActivity {
     }
 
     private void setRecycleView(){
-        recyclerView.setAdapter(recycleAdapter);
+
         ApiInterface apiService=ApiClient.getClient().create(ApiInterface.class);
         Call<readCustomer> customerCall = apiService.getCustomer();
         customerCall.enqueue(new Callback<readCustomer>(){
@@ -132,6 +132,7 @@ public class customerShow extends AppCompatActivity {
                 if(response.body()!=null) {
                     mListCustomer.clear();
                     mListCustomer.addAll(response.body().getMessage());
+                    recyclerView.setAdapter(recycleAdapter);
                     recycleAdapter.notifyDataSetChanged();
                 }
             }
@@ -145,7 +146,7 @@ public class customerShow extends AppCompatActivity {
     }
 
     private void setRecycleViewLog(){
-        recyclerView.setAdapter(recycleAdapterLog);
+
         ApiInterface apiService=ApiClient.getClient().create(ApiInterface.class);
         Call<readCustomer> customerCall = apiService.getCustomerLog();
         customerCall.enqueue(new Callback<readCustomer>(){
@@ -155,6 +156,7 @@ public class customerShow extends AppCompatActivity {
                 if(response.body()!=null) {
                     mListCustomer.clear();
                     mListCustomer.addAll(response.body().getMessage());
+                    recyclerView.setAdapter(recycleAdapterLog);
                     recycleAdapter.notifyDataSetChanged();
                 }
             }

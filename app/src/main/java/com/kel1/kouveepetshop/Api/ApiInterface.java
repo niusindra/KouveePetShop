@@ -127,17 +127,16 @@ public interface ApiInterface {
                                      @Field("tgllahir_customer")String tgllahir_customer,
                                      @Field("telp_customer")String telp_customer,
                                      @Field("cust_edited_by")String cust_edited_by);
-
     @POST("produk/{id}")
     @Multipart
-    Call<cudDataMaster> editProduk(@Path("id")int id,
-                                   @Field("id_supplier")int id_supplier,
-                                   @Field("nama_produk")String nama_produk,
-                                   @Field("foto_produk")String foto_produk,
-                                   @Field("harga_beli_produk")int harga_beli_produk,
-                                   @Field("harga_jual_produk")int harga_jual_produk,
-                                   @Field("stok")int stok,
-                                   @Field("min_stok")int min_stok);
+    Call<cudDataMaster> editProduk(@Path ("id") Integer id,
+                                   @Part ("id_supplier") Integer id_supplier,
+                                  @Part ("nama_produk") RequestBody nama_produk,
+                                  @Part MultipartBody.Part foto_produk,
+                                  @Part ("harga_beli_produk") Integer harga_beli_produk,
+                                  @Part ("harga_jual_produk") Integer harga_jual_produk,
+                                  @Part ("stok") Integer stok,
+                                  @Part ("min_stok") Integer min_stok);
 
     @POST("layanan/{id}")
     @FormUrlEncoded

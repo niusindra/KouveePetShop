@@ -39,19 +39,20 @@ public class RecycleAdapterProduk extends RecyclerView.Adapter<RecycleAdapterPro
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        public TextView mNama, mBeli, mJual, mStok, mMinStok;
+        public TextView mNama, mBeli, mJual, mStok, mMinStok, msuppPro;
         public ImageView mfoto;
         private LinearLayout mParent;
 
         public MyViewHolder(@NonNull View itemView){
             super(itemView);
+            msuppPro=itemView.findViewById(R.id.adaptersuppPro);
             mfoto=itemView.findViewById(R.id.fotoproduk);
             mNama=itemView.findViewById(R.id.adapterNamaPro);
             mBeli=itemView.findViewById(R.id.adapterHargaB);
             mJual=itemView.findViewById(R.id.adapterHargaJ);
             mStok=itemView.findViewById(R.id.adapterStok);
             mMinStok=itemView.findViewById(R.id.adapterMinStok);
-            mParent=itemView.findViewById(R.id.RC_Layanan_Event_Parent);
+            mParent=itemView.findViewById(R.id.produkParent);
             context = itemView.getContext();
         }
 
@@ -66,19 +67,21 @@ public class RecycleAdapterProduk extends RecyclerView.Adapter<RecycleAdapterPro
         final produkDAO produkDAO=result.get(i);
         Picasso.get().load("http:/api.kouvee.site/upload/foto_produk/"+produkDAO.getFoto_produk()).into(myViewHolder.mfoto);
         myViewHolder.mNama.setText("Nama\t: "+produkDAO.getNama_produk());
+        myViewHolder.msuppPro.setText("Supplier\t: "+produkDAO.getNama_supplier());
         myViewHolder.mBeli.setText("Harga Beli\t: "+produkDAO.getHarga_beli_produk());
         myViewHolder.mJual.setText("Harga Jual\t: "+produkDAO.getHarga_jual_produk());
         myViewHolder.mStok.setText("Stok\t: "+produkDAO.getStok());
         myViewHolder.mMinStok.setText("Minimal Stok\t: "+produkDAO.getMin_stok());
-//        myViewHolder.mParent.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(context, layananEdit.class);
-//                intent.putExtra(EXTRA_TEXT, new String[] {produkDAO.getNama_produk()});
-//                intent.putExtra(EXTRA_NUMBER, produkDAO.getId_produk());
-//                context.startActivity(intent);
-//            }
-//        });
+        myViewHolder.mParent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, produkEdit.class);
+                intent.putExtra(EXTRA_TEXT, new String[] {produkDAO.getNama_produk()});
+                intent.putExtra(EXTRA_NUMBER, new int[] {produkDAO.getId_produk(),produkDAO.getId_supplier(), produkDAO.getHarga_beli_produk(),produkDAO.getHarga_jual_produk(),
+                                produkDAO.getStok(),produkDAO.getMin_stok()});
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

@@ -1,6 +1,8 @@
 package com.kel1.kouveepetshop.View.Produk;
 
 import android.Manifest;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -28,6 +30,9 @@ import com.kel1.kouveepetshop.DAO.supplierDAO;
 import com.kel1.kouveepetshop.R;
 import com.kel1.kouveepetshop.Respon.cudDataMaster;
 import com.kel1.kouveepetshop.Respon.readSupplier;
+import com.kel1.kouveepetshop.View.ErrorCatch;
+import com.kel1.kouveepetshop.View.Layanan.RecycleAdapterLayanan;
+import com.kel1.kouveepetshop.View.Layanan.layananEdit;
 
 import java.io.File;
 import java.io.IOException;
@@ -44,8 +49,8 @@ import retrofit2.Response;
 public class produkEdit extends AppCompatActivity {
     private static final int PICK_IMAGE_REQUEST = 1;
     public ImageView back;
-    public TextView namaSupplier;
     public EditText nama;
+    public TextView idsup;
     public EditText beli;
     public EditText jual;
     public EditText stok;
@@ -53,9 +58,10 @@ public class produkEdit extends AppCompatActivity {
     public Spinner mSpinner;
     public ImageView mImageView;
     public Button uploadBtn;
-    public Button addBtn;
+    public Button editBtn;
+    public Button delBtn;
 
-    private List<supplierDAO> mListSupplier;
+    public List<supplierDAO> mListSupplier;
 
     private Uri filePath;
 
@@ -63,40 +69,43 @@ public class produkEdit extends AppCompatActivity {
 
     private static final int STORAGE_PERMISSION_CODE = 123;
 
+    public String produk[];
+    public int number[];
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.produk_add);
+        setContentView(R.layout.produk_edit);
 
+        Intent intent = getIntent();
+        produk = intent.getStringArrayExtra(RecycleAdapterProduk.EXTRA_TEXT);
+        number = intent.getIntArrayExtra(RecycleAdapterProduk.EXTRA_NUMBER);
         setAtribut();
+        setText(produk[0],String.valueOf(number[1]),String.valueOf(number[2]),String.valueOf(number[3]),String.valueOf(number[4]),String.valueOf(number[5]));
         getSupplier();
-
-        ArrayAdapter<supplierDAO> adapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_spinner_item, mListSupplier);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        mSpinner.setAdapter(adapter);
 
         mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                supplierDAO user = (supplierDAO) parent.getItemAtPosition(position);
+                supplierDAO user = (supplierDAO) parent.getSelectedItem();
                 displayUserData(user);
-                namaSupplier.setText(user.getNama_supplier());
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
+            public void displayUserData(supplierDAO user) {
+                int id = user.getId_supplier();
+                String userData = String.valueOf(id);
+                idsup.setText(userData);
+            }
         });
-
         uploadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 showFileChooser();
             }
         });
-        addBtn.setOnClickListener(new View.OnClickListener() {
+        editBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 requestStoragePermission();
@@ -104,24 +113,60 @@ public class produkEdit extends AppCompatActivity {
                 uploadMultipart(file);
             }
         });
+        delBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(produkEdit.this);
+
+                builder.setMessage("Anda yakin untuk menghapus data")
+                        .setCancelable(false)
+                        .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+                                Call<cudDataMaster> supplierCall = apiService.deleteProduk(number[0]);
+                                supplierCall.enqueue(new Callback<cudDataMaster>(){
+                                    public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response){
+                                        Toast.makeText(produkEdit.this,"Berhasil dihapus",Toast.LENGTH_SHORT).show();
+                                        startIntent();
+                                    }
+                                    public void onFailure(Call<cudDataMaster> call, Throwable t){
+                                        Intent intent=new Intent(getApplicationContext(), ErrorCatch.class);
+                                        startActivity(intent);
+                                    }
+                                });
+                            }
+                        })
+                        .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
+                        });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+            }
+        });
+    }
+
+    public void setAtribut(){
+        idsup = findViewById(R.id.idSup1);
+        nama = findViewById(R.id.namaProdukTxt1);
+        beli = findViewById(R.id.beliProdukTxt1);
+        jual = findViewById(R.id.jualProdukTxt1);
+        stok = findViewById(R.id.stokProduk1);
+        minstok = findViewById(R.id.minstokProduk1);
+        uploadBtn = findViewById(R.id.addFotoBtn1);
+        editBtn = findViewById(R.id.editProdukBtn1);
+        delBtn = findViewById(R.id.delProdukBtn1);
+        mSpinner = findViewById(R.id.supplierSpin1);
+        mImageView = findViewById(R.id.showImageUload1);
     }
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent=new Intent(getApplicationContext(), produkShow.class);
+        Intent intent=new Intent(getApplicationContext(), produkMain.class);
         startActivity(intent);
     }
-    public void setAtribut(){
-        nama = findViewById(R.id.namaProdukTxt);
-        beli = findViewById(R.id.beliProdukTxt);
-        jual = findViewById(R.id.jualProdukTxt);
-        stok = findViewById(R.id.stokProduk);
-        minstok = findViewById(R.id.minstokProduk);
-        uploadBtn = findViewById(R.id.addFotoBtn);
-        addBtn = findViewById(R.id.addProdukBtn);
-        mSpinner = findViewById(R.id.supplierSpin);
-        mImageView = findViewById(R.id.showImageUload);
-    }
-
     private void getSupplier(){
         mListSupplier=new ArrayList<>();
         ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
@@ -131,7 +176,12 @@ public class produkEdit extends AppCompatActivity {
             @Override
             public void onResponse(Call<readSupplier> call, Response<readSupplier> response) {
                 if(response.body()!=null) {
-                    mListSupplier.addAll(response.body().getMessage());
+                    List<supplierDAO> supplieritems = response.body().getMessage();
+                    ArrayAdapter<supplierDAO> adapter = new ArrayAdapter<supplierDAO>(produkEdit.this,
+                            android.R.layout.simple_spinner_item, supplieritems);
+                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+                    mSpinner.setAdapter(adapter);
                 }
             }
 
@@ -142,13 +192,6 @@ public class produkEdit extends AppCompatActivity {
         });
     }
 
-    private void displayUserData(supplierDAO user) {
-        String name = user.getNama_supplier();
-
-        String userData = "Name: " + name;
-
-        Toast.makeText(this, userData, Toast.LENGTH_LONG).show();
-    }
 
     public void uploadMultipart(File file) {
         if(nama.getText().toString().isEmpty() || nama.getText().toString().isEmpty() || beli.getText().toString().isEmpty() ||
@@ -158,20 +201,22 @@ public class produkEdit extends AppCompatActivity {
             RequestBody photoBody = RequestBody.create(MediaType.parse("image/*"), file);
             MultipartBody.Part photoPart = MultipartBody.Part.createFormData("foto_produk", file.getName(), photoBody);
             RequestBody Rnama = RequestBody.create(MediaType.parse("text/plain"), this.nama.getText().toString());
+            int Rid = Integer.parseInt(this.idsup.getText().toString()) ;
             int Rbeli = Integer.parseInt(this.beli.getText().toString()) ;
             int Rjual = Integer.parseInt(this.jual.getText().toString());
             int Rstok = Integer.parseInt(this.stok.getText().toString());
             int Rminstok = Integer.parseInt(this.minstok.getText().toString());
 
             ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-            Call<cudDataMaster> customerCall = apiService.addProduk(1,Rnama,photoPart,Rbeli,Rjual,Rstok,Rminstok);
+            Call<cudDataMaster> customerCall = apiService.editProduk(number[0],Rid,Rnama,photoPart,Rbeli,Rjual,Rstok,Rminstok);
             customerCall.enqueue(new Callback<cudDataMaster>(){
                 public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response){
                     Toast.makeText(produkEdit.this,"Berhasil tambah",Toast.LENGTH_SHORT).show();
                     startIntent();
                 }
                 public void onFailure(Call<cudDataMaster> call, Throwable t){
-                    Toast.makeText(produkEdit.this,"Masalah koneksi",Toast.LENGTH_SHORT).show();
+                    Intent intent=new Intent(getApplicationContext(), ErrorCatch.class);
+                    startActivity(intent);
                 }
             });
         }
@@ -240,6 +285,16 @@ public class produkEdit extends AppCompatActivity {
     private void startIntent(){
         Intent intent=new Intent(getApplicationContext(),produkShow.class);
         startActivity(intent);
+    }
+
+
+    public void setText(String nama, String idsup, String beli, String jual, String stok, String minstok){
+        this.nama.setText(nama);
+        this.idsup.setText(idsup);
+        this.beli.setText(beli);
+        this.jual.setText(jual);
+        this.stok.setText(stok);
+        this.minstok.setText(minstok);
     }
 }
 

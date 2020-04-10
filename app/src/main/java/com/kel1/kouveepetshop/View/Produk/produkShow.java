@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -42,7 +43,10 @@ public class produkShow extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layanan_show);
+        getWindow().setSoftInputMode(
+                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN
+        );
+        setContentView(R.layout.produk_show);
         setAtribut();
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,7 +107,7 @@ public class produkShow extends AppCompatActivity {
         recycleAdapterProdukLog.filterList(filteredList);
     }
     private void setRecycleAdapter(){
-        recyclerView=findViewById(R.id.RC_Customer);
+        recyclerView=findViewById(R.id.RC_Produk);
         recycleAdapter=new RecycleAdapterProduk(this,mListCustomer);
         recycleAdapterProdukLog =new RecycleAdapterProdukLog(this,mListCustomer);
         RecyclerView.LayoutManager mLayoutManager=new LinearLayoutManager(getApplicationContext());
@@ -112,7 +116,6 @@ public class produkShow extends AppCompatActivity {
     }
 
     private void setRecycleView(){
-        recyclerView.setAdapter(recycleAdapter);
         ApiInterface apiService=ApiClient.getClient().create(ApiInterface.class);
         Call<readProduk> layananCall = apiService.getProduk();
         layananCall.enqueue(new Callback<readProduk>(){
@@ -122,6 +125,7 @@ public class produkShow extends AppCompatActivity {
                 if(response.body()!=null) {
                     mListCustomer.clear();
                     mListCustomer.addAll(response.body().getMessage());
+                    recyclerView.setAdapter(recycleAdapter);
                     recycleAdapter.notifyDataSetChanged();
                 }
             }
@@ -134,7 +138,6 @@ public class produkShow extends AppCompatActivity {
         });
     }
     private void setRecycleViewLog(){
-        recyclerView.setAdapter(recycleAdapterProdukLog);
         ApiInterface apiService=ApiClient.getClient().create(ApiInterface.class);
         Call<readProduk> layananCall = apiService.getProdukLog();
         layananCall.enqueue(new Callback<readProduk>(){
@@ -144,6 +147,7 @@ public class produkShow extends AppCompatActivity {
                 if(response.body()!=null) {
                     mListCustomer.clear();
                     mListCustomer.addAll(response.body().getMessage());
+                    recyclerView.setAdapter(recycleAdapterProdukLog);
                     recycleAdapter.notifyDataSetChanged();
                 }
             }
@@ -156,8 +160,8 @@ public class produkShow extends AppCompatActivity {
         });
     }
     public void setAtribut() {
-        back = findViewById(R.id.btnBack);
-        aSwitch = findViewById(R.id.switchLogLay);
-        searchCustomer = findViewById(R.id.searchCustomer);
+        back = findViewById(R.id.btnBackProduk);
+        aSwitch = findViewById(R.id.switchLogPro);
+        searchCustomer = findViewById(R.id.searchProduk);
     }
 }

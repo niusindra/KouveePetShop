@@ -45,6 +45,7 @@
         <activity android:name=".View.Layanan.layananAdd" />
         <activity android:name=".View.Produk.produkMain" />
         <activity android:name=".View.Produk.produkAdd" />
+        <activity android:name=".View.Produk.produkEdit" />
         <activity android:name=".View.Produk.produkShow" />
         <activity android:name=".View.Supplier.supplierMain" />
         <activity android:name=".View.Supplier.supplierAdd" />

@@ -12,6 +12,7 @@
         android:orientation="horizontal">
 
         <LinearLayout
+            android:id="@+id/produkParent"
             android:layout_width="match_parent"
             android:layout_height="130dp"
             android:layout_gravity="center"
@@ -58,6 +59,13 @@
                         android:hint="Nama Produk"
                         android:textColor="@color/blackcolor"
                         android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/adaptersuppPro"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="serif"
+                        android:hint="Nama Supplier"
+                        android:textColor="@color/blackcolor"/>
 
                     <TextView
                         android:id="@+id/adapterHargaB"

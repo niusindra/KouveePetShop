@@ -10,6 +10,9 @@ public class produkDAO {
     @SerializedName("id_supplier")
     private  int id_supplier;
 
+    @SerializedName("nama_supplier")
+    private  String nama_supplier;
+
     @SerializedName("nama_produk")
     private  String nama_produk;
 
@@ -17,16 +20,16 @@ public class produkDAO {
     private  String foto_produk;
 
     @SerializedName("harga_beli_produk")
-    private  String harga_beli_produk;
+    private  int harga_beli_produk;
 
     @SerializedName("harga_jual_produk")
-    private  String harga_jual_produk;
+    private  int harga_jual_produk;
 
     @SerializedName("stok")
-    private  String stok;
+    private  int stok;
 
     @SerializedName("min_stok")
-    private  String min_stok;
+    private  int min_stok;
 
     @SerializedName("produk_created_at")
     private  String produk_created_at;
@@ -45,6 +48,10 @@ public class produkDAO {
         return id_supplier;
     }
 
+    public String getNama_supplier() {
+        return nama_supplier;
+    }
+
     public String getNama_produk() {
         return nama_produk;
     }
@@ -53,19 +60,19 @@ public class produkDAO {
         return foto_produk;
     }
 
-    public String getHarga_beli_produk() {
+    public int getHarga_beli_produk() {
         return harga_beli_produk;
     }
 
-    public String getHarga_jual_produk() {
+    public int getHarga_jual_produk() {
         return harga_jual_produk;
     }
 
-    public String getStok() {
+    public int getStok() {
         return stok;
     }
 
-    public String getMin_stok() {
+    public int getMin_stok() {
         return min_stok;
     }
 

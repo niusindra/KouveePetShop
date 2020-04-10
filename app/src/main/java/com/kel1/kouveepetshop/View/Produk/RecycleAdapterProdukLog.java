@@ -37,12 +37,13 @@ public class RecycleAdapterProdukLog extends RecyclerView.Adapter<RecycleAdapter
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        public TextView mNama, mBeli, mJual, mStok, mMinStok, mDeletedAt, mCreatedAt, mEditedAt;
+        public TextView mNama, mBeli, mJual, mStok, mMinStok,msuppPro, mDeletedAt, mCreatedAt, mEditedAt;
         public ImageView mfoto;
         private LinearLayout mParent;
 
         public MyViewHolder(@NonNull View itemView){
             super(itemView);
+            msuppPro=itemView.findViewById(R.id.adaptersuppProLog);
             mfoto=itemView.findViewById(R.id.fotoprodukLog);
             mNama=itemView.findViewById(R.id.adapterNamaProdukLog);
             mBeli=itemView.findViewById(R.id.adapterHargaBeliLog);
@@ -67,6 +68,7 @@ public class RecycleAdapterProdukLog extends RecyclerView.Adapter<RecycleAdapter
         final produkDAO produkDAO=result.get(i);
         Picasso.get().load("http:/api.kouvee.site/upload/foto_produk/"+produkDAO.getFoto_produk()).into(myViewHolder.mfoto);
         myViewHolder.mNama.setText("Nama\t: "+produkDAO.getNama_produk());
+        myViewHolder.msuppPro.setText("Supplier\t: "+produkDAO.getNama_supplier());
         myViewHolder.mBeli.setText("Harga Beli\t: "+produkDAO.getHarga_beli_produk());
         myViewHolder.mJual.setText("Harga Jual\t: "+produkDAO.getHarga_jual_produk());
         myViewHolder.mStok.setText("Stok\t: "+produkDAO.getStok());
