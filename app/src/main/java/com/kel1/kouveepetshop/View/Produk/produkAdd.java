@@ -70,33 +70,6 @@ public class produkAdd extends AppCompatActivity {
         setAtribut();
         getSupplier();
 
-        ApiInterface apiService=ApiClient.getClient().create(ApiInterface.class);
-        Call<readSupplier> customerCall = apiService.getSupplier();
-        customerCall.enqueue(new Callback<readSupplier>(){
-
-            @Override
-            public void onResponse(Call<readSupplier> call, Response<readSupplier> response) {
-                if(response.body()!=null) {
-                    List<supplierDAO> supplieritems = response.body().getMessage();
-                    List<supplierDAO> supplierid = new ArrayList<supplierDAO>();
-                    for(int i = 0; i < supplieritems.size(); i++)
-                    {
-                        supplierid.add(supplieritems.get(i));
-                    }
-                    ArrayAdapter<supplierDAO> adapter = new ArrayAdapter<supplierDAO>(produkAdd.this,
-                            android.R.layout.simple_spinner_item, supplierid);
-                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-                    mSpinner.setAdapter(adapter);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<readSupplier> call, Throwable t) {
-                Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
-            }
-        });
-
 
         mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -112,7 +85,6 @@ public class produkAdd extends AppCompatActivity {
                 int id = user.getId_supplier();
                 String userData = String.valueOf(id);
                 idsup.setText(userData);
-                Toast.makeText(produkAdd.this, userData, Toast.LENGTH_LONG).show();
             }
         });
         uploadBtn.setOnClickListener(new View.OnClickListener() {
@@ -152,7 +124,12 @@ public class produkAdd extends AppCompatActivity {
             @Override
             public void onResponse(Call<readSupplier> call, Response<readSupplier> response) {
                 if(response.body()!=null) {
-                    mListSupplier.addAll(response.body().getMessage());
+                    List<supplierDAO> supplieritems = response.body().getMessage();
+                    ArrayAdapter<supplierDAO> adapter = new ArrayAdapter<supplierDAO>(produkAdd.this,
+                            android.R.layout.simple_spinner_item, supplieritems);
+                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+                    mSpinner.setAdapter(adapter);
                 }
             }
 
