@@ -33,6 +33,7 @@ import com.kel1.kouveepetshop.Respon.readSupplier;
 import com.kel1.kouveepetshop.View.ErrorCatch;
 import com.kel1.kouveepetshop.View.Layanan.RecycleAdapterLayanan;
 import com.kel1.kouveepetshop.View.Layanan.layananEdit;
+import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.io.IOException;
@@ -80,7 +81,7 @@ public class produkEdit extends AppCompatActivity {
         produk = intent.getStringArrayExtra(RecycleAdapterProduk.EXTRA_TEXT);
         number = intent.getIntArrayExtra(RecycleAdapterProduk.EXTRA_NUMBER);
         setAtribut();
-        setText(produk[0],String.valueOf(number[1]),String.valueOf(number[2]),String.valueOf(number[3]),String.valueOf(number[4]),String.valueOf(number[5]));
+        setText(produk[0],produk[1],String.valueOf(number[1]),String.valueOf(number[2]),String.valueOf(number[3]),String.valueOf(number[4]),String.valueOf(number[5]));
         getSupplier();
 
         mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -288,13 +289,14 @@ public class produkEdit extends AppCompatActivity {
     }
 
 
-    public void setText(String nama, String idsup, String beli, String jual, String stok, String minstok){
+    public void setText(String nama, String foto, String idsup, String beli, String jual, String stok, String minstok){
         this.nama.setText(nama);
         this.idsup.setText(idsup);
         this.beli.setText(beli);
         this.jual.setText(jual);
         this.stok.setText(stok);
         this.minstok.setText(minstok);
+        Picasso.get().load("http:/api.kouvee.site/upload/foto_produk/"+foto).into(this.mImageView);
     }
 }
 
