@@ -29,7 +29,15 @@ public class supplierDAO {
     public int getId_supplier() {
         return id_supplier;
     }
-
+    public supplierDAO(int id_supplier, String name,String alamat_supplier,String telp_supplier, String sup_created_at,String sup_edited_at, String sup_deleted_at) {
+        this.id_supplier = id_supplier;
+        this.nama_supplier = name;
+        this.alamat_supplier = alamat_supplier;
+        this.telp_supplier = telp_supplier;
+        this.sup_created_at = sup_created_at;
+        this.sup_edited_at = sup_edited_at;
+        this.sup_deleted_at = sup_deleted_at;
+    }
     public String getNama_supplier() {
         return nama_supplier;
     }

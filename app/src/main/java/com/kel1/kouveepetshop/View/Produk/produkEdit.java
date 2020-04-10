@@ -107,7 +107,6 @@ public class produkEdit extends AppCompatActivity {
     }
 
     public void setAtribut(){
-        namaSupplier = findViewById(R.id.namaSupplierTxt);
         nama = findViewById(R.id.namaProdukTxt);
         beli = findViewById(R.id.beliProdukTxt);
         jual = findViewById(R.id.jualProdukTxt);

@@ -29,7 +29,6 @@ import com.kel1.kouveepetshop.R;
 import com.kel1.kouveepetshop.Respon.cudDataMaster;
 import com.kel1.kouveepetshop.Respon.readSupplier;
 
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -50,6 +49,7 @@ public class produkAdd extends AppCompatActivity {
     public EditText beli;
     public EditText jual;
     public EditText stok;
+    public Integer idsup;
     public EditText minstok;
     public Spinner mSpinner;
     public String test;
@@ -71,17 +71,39 @@ public class produkAdd extends AppCompatActivity {
         setAtribut();
         getSupplier();
 
-        final ArrayAdapter<supplierDAO> adapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_spinner_item, mListSupplier);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ApiInterface apiService=ApiClient.getClient().create(ApiInterface.class);
+        Call<readSupplier> customerCall = apiService.getSupplier();
+        customerCall.enqueue(new Callback<readSupplier>(){
 
-        mSpinner.setAdapter(adapter);
+            @Override
+            public void onResponse(Call<readSupplier> call, Response<readSupplier> response) {
+                if(response.body()!=null) {
+                    List<supplierDAO> supplieritems = response.body().getMessage();
+                    List<String> listspinner = new ArrayList<String>();
+                    List<Integer> idsup = new ArrayList<Integer>();
+                    for(int i = 0; i < supplieritems.size(); i++)
+                    {
+                        listspinner.add(supplieritems.get(i).getNama_supplier());
+                    }
+                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(produkAdd.this,
+                            android.R.layout.simple_spinner_item, listspinner);
+                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+                    mSpinner.setAdapter(adapter);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<readSupplier> call, Throwable t) {
+                Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
         mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                //supplierDAO user = (supplierDAO) parent.getItemAtPosition(position);
-                //displayUserData(user);
+
             }
 
             @Override
@@ -105,15 +127,7 @@ public class produkAdd extends AppCompatActivity {
             }
         });
     }
-    private void displayUserData(supplierDAO user) {
-        String name = user.getNama_supplier();
-
-        String userData = "Name: " + name;
-
-        Toast.makeText(this, userData, Toast.LENGTH_LONG).show();
-    }
     public void setAtribut(){
-        namaSupplier = findViewById(R.id.namaSupplierTxt);
         nama = findViewById(R.id.namaProdukTxt);
         beli = findViewById(R.id.beliProdukTxt);
         jual = findViewById(R.id.jualProdukTxt);
