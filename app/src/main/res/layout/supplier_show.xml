@@ -10,7 +10,7 @@
         android:id="@+id/Layout1"
         android:layout_width="300dp"
         android:padding="10dp"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
@@ -37,10 +37,24 @@
             android:textSize="20sp"
             android:textStyle="bold" />
     </LinearLayout>
-    <Switch
-        android:id="@+id/switchLogSup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="40dp"
+            android:layout_height="25dp"
+            android:text="LOG"
+            android:textColor="@color/red"/>
+        <Switch
+            android:id="@+id/switchLogSup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/red"
+            android:background="@drawable/joinbtn"/>
+    </LinearLayout>
     <LinearLayout
         android:gravity="center"
         android:id="@+id/searchTextHolder"
