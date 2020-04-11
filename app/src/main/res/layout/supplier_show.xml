@@ -48,6 +48,7 @@
             android:layout_height="25dp"
             android:text="LOG"
             android:textColor="@color/red"/>
+
         <Switch
             android:id="@+id/switchLogSup"
             android:layout_width="wrap_content"
