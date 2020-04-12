@@ -149,7 +149,8 @@ public class produkAdd extends AppCompatActivity {
 
     public void uploadMultipart(File file) {
         if(nama.getText().toString().isEmpty() || nama.getText().toString().isEmpty() || beli.getText().toString().isEmpty() ||
-                jual.getText().toString().isEmpty() || stok.getText().toString().isEmpty() || minstok.getText().toString().isEmpty()){
+                jual.getText().toString().isEmpty() || stok.getText().toString().isEmpty() || minstok.getText().toString().isEmpty() ||
+                file == null){
             Toast.makeText(getApplicationContext(), "Data harus terisi semua!", Toast.LENGTH_SHORT).show();
         }else{
             RequestBody photoBody = RequestBody.create(MediaType.parse("image/*"), file);

@@ -199,8 +199,16 @@ public class produkEdit extends AppCompatActivity {
                 jual.getText().toString().isEmpty() || stok.getText().toString().isEmpty() || minstok.getText().toString().isEmpty()){
             Toast.makeText(getApplicationContext(), "Data harus terisi semua!", Toast.LENGTH_SHORT).show();
         }else{
-            RequestBody photoBody = RequestBody.create(MediaType.parse("image/*"), file);
-            MultipartBody.Part photoPart = MultipartBody.Part.createFormData("foto_produk", file.getName(), photoBody);
+            RequestBody photoBody;
+            String photoName;
+            if(file != null){
+                photoBody = RequestBody.create(MediaType.parse("image/*"), file);
+                photoName = file.getName();
+            }else{
+                photoBody = RequestBody.create(MediaType.parse("image/*"), "");
+                photoName = "";
+            }
+            MultipartBody.Part photoPart = MultipartBody.Part.createFormData("foto_produk", photoName, photoBody);
             RequestBody Rnama = RequestBody.create(MediaType.parse("text/plain"), this.nama.getText().toString());
             int Rid = Integer.parseInt(this.idsup.getText().toString()) ;
             int Rbeli = Integer.parseInt(this.beli.getText().toString()) ;
