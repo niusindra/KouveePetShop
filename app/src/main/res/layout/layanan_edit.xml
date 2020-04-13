@@ -76,7 +76,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
             android:background="@drawable/joinbtn"
-            android:text="Edit Supplier"
+            android:text="Edit Layanan"
             android:textAllCaps="false"
             android:textColor="@color/testcolorblue" />
 
@@ -87,7 +87,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:background="@drawable/joinbtn"
-            android:text="Delete Supplier"
+            android:text="Delete Layanan"
             android:textAllCaps="false"
             android:textColor="@color/testcolorblue" />
     </LinearLayout>

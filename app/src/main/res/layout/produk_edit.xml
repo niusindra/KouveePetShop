@@ -222,8 +222,8 @@
             android:id="@+id/showImageUload1"
             android:layout_margin="10dp"
             android:layout_gravity="center"
-            android:layout_width="120dp"
-            android:background="@color/black_overlay"
+            android:layout_width="150dp"
+            android:background="@color/whitecolor"
             android:layout_height="120dp"/>
         <LinearLayout
             android:layout_width="match_parent"
@@ -237,6 +237,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/joinbtn"
                 android:gravity="center"
+                android:textSize="10sp"
                 android:text="Tambah Foto"
                 android:textAllCaps="false"
                 android:textColor="@color/testcolorblue" />
@@ -246,6 +247,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="45dp"
                 android:layout_marginLeft="20dp"
+                android:textSize="10sp"
                 android:background="@drawable/joinbtn"
                 android:gravity="center"
                 android:text="Edit"
@@ -259,6 +261,7 @@
                 android:layout_marginLeft="20dp"
                 android:background="@drawable/joinbtn"
                 android:gravity="center"
+                android:textSize="10sp"
                 android:text="Hapus"
                 android:textAllCaps="false"
                 android:textColor="@color/testcolorblue" />

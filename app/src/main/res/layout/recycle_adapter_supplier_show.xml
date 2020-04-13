@@ -29,7 +29,7 @@
                     android:layout_height="25dp"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
-                    android:background="@drawable/iconcustomer"
+                    android:background="@drawable/iconsupplier"
                     android:backgroundTint="@color/yello" />
             </LinearLayout>
 
