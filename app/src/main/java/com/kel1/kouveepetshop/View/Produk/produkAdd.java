@@ -163,13 +163,24 @@ public class produkAdd extends AppCompatActivity {
             int Rminstok = Integer.parseInt(this.minstok.getText().toString());
 
             ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-            Call<cudDataMaster> customerCall = apiService.addProduk(Rid,Rnama,photoPart,Rbeli,Rjual,Rstok,Rminstok);
+            final Call<cudDataMaster> customerCall = apiService.addProduk(Rid,Rnama,photoPart,Rbeli,Rjual,Rstok,Rminstok);
             customerCall.enqueue(new Callback<cudDataMaster>(){
                 public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response){
-                    Toast.makeText(produkAdd.this,"Berhasil tambah",Toast.LENGTH_SHORT).show();
-                    startIntent();
+                    try {
+                        if(response.body()!=null){
+                            if(response.body().getNama_produk()!=null)
+                                Toast.makeText(produkAdd.this,response.body().getNama_produk(),Toast.LENGTH_LONG).show();
+                            else{
+                                Toast.makeText(produkAdd.this,response.body().getMessage(),Toast.LENGTH_LONG).show();
+                                startIntent();
+                            }
+                        }
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
                 }
                 public void onFailure(Call<cudDataMaster> call, Throwable t){
+                    customerCall.request();
                     Intent intent=new Intent(getApplicationContext(), ErrorCatch.class);
                     startActivity(intent);
                 }

@@ -15,6 +15,14 @@ public class cudDataMaster {
     @Expose
     private String message;
 
+    @SerializedName("nama_produk")
+    @Expose
+    private String nama_produk;
+
+    @SerializedName("nama_layanan")
+    @Expose
+    private String nama_layanan;
+
     public String getMessage() {
         return message;
     }
@@ -29,5 +37,13 @@ public class cudDataMaster {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public String getNama_produk() {
+        return nama_produk;
+    }
+
+    public String getNama_layanan() {
+        return nama_layanan;
     }
 }

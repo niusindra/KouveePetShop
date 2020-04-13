@@ -17,6 +17,10 @@ public class verifyPegawai {
     @Expose
     private String role_pegawai;
 
+    @SerializedName("error_login")
+    @Expose
+    private String error_login;
+
     public String getNama_pegawai() {
         return nama_pegawai;
     }
@@ -27,5 +31,9 @@ public class verifyPegawai {
 
     public String getRole_pegawai() {
         return role_pegawai;
+    }
+
+    public String getError_login() {
+        return error_login;
     }
 }

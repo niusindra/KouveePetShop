@@ -53,19 +53,24 @@ public class login_pegawai extends AppCompatActivity {
                         @Override
                         public void onResponse(Call<verifyPegawai> call, Response<verifyPegawai> response) {
                             if (response.body() != null) {
-                                session.createLoginSession(response.body().getNama_pegawai(),response.body().getId_pegawai());
-                                if(response.body().getRole_pegawai().equalsIgnoreCase("admin")) {
-                                    Intent i = new Intent(getApplicationContext(), dashboard.class);
-                                    startActivity(i);
-                                    Toast.makeText(getApplicationContext(),"Login admin sukses",Toast.LENGTH_SHORT).show();
-                                    finish();
-                                }else if(response.body().getRole_pegawai().equalsIgnoreCase("customer service")){
-                                    Intent i = new Intent(getApplicationContext(), dashboard.class);
-                                    startActivity(i);
-                                    Toast.makeText(getApplicationContext(),"Login CS sukses ",Toast.LENGTH_SHORT).show();
-                                    finish();
-                                }else{
-                                    Toast.makeText(getApplicationContext(),"Kasir tidak memiliki hak akses",Toast.LENGTH_SHORT).show();
+                                if(response.body().getError_login()!=null)
+                                    Toast.makeText(getApplicationContext(),response.body().getError_login(),Toast.LENGTH_SHORT).show();
+                                else {
+                                    if(response.body().getRole_pegawai().equalsIgnoreCase("admin")) {
+                                        session.createLoginSession(response.body().getNama_pegawai(),response.body().getId_pegawai());
+                                        Intent i = new Intent(getApplicationContext(), dashboard.class);
+                                        startActivity(i);
+                                        Toast.makeText(getApplicationContext(),"Login admin sukses",Toast.LENGTH_SHORT).show();
+                                        finish();
+                                    }else if(response.body().getRole_pegawai().equalsIgnoreCase("customer service")){
+                                        session.createLoginSession(response.body().getNama_pegawai(),response.body().getId_pegawai());
+                                        Intent i = new Intent(getApplicationContext(), dashboard.class);
+                                        startActivity(i);
+                                        Toast.makeText(getApplicationContext(),"Login CS sukses ",Toast.LENGTH_SHORT).show();
+                                        finish();
+                                    }else if(response.body().getRole_pegawai().equalsIgnoreCase("kasir")){
+                                        Toast.makeText(getApplicationContext(),"Kasir tidak memiliki hak akses",Toast.LENGTH_SHORT).show();
+                                    }
                                 }
 
                             }
