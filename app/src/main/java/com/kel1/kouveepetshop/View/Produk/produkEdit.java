@@ -170,7 +170,13 @@ public class produkEdit extends AppCompatActivity {
                 }
             }
         });
-
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(produkEdit.this, produkShow.class);
+                startActivity(intent);
+            }
+        });
         uploadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -238,6 +244,7 @@ public class produkEdit extends AppCompatActivity {
         delBtn = findViewById(R.id.delProdukBtn1);
         mSpinner = findViewById(R.id.supplierSpin1);
         mImageView = findViewById(R.id.showImageUload1);
+        back = findViewById(R.id.backBtnProduk1);
     }
     public void onBackPressed() {
         super.onBackPressed();

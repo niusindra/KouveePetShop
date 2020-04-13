@@ -16,8 +16,8 @@
 
         <ImageView
             android:id="@+id/backBtnProduk1"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_gravity="start"
             android:layout_marginLeft="10dp"
             android:background="@drawable/iconback" />
