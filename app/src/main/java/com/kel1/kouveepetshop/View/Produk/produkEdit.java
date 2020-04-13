@@ -302,8 +302,18 @@ public class produkEdit extends AppCompatActivity {
             Call<cudDataMaster> customerCall = apiService.editProduk(number[0],Rid,Rnama,photoPart,Rbeli,Rjual,Rstok,Rminstok);
             customerCall.enqueue(new Callback<cudDataMaster>(){
                 public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response){
-                    Toast.makeText(produkEdit.this,"Berhasil tambah",Toast.LENGTH_SHORT).show();
-                    startIntent();
+                    try {
+                        if(response.body()!=null){
+                            if(response.body().getNama_produk()!=null)
+                                Toast.makeText(produkEdit.this,response.body().getNama_produk(),Toast.LENGTH_LONG).show();
+                            else{
+                                Toast.makeText(produkEdit.this,response.body().getMessage(),Toast.LENGTH_LONG).show();
+                                startIntent();
+                            }
+                        }
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
                 }
                 public void onFailure(Call<cudDataMaster> call, Throwable t){
                     Intent intent=new Intent(getApplicationContext(), ErrorCatch.class);
