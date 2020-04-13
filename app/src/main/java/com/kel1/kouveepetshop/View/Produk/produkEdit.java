@@ -61,6 +61,11 @@ public class produkEdit extends AppCompatActivity {
     public Button uploadBtn;
     public Button editBtn;
     public Button delBtn;
+    public Button enableNama;
+    public Button enableHB;
+    public Button enableHJ;
+    public Button enableStok;
+    public Button enableMinStok;
 
     public List<supplierDAO> mListSupplier;
 
@@ -100,6 +105,72 @@ public class produkEdit extends AppCompatActivity {
                 idsup.setText(userData);
             }
         });
+        enableNama.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(nama.isEnabled()){
+                    enableNama.setBackgroundResource(R.drawable.lock);
+                    nama.setEnabled(false);
+                }
+                else {
+                    enableNama.setBackgroundResource(R.drawable.unlocked);
+                    nama.setEnabled(true);
+                }
+            }
+        });
+        enableHB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(beli.isEnabled()){
+                    enableHB.setBackgroundResource(R.drawable.lock);
+                    beli.setEnabled(false);
+                }
+                else {
+                    enableHB.setBackgroundResource(R.drawable.unlocked);
+                    beli.setEnabled(true);
+                }
+            }
+        });
+        enableHJ.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(jual.isEnabled()){
+                    enableHJ.setBackgroundResource(R.drawable.lock);
+                    jual.setEnabled(false);
+                }
+                else {
+                    enableHJ.setBackgroundResource(R.drawable.unlocked);
+                    jual.setEnabled(true);
+                }
+            }
+        });
+        enableStok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(stok.isEnabled()){
+                    enableStok.setBackgroundResource(R.drawable.lock);
+                    stok.setEnabled(false);
+                }
+                else {
+                    enableStok.setBackgroundResource(R.drawable.unlocked);
+                    stok.setEnabled(true);
+                }
+            }
+        });
+        enableMinStok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(minstok.isEnabled()){
+                    enableMinStok.setBackgroundResource(R.drawable.lock);
+                    minstok.setEnabled(false);
+                }
+                else {
+                    enableMinStok.setBackgroundResource(R.drawable.unlocked);
+                    minstok.setEnabled(true);
+                }
+            }
+        });
+
         uploadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -151,6 +222,11 @@ public class produkEdit extends AppCompatActivity {
     }
 
     public void setAtribut(){
+        enableNama = findViewById(R.id.enableproNama1);
+        enableHB = findViewById(R.id.enableproHB1);
+        enableHJ = findViewById(R.id.enableproHJ1);
+        enableStok = findViewById(R.id.enableproStok1);
+        enableMinStok = findViewById(R.id.enableproMinStok1);
         idsup = findViewById(R.id.idSup1);
         nama = findViewById(R.id.namaProdukTxt1);
         beli = findViewById(R.id.beliProdukTxt1);

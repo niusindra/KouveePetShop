@@ -33,7 +33,7 @@
             android:layout_width="285dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="40dp">
+            android:layout_marginTop="20dp">
 
             <ImageView
                 android:layout_width="match_parent"
@@ -69,72 +69,155 @@
                 android:background="@drawable/btn"
                 android:textColorHint="@color/fullwhite"/>
         </RelativeLayout>
-
-        <EditText
-            android:id="@+id/namaProdukTxt1"
-            android:layout_width="280dp"
-            android:layout_height="45dp"
-            android:hint="Nama Produk"
-            android:elevation="5dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:paddingLeft="15dp"
-            android:background="@drawable/btn"
-            android:textColorHint="@color/fullwhite"/>
-        <EditText
-            android:id="@+id/beliProdukTxt1"
-            android:layout_width="280dp"
-            android:layout_height="45dp"
-            android:hint="Harga Beli Produk"
-            android:inputType="number"
-            android:elevation="5dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:paddingLeft="15dp"
-            android:background="@drawable/btn"
-            android:textColorHint="@color/fullwhite"
-            />
-
-        <EditText
-            android:id="@+id/jualProdukTxt1"
-            android:layout_width="280dp"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="45dp"
             android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/btn"
-            android:clickable="true"
-            android:inputType="number"
-            android:contextClickable="false"
-            android:elevation="5dp"
-            android:hint="Harga Jual Produk"
-            android:paddingLeft="15dp"
-            android:textColorHint="@color/fullwhite" />
+            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/namaProdukTxt1"
+                android:layout_width="280dp"
+                android:layout_height="45dp"
+                android:hint="Nama Produk"
+                android:elevation="5dp"
+                android:enabled="false"
+                android:layout_gravity="center"
+                android:paddingLeft="15dp"
+                android:background="@drawable/btn"
+                android:textColorHint="@color/fullwhite"/>
+            <Button
+                android:id="@+id/enableproNama1"
+                android:background="@drawable/lock"
+                android:layout_marginLeft="10dp"
+                android:layout_width="43dp"
+                android:layout_height="43dp"
+                android:backgroundTint="@color/blackcolor"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/beliProdukTxt1"
+                android:layout_width="280dp"
+                android:layout_height="45dp"
+                android:hint="Harga Beli Produk"
+                android:enabled="false"
+                android:inputType="number"
+                android:elevation="5dp"
+                android:layout_gravity="center"
+                android:paddingLeft="15dp"
+                android:background="@drawable/btn"
+                android:textColorHint="@color/fullwhite"
+                />
+            <Button
+                android:id="@+id/enableproHB1"
+                android:background="@drawable/lock"
+                android:layout_marginLeft="10dp"
+                android:layout_width="43dp"
+                android:layout_height="43dp"
+                android:backgroundTint="@color/blackcolor"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/jualProdukTxt1"
+                android:enabled="false"
+                android:layout_width="280dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:background="@drawable/btn"
+                android:clickable="true"
+                android:inputType="number"
+                android:contextClickable="false"
+                android:elevation="5dp"
+                android:hint="Harga Jual Produk"
+                android:paddingLeft="15dp"
+                android:textColorHint="@color/fullwhite" />
+            <Button
+                android:id="@+id/enableproHJ1"
+                android:background="@drawable/lock"
+                android:layout_marginLeft="10dp"
+                android:layout_width="43dp"
+                android:layout_height="43dp"
+                android:backgroundTint="@color/blackcolor"/>
+        </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
         <EditText
             android:id="@+id/stokProduk1"
+            android:enabled="false"
             android:layout_width="280dp"
             android:layout_height="45dp"
             android:hint="Stok"
             android:inputType="number"
             android:elevation="5dp"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
             android:paddingLeft="15dp"
             android:background="@drawable/btn"
             android:textColorHint="@color/fullwhite"
             />
+        <Button
+            android:id="@+id/enableproStok1"
+            android:background="@drawable/lock"
+            android:layout_marginLeft="10dp"
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:backgroundTint="@color/blackcolor"/>
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
         <EditText
             android:id="@+id/minstokProduk1"
+            android:enabled="false"
             android:layout_width="280dp"
             android:layout_height="45dp"
             android:hint="Min Stok"
             android:inputType="number"
             android:elevation="5dp"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
             android:paddingLeft="15dp"
             android:background="@drawable/btn"
             android:textColorHint="@color/fullwhite"
             />
+        <Button
+            android:id="@+id/enableproMinStok1"
+            android:background="@drawable/lock"
+            android:layout_marginLeft="10dp"
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:backgroundTint="@color/blackcolor"/>
+    </LinearLayout>
         <ImageView
             android:id="@+id/showImageUload1"
             android:layout_margin="10dp"
