@@ -102,6 +102,13 @@ public class produkAdd extends AppCompatActivity {
                 uploadMultipart(file);
             }
         });
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(produkAdd.this, produkMain.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void setAtribut(){
@@ -115,6 +122,7 @@ public class produkAdd extends AppCompatActivity {
         addBtn = findViewById(R.id.addProdukBtn);
         mSpinner = findViewById(R.id.supplierSpin);
         mImageView = findViewById(R.id.showImageUload);
+        back = findViewById(R.id.backBtnProduk);
     }
     public void onBackPressed() {
         super.onBackPressed();
