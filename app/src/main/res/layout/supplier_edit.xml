@@ -141,7 +141,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:background="@drawable/joinbtn"
-            android:text="Delete Supplier"
+            android:text="Hapus Supplier"
             android:textAllCaps="false"
             android:textColor="@color/testcolorblue" />
     </LinearLayout>

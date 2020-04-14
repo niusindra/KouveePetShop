@@ -87,7 +87,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:background="@drawable/joinbtn"
-            android:text="Delete Layanan"
+            android:text="Hapus Layanan"
             android:textAllCaps="false"
             android:textColor="@color/testcolorblue" />
     </LinearLayout>

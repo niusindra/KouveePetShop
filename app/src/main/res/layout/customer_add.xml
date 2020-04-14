@@ -98,7 +98,7 @@
             android:layout_height="45dp"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
-            android:text="Add Customer"
+            android:text="Tambah Customer"
             android:textAllCaps="false"
             android:background="@drawable/joinbtn"
             android:textColor="@color/testcolorblue"/>

@@ -168,7 +168,7 @@
                 android:background="@drawable/joinbtn"
                 android:gravity="center"
                 android:textSize="10sp"
-                android:text="Add"
+                android:text="Tambah Produk"
                 android:textAllCaps="false"
                 android:textColor="@color/testcolorblue" />
         </LinearLayout>
