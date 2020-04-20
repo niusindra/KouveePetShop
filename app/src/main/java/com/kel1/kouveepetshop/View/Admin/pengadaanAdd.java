@@ -1,29 +1,16 @@
 package com.kel1.kouveepetshop.View.Admin;
 
-import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -36,19 +23,10 @@ import com.kel1.kouveepetshop.R;
 import com.kel1.kouveepetshop.Respon.cudDataMaster;
 import com.kel1.kouveepetshop.Respon.readProduk;
 import com.kel1.kouveepetshop.Respon.readSupplier;
-import com.kel1.kouveepetshop.View.ErrorCatch;
-import com.kel1.kouveepetshop.View.Produk.FileUtils;
-import com.kel1.kouveepetshop.View.Produk.produkMain;
-import com.kel1.kouveepetshop.View.Produk.produkShow;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import okhttp3.MediaType;
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -109,11 +87,12 @@ public class pengadaanAdd extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(pengadaanAdd.this);
+                total=0;
                 detailPengadaanList=adapter.getArrayList();
                 for (int i = 0; i < detailPengadaanList.size(); i++) {
                     total+=detailPengadaanList.get(i).getSubtotal_pengadaan();
                 }
-                builder.setMessage("Anda yakin membuat pengadaan dengan total: Rp "+String.valueOf(total))
+                builder.setMessage("Anda yakin membuat pengadaan dengan total: Rp "+total)
                         .setCancelable(false)
                         .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
                             @Override

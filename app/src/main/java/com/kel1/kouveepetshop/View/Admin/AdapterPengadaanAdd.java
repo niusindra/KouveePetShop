@@ -103,12 +103,12 @@ public class AdapterPengadaanAdd extends RecyclerView.Adapter<AdapterPengadaanAd
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     produkDAO produk = (produkDAO) adapterView.getSelectedItem();
+                    hargabeli = produk.getHarga_beli_produk();
                     detailPengadaanDAO detailPengadaanDAO = arrayList.get(getAdapterPosition());
                     detailPengadaanDAO.setId_produk(produk.getId_produk());
                     detailPengadaanDAO.setSubtotal_pengadaan(detailPengadaanDAO.getJml_pengadaan_produk()*hargabeli);
                     arrayList.set(getAdapterPosition(), detailPengadaanDAO);
-                    hargabeli = produk.getHarga_beli_produk();
-                    subtotal.setText("Subtotal Produk: Rp "+String.valueOf(detailPengadaanDAO.getJml_pengadaan_produk()*hargabeli));
+                    subtotal.setText("Subtotal Produk: Rp "+detailPengadaanDAO.getJml_pengadaan_produk()*hargabeli);
                 }
 
                 @Override
@@ -130,7 +130,7 @@ public class AdapterPengadaanAdd extends RecyclerView.Adapter<AdapterPengadaanAd
                     detailPengadaanDAO.setJml_pengadaan_produk(Integer.parseInt(charSequence.toString()));
                     detailPengadaanDAO.setSubtotal_pengadaan(detailPengadaanDAO.getJml_pengadaan_produk()*hargabeli);
                     arrayList.set(getAdapterPosition(), detailPengadaanDAO);
-                    subtotal.setText("Subtotal Produk: Rp "+String.valueOf(detailPengadaanDAO.getJml_pengadaan_produk()*hargabeli));
+                    subtotal.setText("Subtotal Produk: Rp "+detailPengadaanDAO.getJml_pengadaan_produk()*hargabeli);
                 }
 
                 @Override
