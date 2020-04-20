@@ -78,14 +78,15 @@ public class AdapterPengadaanAdd extends RecyclerView.Adapter<AdapterPengadaanAd
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-
+        TextView subtotal;
         EditText edtdetjmlPro;
         Spinner edtdetPro;
         Button removeBtn;
+        int hargabeli;
 
         public ViewHolder(View itemView) {
             super(itemView);
-
+            subtotal = itemView.findViewById(R.id.subtotal);
             edtdetPro = itemView.findViewById(R.id.detailProduk);
             edtdetjmlPro = itemView.findViewById(R.id.detailJmlProduk);
             removeBtn = itemView.findViewById(R.id.removeBtn);
@@ -104,8 +105,10 @@ public class AdapterPengadaanAdd extends RecyclerView.Adapter<AdapterPengadaanAd
                     produkDAO produk = (produkDAO) adapterView.getSelectedItem();
                     detailPengadaanDAO detailPengadaanDAO = arrayList.get(getAdapterPosition());
                     detailPengadaanDAO.setId_produk(produk.getId_produk());
+                    detailPengadaanDAO.setSubtotal_pengadaan(detailPengadaanDAO.getJml_pengadaan_produk()*hargabeli);
                     arrayList.set(getAdapterPosition(), detailPengadaanDAO);
-//                    notifyDataSetChanged();
+                    hargabeli = produk.getHarga_beli_produk();
+                    subtotal.setText("Subtotal Produk: Rp "+String.valueOf(detailPengadaanDAO.getJml_pengadaan_produk()*hargabeli));
                 }
 
                 @Override
@@ -125,8 +128,9 @@ public class AdapterPengadaanAdd extends RecyclerView.Adapter<AdapterPengadaanAd
 
                     detailPengadaanDAO detailPengadaanDAO = arrayList.get(getAdapterPosition());
                     detailPengadaanDAO.setJml_pengadaan_produk(Integer.parseInt(charSequence.toString()));
+                    detailPengadaanDAO.setSubtotal_pengadaan(detailPengadaanDAO.getJml_pengadaan_produk()*hargabeli);
                     arrayList.set(getAdapterPosition(), detailPengadaanDAO);
-//                    notifyDataSetChanged();
+                    subtotal.setText("Subtotal Produk: Rp "+String.valueOf(detailPengadaanDAO.getJml_pengadaan_produk()*hargabeli));
                 }
 
                 @Override

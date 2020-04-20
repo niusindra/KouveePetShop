@@ -1,6 +1,8 @@
 package com.kel1.kouveepetshop.View.Admin;
 
 import android.Manifest;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -60,7 +62,7 @@ public class pengadaanAdd extends AppCompatActivity {
     private Button btnaddPengadaan;
     private Spinner mySpinner;
     private AdapterPengadaanAdd adapter;
-    private int idsupplier;
+    private int total;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +73,6 @@ public class pengadaanAdd extends AppCompatActivity {
         mySpinner = findViewById(R.id.supplierSpinAdaan);
         btnaddProduk = findViewById(R.id.addProdukPengadaan);
         btnaddPengadaan = findViewById(R.id.addPengadaan);
-
         myRc.setHasFixedSize(true);
         myRc.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
@@ -107,24 +108,43 @@ public class pengadaanAdd extends AppCompatActivity {
         btnaddPengadaan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
-                Call<cudDataMaster> pengadaanCall = apiService.addPengadaan("Pending");
-                pengadaanCall.enqueue(new Callback<cudDataMaster>(){
-                    @Override
-                    public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response) {
-                        if(response.body()!=null) {
-                            Toast.makeText(getApplicationContext(),response.body().getMessage(),Toast.LENGTH_SHORT).show();
-
-                            ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
-                            List<detailPengadaanDAO> detailPengadaanDAOList = adapter.getArrayList();
-                            for (int i = 0; i < detailPengadaanDAOList.size(); i++) {
-                                Call<cudDataMaster> detailPengadaanCall = apiService.addDetailPengadaan(detailPengadaanDAOList.get(i).getId_produk(),detailPengadaanDAOList.get(i).getJml_pengadaan_produk());
-                                detailPengadaanCall.enqueue(new Callback<cudDataMaster>(){
+                AlertDialog.Builder builder = new AlertDialog.Builder(pengadaanAdd.this);
+                detailPengadaanList=adapter.getArrayList();
+                for (int i = 0; i < detailPengadaanList.size(); i++) {
+                    total+=detailPengadaanList.get(i).getSubtotal_pengadaan();
+                }
+                builder.setMessage("Anda yakin membuat pengadaan dengan total: Rp "+String.valueOf(total))
+                        .setCancelable(false)
+                        .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
+                                Call<cudDataMaster> pengadaanCall = apiService.addPengadaan("Pending");
+                                pengadaanCall.enqueue(new Callback<cudDataMaster>(){
                                     @Override
                                     public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response) {
                                         if(response.body()!=null) {
-                                            response.body().getMessage();
+                                            Toast.makeText(getApplicationContext(),response.body().getMessage(),Toast.LENGTH_SHORT).show();
+
+                                            ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
+                                            List<detailPengadaanDAO> detailPengadaanDAOList = adapter.getArrayList();
+                                            for (int i = 0; i < detailPengadaanDAOList.size(); i++) {
+                                                Call<cudDataMaster> detailPengadaanCall = apiService.addDetailPengadaan(detailPengadaanDAOList.get(i).getId_produk(),detailPengadaanDAOList.get(i).getJml_pengadaan_produk());
+                                                detailPengadaanCall.enqueue(new Callback<cudDataMaster>(){
+                                                    @Override
+                                                    public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response) {
+                                                        if(response.body()!=null) {
+                                                            response.body().getMessage();
+                                                        }
+                                                    }
+
+                                                    @Override
+                                                    public void onFailure(Call<cudDataMaster> call, Throwable t) {
+                                                        Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
+                                                    }
+                                                });
+                                            }
+
                                         }
                                     }
 
@@ -134,17 +154,15 @@ public class pengadaanAdd extends AppCompatActivity {
                                     }
                                 });
                             }
-
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<cudDataMaster> call, Throwable t) {
-                        Toast.makeText(getApplicationContext(),"Error1",Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-
+                        })
+                        .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
+                        });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
 
             }
         });

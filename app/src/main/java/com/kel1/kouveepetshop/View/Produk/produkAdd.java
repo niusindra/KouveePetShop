@@ -45,7 +45,6 @@ import retrofit2.Response;
 public class produkAdd extends AppCompatActivity {
     private static final int PICK_IMAGE_REQUEST = 1;
     public ImageView back;
-    public TextView namaSupplier;
     public EditText nama;
     public int idsup;
     public EditText beli;
