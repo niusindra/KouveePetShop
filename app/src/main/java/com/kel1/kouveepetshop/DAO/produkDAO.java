@@ -1,5 +1,7 @@
 package com.kel1.kouveepetshop.DAO;
 
+import androidx.annotation.NonNull;
+
 import com.google.gson.annotations.SerializedName;
 
 public class produkDAO {
@@ -86,5 +88,11 @@ public class produkDAO {
 
     public String getProduk_edited_at() {
         return produk_edited_at;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return nama_produk;
     }
 }

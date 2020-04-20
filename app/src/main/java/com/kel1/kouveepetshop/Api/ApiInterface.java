@@ -54,6 +54,9 @@ public interface ApiInterface {
     @GET("supplier/log")
     Call<readSupplier> getSupplierLog();
 
+    @GET("produk/bysupplier/{id}")
+    Call<readProduk> getProdukbySupplier(@Path("id")int id);
+
 //    =============================SEARCH========================================================
     @GET("customer/{id}")
     Call<customerDAO> getCustomer(@Path("id")int id);
@@ -117,6 +120,15 @@ public interface ApiInterface {
     Call<cudDataMaster> addSupplier(@Field("nama_supplier")String nama_supplier,
                                     @Field("alamat_supplier")String alamat_supplier,
                                     @Field("telp_supplier")String telp_supplier);
+
+    @POST("pengadaan/")
+    @FormUrlEncoded
+    Call<cudDataMaster> addPengadaan(@Field("status_pengadaan")String status_pengadaan);
+
+    @POST("detailpengadaan/")
+    @FormUrlEncoded
+    Call<cudDataMaster> addDetailPengadaan(@Field("id_produk")int id_produk,
+                                     @Field("jml_pengadaan_produk")int jml_pengadaan_produk);
 
 //    =============================UPDATE========================================================
     @POST("customer/{id}")

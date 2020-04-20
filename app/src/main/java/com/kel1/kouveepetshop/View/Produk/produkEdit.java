@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -51,7 +52,7 @@ public class produkEdit extends AppCompatActivity {
     private static final int PICK_IMAGE_REQUEST = 1;
     public ImageView back;
     public EditText nama;
-    public TextView idsup;
+    public int idsup;
     public EditText beli;
     public EditText jual;
     public EditText stok;
@@ -81,28 +82,25 @@ public class produkEdit extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.produk_edit);
-
+        setAtribut();
+        getSupplier();
         Intent intent = getIntent();
         produk = intent.getStringArrayExtra(RecycleAdapterProduk.EXTRA_TEXT);
         number = intent.getIntArrayExtra(RecycleAdapterProduk.EXTRA_NUMBER);
-        setAtribut();
-        setText(produk[0],produk[1],String.valueOf(number[1]),String.valueOf(number[2]),String.valueOf(number[3]),String.valueOf(number[4]),String.valueOf(number[5]));
-        getSupplier();
+        mSpinner.setSelection(1);
+        setText(produk[0],produk[1],String.valueOf(number[2]),String.valueOf(number[3]),String.valueOf(number[4]),String.valueOf(number[5]));
+
 
         mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 supplierDAO user = (supplierDAO) parent.getSelectedItem();
-                displayUserData(user);
+                idsup = user.getId_supplier();
+                Toast.makeText(getApplicationContext(),String.valueOf(idsup),Toast.LENGTH_LONG).show();
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
-            }
-            public void displayUserData(supplierDAO user) {
-                int id = user.getId_supplier();
-                String userData = String.valueOf(id);
-                idsup.setText(userData);
             }
         });
         enableNama.setOnClickListener(new View.OnClickListener() {
@@ -233,7 +231,6 @@ public class produkEdit extends AppCompatActivity {
         enableHJ = findViewById(R.id.enableproHJ1);
         enableStok = findViewById(R.id.enableproStok1);
         enableMinStok = findViewById(R.id.enableproMinStok1);
-        idsup = findViewById(R.id.idSup1);
         nama = findViewById(R.id.namaProdukTxt1);
         beli = findViewById(R.id.beliProdukTxt1);
         jual = findViewById(R.id.jualProdukTxt1);
@@ -252,7 +249,6 @@ public class produkEdit extends AppCompatActivity {
         startActivity(intent);
     }
     private void getSupplier(){
-        mListSupplier=new ArrayList<>();
         ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
         Call<readSupplier> layananCall = apiService.getSupplier();
         layananCall.enqueue(new Callback<readSupplier>(){
@@ -260,12 +256,17 @@ public class produkEdit extends AppCompatActivity {
             @Override
             public void onResponse(Call<readSupplier> call, Response<readSupplier> response) {
                 if(response.body()!=null) {
-                    List<supplierDAO> supplieritems = response.body().getMessage();
+                    mListSupplier = response.body().getMessage();
                     ArrayAdapter<supplierDAO> adapter = new ArrayAdapter<supplierDAO>(produkEdit.this,
-                            android.R.layout.simple_spinner_item, supplieritems);
+                            android.R.layout.simple_spinner_item, mListSupplier);
                     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
                     mSpinner.setAdapter(adapter);
+
+                    for (int i = 0; i < mListSupplier.size(); i++) {
+                        if(mListSupplier.get(i).getId_supplier()==number[1]){
+                            mSpinner.setSelection(i);
+                        }
+                    }
                 }
             }
 
@@ -292,7 +293,7 @@ public class produkEdit extends AppCompatActivity {
             }
 
             RequestBody Rnama = RequestBody.create(MediaType.parse("text/plain"), this.nama.getText().toString());
-            int Rid = Integer.parseInt(this.idsup.getText().toString()) ;
+            int Rid = this.idsup ;
             int Rbeli = Integer.parseInt(this.beli.getText().toString()) ;
             int Rjual = Integer.parseInt(this.jual.getText().toString());
             int Rstok = Integer.parseInt(this.stok.getText().toString());
@@ -389,9 +390,8 @@ public class produkEdit extends AppCompatActivity {
     }
 
 
-    public void setText(String nama, String foto, String idsup, String beli, String jual, String stok, String minstok){
+    public void setText(String nama, String foto, String beli, String jual, String stok, String minstok){
         this.nama.setText(nama);
-        this.idsup.setText(idsup);
         this.beli.setText(beli);
         this.jual.setText(jual);
         this.stok.setText(stok);

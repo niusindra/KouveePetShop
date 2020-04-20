@@ -47,7 +47,7 @@ public class produkAdd extends AppCompatActivity {
     public ImageView back;
     public TextView namaSupplier;
     public EditText nama;
-    public TextView idsup;
+    public int idsup;
     public EditText beli;
     public EditText jual;
     public EditText stok;
@@ -71,21 +71,16 @@ public class produkAdd extends AppCompatActivity {
         setAtribut();
         getSupplier();
 
-
+        mSpinner.setSelection(1);
         mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 supplierDAO user = (supplierDAO) parent.getSelectedItem();
-                displayUserData(user);
+                idsup=user.getId_supplier();
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
-            }
-            public void displayUserData(supplierDAO user) {
-                int id = user.getId_supplier();
-                String userData = String.valueOf(id);
-                idsup.setText(userData);
             }
         });
         uploadBtn.setOnClickListener(new View.OnClickListener() {
@@ -112,7 +107,6 @@ public class produkAdd extends AppCompatActivity {
     }
 
     public void setAtribut(){
-        idsup = findViewById(R.id.idSup);
         nama = findViewById(R.id.namaProdukTxt);
         beli = findViewById(R.id.beliProdukTxt);
         jual = findViewById(R.id.jualProdukTxt);
@@ -130,7 +124,6 @@ public class produkAdd extends AppCompatActivity {
         startActivity(intent);
     }
     private void getSupplier(){
-        mListSupplier=new ArrayList<>();
         ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
         Call<readSupplier> layananCall = apiService.getSupplier();
         layananCall.enqueue(new Callback<readSupplier>(){
@@ -138,9 +131,9 @@ public class produkAdd extends AppCompatActivity {
             @Override
             public void onResponse(Call<readSupplier> call, Response<readSupplier> response) {
                 if(response.body()!=null) {
-                    List<supplierDAO> supplieritems = response.body().getMessage();
+                    mListSupplier = response.body().getMessage();
                     ArrayAdapter<supplierDAO> adapter = new ArrayAdapter<supplierDAO>(produkAdd.this,
-                            android.R.layout.simple_spinner_item, supplieritems);
+                            android.R.layout.simple_spinner_item, mListSupplier);
                     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
                     mSpinner.setAdapter(adapter);
@@ -164,7 +157,7 @@ public class produkAdd extends AppCompatActivity {
             RequestBody photoBody = RequestBody.create(MediaType.parse("image/*"), file);
             MultipartBody.Part photoPart = MultipartBody.Part.createFormData("foto_produk", file.getName(), photoBody);
             RequestBody Rnama = RequestBody.create(MediaType.parse("text/plain"), this.nama.getText().toString());
-            int Rid = Integer.parseInt(this.idsup.getText().toString()) ;
+            int Rid = this.idsup ;
             int Rbeli = Integer.parseInt(this.beli.getText().toString()) ;
             int Rjual = Integer.parseInt(this.jual.getText().toString());
             int Rstok = Integer.parseInt(this.stok.getText().toString());

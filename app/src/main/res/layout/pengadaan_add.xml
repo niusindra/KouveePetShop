@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="@color/kvBackground"
+    tools:context=".View.Admin.pengadaanAdd">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/backBtnAdaan"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="start"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/iconback" />
+        <Button
+            android:id="@+id/addProdukPengadaan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/joinbtn"
+            android:gravity="center"
+            android:textSize="10sp"
+            android:text="Tambah Produk"
+            android:textAllCaps="false"
+            android:textColor="@color/testcolorblue" />
+
+        <Button
+            android:id="@+id/addPengadaan"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/joinbtn"
+            android:gravity="center"
+            android:textSize="10sp"
+            android:text="Buat Pengadaan"
+            android:textAllCaps="false"
+            android:textColor="@color/testcolorblue" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="285dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="60dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:src="@drawable/kouveelogo" />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/suppTVAdaan"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:hint="Supplier:"
+            android:elevation="5dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="15dp"/>
+        <RelativeLayout
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:elevation="5dp"
+            android:layout_gravity="center">
+            <Spinner
+                android:id="@+id/supplierSpinAdaan"
+                android:layout_width="280dp"
+                android:layout_height="45dp" />
+            <TextView
+                android:id="@+id/idSup"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:elevation="5dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:paddingLeft="15dp"
+                android:background="@drawable/btn"
+                android:textColorHint="@color/fullwhite"/>
+        </RelativeLayout>
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/myRc"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

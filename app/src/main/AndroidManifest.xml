@@ -22,12 +22,17 @@
 
         </activity>
         <activity android:name=".View.Admin.login_pegawai">
+
+        </activity>
+
+        <activity android:name=".View.Admin.pengadaanAdd">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".View.Admin.pengadaanMain"/>
         <activity android:name=".View.Customer.customerMain" />
 
         <activity android:name=".View.Customer.customerShow">
