@@ -1,7 +1,6 @@
 package com.kel1.kouveepetshop.View.Admin;
 
 import android.content.Context;
-import android.content.Intent;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -11,31 +10,17 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.kel1.kouveepetshop.Api.ApiClient;
-import com.kel1.kouveepetshop.Api.ApiInterface;
 import com.kel1.kouveepetshop.DAO.customerDAO;
 import com.kel1.kouveepetshop.DAO.detailPengadaanDAO;
 import com.kel1.kouveepetshop.DAO.produkDAO;
-import com.kel1.kouveepetshop.DAO.supplierDAO;
 import com.kel1.kouveepetshop.R;
-import com.kel1.kouveepetshop.Respon.readProduk;
-import com.kel1.kouveepetshop.View.Customer.customerEdit;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class AdapterPengadaanAdd extends RecyclerView.Adapter<AdapterPengadaanAdd.ViewHolder>{
     private Context context;
@@ -135,7 +120,6 @@ public class AdapterPengadaanAdd extends RecyclerView.Adapter<AdapterPengadaanAd
 
                 @Override
                 public void afterTextChanged(Editable editable) {
-
                 }
             });
 

@@ -22,6 +22,7 @@ import com.kel1.kouveepetshop.DAO.produkDAO;
 import com.kel1.kouveepetshop.DAO.supplierDAO;
 import com.kel1.kouveepetshop.R;
 import com.kel1.kouveepetshop.Respon.cudDataMaster;
+import com.kel1.kouveepetshop.Respon.readDetailPengadaan;
 import com.kel1.kouveepetshop.Respon.readProduk;
 import com.kel1.kouveepetshop.Respon.readSupplier;
 
@@ -32,31 +33,37 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class pengadaanAdd extends AppCompatActivity {
+public class pengadaanEdit extends AppCompatActivity {
     private RecyclerView myRc;
     private List<detailPengadaanDAO> detailPengadaanList = new ArrayList<>();
-    public List<produkDAO> produkDAOList = new ArrayList<>();
-    public List<supplierDAO> supplieritems = new ArrayList<>();
+    private List<produkDAO> produkDAOList = new ArrayList<>();
+    private List<supplierDAO> supplieritems = new ArrayList<>();
     private Button btnaddProduk;
-    private Button btnaddPengadaan;
+    private Button btnEditPengadaan;
     private Spinner mySpinner;
     private AdapterPengadaanAdd adapter;
+    private String[] pengadaan;
+    private int[] number;
     private int total;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.pengadaan_add);
+        setContentView(R.layout.pengadaan_edit);
+
+        Intent intent = getIntent();
+        pengadaan = intent.getStringArrayExtra(RecycleAdapterPengadaanShow.EXTRA_TEXT);
+        number = intent.getIntArrayExtra(RecycleAdapterPengadaanShow.EXTRA_NUMBER);
+
         getSupplier();
-        myRc =findViewById(R.id.myRc);
-        mySpinner = findViewById(R.id.supplierSpinAdaan);
-        btnaddProduk = findViewById(R.id.addProdukPengadaan);
-        btnaddPengadaan = findViewById(R.id.addPengadaan);
+
+        myRc =findViewById(R.id.myRc1);
+        mySpinner = findViewById(R.id.supplierSpinAdaan1);
+        btnaddProduk = findViewById(R.id.addProdukPengadaan1);
+        btnEditPengadaan = findViewById(R.id.editPengadaan);
         myRc.setHasFixedSize(true);
         myRc.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
-        adapter = new AdapterPengadaanAdd(this, detailPengadaanList, produkDAOList);
-        myRc.setAdapter(adapter);
 
         mySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -84,16 +91,16 @@ public class pengadaanAdd extends AppCompatActivity {
             }
         });
 
-        btnaddPengadaan.setOnClickListener(new View.OnClickListener() {
+        btnEditPengadaan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(pengadaanAdd.this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(pengadaanEdit.this);
                 total=0;
                 detailPengadaanList=adapter.getArrayList();
                 for (int i = 0; i < detailPengadaanList.size(); i++) {
                     total+=detailPengadaanList.get(i).getSubtotal_pengadaan();
                 }
-                builder.setMessage("Anda yakin membuat pengadaan dengan total: Rp "+total)
+                builder.setMessage("Anda yakin mengedit pengadaan dengan total: Rp "+total)
                         .setCancelable(false)
                         .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
                             @Override
@@ -159,13 +166,18 @@ public class pengadaanAdd extends AppCompatActivity {
             public void onResponse(Call<readSupplier> call, Response<readSupplier> response) {
                 if(response.body()!=null) {
                     supplieritems = response.body().getMessage();
-                    ArrayAdapter<supplierDAO> adapter = new ArrayAdapter<supplierDAO>(pengadaanAdd.this,
+                    ArrayAdapter<supplierDAO> adapter = new ArrayAdapter<supplierDAO>(pengadaanEdit.this,
                             android.R.layout.simple_spinner_item, supplieritems);
                     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
                     mySpinner.setAdapter(adapter);
-
-                    getProdukbySupplier(supplieritems.get(0).getId_supplier());
+                    for (int i = 0; i < supplieritems.size(); i++) {
+                        if(supplieritems.get(i).getNama_supplier().equalsIgnoreCase(pengadaan[0])){
+                            mySpinner.setSelection(i);
+                            getProdukbySupplier(supplieritems.get(i).getId_supplier());
+                            getDetailPengadaan(number[0]);
+                        }
+                    }
                 }
             }
 
@@ -185,12 +197,31 @@ public class pengadaanAdd extends AppCompatActivity {
             public void onResponse(Call<readProduk> call, Response<readProduk> response) {
                 if(response.body()!=null) {
                     produkDAOList = response.body().getMessage();
-
-//                    Toast.makeText(context,mListProduk.get(0).getNama_produk(),Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
             public void onFailure(Call<readProduk> call, Throwable t) {
+                Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void getDetailPengadaan(int idsupplier){
+        ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
+        Call<readDetailPengadaan> produkCall = apiService.getDetailPengadaan(idsupplier);
+        produkCall.enqueue(new Callback<readDetailPengadaan>(){
+
+            @Override
+            public void onResponse(Call<readDetailPengadaan> call, Response<readDetailPengadaan> response) {
+                if(response.body()!=null) {
+                    detailPengadaanList = response.body().getMessage();
+                    adapter = new AdapterPengadaanAdd(getApplicationContext(), detailPengadaanList, produkDAOList);
+                    myRc.setAdapter(adapter);
+
+                }
+            }
+            @Override
+            public void onFailure(Call<readDetailPengadaan> call, Throwable t) {
                 Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
             }
         });

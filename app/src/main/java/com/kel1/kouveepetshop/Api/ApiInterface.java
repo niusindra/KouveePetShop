@@ -3,9 +3,11 @@ package com.kel1.kouveepetshop.Api;
 import com.kel1.kouveepetshop.DAO.customerDAO;
 import com.kel1.kouveepetshop.Respon.cudDataMaster;
 import com.kel1.kouveepetshop.Respon.readCustomer;
+import com.kel1.kouveepetshop.Respon.readDetailPengadaan;
 import com.kel1.kouveepetshop.Respon.readHewan;
 import com.kel1.kouveepetshop.Respon.readJenisHewan;
 import com.kel1.kouveepetshop.Respon.readLayanan;
+import com.kel1.kouveepetshop.Respon.readPengadaan;
 import com.kel1.kouveepetshop.Respon.readProduk;
 import com.kel1.kouveepetshop.Respon.readSupplier;
 import com.kel1.kouveepetshop.Respon.readUkuranHewan;
@@ -38,6 +40,12 @@ public interface ApiInterface {
     Call<readUkuranHewan> getUkuranHewan();
     @GET("supplier")
     Call<readSupplier> getSupplier();
+    @GET("pengadaan")
+    Call<readPengadaan> getPengadaan();
+    @GET("detailpengadaan/{id}")
+    Call<readDetailPengadaan> getDetailPengadaan(@Path("id")int id);
+    @GET("produk/bysupplier/{id}")
+    Call<readProduk> getProdukbySupplier(@Path("id")int id);
 
     @GET("customer/log")
     Call<readCustomer> getCustomerLog();
@@ -54,8 +62,7 @@ public interface ApiInterface {
     @GET("supplier/log")
     Call<readSupplier> getSupplierLog();
 
-    @GET("produk/bysupplier/{id}")
-    Call<readProduk> getProdukbySupplier(@Path("id")int id);
+
 
 //    =============================SEARCH========================================================
     @GET("customer/{id}")

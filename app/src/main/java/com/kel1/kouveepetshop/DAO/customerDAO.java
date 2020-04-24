@@ -2,7 +2,7 @@ package com.kel1.kouveepetshop.DAO;
 
 import com.google.gson.annotations.SerializedName;
 
-public class customerDAO{
+public class customerDAO {
     @SerializedName("id_customer")
     private  int id_customer;
 

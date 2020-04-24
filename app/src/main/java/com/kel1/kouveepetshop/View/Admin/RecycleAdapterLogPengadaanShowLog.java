@@ -1,4 +1,4 @@
-package com.kel1.kouveepetshop.View.Customer;
+package com.kel1.kouveepetshop.View.Admin;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,23 +12,23 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.kel1.kouveepetshop.DAO.customerDAO;
+import com.kel1.kouveepetshop.DAO.pengadaanDAO;
 import com.kel1.kouveepetshop.R;
 
 import java.util.List;
 
-public class RecycleAdapterLog extends RecyclerView.Adapter<RecycleAdapterLog.MyViewHolder>{
+public class RecycleAdapterLogPengadaanShowLog extends RecyclerView.Adapter<RecycleAdapterLogPengadaanShowLog.MyViewHolder>{
     private Context context;
-    private List<customerDAO> result;
+    private List<pengadaanDAO> result;
     public CardView cardView;
 
-    public RecycleAdapterLog(Context context, List<customerDAO> result){
+    public RecycleAdapterLogPengadaanShowLog(Context context, List<pengadaanDAO> result){
         this.context=context;
         this.result=result;
     }
 
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i){
-        View v = LayoutInflater.from(context).inflate(R.layout.recycle_adapter_costumer_show_log,viewGroup,false);
+        View v = LayoutInflater.from(context).inflate(R.layout.recycle_adapter_pengadaan_show_log,viewGroup,false);
         final MyViewHolder holder = new MyViewHolder(v);
         return  holder;
     }
@@ -62,17 +62,17 @@ public class RecycleAdapterLog extends RecyclerView.Adapter<RecycleAdapterLog.My
 
     @Override
     public void onBindViewHolder(final MyViewHolder myViewHolder, final int i) {
-        final customerDAO customerDAO=result.get(i);
-        myViewHolder.mNama.setText("Nama\t: "+customerDAO.getNama_customer());
-        myViewHolder.mAlamat.setText("Alamat\t: "+customerDAO.getAlamat_customer());
-        myViewHolder.mTgllahir.setText("Tgl Lahir\t: "+customerDAO.getTgllahir_customer());
-        myViewHolder.mTelp.setText("Telp\t: "+customerDAO.getTelp_customer());
-        myViewHolder.mCreatedAt.setText("Dibuat pada\t: "+customerDAO.getCust_created_at());
-        myViewHolder.mCreatedBy.setText("Dibuat oleh\t: "+customerDAO.getCust_created_by());
-        myViewHolder.mEditedAt.setText("Diedit pada\t: "+customerDAO.getCust_edited_at());
-        myViewHolder.mEditedBy.setText("Diedit oleh\t: "+customerDAO.getCust_edited_by());
-        myViewHolder.mDeletedAt.setText("Dihapus pada\t: "+customerDAO.getCust_deleted_at());
-        myViewHolder.mDeletedBy.setText("Dihapus oleh\t: "+customerDAO.getCust_deleted_by());
+        final pengadaanDAO customerDAO=result.get(i);
+//        myViewHolder.mNama.setText("Nama\t: "+customerDAO.getNama_customer());
+//        myViewHolder.mAlamat.setText("Alamat\t: "+customerDAO.getAlamat_customer());
+//        myViewHolder.mTgllahir.setText("Tgl Lahir\t: "+customerDAO.getTgllahir_customer());
+//        myViewHolder.mTelp.setText("Telp\t: "+customerDAO.getTelp_customer());
+//        myViewHolder.mCreatedAt.setText("Dibuat pada\t: "+customerDAO.getCust_created_at());
+//        myViewHolder.mCreatedBy.setText("Dibuat oleh\t: "+customerDAO.getCust_created_by());
+//        myViewHolder.mEditedAt.setText("Diedit pada\t: "+customerDAO.getCust_edited_at());
+//        myViewHolder.mEditedBy.setText("Diedit oleh\t: "+customerDAO.getCust_edited_by());
+//        myViewHolder.mDeletedAt.setText("Dihapus pada\t: "+customerDAO.getCust_deleted_at());
+//        myViewHolder.mDeletedBy.setText("Dihapus oleh\t: "+customerDAO.getCust_deleted_by());
     }
 
     @Override
@@ -80,7 +80,7 @@ public class RecycleAdapterLog extends RecyclerView.Adapter<RecycleAdapterLog.My
         return result.size();
     }
 
-    public void filterList(List<customerDAO> filteredList) {
+    public void filterList(List<pengadaanDAO> filteredList) {
         result = filteredList;
         notifyDataSetChanged();
     }
