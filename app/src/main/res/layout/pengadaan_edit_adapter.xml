@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardElevation="10dp"
+    app:cardUseCompatPadding="true"
+    android:background="@color/kvBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/kvBackground">
+
+        <Spinner
+            android:id="@+id/detailProduk1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="ID Produk" />
+
+
+        <EditText
+            android:id="@+id/detailJmlProduk1"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:hint="Jumlah produk"
+            android:imeOptions="actionNext"
+            android:inputType="number" />
+        <TextView
+            android:id="@+id/subtotal1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:hint="Subtotal Produk: -"
+            android:gravity="center"
+            android:layout_marginTop="10dp"/>
+        <Button
+            android:id="@+id/removeBtn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/joinbtn"
+            android:gravity="center"
+            android:layout_gravity="right"
+            android:text="hapus"/>
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

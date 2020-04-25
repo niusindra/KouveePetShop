@@ -16,6 +16,7 @@ import com.kel1.kouveepetshop.Respon.verifyPegawai;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
+import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -61,6 +62,8 @@ public interface ApiInterface {
     Call<readUkuranHewan> getUkuranHewanLog();
     @GET("supplier/log")
     Call<readSupplier> getSupplierLog();
+    @GET("pengadaan/log")
+    Call<readPengadaan> getPengadaanLog();
 
 
 
@@ -134,7 +137,8 @@ public interface ApiInterface {
 
     @POST("detailpengadaan/")
     @FormUrlEncoded
-    Call<cudDataMaster> addDetailPengadaan(@Field("id_produk")int id_produk,
+    Call<cudDataMaster> addDetailPengadaan(@Field("id_pengadaan")int id_pengadaan,
+                                           @Field("id_produk")int id_produk,
                                      @Field("jml_pengadaan_produk")int jml_pengadaan_produk);
 
 //    =============================UPDATE========================================================
@@ -186,6 +190,17 @@ public interface ApiInterface {
                                      @Field("alamat_supplier")String alamat_supplier,
                                      @Field("telp_supplier")String telp_supplier);
 
+    @POST("pengadaan/{id}")
+    @FormUrlEncoded
+    Call<cudDataMaster> editPengadaan(@Path("id")int id,
+                                      @Field("status_pengadaan")String status_pengadaan);
+
+    @POST("detailpengadaan/{id}")
+    @FormUrlEncoded
+    Call<cudDataMaster> editDetailPengadaan(@Path("id")int id,
+                                            @Field("id_produk")int id_produk,
+                                           @Field("jml_pengadaan_produk")int jml_pengadaan_produk);
+
 //    =============================DELETE========================================================
     @POST("customer/delete/{id}")
     @FormUrlEncoded
@@ -205,4 +220,8 @@ public interface ApiInterface {
     Call<cudDataMaster> deleteUkuranHewan(@Path("id")int id);
     @POST("supplier/delete/{id}")
     Call<cudDataMaster> deleteSupplier(@Path("id")int id);
+    @POST("pengadaan/delete/{id}")
+    Call<cudDataMaster> deletePengadaan(@Path("id")int id);
+    @DELETE("detailpengadaan/{id}")
+    Call<cudDataMaster> deleteDetailPengadaan(@Path("id")int id);
 }

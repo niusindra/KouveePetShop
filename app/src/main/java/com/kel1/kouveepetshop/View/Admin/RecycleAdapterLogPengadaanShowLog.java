@@ -1,6 +1,7 @@
 package com.kel1.kouveepetshop.View.Admin;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +10,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.kel1.kouveepetshop.DAO.pengadaanDAO;
@@ -20,7 +20,9 @@ import java.util.List;
 public class RecycleAdapterLogPengadaanShowLog extends RecyclerView.Adapter<RecycleAdapterLogPengadaanShowLog.MyViewHolder>{
     private Context context;
     private List<pengadaanDAO> result;
-    public CardView cardView;
+
+    public static final String EXTRA_TEXT = "com.kel1.kouveepetshop.EXTRA_TEXT";
+    public static final String EXTRA_NUMBER = "com.kel1.kouveepetshop.EXTRA_NUMBER";
 
     public RecycleAdapterLogPengadaanShowLog(Context context, List<pengadaanDAO> result){
         this.context=context;
@@ -34,23 +36,19 @@ public class RecycleAdapterLogPengadaanShowLog extends RecyclerView.Adapter<Recy
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        public TextView mNama, mAlamat, mTgllahir, mTelp, mDeletedAt, mCreatedAt, mEditedAt, mCreatedBy, mEditedBy,mDeletedBy;
+        public TextView mNama, mTanggal, mTotal, mStatus, mCreatedAt, mCreatedBy, mEditedAt;
         private LinearLayout mParent;
 
         public MyViewHolder(@NonNull View itemView){
             super(itemView);
-            mNama=itemView.findViewById(R.id.RC_Costumer_Name);
-            mAlamat=itemView.findViewById(R.id.RC_Alamat);
-            mTgllahir=itemView.findViewById(R.id.RC_TanggalLahir);
-            mTelp=itemView.findViewById(R.id.RC_Telp);
-            mCreatedAt=itemView.findViewById(R.id.custcreatedat);
-            mCreatedBy=itemView.findViewById(R.id.custcreatedby);
-            mEditedAt=itemView.findViewById(R.id.custeditedat);
-            mEditedBy=itemView.findViewById(R.id.custeditedby);
-            mDeletedAt=itemView.findViewById(R.id.custdeletedat);
-            mDeletedBy=itemView.findViewById(R.id.custdeletedby);
-            mParent=itemView.findViewById(R.id.RC_Admin_Event_Parent);
-            cardView =itemView.findViewById(R.id.RC_Customer_cardView);
+            mNama=itemView.findViewById(R.id.RC_Pengadaan_Name1);
+            mTanggal=itemView.findViewById(R.id.RC_tglPengadaan1);
+            mTotal=itemView.findViewById(R.id.RC_totalPengadaan1);
+            mStatus=itemView.findViewById(R.id.RC_statusPengadaan1);
+            mCreatedAt=itemView.findViewById(R.id.RC_AdaanCreated);
+            mCreatedBy=itemView.findViewById(R.id.RC_AdaanEdited);
+            mEditedAt=itemView.findViewById(R.id.RC_AdaanDeleted);
+            mParent=itemView.findViewById(R.id.RC_Pengadaan_Event_Parent);
             context = itemView.getContext();
         }
 
@@ -62,17 +60,14 @@ public class RecycleAdapterLogPengadaanShowLog extends RecyclerView.Adapter<Recy
 
     @Override
     public void onBindViewHolder(final MyViewHolder myViewHolder, final int i) {
-        final pengadaanDAO customerDAO=result.get(i);
-//        myViewHolder.mNama.setText("Nama\t: "+customerDAO.getNama_customer());
-//        myViewHolder.mAlamat.setText("Alamat\t: "+customerDAO.getAlamat_customer());
-//        myViewHolder.mTgllahir.setText("Tgl Lahir\t: "+customerDAO.getTgllahir_customer());
-//        myViewHolder.mTelp.setText("Telp\t: "+customerDAO.getTelp_customer());
-//        myViewHolder.mCreatedAt.setText("Dibuat pada\t: "+customerDAO.getCust_created_at());
-//        myViewHolder.mCreatedBy.setText("Dibuat oleh\t: "+customerDAO.getCust_created_by());
-//        myViewHolder.mEditedAt.setText("Diedit pada\t: "+customerDAO.getCust_edited_at());
-//        myViewHolder.mEditedBy.setText("Diedit oleh\t: "+customerDAO.getCust_edited_by());
-//        myViewHolder.mDeletedAt.setText("Dihapus pada\t: "+customerDAO.getCust_deleted_at());
-//        myViewHolder.mDeletedBy.setText("Dihapus oleh\t: "+customerDAO.getCust_deleted_by());
+        final pengadaanDAO pengadaanDAO=result.get(i);
+        myViewHolder.mNama.setText("Nama Supplier\t: "+pengadaanDAO.getNama_supplier());
+        myViewHolder.mTanggal.setText("Tanggal\t: "+pengadaanDAO.getTgl_pengadaan());
+        myViewHolder.mTotal.setText("Total\t: Rp "+pengadaanDAO.getTotal_pengadaan()+", \n\tdengan "+pengadaanDAO.getJumlah_jenis()+" jenis produk");
+        myViewHolder.mStatus.setText("Status\t: "+pengadaanDAO.getStatus_pengadaan()+"\n");
+        myViewHolder.mCreatedAt.setText("Dibuat pada\t: "+pengadaanDAO.getAdaan_created_at());
+        myViewHolder.mEditedAt.setText("Diedit pada\t: "+pengadaanDAO.getAdaan_edited_at());
+        myViewHolder.mCreatedBy.setText("Dihapus pada\t: "+pengadaanDAO.getAdaan_deleted_at());
     }
 
     @Override
@@ -83,5 +78,14 @@ public class RecycleAdapterLogPengadaanShowLog extends RecyclerView.Adapter<Recy
     public void filterList(List<pengadaanDAO> filteredList) {
         result = filteredList;
         notifyDataSetChanged();
+    }
+
+    public void setResult(List<pengadaanDAO> result) {
+        this.result = result;
+        notifyDataSetChanged();
+    }
+
+    public List<pengadaanDAO> getResult() {
+        return result;
     }
 }

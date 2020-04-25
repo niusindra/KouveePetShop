@@ -60,18 +60,25 @@ public class RecycleAdapterPengadaanShow extends RecyclerView.Adapter<RecycleAda
     @Override
     public void onBindViewHolder(final MyViewHolder myViewHolder, final int i) {
         final pengadaanDAO pengadaanDAO=result.get(i);
-        myViewHolder.mNama.setText("Nama\t: "+pengadaanDAO.getNama_supplier());
-        myViewHolder.mTanggal.setText("Alamat\t: "+pengadaanDAO.getTgl_pengadaan());
-        myViewHolder.mTotal.setText("Tgl Lahir\t: "+pengadaanDAO.getTotal_pengadaan());
-        myViewHolder.mStatus.setText("Telp\t: "+pengadaanDAO.getStatus_pengadaan()+"\n");
+        myViewHolder.mNama.setText("Nama Supplier\t: "+pengadaanDAO.getNama_supplier());
+        myViewHolder.mTanggal.setText("Tanggal\t: "+pengadaanDAO.getTgl_pengadaan());
+        myViewHolder.mTotal.setText("Total\t: Rp "+pengadaanDAO.getTotal_pengadaan()+", \n\tdengan "+pengadaanDAO.getJumlah_jenis()+" jenis produk");
+        myViewHolder.mStatus.setText("Status\t: "+pengadaanDAO.getStatus_pengadaan()+"\n");
         myViewHolder.mParent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context,pengadaanEdit.class);
-                intent.putExtra(EXTRA_TEXT, new String[] {pengadaanDAO.getNama_supplier(),pengadaanDAO.getTgl_pengadaan(),
-                        pengadaanDAO.getStatus_pengadaan()});
-                intent.putExtra(EXTRA_NUMBER, new int[] {pengadaanDAO.getId_pengadaan(), pengadaanDAO.getId_supplier(), pengadaanDAO.getTotal_pengadaan()});
-                context.startActivity(intent);
+                if(pengadaanDAO.getStatus_pengadaan().equalsIgnoreCase("Pending")){
+                    Intent intent = new Intent(context,pengadaanEdit.class);
+                    intent.putExtra(EXTRA_TEXT, new String[] {pengadaanDAO.getNama_supplier(),pengadaanDAO.getTgl_pengadaan(),
+                            pengadaanDAO.getStatus_pengadaan()});
+                    intent.putExtra(EXTRA_NUMBER, new int[] {pengadaanDAO.getId_pengadaan(), pengadaanDAO.getId_supplier(), pengadaanDAO.getTotal_pengadaan()});
+                    context.startActivity(intent);
+                }else if(pengadaanDAO.getStatus_pengadaan().equalsIgnoreCase("belum sampai")){
+                    Toast.makeText(context,"Tidak bisa edit",Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(context,"Sudah sampai bos",Toast.LENGTH_LONG).show();
+                }
+
             }
         });
     }
@@ -84,5 +91,14 @@ public class RecycleAdapterPengadaanShow extends RecyclerView.Adapter<RecycleAda
     public void filterList(List<pengadaanDAO> filteredList) {
         result = filteredList;
         notifyDataSetChanged();
+    }
+
+    public void setResult(List<pengadaanDAO> result) {
+        this.result = result;
+        notifyDataSetChanged();
+    }
+
+    public List<pengadaanDAO> getResult() {
+        return result;
     }
 }

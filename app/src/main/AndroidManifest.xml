@@ -28,13 +28,14 @@
         <activity android:name=".View.Admin.pengadaanAdd">
 
         </activity>
-        <activity android:name=".View.Admin.pengadaanMain"/>
-        <activity android:name=".View.Admin.pengadaanShow">
+        <activity android:name=".View.Admin.pengadaanMain">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".View.Admin.pengadaanShow">
         </activity>
         <activity android:name=".View.Admin.pengadaanEdit"/>
         <activity android:name=".View.Customer.customerMain" />

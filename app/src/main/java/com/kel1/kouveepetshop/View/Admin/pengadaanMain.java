@@ -3,6 +3,7 @@ package com.kel1.kouveepetshop.View.Admin;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,90 +20,44 @@ import com.kel1.kouveepetshop.View.Supplier.supplierMain;
 import com.kel1.kouveepetshop.View.UkuranHewan.ukuranMain;
 
 public class pengadaanMain extends AppCompatActivity {
-    public CardView produk;
-    public CardView hewan;
-    public CardView customer;
-    public CardView jhewan;
-    public CardView layanan;
-    public CardView uhewan;
-    public CardView supplier;
-    public TextView logout;
-
-    public SessionManager session;
-    @Override
+    public ImageView back;
+    public CardView add;
+    public CardView show;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.pengadaan_main);
-        session = new SessionManager(getApplicationContext());
-        session.checkLogin();
-
+        setContentView(R.layout.customer_main);
         setAtribut();
-        hewan.setOnClickListener(new View.OnClickListener() {
+        back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(pengadaanMain.this, hewanMain.class);
+                Intent intent = new Intent(pengadaanMain.this, dashboard.class);
                 startActivity(intent);
             }
         });
-        produk.setOnClickListener(new View.OnClickListener() {
+        add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(pengadaanMain.this, produkMain.class);
+                Intent intent = new Intent(pengadaanMain.this, pengadaanAdd.class);
                 startActivity(intent);
             }
         });
-        customer.setOnClickListener(new View.OnClickListener() {
+        show.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(pengadaanMain.this, customerMain.class);
+                Intent intent = new Intent(pengadaanMain.this, pengadaanShow.class);
                 startActivity(intent);
-            }
-        });
-        jhewan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(pengadaanMain.this, jenisHewanMain.class);
-                startActivity(intent);
-            }
-        });
-        uhewan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(pengadaanMain.this, ukuranMain.class);
-                startActivity(intent);
-            }
-        });
-        layanan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(pengadaanMain.this, layananMain.class);
-                startActivity(intent);
-            }
-        });
-        supplier.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(pengadaanMain.this, supplierMain.class);
-                startActivity(intent);
-            }
-        });
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                session.logoutUser();
-                finish();
             }
         });
     }
-    public void setAtribut(){
-        produk = findViewById(R.id.produkbtn);
-        layanan = findViewById(R.id.layananBtn);
-        hewan = findViewById(R.id.btnHewan);
-        jhewan = findViewById(R.id.jhewanBtn);
-        uhewan = findViewById(R.id.uhewanBtn);
-        customer = findViewById(R.id.customerBtn);
-        supplier = findViewById(R.id.supplierBtn);
-        logout = findViewById(R.id.logOutBtn);
+    public void setAtribut (){
+        back = findViewById(R.id.backBtn);
+        add = findViewById(R.id.addBtn);
+        show = findViewById(R.id.showBtn);
+    }
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent=new Intent(getApplicationContext(), dashboard.class);
+        startActivity(intent);
     }
 }
 

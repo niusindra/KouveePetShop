@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -36,12 +37,14 @@ import retrofit2.Response;
 public class pengadaanEdit extends AppCompatActivity {
     private RecyclerView myRc;
     private List<detailPengadaanDAO> detailPengadaanList = new ArrayList<>();
+    private List<detailPengadaanDAO> tempDetail = new ArrayList<>();
     private List<produkDAO> produkDAOList = new ArrayList<>();
     private List<supplierDAO> supplieritems = new ArrayList<>();
     private Button btnaddProduk;
-    private Button btnEditPengadaan;
+    private Button btnEditPengadaan, btnHapusPengadaan;
+    private ImageView back;
     private Spinner mySpinner;
-    private AdapterPengadaanAdd adapter;
+    private AdapterPengadaanEdit adapter;
     private String[] pengadaan;
     private int[] number;
     private int total;
@@ -58,20 +61,27 @@ public class pengadaanEdit extends AppCompatActivity {
         getSupplier();
 
         myRc =findViewById(R.id.myRc1);
+        back = findViewById(R.id.backBtnAdaan1);
         mySpinner = findViewById(R.id.supplierSpinAdaan1);
         btnaddProduk = findViewById(R.id.addProdukPengadaan1);
         btnEditPengadaan = findViewById(R.id.editPengadaan);
+        btnHapusPengadaan = findViewById(R.id.delPengadaan);
         myRc.setHasFixedSize(true);
         myRc.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
-
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),pengadaanShow.class));
+            }
+        });
         mySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 supplierDAO user = (supplierDAO) parent.getSelectedItem();
                 getProdukbySupplier(user.getId_supplier());
                 detailPengadaanList.clear();
-                adapter = new AdapterPengadaanAdd(getApplicationContext(), detailPengadaanList, produkDAOList);
+                adapter = new AdapterPengadaanEdit(pengadaanEdit.this, detailPengadaanList, produkDAOList);
                 myRc.setAdapter(adapter);
             }
             @Override
@@ -86,7 +96,7 @@ public class pengadaanEdit extends AppCompatActivity {
                 detailPengadaanDAO detailPengadaanDAO = new detailPengadaanDAO();
 //                detailPengadaanList = adapter.getArrayList();
                 detailPengadaanList.add(detailPengadaanDAO);
-                adapter = new AdapterPengadaanAdd(getApplicationContext(), detailPengadaanList, produkDAOList);
+                adapter = new AdapterPengadaanEdit(pengadaanEdit.this, detailPengadaanList, produkDAOList);
                 myRc.setAdapter(adapter);
             }
         });
@@ -106,7 +116,7 @@ public class pengadaanEdit extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
-                                Call<cudDataMaster> pengadaanCall = apiService.addPengadaan("Pending");
+                                Call<cudDataMaster> pengadaanCall = apiService.editPengadaan(number[0],"Pending");
                                 pengadaanCall.enqueue(new Callback<cudDataMaster>(){
                                     @Override
                                     public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response) {
@@ -116,7 +126,85 @@ public class pengadaanEdit extends AppCompatActivity {
                                             ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
                                             List<detailPengadaanDAO> detailPengadaanDAOList = adapter.getArrayList();
                                             for (int i = 0; i < detailPengadaanDAOList.size(); i++) {
-                                                Call<cudDataMaster> detailPengadaanCall = apiService.addDetailPengadaan(detailPengadaanDAOList.get(i).getId_produk(),detailPengadaanDAOList.get(i).getJml_pengadaan_produk());
+                                                if(detailPengadaanDAOList.get(i).getId_detail_pengadaan()==0){
+                                                    Call<cudDataMaster> detailPengadaanCall = apiService.addDetailPengadaan(number[0],detailPengadaanDAOList.get(i).getId_produk(),detailPengadaanDAOList.get(i).getJml_pengadaan_produk());
+                                                    detailPengadaanCall.enqueue(new Callback<cudDataMaster>(){
+                                                        @Override
+                                                        public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response) {
+                                                            if(response.body()!=null) {
+                                                                response.body().getMessage();
+                                                                startActivity(new Intent(getApplicationContext(),pengadaanShow.class));
+                                                            }
+                                                        }
+
+                                                        @Override
+                                                        public void onFailure(Call<cudDataMaster> call, Throwable t) {
+                                                            Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
+                                                        }
+                                                    });
+                                                }else{
+                                                    Call<cudDataMaster> detailPengadaanCall = apiService.editDetailPengadaan(detailPengadaanDAOList.get(i).getId_detail_pengadaan(),detailPengadaanDAOList.get(i).getId_produk(),detailPengadaanDAOList.get(i).getJml_pengadaan_produk());
+                                                    detailPengadaanCall.enqueue(new Callback<cudDataMaster>(){
+                                                        @Override
+                                                        public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response) {
+                                                            if(response.body()!=null) {
+                                                                response.body().getMessage();
+                                                                startActivity(new Intent(getApplicationContext(),pengadaanShow.class));
+                                                            }
+                                                        }
+
+                                                        @Override
+                                                        public void onFailure(Call<cudDataMaster> call, Throwable t) {
+                                                            Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
+                                                        }
+                                                    });
+                                                }
+
+                                            }
+
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onFailure(Call<cudDataMaster> call, Throwable t) {
+                                        Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                            }
+                        })
+                        .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
+                        });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+
+            }
+        });
+
+        btnHapusPengadaan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(pengadaanEdit.this);
+                builder.setMessage("Anda yakin menghapus data pengadaan ini?")
+                        .setCancelable(false)
+                        .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
+                                Call<cudDataMaster> pengadaanCall = apiService.deletePengadaan(number[0]);
+                                pengadaanCall.enqueue(new Callback<cudDataMaster>(){
+                                    @Override
+                                    public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response) {
+                                        if(response.body()!=null) {
+                                            Toast.makeText(getApplicationContext(),response.body().getMessage(),Toast.LENGTH_SHORT).show();
+
+                                            ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
+                                            List<detailPengadaanDAO> detailPengadaanDAOList = adapter.getArrayList();
+                                            for (int i = 0; i < detailPengadaanDAOList.size(); i++) {
+                                                Call<cudDataMaster> detailPengadaanCall = apiService.deleteDetailPengadaan(detailPengadaanDAOList.get(i).getId_detail_pengadaan());
                                                 detailPengadaanCall.enqueue(new Callback<cudDataMaster>(){
                                                     @Override
                                                     public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response) {
@@ -151,10 +239,13 @@ public class pengadaanEdit extends AppCompatActivity {
                         });
                 AlertDialog alertDialog = builder.create();
                 alertDialog.show();
-
             }
         });
 
+    }
+
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 
     private void getSupplier(){
@@ -175,7 +266,6 @@ public class pengadaanEdit extends AppCompatActivity {
                         if(supplieritems.get(i).getNama_supplier().equalsIgnoreCase(pengadaan[0])){
                             mySpinner.setSelection(i);
                             getProdukbySupplier(supplieritems.get(i).getId_supplier());
-                            getDetailPengadaan(number[0]);
                         }
                     }
                 }
@@ -197,6 +287,7 @@ public class pengadaanEdit extends AppCompatActivity {
             public void onResponse(Call<readProduk> call, Response<readProduk> response) {
                 if(response.body()!=null) {
                     produkDAOList = response.body().getMessage();
+                    getDetailPengadaan(number[0]);
                 }
             }
             @Override
@@ -206,16 +297,17 @@ public class pengadaanEdit extends AppCompatActivity {
         });
     }
 
-    private void getDetailPengadaan(int idsupplier){
+    private void getDetailPengadaan(int idpengadaan){
         ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
-        Call<readDetailPengadaan> produkCall = apiService.getDetailPengadaan(idsupplier);
+        Call<readDetailPengadaan> produkCall = apiService.getDetailPengadaan(idpengadaan);
         produkCall.enqueue(new Callback<readDetailPengadaan>(){
 
             @Override
             public void onResponse(Call<readDetailPengadaan> call, Response<readDetailPengadaan> response) {
                 if(response.body()!=null) {
                     detailPengadaanList = response.body().getMessage();
-                    adapter = new AdapterPengadaanAdd(getApplicationContext(), detailPengadaanList, produkDAOList);
+                    tempDetail = response.body().getMessage();
+                    adapter = new AdapterPengadaanEdit(pengadaanEdit.this, detailPengadaanList, produkDAOList);
                     myRc.setAdapter(adapter);
 
                 }

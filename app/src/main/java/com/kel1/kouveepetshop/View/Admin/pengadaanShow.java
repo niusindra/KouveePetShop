@@ -6,6 +6,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -36,6 +37,7 @@ public class pengadaanShow extends AppCompatActivity {
 
     private ImageView back;
     private Switch aSwitch;
+    private Button bPending, bBelum, bSampai;
     private List<pengadaanDAO> mListPengadaan =new ArrayList<>();
     private RecyclerView recyclerView;
     private RecycleAdapterPengadaanShow recycleAdapter;
@@ -94,6 +96,24 @@ public class pengadaanShow extends AppCompatActivity {
         if(aSwitch.isChecked()){
             setRecycleViewLog();
         }
+        bPending.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setListPengadaan("Pending");
+            }
+        });
+        bBelum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setListPengadaan("Belum Sampai");
+            }
+        });
+        bSampai.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setListPengadaan("Sampai");
+            }
+        });
     }
     public void onBackPressed() {
         super.onBackPressed();
@@ -101,8 +121,11 @@ public class pengadaanShow extends AppCompatActivity {
         startActivity(intent);
     }
     private void filter(String text) {
-        List<pengadaanDAO> filteredList = new ArrayList<>();
-        for (pengadaanDAO item : mListPengadaan) {
+
+        List<pengadaanDAO> filteredList ,temp;
+        filteredList = new ArrayList<>();
+        temp = recycleAdapter.getResult();
+        for (pengadaanDAO item : temp) {
             if (item.getNama_supplier().toLowerCase().contains(text.toLowerCase()) ||
                     item.getStatus_pengadaan().toLowerCase().contains(text.toLowerCase()) ||
                     item.getTgl_pengadaan().toLowerCase().contains(text.toLowerCase())) {
@@ -112,6 +135,17 @@ public class pengadaanShow extends AppCompatActivity {
 
         recycleAdapter.filterList(filteredList);
         recycleAdapterLog.filterList(filteredList);
+    }
+    private void setListPengadaan(String text) {
+        List<pengadaanDAO> filteredList = new ArrayList<>();
+        for (pengadaanDAO item : mListPengadaan) {
+            if (item.getStatus_pengadaan().toLowerCase().contains(text.toLowerCase())) {
+                filteredList.add(item);
+            }
+        }
+
+        recycleAdapter.setResult(filteredList);
+        recycleAdapterLog.setResult(filteredList);
     }
     private void setRecycleAdapter(){
         recyclerView=findViewById(R.id.RC_Adaan);
@@ -149,7 +183,7 @@ public class pengadaanShow extends AppCompatActivity {
     private void setRecycleViewLog(){
 
         ApiInterface apiService=ApiClient.getClient().create(ApiInterface.class);
-        Call<readPengadaan> pengadaanCallCall = apiService.getPengadaan();
+        Call<readPengadaan> pengadaanCallCall = apiService.getPengadaanLog();
         pengadaanCallCall.enqueue(new Callback<readPengadaan>(){
 
             @Override
@@ -173,5 +207,8 @@ public class pengadaanShow extends AppCompatActivity {
     public void setAtribut() {
         back = findViewById(R.id.btnBackAdaan);
         aSwitch = findViewById(R.id.switchLogAdaan);
+        bPending = findViewById(R.id.btnPending);
+        bBelum = findViewById(R.id.btnBelumSampai);
+        bSampai = findViewById(R.id.btnSampai);
     }
 }

@@ -12,6 +12,9 @@ public class pengadaanDAO {
     @SerializedName("total_pengadaan")
     private  int total_pengadaan;
 
+    @SerializedName("jumlah_jenis")
+    private  int jumlah_jenis;
+
     @SerializedName("status_pengadaan")
     private  String status_pengadaan;
 
@@ -64,5 +67,9 @@ public class pengadaanDAO {
 
     public String getTgl_pengadaan() {
         return tgl_pengadaan;
+    }
+
+    public int getJumlah_jenis() {
+        return jumlah_jenis;
     }
 }

@@ -14,7 +14,7 @@
         <LinearLayout
             android:id="@+id/RC_Pengadaan_Event_Parent"
             android:layout_width="match_parent"
-            android:layout_height="117dp"
+            android:layout_height="130dp"
             android:layout_gravity="center"
             android:background="@color/yello"
             android:orientation="horizontal">

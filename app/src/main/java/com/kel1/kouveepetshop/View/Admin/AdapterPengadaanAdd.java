@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,14 +25,13 @@ import java.util.List;
 
 public class AdapterPengadaanAdd extends RecyclerView.Adapter<AdapterPengadaanAdd.ViewHolder>{
     private Context context;
-    private  List<detailPengadaanDAO> arrayList;
+    private  List<detailPengadaanDAO> arrayList, tempAll, tempNew;
     private List<produkDAO> mListProduk;
 
     public AdapterPengadaanAdd(Context context, List<detailPengadaanDAO> arrayList, List<produkDAO> mListProduk) {
         this.context = context;
         this.arrayList = arrayList;
         this.mListProduk = mListProduk;
-//        Toast.makeText(context,mListProduk.get(0).getNama_produk(),Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -120,30 +120,9 @@ public class AdapterPengadaanAdd extends RecyclerView.Adapter<AdapterPengadaanAd
 
                 @Override
                 public void afterTextChanged(Editable editable) {
+
                 }
             });
-
-//            edtAdrress.addTextChangedListener(new TextWatcher() {
-//                @Override
-//                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//
-//                }
-//
-//                @Override
-//                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//
-//                    detailPengadaanDAO addMorePOJO = arrayList.get(getAdapterPosition());
-//                    addMorePOJO.setAddress(charSequence + "");
-//                    arrayList.set(getAdapterPosition(), addMorePOJO);
-//                    notifyDataSetChanged();
-//
-//                }
-//
-//                @Override
-//                public void afterTextChanged(Editable editable) {
-//
-//                }
-//            });
 
             removeBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
