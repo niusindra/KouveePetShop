@@ -161,6 +161,11 @@ public interface ApiInterface {
                                   @Part ("stok") Integer stok,
                                   @Part ("min_stok") Integer min_stok);
 
+    @POST("produk/pengadaanproduk/{id}")
+    @FormUrlEncoded
+    Call<cudDataMaster> pengadaanProduk(@Path ("id") Integer id,
+                                   @Field ("stok") Integer stok);
+
     @POST("layanan/{id}")
     @FormUrlEncoded
     Call<cudDataMaster> editLayanan(@Path("id")int id,

@@ -1,6 +1,8 @@
 package com.kel1.kouveepetshop.View.Admin;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,15 +15,25 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.kel1.kouveepetshop.Api.ApiClient;
+import com.kel1.kouveepetshop.Api.ApiInterface;
+import com.kel1.kouveepetshop.DAO.detailPengadaanDAO;
 import com.kel1.kouveepetshop.DAO.pengadaanDAO;
 import com.kel1.kouveepetshop.R;
+import com.kel1.kouveepetshop.Respon.cudDataMaster;
+import com.kel1.kouveepetshop.Respon.readDetailPengadaan;
 import com.kel1.kouveepetshop.View.Customer.customerEdit;
 
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class RecycleAdapterPengadaanShow extends RecyclerView.Adapter<RecycleAdapterPengadaanShow.MyViewHolder>{
     private Context context;
     private List<pengadaanDAO> result;
+    private List<detailPengadaanDAO> detailPengadaanList;
 
     public static final String EXTRA_TEXT = "com.kel1.kouveepetshop.EXTRA_TEXT";
     public static final String EXTRA_NUMBER = "com.kel1.kouveepetshop.EXTRA_NUMBER";
@@ -74,7 +86,24 @@ public class RecycleAdapterPengadaanShow extends RecyclerView.Adapter<RecycleAda
                     intent.putExtra(EXTRA_NUMBER, new int[] {pengadaanDAO.getId_pengadaan(), pengadaanDAO.getId_supplier(), pengadaanDAO.getTotal_pengadaan()});
                     context.startActivity(intent);
                 }else if(pengadaanDAO.getStatus_pengadaan().equalsIgnoreCase("belum sampai")){
-                    Toast.makeText(context,"Tidak bisa edit",Toast.LENGTH_LONG).show();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setMessage("Anda yakin ingin konfirmasi kedatangan?")
+                            .setCancelable(false)
+                            .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                getDetailPengadaan(pengadaanDAO.getId_pengadaan());
+                                }
+                            })
+                            .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.cancel();
+                                }
+                            });
+                    AlertDialog alertDialog = builder.create();
+                    alertDialog.show();
+
                 }else{
                     Toast.makeText(context,"Sudah sampai bos",Toast.LENGTH_LONG).show();
                 }
@@ -100,5 +129,60 @@ public class RecycleAdapterPengadaanShow extends RecyclerView.Adapter<RecycleAda
 
     public List<pengadaanDAO> getResult() {
         return result;
+    }
+
+    private void getDetailPengadaan(final int idpengadaan){
+        ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
+        Call<readDetailPengadaan> produkCall = apiService.getDetailPengadaan(idpengadaan);
+        produkCall.enqueue(new Callback<readDetailPengadaan>(){
+
+            @Override
+            public void onResponse(Call<readDetailPengadaan> call, Response<readDetailPengadaan> response) {
+                if(response.body()!=null) {
+                    detailPengadaanList = response.body().getMessage();
+                    ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
+                    for (int i = 0; i < detailPengadaanList.size(); i++) {
+                        Call<cudDataMaster> pengadaanProdukCall = apiService.pengadaanProduk(detailPengadaanList.get(i).getId_produk(),
+                                detailPengadaanList.get(i).getJml_pengadaan_produk());
+                        pengadaanProdukCall.enqueue(new Callback<cudDataMaster>(){
+                            @Override
+                            public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response) {
+                                if(response.body()!=null) {
+                                    response.body().getMessage();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<cudDataMaster> call, Throwable t) {
+                                Toast.makeText(context,"Error",Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                    konfirmasiSampai(idpengadaan);
+                }
+            }
+            @Override
+            public void onFailure(Call<readDetailPengadaan> call, Throwable t) {
+                Toast.makeText(context,"Error",Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void konfirmasiSampai(int idpengadaan){
+        ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
+        Call<cudDataMaster> pengadaanCall = apiService.editPengadaan(idpengadaan,"Sampai");
+        pengadaanCall.enqueue(new Callback<cudDataMaster>(){
+            @Override
+            public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response) {
+                if(response.body()!=null) {
+                    Toast.makeText(context,"Konfirmasi Berhasil",Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<cudDataMaster> call, Throwable t) {
+                Toast.makeText(context,"Error",Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
