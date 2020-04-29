@@ -141,6 +141,11 @@ public interface ApiInterface {
                                            @Field("id_produk")int id_produk,
                                      @Field("jml_pengadaan_produk")int jml_pengadaan_produk);
 
+    @POST("device/")
+    @FormUrlEncoded
+    Call<cudDataMaster> addDevice(@Field("role")String role,
+                                  @Field("token")String token);
+
 //    =============================UPDATE========================================================
     @POST("customer/{id}")
     @FormUrlEncoded

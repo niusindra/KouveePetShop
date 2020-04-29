@@ -21,7 +21,6 @@ import com.kel1.kouveepetshop.Api.ApiClient;
 import com.kel1.kouveepetshop.Api.ApiInterface;
 import com.kel1.kouveepetshop.DAO.pengadaanDAO;
 import com.kel1.kouveepetshop.R;
-import com.kel1.kouveepetshop.Respon.readCustomer;
 import com.kel1.kouveepetshop.Respon.readPengadaan;
 import com.kel1.kouveepetshop.View.Customer.customerMain;
 import com.kel1.kouveepetshop.View.ErrorCatch;
@@ -64,6 +63,7 @@ public class pengadaanShow extends AppCompatActivity {
 
         mListPengadaan =new ArrayList<>();
         setRecycleAdapter();
+        setRecycleView();
         searchCustomer = findViewById(R.id.searchAdaan);
 
         searchCustomer.addTextChangedListener(new TextWatcher() {
@@ -95,6 +95,8 @@ public class pengadaanShow extends AppCompatActivity {
         });
         if(aSwitch.isChecked()){
             setRecycleViewLog();
+        }else{
+            setRecycleView();
         }
         bPending.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,7 +119,7 @@ public class pengadaanShow extends AppCompatActivity {
     }
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent=new Intent(getApplicationContext(), customerMain.class);
+        Intent intent=new Intent(getApplicationContext(), pengadaanMain.class);
         startActivity(intent);
     }
     private void filter(String text) {
@@ -139,7 +141,7 @@ public class pengadaanShow extends AppCompatActivity {
     private void setListPengadaan(String text) {
         List<pengadaanDAO> filteredList = new ArrayList<>();
         for (pengadaanDAO item : mListPengadaan) {
-            if (item.getStatus_pengadaan().toLowerCase().contains(text.toLowerCase())) {
+            if (item.getStatus_pengadaan().equalsIgnoreCase(text)) {
                 filteredList.add(item);
             }
         }

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "296767852856",
+    "firebase_url": "https://kouveepetshop-f2511.firebaseio.com",
+    "project_id": "kouveepetshop-f2511",
+    "storage_bucket": "kouveepetshop-f2511.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:296767852856:android:bca492bccbef05f58ab1cd",
+        "android_client_info": {
+          "package_name": "com.kel1.kouveepetshop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "296767852856-dr104drmpni3qdsd2rqnov92jffa9dmm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJCBS8Zq6cIXOR5FkRYgzuro_PqjS_Q6A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "296767852856-dr104drmpni3qdsd2rqnov92jffa9dmm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

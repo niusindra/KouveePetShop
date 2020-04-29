@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.Admin.pengadaanMain"
+    tools:context=".View.Admin.landingPage"
     android:orientation="vertical"
     android:padding="10dp"
     android:background="@color/kvBackground"
@@ -13,20 +13,13 @@
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:orientation="horizontal"
-        android:padding="10dp">
-
-        <ImageView
-            android:id="@+id/backBtn"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_gravity="start"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/iconback" />
+        android:padding="10dp"
+        android:gravity="center">
 
         <ImageView
             android:layout_width="279dp"
             android:layout_height="100dp"
-            android:gravity="end"
+            android:gravity="center"
             android:src="@drawable/kouveelogo" />
 
     </LinearLayout>
@@ -37,7 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <androidx.cardview.widget.CardView
-            android:id="@+id/addBtn"
+            android:id="@+id/intoDashboardBtn"
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="true"
             android:layout_width="320dp"
@@ -49,7 +42,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/yellow_dark"
+                android:background="@color/red"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -66,7 +59,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:textSize="30sp"
-                    android:text="TAMBAH"
+                    android:text="DASHBOARD"
                     android:textColor="@color/whitecolor"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -79,7 +72,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <androidx.cardview.widget.CardView
-            android:id="@+id/showBtn"
+            android:id="@+id/intoPengadaanBtn"
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="true"
             android:layout_width="320dp"
@@ -100,16 +93,16 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:background="@drawable/iconcustomer"
-                    android:backgroundTint="@color/yellow_dark"
+                    android:backgroundTint="@color/red"
                     android:padding="10dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="KELOLA DATA"
+                    android:text="PENGADAAN"
                     android:textSize="30sp"
-                    android:textColor="@color/yellow_dark"
+                    android:textColor="@color/red"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -120,13 +113,12 @@
         android:layout_height="30dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:background="@color/yellow_dark"
+        android:background="@color/colorAccent"
         android:layout_gravity="center">
         <TextView
-            android:id="@+id/jajalpdf"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="PENGADAAN"
+            android:text="LANDING PAGE"
             android:textAlignment="center"
             android:textColor="@color/whitecolor"
             android:textSize="20sp"/>

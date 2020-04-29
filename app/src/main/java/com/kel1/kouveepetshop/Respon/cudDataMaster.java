@@ -23,6 +23,10 @@ public class cudDataMaster {
     @Expose
     private String nama_layanan;
 
+    @SerializedName("token")
+    @Expose
+    private String token;
+
     public String getMessage() {
         return message;
     }
@@ -45,5 +49,9 @@ public class cudDataMaster {
 
     public String getNama_layanan() {
         return nama_layanan;
+    }
+
+    public String getToken() {
+        return token;
     }
 }

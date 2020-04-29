@@ -93,6 +93,7 @@ public class RecycleAdapterPengadaanShow extends RecyclerView.Adapter<RecycleAda
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
                                 getDetailPengadaan(pengadaanDAO.getId_pengadaan());
+                                    context.startActivity(new Intent(context,pengadaanShow.class));
                                 }
                             })
                             .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
