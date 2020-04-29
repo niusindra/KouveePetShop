@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:padding="10dp"
     android:background="@color/kvBackground"
-    tools:context=".View.Admin.pengadaanAdd">
+    tools:context=".View.Hewan.hewanAdd">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,35 +15,12 @@
         android:padding="10dp">
 
         <ImageView
-            android:id="@+id/backBtnAdaan"
+            android:id="@+id/backBtnHAdd"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_gravity="start"
-            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
             android:background="@drawable/iconback" />
-        <Button
-            android:id="@+id/addProdukPengadaan"
-            android:layout_width="wrap_content"
-            android:layout_height="45dp"
-            android:layout_marginLeft="50dp"
-            android:background="@drawable/joinbtn"
-            android:layout_gravity="center"
-            android:textSize="10sp"
-            android:text="Tambah Produk"
-            android:textAllCaps="false"
-            android:textColor="@color/testcolorblue" />
-
-        <Button
-            android:id="@+id/addPengadaan"
-            android:layout_width="wrap_content"
-            android:layout_height="45dp"
-            android:layout_marginLeft="20dp"
-            android:background="@drawable/joinbtn"
-            android:gravity="center"
-            android:textSize="10sp"
-            android:text="Buat Pengadaan"
-            android:textAllCaps="false"
-            android:textColor="@color/testcolorblue" />
 
     </LinearLayout>
 
@@ -56,18 +33,18 @@
             android:layout_width="285dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="60dp">
+            android:layout_marginTop="40dp">
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="120dp"
                 android:src="@drawable/kouveelogo" />
         </LinearLayout>
         <TextView
-            android:id="@+id/suppTVAdaan"
+            android:id="@+id/suppTV"
             android:layout_width="280dp"
             android:layout_height="wrap_content"
-            android:hint="Supplier:"
+            android:hint="Customer:"
             android:elevation="5dp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
@@ -78,11 +55,11 @@
             android:elevation="5dp"
             android:layout_gravity="center">
             <Spinner
-                android:id="@+id/supplierSpinAdaan"
+                android:id="@+id/customerSpin"
                 android:layout_width="280dp"
                 android:layout_height="45dp" />
             <TextView
-                android:id="@+id/idSup"
+                android:id="@+id/idCus"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:elevation="5dp"
@@ -92,19 +69,42 @@
                 android:background="@drawable/btn"
                 android:textColorHint="@color/fullwhite"/>
         </RelativeLayout>
-<androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/myRc"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginBottom="20dp"
-            android:orientation="horizontal"
-            android:gravity="center">
+        <EditText
+            android:id="@+id/namaHTxt"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn"
+            android:elevation="5dp"
+            android:hint="Nama Hewan"
+            android:paddingLeft="15dp"
+            android:textColorHint="@color/fullwhite" />
+        <EditText
+            android:id="@+id/dateHewanTxt"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn"
+            android:inputType="date"
+            android:contextClickable="false"
+            android:elevation="5dp"
+            android:focusable="false"
+            android:hint="Tanggal Lahir Hewan"
+            android:paddingLeft="15dp"
+            android:textColorHint="@color/fullwhite" />
 
-
-        </LinearLayout>
+        <Button
+            android:id="@+id/addHBtn"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/joinbtn"
+            android:text="Tambah Hewan"
+            android:textAllCaps="false"
+            android:textColor="@color/testcolorblue" />
     </LinearLayout>
 
 </RelativeLayout>
