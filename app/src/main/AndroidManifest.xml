@@ -41,7 +41,6 @@
         <activity android:name=".View.UkuranHewan.ukuranAdd"/>
         <activity android:name=".View.UkuranHewan.ukuranMain" />
         <activity android:name=".View.Admin.dashboard"/>
-        <activity android:name=".View.Hewan.hewanAdd" />
         <activity android:name=".View.Admin.login_pegawai">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -61,7 +60,12 @@
 
         </activity>
         <activity android:name=".View.Customer.customerEdit"/>
+        <activity android:name=".View.Hewan.hewanAdd" />
+        <activity android:name=".View.Hewan.hewanEdit" />
         <activity android:name=".View.Hewan.hewanMain" />
+        <activity android:name=".View.Hewan.hewanShow" />
+        <activity android:name=".View.Hewan.RecycleAdapterHewan" />
+        <activity android:name=".View.Hewan.RecycleAdapterHewanLog" />
         <activity android:name=".View.JenisHewan.jenisHewanAdd" />
         <activity android:name=".View.JenisHewan.jenisHewanShow" />
         <activity android:name=".View.JenisHewan.jenisHewanEdit" />

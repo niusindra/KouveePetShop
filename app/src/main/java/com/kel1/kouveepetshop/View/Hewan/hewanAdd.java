@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -37,6 +38,7 @@ import retrofit2.Response;
 
 public class hewanAdd extends AppCompatActivity {
     public List<customerDAO> mListCostumer;
+    public ImageView back;
     public EditText nama;
     public Button add;
     public EditText tanggal;
@@ -91,6 +93,13 @@ public class hewanAdd extends AppCompatActivity {
                 upload();
             }
         });
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(hewanAdd.this, hewanMain.class);
+                startActivity(intent);
+            }
+        });
     }
     public void upload()
     {
@@ -100,11 +109,12 @@ public class hewanAdd extends AppCompatActivity {
             final HashMap<String, String> userDetails = session.getUserDetails();
             int Cid = this.idcus;
             ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-            Call<cudDataMaster> layananCall = apiService.addHewan(Cid,this.nama.getText().toString(),
-                    this.tanggal.getText().toString(),userDetails.get(SessionManager.KEY_NAME));
+            Call<cudDataMaster> layananCall = apiService.addHewan(Cid,nama.getText().toString(),
+                    tanggal.getText().toString(),userDetails.get(SessionManager.KEY_NAME));
             layananCall.enqueue(new Callback<cudDataMaster>(){
                 public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response){
                     Toast.makeText(hewanAdd.this,"Berhasil Ditambah",Toast.LENGTH_SHORT).show();
+                    startIntent();
                 }
                 public void onFailure(Call<cudDataMaster> call, Throwable t){
                     Toast.makeText(hewanAdd.this,"Masalah koneksi",Toast.LENGTH_SHORT).show();
@@ -117,11 +127,16 @@ public class hewanAdd extends AppCompatActivity {
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
         tanggal.setText(sdf.format(myCalendar.getTime()));
     }
+    private void startIntent(){
+        Intent intent=new Intent(getApplicationContext(), hewanShow.class);
+        startActivity(intent);
+    }
     public void setAtribut(){
         add = findViewById(R.id.addHBtn);
         nama = findViewById(R.id.namaHTxt);
         tanggal = findViewById(R.id.dateHewanTxt);
         mSpinner = findViewById(R.id.customerSpin);
+        back = findViewById(R.id.backBtnHAdd);
     }
     private void getCustomer(){
         ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
@@ -144,6 +159,11 @@ public class hewanAdd extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
             }
         });
+    }
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent=new Intent(getApplicationContext(), hewanMain.class);
+        startActivity(intent);
     }
 }
 
