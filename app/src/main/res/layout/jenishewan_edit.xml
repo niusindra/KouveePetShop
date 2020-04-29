@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="@color/kvBackground"
+    tools:context=".View.Layanan.layananEdit">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/backBtnJH1"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="start"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/iconback" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="285dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginBottom="20dp"
+                android:src="@drawable/kouveelogo" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:layout_marginStart="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jenis Hewan"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/namaJHTxt1"
+                    android:layout_width="280dp"
+                    android:layout_height="45dp"
+                    android:hint="Nama Jenis"
+                    android:elevation="5dp"
+                    android:enabled="false"
+                    android:layout_gravity="center"
+                    android:paddingLeft="15dp"
+                    android:background="@drawable/btn"
+                    android:textColorHint="@color/fullwhite"/>
+
+                <Button
+                    android:id="@+id/enableJHNama1"
+                    android:background="@drawable/lock"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="43dp"
+                    android:layout_height="43dp"
+                    android:backgroundTint="@color/blackcolor"/>
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/editJHBtn1"
+            android:layout_width="227dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/joinbtn"
+            android:text="Edit Jenis Hewan"
+            android:textAllCaps="false"
+            android:textColor="@color/testcolorblue" />
+
+        <Button
+            android:id="@+id/delJHBtn1"
+            android:layout_width="227dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/joinbtn"
+            android:text="Hapus Jenis Hewan"
+            android:textAllCaps="false"
+            android:textColor="@color/testcolorblue" />
+    </LinearLayout>
+
+</RelativeLayout>

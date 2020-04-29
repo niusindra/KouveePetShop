@@ -77,7 +77,6 @@ public class pengadaanAdd extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 detailPengadaanDAO detailPengadaanDAO = new detailPengadaanDAO();
-//                detailPengadaanList = adapter.getArrayList();
                 detailPengadaanList.add(detailPengadaanDAO);
                 adapter = new AdapterPengadaanAdd(getApplicationContext(), detailPengadaanList, produkDAOList);
                 myRc.setAdapter(adapter);

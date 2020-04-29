@@ -18,17 +18,31 @@
         <activity android:name=".View.ErrorCatch">
 
         </activity>
-        <activity android:name=".View.Admin.dashboard">
 
-        </activity>
-        <activity android:name=".View.Admin.login_pegawai">
-
-        </activity>
 
         <activity android:name=".View.Admin.pengadaanAdd">
 
         </activity>
         <activity android:name=".View.Admin.pengadaanMain">
+
+        </activity>
+        <activity android:name=".View.UkuranHewan.ukuranShow">
+
+        </activity>
+        <activity android:name=".View.UkuranHewan.RecycleAdapterUkuran">
+
+        </activity>
+        <activity android:name=".View.UkuranHewan.ukuranEdit">
+
+        </activity>
+        <activity android:name=".View.UkuranHewan.RecycleAdapterUkuranLog">
+
+        </activity>
+        <activity android:name=".View.UkuranHewan.ukuranAdd"/>
+        <activity android:name=".View.UkuranHewan.ukuranMain" />
+        <activity android:name=".View.Admin.dashboard"/>
+        <activity android:name=".View.Hewan.hewanAdd" />
+        <activity android:name=".View.Admin.login_pegawai">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -48,6 +62,11 @@
         </activity>
         <activity android:name=".View.Customer.customerEdit"/>
         <activity android:name=".View.Hewan.hewanMain" />
+        <activity android:name=".View.JenisHewan.jenisHewanAdd" />
+        <activity android:name=".View.JenisHewan.jenisHewanShow" />
+        <activity android:name=".View.JenisHewan.jenisHewanEdit" />
+        <activity android:name=".View.JenisHewan.RecycleAdapterJenisHewan" />
+        <activity android:name=".View.JenisHewan.RecycleAdapterJenisHewanLog" />
         <activity android:name=".View.JenisHewan.jenisHewanMain" />
         <activity android:name=".View.Layanan.layananMain" />
         <activity android:name=".View.Layanan.layananShow" />
@@ -61,7 +80,6 @@
         <activity android:name=".View.Supplier.supplierAdd" />
         <activity android:name=".View.Supplier.supplierEdit" />
         <activity android:name=".View.Supplier.supplierShow" />
-        <activity android:name=".View.UkuranHewan.ukuranMain" />
     </application>
 
 </manifest>
