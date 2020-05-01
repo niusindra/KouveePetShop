@@ -108,7 +108,7 @@ public class pengadaanAdd extends AppCompatActivity {
                                             ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
                                             List<detailPengadaanDAO> detailPengadaanDAOList = adapter.getArrayList();
                                             for (int i = 0; i < detailPengadaanDAOList.size(); i++) {
-                                                Call<cudDataMaster> detailPengadaanCall = apiService.addDetailPengadaan(0,detailPengadaanDAOList.get(i).getId_produk(),detailPengadaanDAOList.get(i).getJml_pengadaan_produk());
+                                                Call<cudDataMaster> detailPengadaanCall = apiService.addDetailPengadaan(0,detailPengadaanDAOList.get(i).getId_produk(),detailPengadaanDAOList.get(i).getSatuan(),detailPengadaanDAOList.get(i).getJml_pengadaan_produk());
                                                 detailPengadaanCall.enqueue(new Callback<cudDataMaster>(){
                                                     @Override
                                                     public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response) {

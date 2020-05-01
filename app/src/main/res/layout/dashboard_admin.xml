@@ -31,7 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
                 android:gravity="end"
-                android:text="LOG OUT"
+                android:text="LOGOUT"
                 android:textColor="@color/blackcolor"
                 android:textSize="15dp" />
 

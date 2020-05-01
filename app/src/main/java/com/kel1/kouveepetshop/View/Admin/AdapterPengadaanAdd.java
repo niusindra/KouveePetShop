@@ -65,6 +65,7 @@ public class AdapterPengadaanAdd extends RecyclerView.Adapter<AdapterPengadaanAd
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView subtotal;
         EditText edtdetjmlPro;
+        EditText edtdetSatPro;
         Spinner edtdetPro;
         Button removeBtn;
         int hargabeli;
@@ -74,6 +75,7 @@ public class AdapterPengadaanAdd extends RecyclerView.Adapter<AdapterPengadaanAd
             subtotal = itemView.findViewById(R.id.subtotal);
             edtdetPro = itemView.findViewById(R.id.detailProduk);
             edtdetjmlPro = itemView.findViewById(R.id.detailJmlProduk);
+            edtdetSatPro = itemView.findViewById(R.id.detailSatuanProduk);
             removeBtn = itemView.findViewById(R.id.removeBtn);
 
             ArrayAdapter<produkDAO> adapter = new ArrayAdapter<produkDAO>(context,
@@ -116,6 +118,26 @@ public class AdapterPengadaanAdd extends RecyclerView.Adapter<AdapterPengadaanAd
                     detailPengadaanDAO.setSubtotal_pengadaan(detailPengadaanDAO.getJml_pengadaan_produk()*hargabeli);
                     arrayList.set(getAdapterPosition(), detailPengadaanDAO);
                     subtotal.setText("Subtotal Produk: Rp "+detailPengadaanDAO.getJml_pengadaan_produk()*hargabeli);
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+
+                }
+            });
+
+            edtdetSatPro.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                    detailPengadaanDAO detailPengadaanDAO = arrayList.get(getAdapterPosition());
+                    detailPengadaanDAO.setSatuan(charSequence.toString());
+                    arrayList.set(getAdapterPosition(), detailPengadaanDAO);
                 }
 
                 @Override

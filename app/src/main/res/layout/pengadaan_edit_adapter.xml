@@ -27,6 +27,13 @@
             android:hint="Jumlah produk"
             android:imeOptions="actionNext"
             android:inputType="number" />
+        <EditText
+            android:id="@+id/detailSatuanProduk1"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:hint="Satuan produk"
+            android:imeOptions="actionNext"
+            android:inputType="text" />
         <TextView
             android:id="@+id/subtotal1"
             android:layout_width="wrap_content"

@@ -31,10 +31,10 @@ public class dashboard extends AppCompatActivity {
     public SessionManager session;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.dashboard_admin);
         session = new SessionManager(getApplicationContext());
         session.checkLogin();
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.dashboard_admin);
 
         setAtribut();
         hewan.setOnClickListener(new View.OnClickListener() {
@@ -93,6 +93,11 @@ public class dashboard extends AppCompatActivity {
                 finish();
             }
         });
+    }
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent=new Intent(getApplicationContext(), landingPage.class);
+        startActivity(intent);
     }
     public void setAtribut(){
         produk = findViewById(R.id.produkbtn);

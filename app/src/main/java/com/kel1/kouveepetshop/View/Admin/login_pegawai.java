@@ -68,7 +68,6 @@ public class login_pegawai extends AppCompatActivity {
                         @Override
                         public void onResponse(Call<verifyPegawai> call, Response<verifyPegawai> response) {
                             if (response.body() != null) {
-                                ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
                                 if(response.body().getError_login()!=null)
                                     Toast.makeText(getApplicationContext(),response.body().getError_login(),Toast.LENGTH_SHORT).show();
                                 else {
@@ -78,6 +77,7 @@ public class login_pegawai extends AppCompatActivity {
                                         startActivity(i);
                                         Toast.makeText(getApplicationContext(),"Login admin sukses",Toast.LENGTH_SHORT).show();
 
+                                        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
                                         Call<cudDataMaster> deviceCall = apiService.addDevice(response.body().getRole_pegawai(),newToken);
                                         deviceCall.enqueue(new Callback<cudDataMaster>() {
                                             @Override
@@ -98,6 +98,7 @@ public class login_pegawai extends AppCompatActivity {
                                         startActivity(i);
                                         Toast.makeText(getApplicationContext(),"Login CS sukses ",Toast.LENGTH_SHORT).show();
 
+                                        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
                                         Call<cudDataMaster> deviceCall = apiService.addDevice(response.body().getRole_pegawai(),newToken);
                                         deviceCall.enqueue(new Callback<cudDataMaster>() {
                                             @Override

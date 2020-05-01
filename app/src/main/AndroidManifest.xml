@@ -16,14 +16,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <service
-            android:name=".Notification.MyFirebaseMessagingService"
-            android:stopWithTask="false">
-            <intent-filter>
-
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-            </intent-filter>
-        </service>
         <activity android:name=".View.ErrorCatch">
 
         </activity>
@@ -36,7 +28,6 @@
         <activity android:name=".View.Admin.login_pegawai">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -74,6 +65,15 @@
         <activity android:name=".View.Supplier.supplierEdit" />
         <activity android:name=".View.Supplier.supplierShow" />
         <activity android:name=".View.UkuranHewan.ukuranMain" />
+        <activity android:name=".View.Admin.detailShow" />
+        <service
+            android:name=".Notification.MyFirebaseMessagingService"
+            android:stopWithTask="false">
+            <intent-filter>
+
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

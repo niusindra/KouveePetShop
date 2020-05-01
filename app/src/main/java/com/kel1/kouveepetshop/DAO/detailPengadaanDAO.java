@@ -12,6 +12,12 @@ public class detailPengadaanDAO {
     @SerializedName("id_produk")
     private  int id_produk;
 
+    @SerializedName("nama_produk")
+    private  String nama_produk;
+
+    @SerializedName("satuan")
+    private  String satuan;
+
     @SerializedName("jml_pengadaan_produk")
     private  int jml_pengadaan_produk;
 
@@ -28,6 +34,14 @@ public class detailPengadaanDAO {
 
     public int getId_pengadaan() {
         return id_pengadaan;
+    }
+
+    public String getNama_produk() {
+        return nama_produk;
+    }
+
+    public String getSatuan() {
+        return satuan;
     }
 
     public int getJml_pengadaan_produk() {
@@ -52,6 +66,10 @@ public class detailPengadaanDAO {
 
     public void setJml_pengadaan_produk(int jml_pengadaan_produk) {
         this.jml_pengadaan_produk = jml_pengadaan_produk;
+    }
+
+    public void setSatuan(String satuan) {
+        this.satuan = satuan;
     }
 
     public void setSubtotal_pengadaan(int subtotal_pengadaan) {

@@ -37,7 +37,6 @@ import retrofit2.Response;
 public class pengadaanEdit extends AppCompatActivity {
     private RecyclerView myRc;
     private List<detailPengadaanDAO> detailPengadaanList = new ArrayList<>();
-    private List<detailPengadaanDAO> tempDetail = new ArrayList<>();
     private List<produkDAO> produkDAOList = new ArrayList<>();
     private List<supplierDAO> supplieritems = new ArrayList<>();
     private Button btnaddProduk;
@@ -95,6 +94,7 @@ public class pengadaanEdit extends AppCompatActivity {
             public void onClick(View v) {
                 detailPengadaanDAO detailPengadaanDAO = new detailPengadaanDAO();
 //                detailPengadaanList = adapter.getArrayList();
+                detailPengadaanDAO.setId_detail_pengadaan(0);
                 detailPengadaanList.add(detailPengadaanDAO);
                 adapter = new AdapterPengadaanEdit(pengadaanEdit.this, detailPengadaanList, produkDAOList);
                 myRc.setAdapter(adapter);
@@ -121,13 +121,12 @@ public class pengadaanEdit extends AppCompatActivity {
                                     @Override
                                     public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response) {
                                         if(response.body()!=null) {
-                                            Toast.makeText(getApplicationContext(),response.body().getMessage(),Toast.LENGTH_SHORT).show();
 
                                             ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
                                             List<detailPengadaanDAO> detailPengadaanDAOList = adapter.getArrayList();
                                             for (int i = 0; i < detailPengadaanDAOList.size(); i++) {
                                                 if(detailPengadaanDAOList.get(i).getId_detail_pengadaan()==0){
-                                                    Call<cudDataMaster> detailPengadaanCall = apiService.addDetailPengadaan(number[0],detailPengadaanDAOList.get(i).getId_produk(),detailPengadaanDAOList.get(i).getJml_pengadaan_produk());
+                                                    Call<cudDataMaster> detailPengadaanCall = apiService.addDetailPengadaan(number[0],detailPengadaanDAOList.get(i).getId_produk(),detailPengadaanDAOList.get(i).getSatuan(),detailPengadaanDAOList.get(i).getJml_pengadaan_produk());
                                                     detailPengadaanCall.enqueue(new Callback<cudDataMaster>(){
                                                         @Override
                                                         public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response) {
@@ -139,11 +138,11 @@ public class pengadaanEdit extends AppCompatActivity {
 
                                                         @Override
                                                         public void onFailure(Call<cudDataMaster> call, Throwable t) {
-                                                            Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
+                                                            Toast.makeText(getApplicationContext(),"Error1",Toast.LENGTH_SHORT).show();
                                                         }
                                                     });
                                                 }else{
-                                                    Call<cudDataMaster> detailPengadaanCall = apiService.editDetailPengadaan(detailPengadaanDAOList.get(i).getId_detail_pengadaan(),detailPengadaanDAOList.get(i).getId_produk(),detailPengadaanDAOList.get(i).getJml_pengadaan_produk());
+                                                    Call<cudDataMaster> detailPengadaanCall = apiService.editDetailPengadaan(detailPengadaanDAOList.get(i).getId_detail_pengadaan(),detailPengadaanDAOList.get(i).getId_produk(),detailPengadaanDAOList.get(i).getSatuan(),detailPengadaanDAOList.get(i).getJml_pengadaan_produk());
                                                     detailPengadaanCall.enqueue(new Callback<cudDataMaster>(){
                                                         @Override
                                                         public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response) {
@@ -155,7 +154,7 @@ public class pengadaanEdit extends AppCompatActivity {
 
                                                         @Override
                                                         public void onFailure(Call<cudDataMaster> call, Throwable t) {
-                                                            Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
+                                                            Toast.makeText(getApplicationContext(),"Error2",Toast.LENGTH_SHORT).show();
                                                         }
                                                     });
                                                 }
@@ -306,7 +305,6 @@ public class pengadaanEdit extends AppCompatActivity {
             public void onResponse(Call<readDetailPengadaan> call, Response<readDetailPengadaan> response) {
                 if(response.body()!=null) {
                     detailPengadaanList = response.body().getMessage();
-                    tempDetail = response.body().getMessage();
                     adapter = new AdapterPengadaanEdit(pengadaanEdit.this, detailPengadaanList, produkDAOList);
                     myRc.setAdapter(adapter);
 

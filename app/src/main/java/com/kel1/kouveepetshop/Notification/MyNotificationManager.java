@@ -96,11 +96,11 @@ public class MyNotificationManager {
         mBuilder.setContentTitle(title);
         mBuilder.setContentText(message);
         mBuilder.setPriority(Notification.PRIORITY_MAX);
+        mBuilder.setAutoCancel(true);
 //        mBuilder.setStyle(bigText);
 
         mNotificationManager =
             (NotificationManager) mCtx.getSystemService(Context.NOTIFICATION_SERVICE);
-
         // === Removed some obsoletes
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
         {

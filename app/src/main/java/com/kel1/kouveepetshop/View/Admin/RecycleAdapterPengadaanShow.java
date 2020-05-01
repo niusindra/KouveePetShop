@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -86,13 +87,34 @@ public class RecycleAdapterPengadaanShow extends RecyclerView.Adapter<RecycleAda
                     intent.putExtra(EXTRA_NUMBER, new int[] {pengadaanDAO.getId_pengadaan(), pengadaanDAO.getId_supplier(), pengadaanDAO.getTotal_pengadaan()});
                     context.startActivity(intent);
                 }else if(pengadaanDAO.getStatus_pengadaan().equalsIgnoreCase("belum sampai")){
+
+                    Intent intent = new Intent(context,detailShow.class);
+                    intent.putExtra(EXTRA_TEXT, new String[] {pengadaanDAO.getNama_supplier(),pengadaanDAO.getTgl_pengadaan(),
+                            pengadaanDAO.getStatus_pengadaan()});
+                    intent.putExtra(EXTRA_NUMBER, new int[] {pengadaanDAO.getId_pengadaan(), pengadaanDAO.getId_supplier(), pengadaanDAO.getTotal_pengadaan()});
+                    context.startActivity(intent);
+                }else{
+                    Intent intent = new Intent(context,detailShow.class);
+                    intent.putExtra(EXTRA_TEXT, new String[] {pengadaanDAO.getNama_supplier(),pengadaanDAO.getTgl_pengadaan(),
+                            pengadaanDAO.getStatus_pengadaan()});
+                    intent.putExtra(EXTRA_NUMBER, new int[] {pengadaanDAO.getId_pengadaan(), pengadaanDAO.getId_supplier(), pengadaanDAO.getTotal_pengadaan()});
+                    context.startActivity(intent);
+                }
+
+
+            }
+        });
+        myViewHolder.mParent.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                if(pengadaanDAO.getStatus_pengadaan().equalsIgnoreCase("Belum sampai")){
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
                     builder.setMessage("Anda yakin ingin konfirmasi kedatangan?")
                             .setCancelable(false)
                             .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
-                                getDetailPengadaan(pengadaanDAO.getId_pengadaan());
+                                    getDetailPengadaan(pengadaanDAO.getId_pengadaan());
                                     context.startActivity(new Intent(context,pengadaanShow.class));
                                 }
                             })
@@ -104,11 +126,27 @@ public class RecycleAdapterPengadaanShow extends RecyclerView.Adapter<RecycleAda
                             });
                     AlertDialog alertDialog = builder.create();
                     alertDialog.show();
-
-                }else{
-                    Toast.makeText(context,"Sudah sampai bos",Toast.LENGTH_LONG).show();
+                }else if(pengadaanDAO.getStatus_pengadaan().equalsIgnoreCase("pending")){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setMessage("Anda yakin ingin konfirmasi dan cetak surat pengadaan?")
+                            .setCancelable(false)
+                            .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    konfirmasiCetakSurat(pengadaanDAO.getId_pengadaan());
+                                    context.startActivity(new Intent(context,pengadaanShow.class));
+                                }
+                            })
+                            .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.cancel();
+                                }
+                            });
+                    AlertDialog alertDialog = builder.create();
+                    alertDialog.show();
                 }
-
+                return true;
             }
         });
     }
@@ -177,6 +215,27 @@ public class RecycleAdapterPengadaanShow extends RecyclerView.Adapter<RecycleAda
             public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response) {
                 if(response.body()!=null) {
                     Toast.makeText(context,"Konfirmasi Berhasil",Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<cudDataMaster> call, Throwable t) {
+                Toast.makeText(context,"Error",Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void konfirmasiCetakSurat(final int idpengadaan){
+        ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
+        Call<cudDataMaster> pengadaanCall = apiService.editPengadaan(idpengadaan,"Belum Sampai");
+        pengadaanCall.enqueue(new Callback<cudDataMaster>(){
+            @Override
+            public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response) {
+                if(response.body()!=null) {
+                    Toast.makeText(context,"Konfirmasi Berhasil",Toast.LENGTH_SHORT).show();
+                    Uri uri = Uri.parse("http://localhost/kouvee/index.php/pdf/suratpengadaan/"+idpengadaan); // missing 'http://' will cause crashed
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    context.startActivity(intent);
                 }
             }
 

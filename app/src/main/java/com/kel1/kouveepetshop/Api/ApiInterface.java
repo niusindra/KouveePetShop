@@ -139,6 +139,7 @@ public interface ApiInterface {
     @FormUrlEncoded
     Call<cudDataMaster> addDetailPengadaan(@Field("id_pengadaan")int id_pengadaan,
                                            @Field("id_produk")int id_produk,
+                                           @Field("satuan")String satuan,
                                      @Field("jml_pengadaan_produk")int jml_pengadaan_produk);
 
     @POST("device/")
@@ -209,6 +210,7 @@ public interface ApiInterface {
     @FormUrlEncoded
     Call<cudDataMaster> editDetailPengadaan(@Path("id")int id,
                                             @Field("id_produk")int id_produk,
+                                            @Field("satuan")String satuan,
                                            @Field("jml_pengadaan_produk")int jml_pengadaan_produk);
 
 //    =============================DELETE========================================================

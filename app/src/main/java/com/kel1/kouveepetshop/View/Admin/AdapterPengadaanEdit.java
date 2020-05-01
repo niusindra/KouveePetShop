@@ -60,6 +60,7 @@ public class AdapterPengadaanEdit extends RecyclerView.Adapter<AdapterPengadaanE
         }
 
         holder.edtdetjmlPro.setText(String.valueOf(detailPengadaanDAO.getJml_pengadaan_produk()));
+        holder.edtdetsatPro.setText(detailPengadaanDAO.getSatuan());
         if(arrayList.size()==1)
             holder.removeBtn.setEnabled(false);
         else
@@ -79,7 +80,7 @@ public class AdapterPengadaanEdit extends RecyclerView.Adapter<AdapterPengadaanE
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView subtotal;
-        EditText edtdetjmlPro;
+        EditText edtdetjmlPro, edtdetsatPro;
         Spinner edtdetPro;
         Button removeBtn;
         int hargabeli;
@@ -89,6 +90,7 @@ public class AdapterPengadaanEdit extends RecyclerView.Adapter<AdapterPengadaanE
             subtotal = itemView.findViewById(R.id.subtotal1);
             edtdetPro = itemView.findViewById(R.id.detailProduk1);
             edtdetjmlPro = itemView.findViewById(R.id.detailJmlProduk1);
+            edtdetsatPro = itemView.findViewById(R.id.detailSatuanProduk1);
             removeBtn = itemView.findViewById(R.id.removeBtn1);
 
             ArrayAdapter<produkDAO> adapter = new ArrayAdapter<produkDAO>(context,
@@ -130,6 +132,26 @@ public class AdapterPengadaanEdit extends RecyclerView.Adapter<AdapterPengadaanE
                     detailPengadaanDAO.setSubtotal_pengadaan(detailPengadaanDAO.getJml_pengadaan_produk()*hargabeli);
                     arrayList.set(getAdapterPosition(), detailPengadaanDAO);
                     subtotal.setText("Subtotal Produk: Rp "+detailPengadaanDAO.getJml_pengadaan_produk()*hargabeli);
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+
+                }
+            });
+
+            edtdetsatPro.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                    detailPengadaanDAO detailPengadaanDAO = arrayList.get(getAdapterPosition());
+                    detailPengadaanDAO.setSatuan(charSequence.toString());
+                    arrayList.set(getAdapterPosition(), detailPengadaanDAO);
                 }
 
                 @Override

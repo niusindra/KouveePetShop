@@ -25,34 +25,23 @@ import com.kel1.kouveepetshop.MyPdf;
 import com.kel1.kouveepetshop.Notification.MyFirebaseMessagingService;
 import com.kel1.kouveepetshop.Notification.TokenManager;
 import com.kel1.kouveepetshop.R;
+import com.kel1.kouveepetshop.SessionManager;
 
 public class pengadaanMain extends AppCompatActivity {
     public ImageView back;
     public CardView add;
     public CardView show;
-    public TextView jajalpdf;
+    private SessionManager session;
     private static final int STORAGE_PERMISSION_CODE = 123;
     protected void onCreate(Bundle savedInstanceState) {
+        session = new SessionManager(pengadaanMain.this);
+        session.checkLogin();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pengadaan_main);
-        setAtribut();
-        jajalpdf = findViewById(R.id.jajalpdf);
-        jajalpdf.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(pengadaanMain.this, new OnSuccessListener<InstanceIdResult>() {
-                    @Override
-                    public void onSuccess(InstanceIdResult instanceIdResult) {
 
-                        String newToken = instanceIdResult.getToken();
-                        Log.e("newToken",newToken);
-                    }
-                });
-                requestStoragePermission();
-                MyPdf hapie = new MyPdf();
-                hapie.write("coba");
-            }
-        });
+
+
+        setAtribut();
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

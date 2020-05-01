@@ -8,12 +8,22 @@
     android:padding="10dp"
     android:background="@color/kvBackground"
     android:id="@+id/ll">
-
+    <TextView
+        android:id="@+id/landinglogouttv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LOGOUT"
+        android:layout_gravity="right"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:textColor="@color/blackcolor"
+        android:textSize="15dp"/>
     <LinearLayout
+        android:layout_marginTop="-10dp"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:orientation="horizontal"
-        android:padding="10dp"
+        android:padding="5dp"
         android:gravity="center">
 
         <ImageView
@@ -24,6 +34,7 @@
 
     </LinearLayout>
     <LinearLayout
+        android:layout_marginTop="-25dp"
         android:clipToPadding="false"
         android:gravity="center"
         android:orientation="horizontal"
@@ -50,7 +61,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:background="@drawable/iconadd"
+                    android:background="@drawable/iconlayanan"
                     android:padding="10dp" />
 
                 <TextView
@@ -59,7 +70,8 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:textSize="30sp"
-                    android:text="DASHBOARD"
+                    android:text="MENU\nKELOLA DATA"
+                    android:textAlignment="center"
                     android:textColor="@color/whitecolor"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -92,7 +104,7 @@
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:background="@drawable/iconcustomer"
+                    android:background="@drawable/iconadd"
                     android:backgroundTint="@color/red"
                     android:padding="10dp" />
 
@@ -100,7 +112,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="PENGADAAN"
+                    android:text="MENU\nPENGADAAN"
+                    android:textAlignment="center"
                     android:textSize="30sp"
                     android:textColor="@color/red"
                     android:textStyle="bold" />
