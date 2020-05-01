@@ -104,81 +104,95 @@ public class pengadaanEdit extends AppCompatActivity {
         btnEditPengadaan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int cekSatuan=0, cekJumlah=0;
                 AlertDialog.Builder builder = new AlertDialog.Builder(pengadaanEdit.this);
                 total=0;
                 detailPengadaanList=adapter.getArrayList();
                 for (int i = 0; i < detailPengadaanList.size(); i++) {
                     total+=detailPengadaanList.get(i).getSubtotal_pengadaan();
+                    if(detailPengadaanList.get(i).getSatuan()==null)
+                        cekSatuan=1;
+                    if(detailPengadaanList.get(i).getJml_pengadaan_produk()==0)
+                        cekJumlah=1;
                 }
-                builder.setMessage("Anda yakin mengedit pengadaan dengan total: Rp "+total)
-                        .setCancelable(false)
-                        .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
-                                Call<cudDataMaster> pengadaanCall = apiService.editPengadaan(number[0],"Pending");
-                                pengadaanCall.enqueue(new Callback<cudDataMaster>(){
-                                    @Override
-                                    public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response) {
-                                        if(response.body()!=null) {
+                if(detailPengadaanList.size()==0)
+                    Toast.makeText(pengadaanEdit.this,"Tambahkan produk terlebih dahulu!",Toast.LENGTH_LONG).show();
+                else if(cekSatuan==1)
+                    Toast.makeText(pengadaanEdit.this,"Data harus terisi semua!",Toast.LENGTH_LONG).show();
+                else if(cekJumlah==1)
+                    Toast.makeText(pengadaanEdit.this,"Jumlah produk tidak boleh 0!",Toast.LENGTH_LONG).show();
+                else if(cekSatuan==0 && cekJumlah==0){
+                    builder.setMessage("Anda yakin mengedit pengadaan dengan total: Rp "+total)
+                            .setCancelable(false)
+                            .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
+                                    Call<cudDataMaster> pengadaanCall = apiService.editPengadaan(number[0],"Pending");
+                                    pengadaanCall.enqueue(new Callback<cudDataMaster>(){
+                                        @Override
+                                        public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response) {
+                                            if(response.body()!=null) {
 
-                                            ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
-                                            List<detailPengadaanDAO> detailPengadaanDAOList = adapter.getArrayList();
-                                            for (int i = 0; i < detailPengadaanDAOList.size(); i++) {
-                                                if(detailPengadaanDAOList.get(i).getId_detail_pengadaan()==0){
-                                                    Call<cudDataMaster> detailPengadaanCall = apiService.addDetailPengadaan(number[0],detailPengadaanDAOList.get(i).getId_produk(),detailPengadaanDAOList.get(i).getSatuan(),detailPengadaanDAOList.get(i).getJml_pengadaan_produk());
-                                                    detailPengadaanCall.enqueue(new Callback<cudDataMaster>(){
-                                                        @Override
-                                                        public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response) {
-                                                            if(response.body()!=null) {
-                                                                response.body().getMessage();
-                                                                startActivity(new Intent(getApplicationContext(),pengadaanShow.class));
+                                                ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
+                                                List<detailPengadaanDAO> detailPengadaanDAOList = adapter.getArrayList();
+                                                for (int i = 0; i < detailPengadaanDAOList.size(); i++) {
+                                                    if(detailPengadaanDAOList.get(i).getId_detail_pengadaan()==0){
+                                                        Call<cudDataMaster> detailPengadaanCall = apiService.addDetailPengadaan(number[0],detailPengadaanDAOList.get(i).getId_produk(),detailPengadaanDAOList.get(i).getSatuan(),detailPengadaanDAOList.get(i).getJml_pengadaan_produk());
+                                                        detailPengadaanCall.enqueue(new Callback<cudDataMaster>(){
+                                                            @Override
+                                                            public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response) {
+                                                                if(response.body()!=null) {
+                                                                    response.body().getMessage();
+                                                                    startActivity(new Intent(getApplicationContext(),pengadaanShow.class));
+                                                                }
                                                             }
-                                                        }
 
-                                                        @Override
-                                                        public void onFailure(Call<cudDataMaster> call, Throwable t) {
-                                                            Toast.makeText(getApplicationContext(),"Error1",Toast.LENGTH_SHORT).show();
-                                                        }
-                                                    });
-                                                }else{
-                                                    Call<cudDataMaster> detailPengadaanCall = apiService.editDetailPengadaan(detailPengadaanDAOList.get(i).getId_detail_pengadaan(),detailPengadaanDAOList.get(i).getId_produk(),detailPengadaanDAOList.get(i).getSatuan(),detailPengadaanDAOList.get(i).getJml_pengadaan_produk());
-                                                    detailPengadaanCall.enqueue(new Callback<cudDataMaster>(){
-                                                        @Override
-                                                        public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response) {
-                                                            if(response.body()!=null) {
-                                                                response.body().getMessage();
-                                                                startActivity(new Intent(getApplicationContext(),pengadaanShow.class));
+                                                            @Override
+                                                            public void onFailure(Call<cudDataMaster> call, Throwable t) {
+                                                                Toast.makeText(getApplicationContext(),"Error1",Toast.LENGTH_SHORT).show();
                                                             }
-                                                        }
+                                                        });
+                                                    }else{
+                                                        Call<cudDataMaster> detailPengadaanCall = apiService.editDetailPengadaan(detailPengadaanDAOList.get(i).getId_detail_pengadaan(),detailPengadaanDAOList.get(i).getId_produk(),detailPengadaanDAOList.get(i).getSatuan(),detailPengadaanDAOList.get(i).getJml_pengadaan_produk());
+                                                        detailPengadaanCall.enqueue(new Callback<cudDataMaster>(){
+                                                            @Override
+                                                            public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response) {
+                                                                if(response.body()!=null) {
+                                                                    response.body().getMessage();
+                                                                    startActivity(new Intent(getApplicationContext(),pengadaanShow.class));
+                                                                }
+                                                            }
 
-                                                        @Override
-                                                        public void onFailure(Call<cudDataMaster> call, Throwable t) {
-                                                            Toast.makeText(getApplicationContext(),"Error2",Toast.LENGTH_SHORT).show();
-                                                        }
-                                                    });
+                                                            @Override
+                                                            public void onFailure(Call<cudDataMaster> call, Throwable t) {
+                                                                Toast.makeText(getApplicationContext(),"Error2",Toast.LENGTH_SHORT).show();
+                                                            }
+                                                        });
+                                                    }
+
                                                 }
 
                                             }
-
                                         }
-                                    }
 
-                                    @Override
-                                    public void onFailure(Call<cudDataMaster> call, Throwable t) {
-                                        Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
-                                    }
-                                });
-                            }
-                        })
-                        .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                dialogInterface.cancel();
-                            }
-                        });
-                AlertDialog alertDialog = builder.create();
-                alertDialog.show();
+                                        @Override
+                                        public void onFailure(Call<cudDataMaster> call, Throwable t) {
+                                            Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                                }
+                            })
+                            .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.cancel();
+                                }
+                            });
+                    AlertDialog alertDialog = builder.create();
+                    alertDialog.show();
+                }
+
 
             }
         });
