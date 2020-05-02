@@ -116,7 +116,7 @@ public class hewanEdit extends AppCompatActivity {
         enableTanggal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(enableTanggal.isEnabled()){
+                if(mTanggalLahir.isEnabled()){
                     enableTanggal.setBackgroundResource(R.drawable.lock);
                     mTanggalLahir.setEnabled(false);
                 }
@@ -170,7 +170,7 @@ public class hewanEdit extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(hewanEdit.this, layananShow.class);
+                Intent intent = new Intent(hewanEdit.this, hewanShow.class);
                 startActivity(intent);
             }
         });
