@@ -38,7 +38,19 @@ public class customerDAO {
     @SerializedName("cust_deleted_by")
     private  String cust_deleted_by;
 
-
+    public customerDAO(int id_customer, String name,String alamat_customer,String tanggal_lahir, String telp_customer, String cust_created_at,String cust_edited_at, String cust_deleted_at,String cust_created_by,String cust_edited_by, String cust_deleted_by) {
+        this.id_customer = id_customer;
+        this.nama_customer = name;
+        this.alamat_customer = alamat_customer;
+        this.tgllahir_customer = tanggal_lahir;
+        this.telp_customer = telp_customer;
+        this.cust_created_at = cust_created_at;
+        this.cust_edited_at = cust_edited_at;
+        this.cust_deleted_at = cust_deleted_at;
+        this.cust_created_by = cust_created_by;
+        this.cust_edited_by = cust_edited_by;
+        this.cust_deleted_by = cust_deleted_by;
+    }
     public int getId_customer() { return id_customer; }
 
     public String getNama_customer() {

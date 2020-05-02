@@ -1,6 +1,130 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:id="@+id/RC_Hewan_Log_cardView"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".View.Customer.RecycleAdapterLog"
+    android:layout_marginBottom="10dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="269dp"
+            android:layout_gravity="center"
+            android:background="@color/yello"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="51dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:background="@color/blackcolor">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/iconhewan"
+                    android:backgroundTint="@color/yello" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/RC_Hewan_Parent"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/RC_Hewan_Name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:hint="Nama"
+                    android:textColor="@color/blackcolor"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/RC_Tgl_Lahir_Hewan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:hint="Tanggal Lahir"
+                    android:textColor="@color/blackcolor" />
+
+                <TextView
+                    android:id="@+id/RC_Nama_Pemilik"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:hint="Nama Pemilik"
+                    android:textColor="@color/blackcolor" />
+
+                <TextView
+                    android:id="@+id/custcreatedath"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="serif"
+                    android:hint="Dibuat pada "
+                    android:textColor="@color/blackcolor" />
+                <TextView
+                    android:id="@+id/custcreatedbyh"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:hint="Dibuat oleh "
+                    android:textColor="@color/blackcolor"/>
+                <TextView
+                    android:id="@+id/custeditedath"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:hint="Diedit pada "
+                    android:textColor="@color/blackcolor"/>
+                <TextView
+                    android:id="@+id/custeditedbyh"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:hint="Diedit oleh "
+                    android:textColor="@color/blackcolor"/>
+                <TextView
+                    android:id="@+id/custdeletedath"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:hint="Dihapus pada"
+                    android:textColor="@color/blackcolor"/>
+                <TextView
+                    android:id="@+id/custdeletedbyh"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:hint="Dihapus oleh"
+                    android:textColor="@color/blackcolor"/>
+
+
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="129dp"
+                android:layout_height="30dp"
+                android:layout_gravity="bottom"
+                android:layout_marginRight="2dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/kouveelogo" />
+
+
+        </LinearLayout>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

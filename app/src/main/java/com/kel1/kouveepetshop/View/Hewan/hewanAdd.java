@@ -113,7 +113,7 @@ public class hewanAdd extends AppCompatActivity {
                     tanggal.getText().toString(),userDetails.get(SessionManager.KEY_NAME));
             layananCall.enqueue(new Callback<cudDataMaster>(){
                 public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response){
-                    Toast.makeText(hewanAdd.this,"Berhasil Ditambah",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(hewanAdd.this,nama.getText().toString(),Toast.LENGTH_SHORT).show();
                     startIntent();
                 }
                 public void onFailure(Call<cudDataMaster> call, Throwable t){

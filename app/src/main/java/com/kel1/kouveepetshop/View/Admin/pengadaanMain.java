@@ -45,7 +45,7 @@ public class pengadaanMain extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(pengadaanMain.this, dashboard.class);
+                Intent intent = new Intent(pengadaanMain.this, landingPage.class);
                 startActivity(intent);
             }
         });
@@ -65,13 +65,13 @@ public class pengadaanMain extends AppCompatActivity {
         });
     }
     public void setAtribut (){
-        back = findViewById(R.id.backBtn);
+        back = findViewById(R.id.backBtnPengadaanAdd);
         add = findViewById(R.id.addBtn);
         show = findViewById(R.id.showBtn);
     }
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent=new Intent(getApplicationContext(), dashboard.class);
+        Intent intent=new Intent(getApplicationContext(), landingPage.class);
         startActivity(intent);
     }
 

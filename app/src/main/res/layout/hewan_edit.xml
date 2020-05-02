@@ -1,6 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="@color/kvBackground"
+    tools:context=".View.Produk.produkEdit">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/backBtnHewanEdit"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="start"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/iconback" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="285dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:src="@drawable/kouveelogo" />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/suppTV1"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:hint="Customer:"
+            android:elevation="5dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="15dp"/>
+        <RelativeLayout
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:elevation="5dp"
+            android:layout_gravity="center">
+            <Spinner
+                android:id="@+id/spinnerCustomerHEdit"
+                android:layout_width="280dp"
+                android:layout_height="45dp" />
+            <TextView
+                android:id="@+id/idSup1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:elevation="5dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:paddingLeft="15dp"
+                android:background="@drawable/btn"
+                android:textColorHint="@color/fullwhite"/>
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/namaHewanEdit"
+                android:layout_width="280dp"
+                android:layout_height="45dp"
+                android:hint="Nama Hewan"
+                android:elevation="5dp"
+                android:enabled="false"
+                android:layout_gravity="center"
+                android:paddingLeft="15dp"
+                android:background="@drawable/btn"
+                android:textColorHint="@color/fullwhite"/>
+            <Button
+                android:id="@+id/enableNamaH"
+                android:background="@drawable/lock"
+                android:layout_marginLeft="10dp"
+                android:layout_width="43dp"
+                android:layout_height="43dp"
+                android:backgroundTint="@color/blackcolor"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/bornDateHewan"
+                android:layout_width="280dp"
+                android:layout_height="45dp"
+                android:hint="Tanggal Lahir Hewan"
+                android:enabled="false"
+                android:inputType="date"
+                android:focusable="false"
+                android:contextClickable="false"
+                android:elevation="5dp"
+                android:layout_gravity="center"
+                android:paddingLeft="15dp"
+                android:background="@drawable/btn"
+                android:textColorHint="@color/fullwhite"
+                />
+            <Button
+                android:id="@+id/enableTglH"
+                android:background="@drawable/lock"
+                android:layout_marginLeft="10dp"
+                android:layout_width="43dp"
+                android:layout_height="43dp"
+                android:backgroundTint="@color/blackcolor"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/editHBtn1"
+                android:layout_width="227dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/joinbtn"
+                android:text="Edit Hewan"
+                android:textAllCaps="false"
+                android:textColor="@color/testcolorblue" />
+
+            <Button
+                android:id="@+id/delHBtn1"
+                android:layout_width="227dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/joinbtn"
+                android:text="Hapus Hewan"
+                android:textAllCaps="false"
+                android:textColor="@color/testcolorblue" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

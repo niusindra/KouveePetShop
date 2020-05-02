@@ -9,6 +9,9 @@ public class hewanDAO {
     @SerializedName("id_customer")
     private  int id_customer;
 
+    @SerializedName("nama_customer")
+    private  String nama_customer;
+
     @SerializedName("nama_hewan")
     private  String nama_hewan;
 
@@ -35,6 +38,10 @@ public class hewanDAO {
 
     public int getId_customer() {
         return id_customer;
+    }
+
+    public String getNama_customer() {
+        return nama_customer;
     }
 
     public int getId_hewan() {

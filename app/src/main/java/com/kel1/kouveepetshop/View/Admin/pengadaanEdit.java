@@ -259,6 +259,8 @@ public class pengadaanEdit extends AppCompatActivity {
 
     public void onBackPressed() {
         super.onBackPressed();
+        Intent intent=new Intent(getApplicationContext(), pengadaanShow.class);
+        startActivity(intent);
     }
 
     private void getSupplier(){

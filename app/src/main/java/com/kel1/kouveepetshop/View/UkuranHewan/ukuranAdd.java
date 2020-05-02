@@ -83,7 +83,7 @@ public class ukuranAdd extends AppCompatActivity {
         startActivity(intent);
     }
     private void startIntent(){
-        Intent intent=new Intent(getApplicationContext(), ukuranMain.class);
+        Intent intent=new Intent(getApplicationContext(), ukuranShow.class);
         startActivity(intent);
     }
 }

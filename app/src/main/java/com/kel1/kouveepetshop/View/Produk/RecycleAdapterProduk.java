@@ -78,7 +78,7 @@ public class RecycleAdapterProduk extends RecyclerView.Adapter<RecycleAdapterPro
                 Intent intent = new Intent(context, produkEdit.class);
                 intent.putExtra(EXTRA_TEXT, new String[] {produkDAO.getNama_produk(),produkDAO.getFoto_produk()});
                 intent.putExtra(EXTRA_NUMBER, new int[] {produkDAO.getId_produk(),produkDAO.getId_supplier(), produkDAO.getHarga_beli_produk(),produkDAO.getHarga_jual_produk(),
-                                produkDAO.getStok(),produkDAO.getMin_stok()});
+                        produkDAO.getStok(),produkDAO.getMin_stok()});
                 context.startActivity(intent);
             }
         });

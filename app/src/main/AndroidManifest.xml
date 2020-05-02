@@ -50,7 +50,12 @@
 
         </activity>
         <activity android:name=".View.Customer.customerEdit"/>
+        <activity android:name=".View.Hewan.hewanAdd" />
+        <activity android:name=".View.Hewan.hewanEdit" />
+        <activity android:name=".View.Hewan.hewanShow" />
         <activity android:name=".View.Hewan.hewanMain" />
+        <activity android:name=".View.Hewan.RecycleAdapterHewan" />
+        <activity android:name=".View.Hewan.RecycleAdapterHewanLog" />
         <activity android:name=".View.JenisHewan.jenisHewanMain" />
         <activity android:name=".View.Layanan.layananMain" />
         <activity android:name=".View.Layanan.layananShow" />

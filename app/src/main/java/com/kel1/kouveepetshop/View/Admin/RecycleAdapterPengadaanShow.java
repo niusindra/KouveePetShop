@@ -233,7 +233,7 @@ public class RecycleAdapterPengadaanShow extends RecyclerView.Adapter<RecycleAda
             public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response) {
                 if(response.body()!=null) {
                     Toast.makeText(context,"Konfirmasi Berhasil",Toast.LENGTH_SHORT).show();
-                    Uri uri = Uri.parse("http://10.0.2.2/kouvee/index.php/pdf/suratpengadaan/"+idpengadaan); // missing 'http://' will cause crashed
+                    Uri uri = Uri.parse("http:/10.0.2.2:8080/kouvee/index.php/PDF/suratpengadaan/"+idpengadaan); // missing 'http://' will cause crashed
                     Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                     context.startActivity(intent);
                 }
