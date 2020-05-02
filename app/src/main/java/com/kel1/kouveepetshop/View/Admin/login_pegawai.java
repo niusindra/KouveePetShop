@@ -23,6 +23,7 @@ import com.kel1.kouveepetshop.R;
 import com.kel1.kouveepetshop.Respon.cudDataMaster;
 import com.kel1.kouveepetshop.Respon.verifyPegawai;
 import com.kel1.kouveepetshop.SessionManager;
+import com.kel1.kouveepetshop.View.CustomerService.dashboardCS;
 import com.kel1.kouveepetshop.View.ErrorCatch;
 
 import retrofit2.Call;
@@ -94,7 +95,7 @@ public class login_pegawai extends AppCompatActivity {
                                         finish();
                                     }else if(response.body().getRole_pegawai().equalsIgnoreCase("customer service")){
                                         session.createLoginSession(response.body().getNama_pegawai(),response.body().getId_pegawai());
-                                        Intent i = new Intent(getApplicationContext(), landingPage.class);
+                                        Intent i = new Intent(getApplicationContext(), dashboardCS.class);
                                         startActivity(i);
                                         Toast.makeText(getApplicationContext(),"Login CS sukses ",Toast.LENGTH_SHORT).show();
 

@@ -69,7 +69,7 @@
                     android:textColor="@color/blackcolor" />
 
                 <TextView
-                    android:id="@+id/custcreatedath"
+                    android:id="@+id/hwncreatedat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -77,35 +77,35 @@
                     android:hint="Dibuat pada "
                     android:textColor="@color/blackcolor" />
                 <TextView
-                    android:id="@+id/custcreatedbyh"
+                    android:id="@+id/hwncreatedby"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:hint="Dibuat oleh "
                     android:textColor="@color/blackcolor"/>
                 <TextView
-                    android:id="@+id/custeditedath"
+                    android:id="@+id/hwneditedat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:hint="Diedit pada "
                     android:textColor="@color/blackcolor"/>
                 <TextView
-                    android:id="@+id/custeditedbyh"
+                    android:id="@+id/hwneditedby"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:hint="Diedit oleh "
                     android:textColor="@color/blackcolor"/>
                 <TextView
-                    android:id="@+id/custdeletedath"
+                    android:id="@+id/hwndeletedat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:hint="Dihapus pada"
                     android:textColor="@color/blackcolor"/>
                 <TextView
-                    android:id="@+id/custdeletedbyh"
+                    android:id="@+id/hwndeletedby"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"

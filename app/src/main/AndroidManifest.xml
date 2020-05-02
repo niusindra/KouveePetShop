@@ -25,6 +25,9 @@
         <activity android:name=".View.Admin.dashboard">
 
         </activity>
+        <activity android:name=".View.CustomerService.dashboardCS">
+
+        </activity>
         <activity android:name=".View.Admin.login_pegawai">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
