@@ -99,11 +99,11 @@ public class pengadaanAdd extends AppCompatActivity {
                 }
                 if(detailPengadaanList.size()==0)
                     Toast.makeText(pengadaanAdd.this,"Tambahkan produk terlebih dahulu!",Toast.LENGTH_LONG).show();
-                else if(cekSatuan==1)
+                if(cekSatuan==1)
                     Toast.makeText(pengadaanAdd.this,"Data harus terisi semua!",Toast.LENGTH_LONG).show();
-                else if(cekJumlah==1)
+                if(cekJumlah==1)
                     Toast.makeText(pengadaanAdd.this,"Jumlah produk tidak boleh 0!",Toast.LENGTH_LONG).show();
-                else if(cekSatuan==0 && cekJumlah==0){
+                if(cekSatuan==0 && cekJumlah==0){
                     builder.setMessage("Anda yakin membuat pengadaan dengan total: Rp "+total)
                             .setCancelable(false)
                             .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
@@ -119,7 +119,7 @@ public class pengadaanAdd extends AppCompatActivity {
                                                 ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
                                                 List<detailPengadaanDAO> detailPengadaanDAOList = adapter.getArrayList();
                                                 for (int i = 0; i < detailPengadaanDAOList.size(); i++) {
-                                                    Call<cudDataMaster> detailPengadaanCall = apiService.addDetailPengadaan(detailPengadaanDAOList.get(i).getId_pengadaan(),detailPengadaanDAOList.get(i).getId_produk(),detailPengadaanDAOList.get(i).getSatuan(),detailPengadaanDAOList.get(i).getJml_pengadaan_produk());
+                                                    Call<cudDataMaster> detailPengadaanCall = apiService.addDetailPengadaan(null,detailPengadaanDAOList.get(i).getId_produk(),detailPengadaanDAOList.get(i).getSatuan(),detailPengadaanDAOList.get(i).getJml_pengadaan_produk());
                                                     detailPengadaanCall.enqueue(new Callback<cudDataMaster>(){
                                                         @Override
                                                         public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response) {

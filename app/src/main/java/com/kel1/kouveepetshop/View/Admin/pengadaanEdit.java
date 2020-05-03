@@ -74,20 +74,7 @@ public class pengadaanEdit extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(),pengadaanShow.class));
             }
         });
-        mySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                supplierDAO user = (supplierDAO) parent.getSelectedItem();
-                getProdukbySupplier(user.getId_supplier());
-                detailPengadaanList.clear();
-                adapter = new AdapterPengadaanEdit(pengadaanEdit.this, detailPengadaanList, produkDAOList);
-                myRc.setAdapter(adapter);
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
+        mySpinner.setEnabled(false);
 
         btnaddProduk.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,6 +82,7 @@ public class pengadaanEdit extends AppCompatActivity {
                 detailPengadaanDAO detailPengadaanDAO = new detailPengadaanDAO();
 //                detailPengadaanList = adapter.getArrayList();
                 detailPengadaanDAO.setId_detail_pengadaan(0);
+                detailPengadaanDAO.setId_pengadaan(pengadaan[0]);
                 detailPengadaanList.add(detailPengadaanDAO);
                 adapter = new AdapterPengadaanEdit(pengadaanEdit.this, detailPengadaanList, produkDAOList);
                 myRc.setAdapter(adapter);
@@ -117,11 +105,11 @@ public class pengadaanEdit extends AppCompatActivity {
                 }
                 if(detailPengadaanList.size()==0)
                     Toast.makeText(pengadaanEdit.this,"Tambahkan produk terlebih dahulu!",Toast.LENGTH_LONG).show();
-                else if(cekSatuan==1)
+                if(cekSatuan==1)
                     Toast.makeText(pengadaanEdit.this,"Data harus terisi semua!",Toast.LENGTH_LONG).show();
-                else if(cekJumlah==1)
+                if(cekJumlah==1)
                     Toast.makeText(pengadaanEdit.this,"Jumlah produk tidak boleh 0!",Toast.LENGTH_LONG).show();
-                else if(cekSatuan==0 && cekJumlah==0){
+                if(cekSatuan==0 && cekJumlah==0){
                     builder.setMessage("Anda yakin mengedit pengadaan dengan total: Rp "+total)
                             .setCancelable(false)
                             .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
@@ -278,9 +266,9 @@ public class pengadaanEdit extends AppCompatActivity {
 
                     mySpinner.setAdapter(adapter);
                     for (int i = 0; i < supplieritems.size(); i++) {
-                        if(supplieritems.get(i).getNama_supplier().equalsIgnoreCase(pengadaan[0])){
+                        if(supplieritems.get(i).getNama_supplier().equalsIgnoreCase(pengadaan[1])){
                             mySpinner.setSelection(i);
-                            getProdukbySupplier(supplieritems.get(i).getId_supplier());
+                            getProdukbySupplierInit(supplieritems.get(i).getId_supplier());
                         }
                     }
                 }
@@ -293,7 +281,7 @@ public class pengadaanEdit extends AppCompatActivity {
         });
     }
 
-    private void getProdukbySupplier(int id){
+    private void getProdukbySupplierInit(int id){
         ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
         Call<readProduk> produkCall = apiService.getProdukbySupplier(id);
         produkCall.enqueue(new Callback<readProduk>(){
