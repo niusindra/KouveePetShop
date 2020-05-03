@@ -60,7 +60,7 @@ public class detailShow extends AppCompatActivity {
         pengadaan = intent.getStringArrayExtra(RecycleAdapterPengadaanShow.EXTRA_TEXT);
         number = intent.getIntArrayExtra(RecycleAdapterPengadaanShow.EXTRA_NUMBER);
 
-        getDetailPengadaan(number[0]);
+        getDetailPengadaan(pengadaan[0]);
 
         supplier = findViewById(R.id.supplierShowTV);
         myRc =findViewById(R.id.myRcDetail);
@@ -84,7 +84,7 @@ public class detailShow extends AppCompatActivity {
         super.onBackPressed();
     }
 
-    private void getDetailPengadaan(int idpengadaan){
+    private void getDetailPengadaan(String idpengadaan){
         ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
         Call<readDetailPengadaan> produkCall = apiService.getDetailPengadaan(idpengadaan);
         produkCall.enqueue(new Callback<readDetailPengadaan>(){

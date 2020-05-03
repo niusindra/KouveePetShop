@@ -82,22 +82,22 @@ public class RecycleAdapterPengadaanShow extends RecyclerView.Adapter<RecycleAda
             public void onClick(View view) {
                 if(pengadaanDAO.getStatus_pengadaan().equalsIgnoreCase("Pending")){
                     Intent intent = new Intent(context,pengadaanEdit.class);
-                    intent.putExtra(EXTRA_TEXT, new String[] {pengadaanDAO.getNama_supplier(),pengadaanDAO.getTgl_pengadaan(),
+                    intent.putExtra(EXTRA_TEXT, new String[] {pengadaanDAO.getId_pengadaan(), pengadaanDAO.getNama_supplier(),pengadaanDAO.getTgl_pengadaan(),
                             pengadaanDAO.getStatus_pengadaan()});
-                    intent.putExtra(EXTRA_NUMBER, new int[] {pengadaanDAO.getId_pengadaan(), pengadaanDAO.getId_supplier(), pengadaanDAO.getTotal_pengadaan()});
+                    intent.putExtra(EXTRA_NUMBER, new int[] {pengadaanDAO.getId_supplier(), pengadaanDAO.getTotal_pengadaan()});
                     context.startActivity(intent);
                 }else if(pengadaanDAO.getStatus_pengadaan().equalsIgnoreCase("belum sampai")){
 
                     Intent intent = new Intent(context,detailShow.class);
-                    intent.putExtra(EXTRA_TEXT, new String[] {pengadaanDAO.getNama_supplier(),pengadaanDAO.getTgl_pengadaan(),
+                    intent.putExtra(EXTRA_TEXT, new String[] {pengadaanDAO.getId_pengadaan(), pengadaanDAO.getNama_supplier(),pengadaanDAO.getTgl_pengadaan(),
                             pengadaanDAO.getStatus_pengadaan()});
-                    intent.putExtra(EXTRA_NUMBER, new int[] {pengadaanDAO.getId_pengadaan(), pengadaanDAO.getId_supplier(), pengadaanDAO.getTotal_pengadaan()});
+                    intent.putExtra(EXTRA_NUMBER, new int[] {pengadaanDAO.getId_supplier(), pengadaanDAO.getTotal_pengadaan()});
                     context.startActivity(intent);
                 }else{
                     Intent intent = new Intent(context,detailShow.class);
-                    intent.putExtra(EXTRA_TEXT, new String[] {pengadaanDAO.getNama_supplier(),pengadaanDAO.getTgl_pengadaan(),
+                    intent.putExtra(EXTRA_TEXT, new String[] {pengadaanDAO.getId_pengadaan(),pengadaanDAO.getNama_supplier(),pengadaanDAO.getTgl_pengadaan(),
                             pengadaanDAO.getStatus_pengadaan()});
-                    intent.putExtra(EXTRA_NUMBER, new int[] {pengadaanDAO.getId_pengadaan(), pengadaanDAO.getId_supplier(), pengadaanDAO.getTotal_pengadaan()});
+                    intent.putExtra(EXTRA_NUMBER, new int[] { pengadaanDAO.getId_supplier(), pengadaanDAO.getTotal_pengadaan()});
                     context.startActivity(intent);
                 }
 
@@ -170,7 +170,7 @@ public class RecycleAdapterPengadaanShow extends RecyclerView.Adapter<RecycleAda
         return result;
     }
 
-    private void getDetailPengadaan(final int idpengadaan){
+    private void getDetailPengadaan(final String idpengadaan){
         ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
         Call<readDetailPengadaan> produkCall = apiService.getDetailPengadaan(idpengadaan);
         produkCall.enqueue(new Callback<readDetailPengadaan>(){
@@ -207,7 +207,7 @@ public class RecycleAdapterPengadaanShow extends RecyclerView.Adapter<RecycleAda
         });
     }
 
-    private void konfirmasiSampai(int idpengadaan){
+    private void konfirmasiSampai(String idpengadaan){
         ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
         Call<cudDataMaster> pengadaanCall = apiService.editPengadaan(idpengadaan,"Sampai");
         pengadaanCall.enqueue(new Callback<cudDataMaster>(){
@@ -225,7 +225,7 @@ public class RecycleAdapterPengadaanShow extends RecyclerView.Adapter<RecycleAda
         });
     }
 
-    private void konfirmasiCetakSurat(final int idpengadaan){
+    private void konfirmasiCetakSurat(final String idpengadaan){
         ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
         Call<cudDataMaster> pengadaanCall = apiService.editPengadaan(idpengadaan,"Belum Sampai");
         pengadaanCall.enqueue(new Callback<cudDataMaster>(){

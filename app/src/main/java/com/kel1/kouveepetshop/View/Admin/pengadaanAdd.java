@@ -116,11 +116,10 @@ public class pengadaanAdd extends AppCompatActivity {
                                         public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response) {
                                             if(response.body()!=null) {
                                                 Toast.makeText(getApplicationContext(),response.body().getMessage(),Toast.LENGTH_SHORT).show();
-
                                                 ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
                                                 List<detailPengadaanDAO> detailPengadaanDAOList = adapter.getArrayList();
                                                 for (int i = 0; i < detailPengadaanDAOList.size(); i++) {
-                                                    Call<cudDataMaster> detailPengadaanCall = apiService.addDetailPengadaan(0,detailPengadaanDAOList.get(i).getId_produk(),detailPengadaanDAOList.get(i).getSatuan(),detailPengadaanDAOList.get(i).getJml_pengadaan_produk());
+                                                    Call<cudDataMaster> detailPengadaanCall = apiService.addDetailPengadaan(detailPengadaanDAOList.get(i).getId_pengadaan(),detailPengadaanDAOList.get(i).getId_produk(),detailPengadaanDAOList.get(i).getSatuan(),detailPengadaanDAOList.get(i).getJml_pengadaan_produk());
                                                     detailPengadaanCall.enqueue(new Callback<cudDataMaster>(){
                                                         @Override
                                                         public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response) {

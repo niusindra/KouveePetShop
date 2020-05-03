@@ -69,6 +69,12 @@
         <activity android:name=".View.Layanan.layananShow" />
         <activity android:name=".View.Layanan.layananEdit" />
         <activity android:name=".View.Layanan.layananAdd" />
+        <activity android:name=".View.HargaLayanan.hargaLayananMain" />
+        <activity android:name=".View.HargaLayanan.hargaLayananAdd" />
+        <activity android:name=".View.HargaLayanan.hargaLayananShow" />
+        <activity android:name=".View.HargaLayanan.hargaLayananEdit" />
+        <activity android:name=".View.HargaLayanan.RecycleAdapterHargaLayanan" />
+        <activity android:name=".View.HargaLayanan.RecycleAdapterHargaLayananLog" />
         <activity android:name=".View.Produk.produkMain" />
         <activity android:name=".View.Produk.produkAdd" />
         <activity android:name=".View.Produk.produkEdit" />

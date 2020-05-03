@@ -1,5 +1,7 @@
 package com.kel1.kouveepetshop.DAO;
 
+import androidx.annotation.NonNull;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Date;
@@ -38,5 +40,11 @@ public class ukuranhewanDAO {
 
     public String getUkrn_edited_at() {
         return ukrn_edited_at;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return ukuran;
     }
 }

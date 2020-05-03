@@ -1,5 +1,7 @@
 package com.kel1.kouveepetshop.DAO;
 
+import androidx.annotation.NonNull;
+
 import com.google.gson.annotations.SerializedName;
 
 public class jenishewanDAO {
@@ -36,5 +38,10 @@ public class jenishewanDAO {
 
     public String getJns_edited_at() {
         return jns_edited_at;
+    }
+    @NonNull
+    @Override
+    public String toString() {
+        return jenis;
     }
 }

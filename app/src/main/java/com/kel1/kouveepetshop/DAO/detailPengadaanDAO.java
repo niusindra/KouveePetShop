@@ -7,7 +7,7 @@ public class detailPengadaanDAO {
     private  int id_detail_pengadaan;
 
     @SerializedName("id_pengadaan")
-    private  int id_pengadaan;
+    private  String id_pengadaan;
 
     @SerializedName("id_produk")
     private  int id_produk;
@@ -32,7 +32,7 @@ public class detailPengadaanDAO {
         return id_detail_pengadaan;
     }
 
-    public int getId_pengadaan() {
+    public String getId_pengadaan() {
         return id_pengadaan;
     }
 
@@ -56,7 +56,7 @@ public class detailPengadaanDAO {
         this.id_detail_pengadaan = id_detail_pengadaan;
     }
 
-    public void setId_pengadaan(int id_pengadaan) {
+    public void setId_pengadaan(String id_pengadaan) {
         this.id_pengadaan = id_pengadaan;
     }
 

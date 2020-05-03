@@ -1,9 +1,11 @@
 package com.kel1.kouveepetshop.Api;
 
 import com.kel1.kouveepetshop.DAO.customerDAO;
+import com.kel1.kouveepetshop.DAO.hargalayananDAO;
 import com.kel1.kouveepetshop.Respon.cudDataMaster;
 import com.kel1.kouveepetshop.Respon.readCustomer;
 import com.kel1.kouveepetshop.Respon.readDetailPengadaan;
+import com.kel1.kouveepetshop.Respon.readHargaLayanan;
 import com.kel1.kouveepetshop.Respon.readHewan;
 import com.kel1.kouveepetshop.Respon.readJenisHewan;
 import com.kel1.kouveepetshop.Respon.readLayanan;
@@ -33,6 +35,8 @@ public interface ApiInterface {
     Call<readProduk> getProduk();
     @GET("layanan")
     Call<readLayanan> getLayanan();
+    @GET("hargalayanan")
+    Call<readHargaLayanan> getHargaLayanan();
     @GET("hewan")
     Call<readHewan> getHewan();
     @GET("jenishewan")
@@ -44,7 +48,7 @@ public interface ApiInterface {
     @GET("pengadaan")
     Call<readPengadaan> getPengadaan();
     @GET("detailpengadaan/{id}")
-    Call<readDetailPengadaan> getDetailPengadaan(@Path("id")int id);
+    Call<readDetailPengadaan> getDetailPengadaan(@Path("id")String id);
     @GET("produk/bysupplier/{id}")
     Call<readProduk> getProdukbySupplier(@Path("id")int id);
 
@@ -54,6 +58,8 @@ public interface ApiInterface {
     Call<readProduk> getProdukLog();
     @GET("layanan/log")
     Call<readLayanan> getLayananLog();
+    @GET("hargalayanan/log")
+    Call<readHargaLayanan> getHargaLayananLog();
     @GET("hewan/log")
     Call<readHewan> getHewanLog();
     @GET("jenishewan/log")
@@ -74,6 +80,8 @@ public interface ApiInterface {
     Call<customerDAO> getProduk(@Path("id")int id);
     @GET("layanan/{id}")
     Call<customerDAO> getLayanan(@Path("id")int id);
+    @GET("harga_layanan/{id}")
+    Call<hargalayananDAO> getHargaLayanan(@Path("id")int id);
     @GET("hewan/{id}")
     Call<customerDAO> getHewan(@Path("id")int id);
     @GET("jenishewan/{id}")
@@ -105,6 +113,13 @@ public interface ApiInterface {
                                   @Part ("harga_jual_produk") Integer harga_jual_produk,
                                   @Part ("stok") Integer stok,
                                   @Part ("min_stok") Integer min_stok);
+    @POST("hargalayanan/")
+    @FormUrlEncoded
+    Call<cudDataMaster> addHargaLayanan(@Field ("id_layanan") int id_layanan,
+                                  @Field ("id_jenis") int id_jenis,
+                                  @Field ("id_ukuran") int id_ukuran,
+                                  @Field ("harga_layanan") int harga_layanan);
+
 
     @POST("layanan/")
     @FormUrlEncoded
@@ -137,7 +152,7 @@ public interface ApiInterface {
 
     @POST("detailpengadaan/")
     @FormUrlEncoded
-    Call<cudDataMaster> addDetailPengadaan(@Field("id_pengadaan")int id_pengadaan,
+    Call<cudDataMaster> addDetailPengadaan(@Field("id_pengadaan")String id_pengadaan,
                                            @Field("id_produk")int id_produk,
                                            @Field("satuan")String satuan,
                                      @Field("jml_pengadaan_produk")int jml_pengadaan_produk);
@@ -151,11 +166,19 @@ public interface ApiInterface {
     @POST("customer/{id}")
     @FormUrlEncoded
     Call<cudDataMaster> editCustomer(@Path("id")int id,
-                                     @Field("nama_customer")String nama_customer,
+                                     @Field("id_layanan")String nama_customer,
                                      @Field("alamat_customer")String alamat_customer,
                                      @Field("tgllahir_customer")String tgllahir_customer,
                                      @Field("telp_customer")String telp_customer,
                                      @Field("cust_edited_by")String cust_edited_by);
+    @POST("hargalayanan/{id}")
+    @FormUrlEncoded
+    Call<cudDataMaster> editHargaLayanan(@Path("id")int id,
+                                     @Field("id_layanan")int id_layanan,
+                                     @Field("id_jenis")int id_jenis,
+                                     @Field("id_ukuran")int id_ukuran,
+                                     @Field("harga_layanan")int harga_layanan);
+
     @POST("produk/{id}")
     @Multipart
     Call<cudDataMaster> editProduk(@Path ("id") Integer id,
@@ -203,7 +226,7 @@ public interface ApiInterface {
 
     @POST("pengadaan/{id}")
     @FormUrlEncoded
-    Call<cudDataMaster> editPengadaan(@Path("id")int id,
+    Call<cudDataMaster> editPengadaan(@Path("id")String id,
                                       @Field("status_pengadaan")String status_pengadaan);
 
     @POST("detailpengadaan/{id}")
@@ -222,6 +245,8 @@ public interface ApiInterface {
     Call<cudDataMaster> deleteProduk(@Path("id")int id);
     @POST("layanan/delete/{id}")
     Call<cudDataMaster> deleteLayanan(@Path("id")int id);
+    @POST("hargalayanan/delete/{id}")
+    Call<cudDataMaster> deleteHargaLayanan(@Path("id")int id);
     @POST("hewan/delete/{id}")
     @FormUrlEncoded
     Call<cudDataMaster> deleteHewan(@Path("id")int id,
@@ -233,7 +258,7 @@ public interface ApiInterface {
     @POST("supplier/delete/{id}")
     Call<cudDataMaster> deleteSupplier(@Path("id")int id);
     @POST("pengadaan/delete/{id}")
-    Call<cudDataMaster> deletePengadaan(@Path("id")int id);
+    Call<cudDataMaster> deletePengadaan(@Path("id")String id);
     @DELETE("detailpengadaan/{id}")
     Call<cudDataMaster> deleteDetailPengadaan(@Path("id")int id);
 }

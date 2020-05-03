@@ -1,4 +1,4 @@
-package com.kel1.kouveepetshop.View.Layanan;
+package com.kel1.kouveepetshop.View.HargaLayanan;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,56 +10,46 @@ import androidx.cardview.widget.CardView;
 
 import com.kel1.kouveepetshop.R;
 import com.kel1.kouveepetshop.View.Admin.dashboard;
-import com.kel1.kouveepetshop.View.HargaLayanan.hargaLayananMain;
 
-public class layananMain extends AppCompatActivity {
+public class hargaLayananMain extends AppCompatActivity {
     public ImageView back;
     public CardView add;
-    public CardView hargalayanan;
     public CardView show;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layanan_main);
+        setContentView(R.layout.hargalayanan_main);
         setAtribut();
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(layananMain.this, dashboard.class);
+                Intent intent = new Intent(hargaLayananMain.this, dashboard.class);
                 startActivity(intent);
             }
         });
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(layananMain.this, layananAdd.class);
-                startActivity(intent);
-            }
-        });
-        hargalayanan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(layananMain.this, hargaLayananMain.class);
+                Intent intent = new Intent(hargaLayananMain.this, hargaLayananAdd.class);
                 startActivity(intent);
             }
         });
         show.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(layananMain.this, layananShow.class);
+                Intent intent = new Intent(hargaLayananMain.this, hargaLayananShow.class);
                 startActivity(intent);
             }
         });
     }
     public void setAtribut (){
-        back = findViewById(R.id.backBtn);
-        add = findViewById(R.id.addBtn);
-        hargalayanan = findViewById(R.id.hargaLayananBtn);
-        show = findViewById(R.id.showBtn);
+        back = findViewById(R.id.backHLBtn);
+        add = findViewById(R.id.addBtnHL);
+        show = findViewById(R.id.showBtnHL);
     }
     public void onBackPressed() {
         super.onBackPressed();
         Intent intent=new Intent(getApplicationContext(), dashboard.class);
         startActivity(intent);
     }
-
 }
+

@@ -1,5 +1,7 @@
 package com.kel1.kouveepetshop.DAO;
 
+import androidx.annotation.NonNull;
+
 import com.google.gson.annotations.SerializedName;
 
 public class layananDAO {
@@ -36,5 +38,10 @@ public class layananDAO {
 
     public String getLay_edited_at() {
         return lay_edited_at;
+    }
+    @NonNull
+    @Override
+    public String toString() {
+        return nama_layanan;
     }
 }

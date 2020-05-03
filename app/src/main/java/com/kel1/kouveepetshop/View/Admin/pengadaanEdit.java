@@ -128,7 +128,7 @@ public class pengadaanEdit extends AppCompatActivity {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
                                     ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
-                                    Call<cudDataMaster> pengadaanCall = apiService.editPengadaan(number[0],"Pending");
+                                    Call<cudDataMaster> pengadaanCall = apiService.editPengadaan(pengadaan[0],"Pending");
                                     pengadaanCall.enqueue(new Callback<cudDataMaster>(){
                                         @Override
                                         public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response) {
@@ -138,7 +138,7 @@ public class pengadaanEdit extends AppCompatActivity {
                                                 List<detailPengadaanDAO> detailPengadaanDAOList = adapter.getArrayList();
                                                 for (int i = 0; i < detailPengadaanDAOList.size(); i++) {
                                                     if(detailPengadaanDAOList.get(i).getId_detail_pengadaan()==0){
-                                                        Call<cudDataMaster> detailPengadaanCall = apiService.addDetailPengadaan(number[0],detailPengadaanDAOList.get(i).getId_produk(),detailPengadaanDAOList.get(i).getSatuan(),detailPengadaanDAOList.get(i).getJml_pengadaan_produk());
+                                                        Call<cudDataMaster> detailPengadaanCall = apiService.addDetailPengadaan(pengadaan[0],detailPengadaanDAOList.get(i).getId_produk(),detailPengadaanDAOList.get(i).getSatuan(),detailPengadaanDAOList.get(i).getJml_pengadaan_produk());
                                                         detailPengadaanCall.enqueue(new Callback<cudDataMaster>(){
                                                             @Override
                                                             public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response) {
@@ -207,7 +207,7 @@ public class pengadaanEdit extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
-                                Call<cudDataMaster> pengadaanCall = apiService.deletePengadaan(number[0]);
+                                Call<cudDataMaster> pengadaanCall = apiService.deletePengadaan(pengadaan[0]);
                                 pengadaanCall.enqueue(new Callback<cudDataMaster>(){
                                     @Override
                                     public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response) {
@@ -302,7 +302,7 @@ public class pengadaanEdit extends AppCompatActivity {
             public void onResponse(Call<readProduk> call, Response<readProduk> response) {
                 if(response.body()!=null) {
                     produkDAOList = response.body().getMessage();
-                    getDetailPengadaan(number[0]);
+                    getDetailPengadaan(pengadaan[0]);
                 }
             }
             @Override
@@ -312,7 +312,7 @@ public class pengadaanEdit extends AppCompatActivity {
         });
     }
 
-    private void getDetailPengadaan(int idpengadaan){
+    private void getDetailPengadaan(String idpengadaan){
         ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
         Call<readDetailPengadaan> produkCall = apiService.getDetailPengadaan(idpengadaan);
         produkCall.enqueue(new Callback<readDetailPengadaan>(){

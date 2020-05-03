@@ -189,7 +189,6 @@ public class hewanEdit extends AppCompatActivity {
                             android.R.layout.simple_spinner_item, mListCustomer);
                     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     mSpinner.setAdapter(adapter);
-
                     for (int i = 0; i < mListCustomer.size(); i++) {
                         if(mListCustomer.get(i).getId_customer()==number[1]){
                             mSpinner.setSelection(i);

@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class pengadaanDAO {
     @SerializedName("id_pengadaan")
-    private  int id_pengadaan;
+    private  String id_pengadaan;
 
     @SerializedName("tgl_pengadaan")
     private  String tgl_pengadaan;
@@ -41,7 +41,7 @@ public class pengadaanDAO {
         return id_supplier;
     }
 
-    public int getId_pengadaan() {
+    public String getId_pengadaan() {
         return id_pengadaan;
     }
 

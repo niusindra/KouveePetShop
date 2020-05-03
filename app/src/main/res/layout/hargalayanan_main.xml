@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.Layanan.layananMain"
+    tools:context=".View.Customer.customerMain"
     android:orientation="vertical"
     android:padding="10dp"
     android:background="@color/kvBackground"
@@ -11,12 +11,12 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="120dp"
         android:orientation="horizontal"
         android:padding="10dp">
 
         <ImageView
-            android:id="@+id/backBtn"
+            android:id="@+id/backHLBtn"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_gravity="start"
@@ -25,7 +25,7 @@
 
         <ImageView
             android:layout_width="279dp"
-            android:layout_height="50dp"
+            android:layout_height="100dp"
             android:gravity="end"
             android:src="@drawable/kouveelogo" />
 
@@ -37,55 +37,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <androidx.cardview.widget.CardView
-            android:id="@+id/addBtn"
+            android:id="@+id/addBtnHL"
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="true"
             android:layout_width="320dp"
-            android:layout_height="150dp"
+            android:layout_height="200dp"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/navi"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_marginTop="10dp"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:backgroundTint="@color/whitecolor"
-                    android:background="@drawable/iconadd"
-                    android:padding="10dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:textSize="20sp"
-                    android:text="TAMBAH LAYANAN"
-                    android:textColor="@color/whitecolor"
-                    android:textStyle="bold" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-    </LinearLayout>
-    <LinearLayout
-        android:clipToPadding="false"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <androidx.cardview.widget.CardView
-            android:id="@+id/hargaLayananBtn"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true"
-            android:layout_width="320dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="15dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp">
 
@@ -97,25 +54,23 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/iconhargalayanan"
-                    android:backgroundTint="@color/whitecolor"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/iconadd"
                     android:padding="10dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="HARGA LAYANAN"
-                    android:textSize="20sp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="30sp"
+                    android:text="TAMBAH"
                     android:textColor="@color/whitecolor"
                     android:textStyle="bold" />
-
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-
-
     </LinearLayout>
     <LinearLayout
         android:clipToPadding="false"
@@ -124,12 +79,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <androidx.cardview.widget.CardView
-            android:id="@+id/showBtn"
+            android:id="@+id/showBtnHL"
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="true"
             android:layout_width="320dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="15dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="40dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp">
 
@@ -141,9 +97,9 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/iconlayanan"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/iconcustomer"
                     android:backgroundTint="@color/red"
                     android:padding="10dp" />
 
@@ -151,20 +107,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="KELOLA DATA LAYANAN"
-                    android:textSize="20sp"
+                    android:text="KELOLA DATA"
+                    android:textSize="30sp"
                     android:textColor="@color/red"
                     android:textStyle="bold" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-
-
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:layout_marginTop="15dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:background="@color/colorAccent"
@@ -172,7 +125,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="LAYANAN"
+            android:text="HARGA LAYANAN"
             android:textAlignment="center"
             android:textColor="@color/whitecolor"
             android:textSize="20sp"/>
