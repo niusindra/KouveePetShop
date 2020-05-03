@@ -114,7 +114,10 @@ public class AdapterPengadaanAdd extends RecyclerView.Adapter<AdapterPengadaanAd
                 public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
                     detailPengadaanDAO detailPengadaanDAO = arrayList.get(getAdapterPosition());
-                    detailPengadaanDAO.setJml_pengadaan_produk(Integer.parseInt(charSequence.toString()));
+                    if(charSequence.toString().equalsIgnoreCase(""))
+                        detailPengadaanDAO.setJml_pengadaan_produk(0);
+                    else
+                        detailPengadaanDAO.setJml_pengadaan_produk(Integer.parseInt(charSequence.toString()));
                     detailPengadaanDAO.setSubtotal_pengadaan(detailPengadaanDAO.getJml_pengadaan_produk()*hargabeli);
                     arrayList.set(getAdapterPosition(), detailPengadaanDAO);
                     subtotal.setText("Subtotal Produk: Rp "+detailPengadaanDAO.getJml_pengadaan_produk()*hargabeli);
