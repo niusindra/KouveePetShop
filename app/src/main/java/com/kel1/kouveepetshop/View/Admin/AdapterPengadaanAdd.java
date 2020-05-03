@@ -50,6 +50,7 @@ public class AdapterPengadaanAdd extends RecyclerView.Adapter<AdapterPengadaanAd
             }
         }
         holder.edtdetjmlPro.setText(String.valueOf(detailPengadaanDAO.getJml_pengadaan_produk()));
+        holder.edtdetSatPro.setText(detailPengadaanDAO.getSatuan());
     }
 
     @Override
