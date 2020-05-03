@@ -65,7 +65,7 @@ public class RecycleAdapterProduk extends RecyclerView.Adapter<RecycleAdapterPro
     @Override
     public void onBindViewHolder(final MyViewHolder myViewHolder, final int i) {
         final produkDAO produkDAO=result.get(i);
-        Picasso.get().load("http:/api.kouvee.site/upload/foto_produk/"+produkDAO.getFoto_produk()).into(myViewHolder.mfoto);
+        Picasso.get().load("http:/10.0.2.2/kouvee/upload/foto_produk/"+produkDAO.getFoto_produk()).into(myViewHolder.mfoto);
         myViewHolder.mNama.setText("Nama\t: "+produkDAO.getNama_produk());
         myViewHolder.msuppPro.setText("Supplier\t: "+produkDAO.getNama_supplier());
         myViewHolder.mBeli.setText("Harga Beli\t: "+produkDAO.getHarga_beli_produk());
