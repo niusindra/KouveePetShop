@@ -23,6 +23,18 @@ public class cudDataMaster {
     @Expose
     private String nama_layanan;
 
+    @SerializedName("nama_hewan")
+    @Expose
+    private String nama_hewan;
+
+    @SerializedName("ukuran")
+    @Expose
+    private String ukuran;
+
+    @SerializedName("jenis")
+    @Expose
+    private String jenis;
+
     @SerializedName("token")
     @Expose
     private String token;
@@ -47,6 +59,17 @@ public class cudDataMaster {
         return nama_produk;
     }
 
+    public String getNama_Hewan() {
+        return nama_hewan;
+    }
+
+    public String getUkuran_hewan() {
+        return ukuran;
+    }
+
+    public String getJenis_hewan() {
+        return jenis;
+    }
     public String getNama_layanan() {
         return nama_layanan;
     }

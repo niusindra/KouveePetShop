@@ -113,8 +113,18 @@ public class hewanAdd extends AppCompatActivity {
                     tanggal.getText().toString(),userDetails.get(SessionManager.KEY_NAME));
             layananCall.enqueue(new Callback<cudDataMaster>(){
                 public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response){
-                    Toast.makeText(hewanAdd.this,nama.getText().toString(),Toast.LENGTH_SHORT).show();
-                    startIntent();
+                    try {
+                        if(response.body()!=null){
+                            if(response.body().getNama_Hewan()!=null)
+                                Toast.makeText(hewanAdd.this,response.body().getNama_Hewan(),Toast.LENGTH_LONG).show();
+                            else{
+                                Toast.makeText(hewanAdd.this,response.body().getMessage(),Toast.LENGTH_LONG).show();
+                                startIntent();
+                            }
+                        }
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
                 }
                 public void onFailure(Call<cudDataMaster> call, Throwable t){
                     Toast.makeText(hewanAdd.this,"Masalah koneksi",Toast.LENGTH_SHORT).show();

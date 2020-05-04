@@ -46,8 +46,8 @@ public class jenisHewanAdd extends AppCompatActivity {
                         public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response){
                             try {
                                 if(response.body()!=null){
-                                    if(response.body().getNama_layanan()!=null)
-                                        Toast.makeText(jenisHewanAdd.this,response.body().getNama_layanan(),Toast.LENGTH_LONG).show();
+                                    if(response.body().getJenis_hewan()!=null)
+                                        Toast.makeText(jenisHewanAdd.this,response.body().getJenis_hewan(),Toast.LENGTH_LONG).show();
                                     else{
                                         Toast.makeText(jenisHewanAdd.this,response.body().getMessage(),Toast.LENGTH_LONG).show();
                                         startIntent();

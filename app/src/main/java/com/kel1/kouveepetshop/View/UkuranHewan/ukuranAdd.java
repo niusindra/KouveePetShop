@@ -44,8 +44,8 @@ public class ukuranAdd extends AppCompatActivity {
                         public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response){
                             try {
                                 if(response.body()!=null){
-                                    if(response.body().getNama_layanan()!=null)
-                                        Toast.makeText(ukuranAdd.this,response.body().getNama_layanan(),Toast.LENGTH_LONG).show();
+                                    if(response.body().getUkuran_hewan()!=null)
+                                        Toast.makeText(ukuranAdd.this,response.body().getUkuran_hewan(),Toast.LENGTH_LONG).show();
                                     else{
                                         Toast.makeText(ukuranAdd.this,response.body().getMessage(),Toast.LENGTH_LONG).show();
                                         startIntent();
