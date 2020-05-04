@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Pending"
                 android:textColorHint="@color/whitecolor"
-                android:background="@drawable/real_border"/>
+                android:background="@drawable/button_border_white"/>
             <Button
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
@@ -60,14 +60,14 @@
                 android:layout_height="wrap_content"
                 android:hint="Belum Sampai"
                 android:textColorHint="@color/whitecolor"
-                android:background="@drawable/real_border"/>
+                android:background="@drawable/button_border_white"/>
             <Button
                 android:id="@+id/btnSampai"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:hint="Sampai"
                 android:textColorHint="@color/whitecolor"
-                android:background="@drawable/real_border"/>
+                android:background="@drawable/button_border_white"/>
 
         </LinearLayout>
         <LinearLayout

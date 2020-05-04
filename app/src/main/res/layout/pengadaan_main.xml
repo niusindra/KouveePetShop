@@ -22,7 +22,7 @@
             android:layout_height="32dp"
             android:layout_gravity="start"
             android:layout_marginLeft="10dp"
-            android:backgroundTint="@color/whitecolor"
+            android:backgroundTint="@color/green_kv"
             android:background="@drawable/iconback" />
 
         <ImageView

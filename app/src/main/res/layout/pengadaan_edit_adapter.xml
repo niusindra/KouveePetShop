@@ -15,7 +15,7 @@
             android:layout_marginLeft="15dp"
             android:layout_width="280dp"
             android:layout_height="wrap_content"
-            android:hint="Id Produk:"
+            android:hint="Nama Produk:"
             android:elevation="5dp"
             android:textColorHint="@color/whitecolor"
             android:layout_marginTop="10dp"
