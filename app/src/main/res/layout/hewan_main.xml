@@ -23,7 +23,7 @@
             android:layout_gravity="start"
             android:layout_marginLeft="10dp"
             android:background="@drawable/iconback"
-            android:backgroundTint="@color/whitecolor" />
+            android:backgroundTint="@color/green_kv" />
 
         <ImageView
             android:layout_width="279dp"
