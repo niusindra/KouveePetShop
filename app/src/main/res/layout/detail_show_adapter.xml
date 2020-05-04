@@ -5,43 +5,49 @@
     android:layout_height="wrap_content"
     app:cardElevation="10dp"
     app:cardUseCompatPadding="true"
-    android:background="@color/kvBackground">
+    android:background="@color/kvBackground"
+    app:cardCornerRadius="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@color/kvBackground">
-
-        <TextView
-            android:id="@+id/detailshowNama"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nama Produk"
-            android:textSize="20dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="10dp"
-            android:textStyle="bold"/>
-        <TextView
-            android:id="@+id/detailshowJumlah"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Jumlah"
-            android:textSize="18dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"/>
-        <TextView
-            android:id="@+id/detailshowSubtotal"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="Subtotal"
-            android:textSize="18dp"
-            android:gravity="center"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginBottom="5dp"/>
-
-
+        android:background="@drawable/main_gradient">
+<LinearLayout
+    android:layout_width="350dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="20dp">
+    <TextView
+        android:id="@+id/detailshowNama"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nama Produk"
+        android:textSize="20dp"
+        android:textColor="@color/whitecolor"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/detailshowJumlah"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jumlah"
+        android:textSize="18dp"
+        android:textColor="@color/whitecolor"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"/>
+    <TextView
+        android:id="@+id/detailshowSubtotal"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="Subtotal"
+        android:textSize="18dp"
+        android:gravity="center"
+        android:textColor="@color/whitecolor"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="5dp"/>
+</LinearLayout>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

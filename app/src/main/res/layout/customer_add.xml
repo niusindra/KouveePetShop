@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
-    android:background="@color/kvBackground"
+    android:background="@drawable/background_style"
     tools:context=".View.Customer.customerAdd">
 
     <LinearLayout
@@ -19,6 +19,7 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_gravity="start"
+            android:backgroundTint="@color/whitecolor"
             android:layout_marginLeft="10dp"
             android:background="@drawable/iconback" />
 
@@ -100,8 +101,8 @@
             android:layout_marginTop="30dp"
             android:text="Tambah Customer"
             android:textAllCaps="false"
-            android:background="@drawable/joinbtn"
-            android:textColor="@color/testcolorblue"/>
+            android:background="@drawable/button_border"
+            android:textColor="@color/whitecolor"/>
     </LinearLayout>
 
 </RelativeLayout>

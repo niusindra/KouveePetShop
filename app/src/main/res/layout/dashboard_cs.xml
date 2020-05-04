@@ -3,10 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".View.Admin.dashboard"
     android:orientation="vertical"
     android:padding="10dp"
-    android:background="@color/kvBackground"
+    android:background="@drawable/background_style"
     android:gravity="center"
     android:id="@+id/ll">
     <LinearLayout
@@ -17,11 +18,12 @@
             android:id="@+id/dashboardCsLogout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="LOGOUT"
+            android:text="Sign Out"
+            android:textStyle="bold"
             android:layout_gravity="right"
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
-            android:textColor="@color/blackcolor"
+            android:textColor="@color/whitecolor"
             android:textSize="15dp"/>
         <LinearLayout
             android:layout_width="match_parent"
@@ -32,7 +34,7 @@
 
             <ImageView
                 android:layout_width="200dp"
-                android:layout_height="50dp"
+                android:layout_height="36dp"
                 android:gravity="center"
                 android:src="@drawable/kouveelogo" />
 
@@ -49,20 +51,23 @@
                 android:id="@+id/intoCustomerBtn"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:clickable="true"
-                android:layout_width="320dp"
-                android:layout_height="150dp"
-                android:layout_margin="10dp">
+                android:layout_width="250dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="10dp">
 
                 <LinearLayout
-                    android:layout_width="320dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/red"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@drawable/main_gradient"
                     android:gravity="center"
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_gravity="center"
+                        android:backgroundTint="@color/whitecolor"
                         android:background="@drawable/iconcustomer"
                         android:padding="10dp" />
 
@@ -71,6 +76,8 @@
                         android:layout_height="15dp"
                         android:layout_marginTop="10dp"
                         android:text="CUSTOMER"
+                        android:layout_gravity="center"
+                        android:textSize="10sp"
                         android:textColor="@color/whitecolor"
                         android:textStyle="bold" />
 
@@ -89,19 +96,20 @@
                 android:id="@+id/intoHewanBtn"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:clickable="true"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_margin="10dp">
+                android:layout_width="115dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="10dp">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:background="@color/btnNavy"
+                    android:background="@drawable/border_plain"
                     android:gravity="center">
                     <ImageView
-                        android:backgroundTint="@color/whitecolor"
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
+                        android:backgroundTint="@color/therealpurple"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
                         android:background="@drawable/iconhewan"
                         android:padding="10dp"/>
                     <TextView
@@ -109,30 +117,32 @@
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
                         android:layout_marginTop="10dp"
+                        android:textSize="10sp"
                         android:text="HEWAN"
-                        android:textColor="@color/whitecolor"/>
+                        android:textColor="@color/therealpurple"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
                 android:id="@+id/intoJenisHewanBtn"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:clickable="true"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_margin="10dp">
+                android:layout_width="115dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/green_kv"
+                    android:background="@drawable/border_plain"
                     android:gravity="center"
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
                         android:background="@drawable/iconjenishewan"
-                        android:backgroundTint="@color/whitecolor"
+                        android:backgroundTint="@color/therealpurple"
                         android:padding="10dp" />
 
                     <TextView
@@ -140,7 +150,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="JENIS HEWAN"
-                        android:textColor="@color/whitecolor"
+                        android:textSize="10sp"
+                        android:textColor="@color/therealpurple"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -150,36 +161,37 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="180dp"
             android:clipToPadding="false"
             android:gravity="center"
             android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/intoUkuranHewanBtn"
-                android:layout_width="320dp"
-                android:layout_height="150dp"
+                android:layout_width="250dp"
+                android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="40dp"
                 android:clickable="true"
-                android:foreground="?android:attr/selectableItemBackground">
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="10dp">
 
                 <LinearLayout
 
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/whitecolor"
+                    android:background="@drawable/main_gradient"
                     android:gravity="center"
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="64dp"
+                        android:layout_width="40dp"
+                        android:layout_height="32dp"
                         android:background="@drawable/iconukuranhewan"
-                        android:backgroundTint="@color/colorAccent"
+                        android:backgroundTint="@color/whitecolor"
                         android:padding="10dp" />
 
                     <TextView
@@ -187,7 +199,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="UKURAN HEWAN"
-                        android:textColor="@color/colorAccent"
+                        android:textColor="@color/whitecolor"
+                        android:textSize="10sp"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -199,7 +212,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:layout_marginBottom="20dp"
-            android:background="@color/whitecolor"
+            android:background="@drawable/real_border"
             android:layout_gravity="center">
             <TextView
                 android:id="@+id/usernameIsLoggedInCS"
@@ -208,7 +221,7 @@
                 android:layout_height="match_parent"
                 android:text="Username"
                 android:textAlignment="center"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/whitecolor"
                 android:textSize="16sp"/>
         </LinearLayout>
     </LinearLayout>

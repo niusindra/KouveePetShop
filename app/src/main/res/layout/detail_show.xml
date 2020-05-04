@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
-    android:background="@color/kvBackground"
+    android:background="@drawable/background_style"
     tools:context=".View.Admin.detailShow">
 
     <LinearLayout
@@ -21,7 +21,8 @@
             android:layout_height="32dp"
             android:layout_gravity="start"
             android:layout_marginLeft="10dp"
-            android:background="@drawable/iconback" />
+            android:background="@drawable/iconback"
+            android:backgroundTint="@color/whitecolor"/>
 
     </LinearLayout>
 
@@ -34,19 +35,20 @@
             android:layout_width="285dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="60dp">
+            android:layout_marginTop="10dp">
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="50dp"
                 android:src="@drawable/kouveelogo" />
         </LinearLayout>
         <TextView
             android:id="@+id/suppTVAdaan1"
             android:layout_width="280dp"
             android:layout_height="wrap_content"
-            android:hint="Supplier:"
+            android:text="No Pengadaan:"
             android:elevation="5dp"
+            android:textColor="@color/whitecolor"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:paddingLeft="15dp"/>
@@ -54,12 +56,14 @@
             android:layout_width="280dp"
             android:layout_height="45dp"
             android:elevation="5dp"
-            android:layout_gravity="center">
+            android:layout_gravity="center"
+            android:background="@drawable/real_border">
             <TextView
                 android:id="@+id/supplierShowTV"
                 android:layout_width="280dp"
                 android:layout_height="45dp"
-                android:text="Supplier"
+                android:text="PO-XXXX-XX-XX"
+                android:textColor="@color/whitecolor"
                 android:gravity="center"
                 android:textSize="25dp"/>
         </RelativeLayout>

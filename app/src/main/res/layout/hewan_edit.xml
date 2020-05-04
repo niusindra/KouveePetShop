@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
-    android:background="@color/kvBackground"
+    android:background="@drawable/background_style"
     tools:context=".View.Produk.produkEdit">
 
     <LinearLayout
@@ -20,6 +20,7 @@
             android:layout_height="20dp"
             android:layout_gravity="start"
             android:layout_marginLeft="10dp"
+            android:backgroundTint="@color/whitecolor"
             android:background="@drawable/iconback" />
 
     </LinearLayout>
@@ -48,7 +49,8 @@
             android:elevation="5dp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:paddingLeft="15dp"/>
+            android:paddingLeft="15dp"
+            android:textColorHint="@color/whitecolor"/>
         <RelativeLayout
             android:layout_width="280dp"
             android:layout_height="45dp"
@@ -57,7 +59,9 @@
             <Spinner
                 android:id="@+id/spinnerCustomerHEdit"
                 android:layout_width="280dp"
-                android:layout_height="45dp" />
+                android:layout_height="45dp"
+                android:backgroundTint="@color/whitecolor"
+                android:popupBackground="@drawable/main_gradient"/>
             <TextView
                 android:id="@+id/idSup1"
                 android:layout_width="0dp"
@@ -69,6 +73,16 @@
                 android:background="@drawable/btn"
                 android:textColorHint="@color/fullwhite"/>
         </RelativeLayout>
+        <TextView
+            android:id="@+id/suppTVAdaan1"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:hint="Nama Hewan:"
+            android:textColorHint="@color/whitecolor"
+            android:elevation="5dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="15dp"/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="45dp"
@@ -95,8 +109,17 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="43dp"
                 android:layout_height="43dp"
-                android:backgroundTint="@color/blackcolor"/>
+                android:backgroundTint="@color/whitecolor"/>
         </LinearLayout>
+        <TextView
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:hint="Tanggal Lahir Hewan:"
+            android:textColorHint="@color/whitecolor"
+            android:elevation="5dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="15dp"/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="45dp"
@@ -127,7 +150,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="43dp"
                 android:layout_height="43dp"
-                android:backgroundTint="@color/blackcolor"/>
+                android:backgroundTint="@color/whitecolor"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -141,10 +164,10 @@
                 android:layout_height="45dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
-                android:background="@drawable/joinbtn"
+                android:background="@drawable/button_border"
                 android:text="Edit Hewan"
                 android:textAllCaps="false"
-                android:textColor="@color/testcolorblue" />
+                android:textColor="@color/whitecolor" />
 
             <Button
                 android:id="@+id/delHBtn1"
@@ -152,10 +175,10 @@
                 android:layout_height="45dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/joinbtn"
+                android:background="@drawable/button_border"
                 android:text="Hapus Hewan"
                 android:textAllCaps="false"
-                android:textColor="@color/testcolorblue" />
+                android:textColor="@color/whitecolor" />
         </LinearLayout>
     </LinearLayout>
 

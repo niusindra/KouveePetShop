@@ -258,8 +258,8 @@ public class produkEdit extends AppCompatActivity {
                 if(response.body()!=null) {
                     mListSupplier = response.body().getMessage();
                     ArrayAdapter<supplierDAO> adapter = new ArrayAdapter<supplierDAO>(produkEdit.this,
-                            android.R.layout.simple_spinner_item, mListSupplier);
-                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                            R.layout.spinner_item, mListSupplier);
+                    adapter.setDropDownViewResource(R.layout.spinner_item);
                     mSpinner.setAdapter(adapter);
 
                     for (int i = 0; i < mListSupplier.size(); i++) {
@@ -293,7 +293,7 @@ public class produkEdit extends AppCompatActivity {
             }
 
             RequestBody Rnama = RequestBody.create(MediaType.parse("text/plain"), this.nama.getText().toString());
-            int Rid = this.idsup ;
+            int Rid = this.idsup;
             int Rbeli = Integer.parseInt(this.beli.getText().toString()) ;
             int Rjual = Integer.parseInt(this.jual.getText().toString());
             int Rstok = Integer.parseInt(this.stok.getText().toString());

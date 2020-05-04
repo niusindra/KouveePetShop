@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
-    android:background="@color/kvBackground"
+    android:background="@drawable/background_style"
     tools:context=".View.Layanan.layananEdit">
 
     <LinearLayout
@@ -17,6 +17,7 @@
         <ImageView
             android:id="@+id/backBtnlay1"
             android:layout_width="32dp"
+            android:backgroundTint="@color/whitecolor"
             android:layout_height="32dp"
             android:layout_gravity="start"
             android:layout_marginLeft="10dp"
@@ -41,6 +42,16 @@
                 android:layout_marginBottom="20dp"
                 android:src="@drawable/kouveelogo" />
         </LinearLayout>
+        <TextView
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:text="Nama Layanan:"
+            android:elevation="5dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="5dp"
+            android:layout_marginRight="15dp"
+            android:textColor="@color/whitecolor"/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -65,7 +76,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="43dp"
                 android:layout_height="43dp"
-                android:backgroundTint="@color/blackcolor"/>
+                android:backgroundTint="@color/whitecolor"/>
         </LinearLayout>
 
 
@@ -75,10 +86,10 @@
             android:layout_height="45dp"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
-            android:background="@drawable/joinbtn"
+            android:background="@drawable/button_border"
             android:text="Edit Layanan"
             android:textAllCaps="false"
-            android:textColor="@color/testcolorblue" />
+            android:textColor="@color/whitecolor" />
 
         <Button
             android:id="@+id/dellayBtn1"
@@ -86,10 +97,10 @@
             android:layout_height="45dp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:background="@drawable/joinbtn"
+            android:background="@drawable/button_border"
             android:text="Hapus Layanan"
             android:textAllCaps="false"
-            android:textColor="@color/testcolorblue" />
+            android:textColor="@color/whitecolor" />
     </LinearLayout>
 
 </RelativeLayout>

@@ -54,7 +54,7 @@ public class customerShow extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(customerShow.this, dashboard.class);
+                Intent intent = new Intent(customerShow.this, customerMain.class);
                 startActivity(intent);
             }
         });

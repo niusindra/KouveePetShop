@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_gravity="center"
-            android:background="@color/yello"
+            android:background="@drawable/main_gradient"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -30,7 +30,7 @@
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
                     android:background="@drawable/iconcustomer"
-                    android:backgroundTint="@color/yello" />
+                    android:backgroundTint="@color/orange" />
             </LinearLayout>
 
             <LinearLayout
@@ -48,7 +48,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:hint="supplier"
-                    android:textColor="@color/blackcolor"
+                    android:textColor="@color/whitecolor"
                     android:textStyle="bold" />
 
                 <TextView
@@ -57,7 +57,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:hint="Tanggal adaan"
-                    android:textColor="@color/blackcolor"/>
+                    android:textColor="@color/whitecolor"/>
 
                 <TextView
                     android:id="@+id/RC_totalPengadaan1"
@@ -65,7 +65,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:hint="total adaan"
-                    android:textColor="@color/blackcolor"/>
+                    android:textColor="@color/whitecolor"/>
 
                 <TextView
                     android:id="@+id/RC_statusPengadaan1"
@@ -73,7 +73,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:hint="status"
-                    android:textColor="@color/blackcolor"/>
+                    android:textColor="@color/whitecolor"/>
 
                 <TextView
                     android:id="@+id/RC_AdaanCreated"
@@ -82,34 +82,22 @@
                     android:layout_marginTop="10dp"
                     android:fontFamily="serif"
                     android:hint="created "
-                    android:textColor="@color/blackcolor" />
+                    android:textColor="@color/whitecolor" />
                 <TextView
                     android:id="@+id/RC_AdaanEdited"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:hint="edited "
-                    android:textColor="@color/blackcolor"/>
+                    android:textColor="@color/whitecolor"/>
                 <TextView
                     android:id="@+id/RC_AdaanDeleted"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:hint="deleted "
-                    android:textColor="@color/blackcolor"/>
-
-
-
-
+                    android:textColor="@color/whitecolor"/>
             </LinearLayout>
-
-            <ImageView
-                android:layout_width="129dp"
-                android:layout_height="30dp"
-                android:layout_gravity="bottom"
-                android:layout_marginRight="2dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/kouveelogo" />
 
 
         </LinearLayout>

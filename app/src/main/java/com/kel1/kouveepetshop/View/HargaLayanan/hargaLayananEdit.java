@@ -219,7 +219,7 @@ public class hargaLayananEdit extends AppCompatActivity {
                 if(response.body()!=null) {
                     mListLayanan = response.body().getMessage();
                     ArrayAdapter<layananDAO> adapter = new ArrayAdapter<layananDAO>(hargaLayananEdit.this,
-                            android.R.layout.simple_spinner_item, mListLayanan);
+                            R.layout.spinner_item, mListLayanan);
                     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     mSpinnerL.setAdapter(adapter);
                     for (int i = 0; i < mListLayanan.size(); i++) {
@@ -246,7 +246,7 @@ public class hargaLayananEdit extends AppCompatActivity {
                 if(response.body()!=null) {
                     mListJenis= response.body().getMessage();
                     ArrayAdapter<jenishewanDAO> adapter = new ArrayAdapter<jenishewanDAO>(hargaLayananEdit.this,
-                            android.R.layout.simple_spinner_item, mListJenis);
+                            R.layout.spinner_item, mListJenis);
                     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     mSpinnerJ.setAdapter(adapter);
                     for (int i = 0; i < mListJenis.size(); i++) {
@@ -273,7 +273,7 @@ public class hargaLayananEdit extends AppCompatActivity {
                 if(response.body()!=null) {
                     mListUkuran = response.body().getMessage();
                     ArrayAdapter<ukuranhewanDAO> adapter = new ArrayAdapter<ukuranhewanDAO>(hargaLayananEdit.this,
-                            android.R.layout.simple_spinner_item, mListUkuran);
+                            R.layout.spinner_item, mListUkuran);
                     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     mSpinnerU.setAdapter(adapter);
                     for (int i = 0; i < mListUkuran.size(); i++) {

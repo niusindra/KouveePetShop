@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
-    android:background="@color/kvBackground"
+    android:background="@drawable/background_style"
     tools:context=".View.Supplier.supplierEdit">
 
     <LinearLayout
@@ -20,6 +20,7 @@
             android:layout_height="32dp"
             android:layout_gravity="start"
             android:layout_marginLeft="10dp"
+            android:backgroundTint="@color/whitecolor"
             android:background="@drawable/iconback" />
 
     </LinearLayout>
@@ -37,10 +38,20 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
+                android:layout_height="80dp"
                 android:layout_marginBottom="20dp"
                 android:src="@drawable/kouveelogo" />
         </LinearLayout>
+        <TextView
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:text="Nama Supplier:"
+            android:textColor="@color/whitecolor"
+            android:textStyle="bold"
+            android:elevation="5dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="15dp"/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -51,7 +62,7 @@
                 android:id="@+id/namasuppTxt1"
                 android:layout_width="280dp"
                 android:layout_height="45dp"
-                android:hint="Nama Customer"
+                android:hint="Nama Supplier"
                 android:elevation="5dp"
                 android:enabled="false"
                 android:layout_gravity="center"
@@ -65,8 +76,18 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="43dp"
                 android:layout_height="43dp"
-                android:backgroundTint="@color/blackcolor"/>
+                android:backgroundTint="@color/whitecolor"/>
         </LinearLayout>
+        <TextView
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:text="Alamat Supplier:"
+            android:textColor="@color/whitecolor"
+            android:textStyle="bold"
+            android:elevation="5dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="15dp"/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -77,7 +98,7 @@
                 android:id="@+id/alamatsuppTxt1"
                 android:layout_width="280dp"
                 android:layout_height="45dp"
-                android:hint="Alamat Customer"
+                android:hint="Alamat Supplier"
                 android:enabled="false"
                 android:inputType="textPostalAddress"
                 android:elevation="5dp"
@@ -92,9 +113,18 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="43dp"
                 android:layout_height="43dp"
-                android:backgroundTint="@color/blackcolor" />
+                android:backgroundTint="@color/whitecolor" />
         </LinearLayout>
-
+        <TextView
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:text="Telp Supplier:"
+            android:textColor="@color/whitecolor"
+            android:textStyle="bold"
+            android:elevation="5dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="15dp"/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -105,7 +135,7 @@
                 android:id="@+id/telpsuppTxt1"
                 android:layout_width="280dp"
                 android:layout_height="45dp"
-                android:hint="Telp Customer"
+                android:hint="Telp Supplier"
                 android:enabled="false"
                 android:inputType="phone"
                 android:elevation="5dp"
@@ -120,7 +150,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="43dp"
                 android:layout_height="43dp"
-                android:backgroundTint="@color/blackcolor" />
+                android:backgroundTint="@color/whitecolor" />
         </LinearLayout>
 
         <Button
@@ -128,11 +158,11 @@
             android:layout_width="227dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/joinbtn"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_border"
             android:text="Edit Supplier"
             android:textAllCaps="false"
-            android:textColor="@color/testcolorblue" />
+            android:textColor="@color/whitecolor" />
 
         <Button
             android:id="@+id/delsuppBtn1"
@@ -140,10 +170,10 @@
             android:layout_height="45dp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:background="@drawable/joinbtn"
+            android:background="@drawable/button_border"
             android:text="Hapus Supplier"
             android:textAllCaps="false"
-            android:textColor="@color/testcolorblue" />
+            android:textColor="@color/whitecolor" />
     </LinearLayout>
 
 </RelativeLayout>

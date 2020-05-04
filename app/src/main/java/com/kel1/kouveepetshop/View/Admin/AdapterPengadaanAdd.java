@@ -80,7 +80,7 @@ public class AdapterPengadaanAdd extends RecyclerView.Adapter<AdapterPengadaanAd
             removeBtn = itemView.findViewById(R.id.removeBtn);
 
             ArrayAdapter<produkDAO> adapter = new ArrayAdapter<produkDAO>(context,
-                    android.R.layout.simple_spinner_item, mListProduk);
+                    R.layout.spinner_item, mListProduk);
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
             edtdetPro.setAdapter(adapter);

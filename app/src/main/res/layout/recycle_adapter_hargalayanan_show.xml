@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="117dp"
             android:layout_gravity="center"
-            android:background="@color/yello"
+            android:background="@drawable/main_gradient"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -31,7 +31,7 @@
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
                     android:background="@drawable/iconlayanan"
-                    android:backgroundTint="@color/yello" />
+                    android:backgroundTint="@color/orange" />
             </LinearLayout>
 
             <LinearLayout
@@ -48,7 +48,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:hint="Nama Layanan"
-                    android:textColor="@color/blackcolor"
+                    android:textColor="@color/whitecolor"
                     android:textStyle="bold" />
 
                 <TextView
@@ -57,7 +57,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:hint="Jenis Hewan"
-                    android:textColor="@color/blackcolor"/>
+                    android:textColor="@color/whitecolor"/>
 
                 <TextView
                     android:id="@+id/RC_Ukuran_HL"
@@ -65,7 +65,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:hint="Ukuran Hewan"
-                    android:textColor="@color/blackcolor"/>
+                    android:textColor="@color/whitecolor"/>
 
                 <TextView
                     android:id="@+id/RC_Harga_HL"
@@ -73,19 +73,10 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:hint="Harga Layanan"
-                    android:textColor="@color/blackcolor"/>
+                    android:textColor="@color/whitecolor"/>
 
 
             </LinearLayout>
-
-            <ImageView
-                android:layout_width="129dp"
-                android:layout_height="44dp"
-                android:layout_gravity="bottom"
-                android:layout_marginRight="2dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/kouveelogo" />
-
 
         </LinearLayout>
     </RelativeLayout>

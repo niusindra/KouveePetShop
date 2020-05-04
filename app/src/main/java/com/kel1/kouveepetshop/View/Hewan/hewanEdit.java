@@ -186,7 +186,7 @@ public class hewanEdit extends AppCompatActivity {
                 if(response.body()!=null) {
                     mListCustomer = response.body().getMessage();
                     ArrayAdapter<customerDAO> adapter = new ArrayAdapter<customerDAO>(hewanEdit.this,
-                            android.R.layout.simple_spinner_item, mListCustomer);
+                            R.layout.spinner_item, mListCustomer);
                     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     mSpinner.setAdapter(adapter);
                     for (int i = 0; i < mListCustomer.size(); i++) {

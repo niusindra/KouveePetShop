@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="130dp"
             android:layout_gravity="center"
-            android:background="@color/yello"
+            android:background="@drawable/main_gradient"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -31,7 +31,7 @@
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
                     android:background="@drawable/iconhewan"
-                    android:backgroundTint="@color/yello" />
+                    android:backgroundTint="@color/orange" />
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/RC_Supplier_Event_Parent"
@@ -52,7 +52,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
                         android:hint="Nama Hewan"
-                        android:textColor="@color/blackcolor"
+                        android:textColor="@color/whitecolor"
                         android:textStyle="bold" />
                     <TextView
                         android:id="@+id/adapterTglLhrHewan"
@@ -60,14 +60,14 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
                         android:hint="Tanggal Lahir Hewan"
-                        android:textColor="@color/blackcolor"/>
+                        android:textColor="@color/whitecolor"/>
                     <TextView
                         android:id="@+id/adapterCusPro"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
                         android:hint="Nama Pemilik"
-                        android:textColor="@color/blackcolor"/>
+                        android:textColor="@color/whitecolor"/>
                 </LinearLayout>
 
             </LinearLayout>

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
-    android:background="@color/kvBackground"
+    android:background="@drawable/background_style"
     tools:context=".View.Customer.customerEdit">
 
     <LinearLayout
@@ -20,6 +20,7 @@
             android:layout_height="32dp"
             android:layout_gravity="start"
             android:layout_marginLeft="10dp"
+            android:backgroundTint="@color/whitecolor"
             android:background="@drawable/iconback" />
 
     </LinearLayout>
@@ -37,15 +38,25 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
+                android:layout_height="60dp"
                 android:layout_marginBottom="20dp"
                 android:src="@drawable/kouveelogo" />
         </LinearLayout>
+        <TextView
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:text="Nama Customer:"
+            android:elevation="5dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="5dp"
+            android:layout_marginRight="15dp"
+            android:textColor="@color/whitecolor"/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="5dp"
+            android:layout_marginTop="5dp"
             android:orientation="horizontal">
             <EditText
                 android:id="@+id/namaTxt1"
@@ -65,8 +76,17 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="43dp"
                 android:layout_height="43dp"
-                android:backgroundTint="@color/blackcolor"/>
+                android:backgroundTint="@color/whitecolor"/>
         </LinearLayout>
+        <TextView
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:text="Alamat Customer:"
+            android:elevation="5dp"
+            android:layout_gravity="center"
+            android:paddingLeft="5dp"
+            android:layout_marginRight="15dp"
+            android:textColor="@color/whitecolor"/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -92,8 +112,17 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="43dp"
                 android:layout_height="43dp"
-                android:backgroundTint="@color/blackcolor" />
+                android:backgroundTint="@color/whitecolor" />
         </LinearLayout>
+        <TextView
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:text="Tanggal Lahir Customer:"
+            android:elevation="5dp"
+            android:layout_gravity="center"
+            android:paddingLeft="5dp"
+            android:layout_marginRight="15dp"
+            android:textColor="@color/whitecolor"/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -120,8 +149,17 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="43dp"
                 android:layout_height="43dp"
-                android:backgroundTint="@color/blackcolor" />
+                android:backgroundTint="@color/whitecolor" />
         </LinearLayout>
+        <TextView
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:text="Telp Customer:"
+            android:elevation="5dp"
+            android:layout_gravity="center"
+            android:paddingLeft="5dp"
+            android:layout_marginRight="15dp"
+            android:textColor="@color/whitecolor"/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -147,7 +185,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="43dp"
                 android:layout_height="43dp"
-                android:backgroundTint="@color/blackcolor" />
+                android:backgroundTint="@color/whitecolor" />
         </LinearLayout>
 
         <Button
@@ -156,20 +194,20 @@
             android:layout_height="45dp"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
-            android:background="@drawable/joinbtn"
+            android:background="@drawable/button_border"
             android:text="Edit Customer"
             android:textAllCaps="false"
-            android:textColor="@color/testcolorblue" />
+            android:textColor="@color/whitecolor" />
         <Button
             android:id="@+id/delBtn1"
             android:layout_width="227dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:background="@drawable/joinbtn"
+            android:background="@drawable/button_border"
             android:text="Hapus Customer"
             android:textAllCaps="false"
-            android:textColor="@color/testcolorblue" />
+            android:textColor="@color/whitecolor" />
     </LinearLayout>
 
 </RelativeLayout>

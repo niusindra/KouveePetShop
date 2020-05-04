@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -38,6 +39,7 @@ public class pengadaanAdd extends AppCompatActivity {
     public List<produkDAO> produkDAOList = new ArrayList<>();
     public List<supplierDAO> supplieritems = new ArrayList<>();
     private Button btnaddProduk;
+    private ImageView back;
     private Button btnaddPengadaan;
     private Spinner mySpinner;
     private AdapterPengadaanAdd adapter;
@@ -52,6 +54,7 @@ public class pengadaanAdd extends AppCompatActivity {
         mySpinner = findViewById(R.id.supplierSpinAdaan);
         btnaddProduk = findViewById(R.id.addProdukPengadaan);
         btnaddPengadaan = findViewById(R.id.addPengadaan);
+        back = findViewById(R.id.backBtnAdaanAdd);
         myRc.setHasFixedSize(true);
         myRc.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
@@ -159,7 +162,12 @@ public class pengadaanAdd extends AppCompatActivity {
 
             }
         });
-
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),pengadaanMain.class));
+            }
+        });
     }
 
     private void getSupplier(){
@@ -172,7 +180,7 @@ public class pengadaanAdd extends AppCompatActivity {
                 if(response.body()!=null) {
                     supplieritems = response.body().getMessage();
                     ArrayAdapter<supplierDAO> adapter = new ArrayAdapter<supplierDAO>(pengadaanAdd.this,
-                            android.R.layout.simple_spinner_item, supplieritems);
+                            R.layout.spinner_item, supplieritems);
                     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
                     mySpinner.setAdapter(adapter);
@@ -206,6 +214,11 @@ public class pengadaanAdd extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
             }
         });
+    }
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent=new Intent(getApplicationContext(), pengadaanMain.class);
+        startActivity(intent);
     }
 }
 

@@ -4,51 +4,86 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardElevation="10dp"
-    app:cardUseCompatPadding="true"
-    android:background="@color/kvBackground">
+    app:cardUseCompatPadding="true">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="400dp"
         android:orientation="vertical"
-        android:background="@color/kvBackground">
-
+        android:background="@drawable/main_gradient">
+        <TextView
+            android:layout_marginLeft="15dp"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:hint="Id Produk:"
+            android:elevation="5dp"
+            android:textColorHint="@color/whitecolor"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="5dp"/>
         <Spinner
+            android:layout_marginLeft="15dp"
             android:id="@+id/detailProduk1"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:backgroundTint="@color/whitecolor"
             android:hint="ID Produk" />
 
-
+        <TextView
+            android:layout_marginLeft="15dp"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:hint="Jumlah Produk:"
+            android:elevation="5dp"
+            android:textColorHint="@color/whitecolor"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="5dp"/>
         <EditText
+            android:layout_marginLeft="15dp"
             android:id="@+id/detailJmlProduk1"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:hint="Jumlah produk"
+            android:textColor="@color/whitecolor"
             android:imeOptions="actionNext"
             android:inputType="number" />
+        <TextView
+            android:layout_width="280dp"
+            android:layout_marginLeft="15dp"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/whitecolor"
+            android:hint="Satuan Produk:"
+            android:elevation="5dp"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="5dp"/>
         <EditText
+            android:layout_marginLeft="15dp"
             android:id="@+id/detailSatuanProduk1"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:hint="Satuan produk"
+            android:textColor="@color/whitecolor"
             android:imeOptions="actionNext"
             android:inputType="text" />
         <TextView
+            android:layout_marginLeft="15dp"
             android:id="@+id/subtotal1"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="50dp"
             android:hint="Subtotal Produk: -"
+            android:textColor="@color/whitecolor"
+            android:textColorHint="@color/whitecolor"
             android:gravity="center"
             android:layout_marginTop="10dp"/>
         <Button
             android:id="@+id/removeBtn1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/joinbtn"
+            android:textColor="@color/whitecolor"
+            android:background="@drawable/real_border"
             android:gravity="center"
             android:layout_gravity="right"
-            android:text="hapus"/>
+            android:text="hapus"
+            android:layout_margin="20dp"/>
 
 
     </LinearLayout>

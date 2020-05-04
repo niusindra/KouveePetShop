@@ -5,48 +5,66 @@
     android:layout_height="wrap_content"
     app:cardElevation="10dp"
     app:cardUseCompatPadding="true"
-    android:background="@color/kvBackground">
+    android:background="@drawable/main_gradient">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@color/kvBackground">
-
+        android:background="@drawable/main_gradient">
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:hint="Id Produk: -"
+            android:gravity="center"
+            android:textColorHint="@color/whitecolor"
+            android:layout_marginTop="10dp"/>
         <Spinner
+            android:layout_marginLeft="10dp"
             android:id="@+id/detailProduk"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="ID Produk" />
+            android:hint="ID Produk"
+            android:backgroundTint="@color/whitecolor"/>
 
 
         <EditText
+            android:layout_marginLeft="10dp"
             android:id="@+id/detailJmlProduk"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:hint="Jumlah produk"
+            android:textColor="@color/whitecolor"
             android:imeOptions="actionNext"
-            android:inputType="phone" />
+            android:inputType="number" />
         <EditText
+            android:layout_marginLeft="10dp"
             android:id="@+id/detailSatuanProduk"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:hint="Satuan produk"
+            android:textColor="@color/whitecolor"
             android:imeOptions="actionNext"
             android:inputType="text" />
         <TextView
+            android:layout_marginLeft="10dp"
             android:id="@+id/subtotal"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:hint="Subtotal Produk: -"
             android:gravity="center"
+            android:textColor="@color/whitecolor"
+            android:textColorHint="@color/whitecolor"
             android:layout_marginTop="10dp"/>
         <Button
             android:id="@+id/removeBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/joinbtn"
+            android:background="@drawable/real_border"
             android:gravity="center"
+            android:textColor="@color/whitecolor"
+            android:layout_margin="20dp"
             android:layout_gravity="right"
             android:text="hapus"/>
 

@@ -261,7 +261,7 @@ public class pengadaanEdit extends AppCompatActivity {
                 if(response.body()!=null) {
                     supplieritems = response.body().getMessage();
                     ArrayAdapter<supplierDAO> adapter = new ArrayAdapter<supplierDAO>(pengadaanEdit.this,
-                            android.R.layout.simple_spinner_item, supplieritems);
+                            R.layout.spinner_item, supplieritems);
                     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
                     mySpinner.setAdapter(adapter);

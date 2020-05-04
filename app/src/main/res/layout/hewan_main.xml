@@ -3,15 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".View.Layanan.layananMain"
     android:orientation="vertical"
     android:padding="10dp"
-    android:background="@color/kvBackground"
+    android:background="@drawable/background_style"
     android:id="@+id/ll">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="68dp"
         android:orientation="horizontal"
         android:padding="10dp">
 
@@ -21,44 +22,48 @@
             android:layout_height="32dp"
             android:layout_gravity="start"
             android:layout_marginLeft="10dp"
-            android:background="@drawable/iconback" />
+            android:background="@drawable/iconback"
+            android:backgroundTint="@color/whitecolor" />
 
         <ImageView
             android:layout_width="279dp"
-            android:layout_height="100dp"
+            android:layout_height="49dp"
             android:gravity="end"
             android:src="@drawable/kouveelogo" />
 
     </LinearLayout>
+
     <LinearLayout
-        android:clipToPadding="false"
-        android:gravity="center"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="188dp"
+        android:clipToPadding="false"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
         <androidx.cardview.widget.CardView
             android:id="@+id/addBtnHMain"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true"
-            android:layout_width="320dp"
-            android:layout_height="200dp"
-            android:layout_marginTop="20dp"
+            android:layout_width="250dp"
+            android:layout_height="150dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp">
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/navi"
+                android:background="@drawable/main_gradient"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_marginTop="10dp"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:backgroundTint="@color/whitecolor"
                     android:background="@drawable/iconadd"
+                    android:backgroundTint="@color/whitecolor"
                     android:padding="10dp" />
 
                 <TextView
@@ -66,9 +71,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:textSize="30sp"
                     android:text="TAMBAH"
                     android:textColor="@color/whitecolor"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -83,24 +88,26 @@
             android:id="@+id/showBtnHMain"
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="true"
-            android:layout_width="320dp"
-            android:layout_height="200dp"
+            android:layout_width="250dp"
+            android:layout_height="150dp"
             android:layout_marginTop="25dp"
             android:layout_marginBottom="40dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp">
+            android:layout_marginRight="10dp"
+            app:cardCornerRadius="10dp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/whitecolor"
+                android:background="@drawable/border_plain"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:background="@drawable/iconlayanan"
-                    android:backgroundTint="@color/red"
+                    android:backgroundTint="@color/therealpurple"
                     android:padding="10dp" />
 
                 <TextView
@@ -108,8 +115,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="KELOLA DATA"
-                    android:textSize="30sp"
-                    android:textColor="@color/red"
+                    android:textSize="20sp"
+                    android:textColor="@color/therealpurple"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -122,7 +129,7 @@
         android:layout_height="30dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:background="@color/colorAccent"
+        android:background="@drawable/real_border"
         android:layout_gravity="center">
         <TextView
             android:layout_width="match_parent"

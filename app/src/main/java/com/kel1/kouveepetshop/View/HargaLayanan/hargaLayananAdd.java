@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.button.MaterialButton;
 import com.kel1.kouveepetshop.Api.ApiClient;
 import com.kel1.kouveepetshop.Api.ApiInterface;
 import com.kel1.kouveepetshop.DAO.hargalayananDAO;
@@ -157,7 +158,7 @@ public class hargaLayananAdd extends AppCompatActivity {
                 if(response.body()!=null) {
                     mListLayanan = response.body().getMessage();
                     ArrayAdapter<layananDAO> adapter = new ArrayAdapter<layananDAO>(hargaLayananAdd.this,
-                            android.R.layout.simple_spinner_item, mListLayanan);
+                            R.layout.spinner_item, mListLayanan);
                     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     mSpinnerL.setAdapter(adapter);
                 }
@@ -179,7 +180,7 @@ public class hargaLayananAdd extends AppCompatActivity {
                 if(response.body()!=null) {
                     mListJenis= response.body().getMessage();
                     ArrayAdapter<jenishewanDAO> adapter = new ArrayAdapter<jenishewanDAO>(hargaLayananAdd.this,
-                            android.R.layout.simple_spinner_item, mListJenis);
+                            R.layout.spinner_item, mListJenis);
                     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     mSpinnerJ.setAdapter(adapter);
                 }
@@ -201,7 +202,7 @@ public class hargaLayananAdd extends AppCompatActivity {
                 if(response.body()!=null) {
                     mListUkuran = response.body().getMessage();
                     ArrayAdapter<ukuranhewanDAO> adapter = new ArrayAdapter<ukuranhewanDAO>(hargaLayananAdd.this,
-                            android.R.layout.simple_spinner_item, mListUkuran);
+                            R.layout.spinner_item, mListUkuran);
                     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     mSpinnerU.setAdapter(adapter);
                 }

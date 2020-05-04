@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="180dp"
             android:layout_gravity="center"
-            android:background="@color/yello"
+            android:background="@drawable/main_gradient"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -31,7 +31,7 @@
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
                     android:background="@drawable/iconsupplier"
-                    android:backgroundTint="@color/yello" />
+                    android:backgroundTint="@color/orange" />
             </LinearLayout>
 
             <LinearLayout
@@ -48,7 +48,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:hint="Nama"
-                    android:textColor="@color/blackcolor"
+                    android:textColor="@color/whitecolor"
                     android:textStyle="bold" />
 
                 <TextView
@@ -57,7 +57,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:hint="Alamat"
-                    android:textColor="@color/blackcolor" />
+                    android:textColor="@color/whitecolor" />
 
                 <TextView
                     android:id="@+id/adapterTelpSuppLog"
@@ -65,7 +65,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:hint="Telp"
-                    android:textColor="@color/blackcolor" />
+                    android:textColor="@color/whitecolor" />
 
                 <TextView
                     android:id="@+id/custcreatedatsup"
@@ -74,7 +74,7 @@
                     android:layout_marginTop="10dp"
                     android:fontFamily="serif"
                     android:hint="Dibuat pada "
-                    android:textColor="@color/blackcolor" />
+                    android:textColor="@color/whitecolor" />
 
                 <TextView
                     android:id="@+id/custeditedatsup"
@@ -82,7 +82,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:hint="Diedit pada "
-                    android:textColor="@color/blackcolor" />
+                    android:textColor="@color/whitecolor" />
 
                 <TextView
                     android:id="@+id/custdeletedatsup"
@@ -90,18 +90,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:hint="Dihapus pada"
-                    android:textColor="@color/blackcolor" />
+                    android:textColor="@color/whitecolor" />
             </LinearLayout>
-
-            <ImageView
-                android:layout_width="129dp"
-                android:layout_height="30dp"
-                android:layout_gravity="bottom"
-                android:layout_marginRight="2dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/kouveelogo" />
-
-
         </LinearLayout>
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

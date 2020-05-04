@@ -10,6 +10,7 @@ import androidx.cardview.widget.CardView;
 
 import com.kel1.kouveepetshop.R;
 import com.kel1.kouveepetshop.View.Admin.dashboard;
+import com.kel1.kouveepetshop.View.Layanan.layananMain;
 
 public class hargaLayananMain extends AppCompatActivity {
     public ImageView back;
@@ -22,7 +23,7 @@ public class hargaLayananMain extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(hargaLayananMain.this, dashboard.class);
+                Intent intent = new Intent(hargaLayananMain.this, layananMain.class);
                 startActivity(intent);
             }
         });

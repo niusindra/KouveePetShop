@@ -3,10 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".View.Admin.dashboard"
     android:orientation="vertical"
     android:padding="10dp"
-    android:background="@color/kvBackground"
+    android:background="@drawable/background_style"
     android:gravity="center"
     android:id="@+id/ll">
     <LinearLayout
@@ -18,51 +19,48 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="94dp"
-                android:layout_height="32dp"
-                android:layout_marginLeft="35dp"
-                android:gravity="start"
-                android:src="@drawable/kouveelogo" />
-
             <TextView
                 android:id="@+id/logOutBtn"
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
                 android:gravity="end"
-                android:text="LOGOUT"
-                android:textColor="@color/blackcolor"
+                android:textStyle="bold"
+                android:text="Sign Out"
+                android:textColor="@color/whitecolor"
                 android:textSize="15dp" />
 
         </LinearLayout>
+
         <LinearLayout
-            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="113dp"
+            android:layout_marginTop="-5dp"
+            android:layout_marginBottom="10dp"
             android:clipToPadding="false"
             android:gravity="center"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="130dp"
-            android:layout_marginBottom="10dp">
+            android:orientation="horizontal">
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/customerBtn"
-                android:foreground="?android:attr/selectableItemBackground"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
                 android:clickable="true"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_margin="10dp">
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/red"
+                    android:background="@drawable/main_gradient"
                     android:gravity="center"
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
                         android:background="@drawable/iconcustomer"
+                        android:backgroundTint="@color/whitecolor"
                         android:padding="10dp" />
 
                     <TextView
@@ -71,163 +69,192 @@
                         android:layout_marginTop="10dp"
                         android:text="CUSTOMER"
                         android:textColor="@color/whitecolor"
+                        android:textSize="10sp"
                         android:textStyle="bold" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/produkbtn"
-                android:foreground="?android:attr/selectableItemBackground"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
                 android:clickable="true"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_margin="10dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:background="@color/yellow"
-                    android:gravity="center">
-                    <ImageView
-                        android:backgroundTint="@color/orange"
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
-                        android:background="@drawable/iconproduk"
-                        android:padding="10dp"/>
-                    <TextView
-                        android:textColor="@color/orange"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textStyle="bold"
-                        android:layout_marginTop="10dp"
-                        android:text="PRODUK"/>
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-        </LinearLayout>
-        <LinearLayout
-            android:clipToPadding="false"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="130dp"
-            android:layout_marginBottom="10dp">
-            <androidx.cardview.widget.CardView
-                android:id="@+id/layananBtn"
                 android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_margin="10dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:background="@color/lime"
-                    android:gravity="center">
-                    <ImageView
-                        android:backgroundTint="@color/orange"
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
-                        android:background="@drawable/iconlayanan"
-                        android:padding="10dp"/>
-                    <TextView
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textStyle="bold"
-                        android:layout_marginTop="10dp"
-                        android:text="LAYANAN"
-                        android:textColor="@color/orange"/>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:id="@+id/supplierBtn"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_margin="10dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:background="@color/green"
-                    android:gravity="center">
-                    <ImageView
-                        android:backgroundTint="@color/whitecolor"
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
-                        android:background="@drawable/iconsupplier"
-                        android:padding="10dp"/>
-                    <TextView
-                        android:textColor="@color/whitecolor"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textStyle="bold"
-                        android:layout_marginTop="10dp"
-                        android:text="SUPPLIER"/>
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-        </LinearLayout>
-        <LinearLayout
-            android:clipToPadding="false"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="130dp"
-            android:layout_marginBottom="10dp">
-            <androidx.cardview.widget.CardView
-                android:id="@+id/btnHewan"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_margin="10dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:background="@color/navi"
-                    android:gravity="center">
-                    <ImageView
-                        android:backgroundTint="@color/whitecolor"
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
-                        android:background="@drawable/iconhewan"
-                        android:padding="10dp"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textStyle="bold"
-                        android:layout_marginTop="10dp"
-                        android:text="HEWAN"
-                        android:textColor="@color/whitecolor"/>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:id="@+id/jhewanBtn"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_margin="10dp">
+                app:cardCornerRadius="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/blue"
+                    android:background="@drawable/main_gradient"
                     android:gravity="center"
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:background="@drawable/iconproduk"
+                        android:backgroundTint="@color/whitecolor"
+                        android:padding="10dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="PRODUK"
+                        android:textColor="@color/whitecolor"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="113dp"
+            android:layout_marginBottom="10dp"
+            android:clipToPadding="false"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/layananBtn"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/border_plain"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:background="@drawable/iconlayanan"
+                        android:backgroundTint="@color/therealpurple"
+                        android:padding="10dp" />
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="LAYANAN"
+                        android:textSize="10sp"
+                        android:textColor="@color/therealpurple"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/supplierBtn"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/border_plain"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:background="@drawable/iconsupplier"
+                        android:backgroundTint="@color/therealpurple"
+                        android:padding="10dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="SUPPLIER"
+                        android:textColor="@color/therealpurple"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="107dp"
+            android:layout_marginBottom="10dp"
+            android:clipToPadding="false"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btnHewan"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/main_gradient"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:background="@drawable/iconhewan"
+                        android:backgroundTint="@color/whitecolor"
+                        android:padding="10dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="HEWAN"
+                        android:textColor="@color/whitecolor"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/jhewanBtn"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/main_gradient"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
                         android:background="@drawable/iconjenishewan"
-                        android:backgroundTint="@color/orange"
+                        android:backgroundTint="@color/whitecolor"
                         android:padding="10dp" />
 
                     <TextView
@@ -235,7 +262,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="JENIS HEWAN"
-                        android:textColor="@color/orange"
+                        android:textColor="@color/whitecolor"
+                        android:textSize="10sp"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -245,36 +273,37 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="257dp"
             android:clipToPadding="false"
             android:gravity="center"
             android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/uhewanBtn"
-                android:layout_width="320dp"
+                android:layout_width="220dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="40dp"
                 android:clickable="true"
-                android:foreground="?android:attr/selectableItemBackground">
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="10dp">
 
                 <LinearLayout
 
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/whitecolor"
+                    android:layout_gravity="center"
+                    android:background="@drawable/border_plain"
                     android:gravity="center"
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="64dp"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
                         android:background="@drawable/iconukuranhewan"
-                        android:backgroundTint="@color/colorAccent"
+                        android:backgroundTint="@color/therealpurple"
                         android:padding="10dp" />
 
                     <TextView
@@ -282,7 +311,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="UKURAN HEWAN"
-                        android:textColor="@color/colorAccent"
+                        android:textColor="@color/therealpurple"
+                        android:textSize="10sp"
                         android:textStyle="bold" />
 
                 </LinearLayout>

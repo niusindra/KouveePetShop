@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
-    android:background="@color/kvBackground"
+    android:background="@drawable/background_style"
     tools:context=".View.Layanan.layananEdit">
 
     <LinearLayout
@@ -20,6 +20,7 @@
             android:layout_height="32dp"
             android:layout_gravity="start"
             android:layout_marginLeft="10dp"
+            android:backgroundTint="@color/whitecolor"
             android:background="@drawable/iconback" />
 
     </LinearLayout>
@@ -52,6 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Jenis Hewan"
+                android:textColor="@color/whitecolor"
                 android:textStyle="bold"
                 android:fontFamily="sans-serif-condensed"/>
             <LinearLayout
@@ -78,7 +80,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_width="43dp"
                     android:layout_height="43dp"
-                    android:backgroundTint="@color/blackcolor"/>
+                    android:backgroundTint="@color/whitecolor"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -89,10 +91,10 @@
             android:layout_height="45dp"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
-            android:background="@drawable/joinbtn"
+            android:background="@drawable/button_border"
             android:text="Edit Jenis Hewan"
             android:textAllCaps="false"
-            android:textColor="@color/testcolorblue" />
+            android:textColor="@color/whitecolor" />
 
         <Button
             android:id="@+id/delJHBtn1"
@@ -100,10 +102,10 @@
             android:layout_height="45dp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:background="@drawable/joinbtn"
+            android:background="@drawable/button_border"
             android:text="Hapus Jenis Hewan"
             android:textAllCaps="false"
-            android:textColor="@color/testcolorblue" />
+            android:textColor="@color/whitecolor" />
     </LinearLayout>
 
 </RelativeLayout>

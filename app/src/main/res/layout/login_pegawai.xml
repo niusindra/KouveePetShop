@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
-    android:background="@color/kvBackground"
+    android:background="@drawable/background_style"
     tools:context=".View.Admin.login_pegawai">
 
     <LinearLayout
@@ -64,7 +64,7 @@
             android:layout_marginTop="30dp"
             android:text="Login"
             android:textAllCaps="false"
-            android:background="@drawable/joinbtn"
+            android:background="@drawable/button_border"
             android:textColor="@color/whitecolor"/>
     </LinearLayout>
 

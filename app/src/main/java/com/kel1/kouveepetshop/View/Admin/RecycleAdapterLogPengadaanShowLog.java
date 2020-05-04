@@ -36,7 +36,7 @@ public class RecycleAdapterLogPengadaanShowLog extends RecyclerView.Adapter<Recy
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        public TextView mNama, mTanggal, mTotal, mStatus, mCreatedAt, mCreatedBy, mEditedAt;
+        public TextView mNama, mTanggal, mTotal, mStatus, mCreatedAt, mDeletedAt, mEditedAt;
         private LinearLayout mParent;
 
         public MyViewHolder(@NonNull View itemView){
@@ -46,8 +46,8 @@ public class RecycleAdapterLogPengadaanShowLog extends RecyclerView.Adapter<Recy
             mTotal=itemView.findViewById(R.id.RC_totalPengadaan1);
             mStatus=itemView.findViewById(R.id.RC_statusPengadaan1);
             mCreatedAt=itemView.findViewById(R.id.RC_AdaanCreated);
-            mCreatedBy=itemView.findViewById(R.id.RC_AdaanEdited);
-            mEditedAt=itemView.findViewById(R.id.RC_AdaanDeleted);
+            mEditedAt= itemView.findViewById(R.id.RC_AdaanEdited);
+            mDeletedAt=itemView.findViewById(R.id.RC_AdaanDeleted);
             mParent=itemView.findViewById(R.id.RC_Pengadaan_Event_Parent);
             context = itemView.getContext();
         }
@@ -67,7 +67,7 @@ public class RecycleAdapterLogPengadaanShowLog extends RecyclerView.Adapter<Recy
         myViewHolder.mStatus.setText("Status\t: "+pengadaanDAO.getStatus_pengadaan()+"\n");
         myViewHolder.mCreatedAt.setText("Dibuat pada\t: "+pengadaanDAO.getAdaan_created_at());
         myViewHolder.mEditedAt.setText("Diedit pada\t: "+pengadaanDAO.getAdaan_edited_at());
-        myViewHolder.mCreatedBy.setText("Dihapus pada\t: "+pengadaanDAO.getAdaan_deleted_at());
+        myViewHolder.mDeletedAt.setText("Dihapus pada\t: "+pengadaanDAO.getAdaan_deleted_at());
     }
 
     @Override

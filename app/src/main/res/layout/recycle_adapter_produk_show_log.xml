@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="230dp"
             android:layout_gravity="center"
-            android:background="@color/yello"
+            android:background="@drawable/main_gradient"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -30,7 +30,7 @@
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
                     android:background="@drawable/iconproduk"
-                    android:backgroundTint="@color/yello" />
+                    android:backgroundTint="@color/orange" />
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/RC_Produk_Event_Parent"
@@ -43,7 +43,8 @@
                 <ImageView
                     android:id="@+id/fotoprodukLog"
                     android:layout_width="100dp"
-                    android:layout_height="100dp"/>
+                    android:layout_height="100dp"
+                    android:background="@drawable/real_border"/>
                 <LinearLayout
                     android:layout_marginLeft="15dp"
                     android:layout_width="210dp"
@@ -56,7 +57,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
                         android:hint="Nama Produk"
-                        android:textColor="@color/blackcolor"
+                        android:textColor="@color/whitecolor"
                         android:textStyle="bold" />
 
                     <TextView
@@ -65,7 +66,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
                         android:hint="Supplier"
-                        android:textColor="@color/blackcolor"/>
+                        android:textColor="@color/whitecolor"/>
 
                     <TextView
                         android:id="@+id/adapterHargaBeliLog"
@@ -73,7 +74,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
                         android:hint="Harga Beli"
-                        android:textColor="@color/blackcolor"/>
+                        android:textColor="@color/whitecolor"/>
 
                     <TextView
                         android:id="@+id/adapterHargaJualLog"
@@ -81,14 +82,14 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
                         android:hint="Harga Jual"
-                        android:textColor="@color/blackcolor"/>
+                        android:textColor="@color/whitecolor"/>
                     <TextView
                         android:id="@+id/adapterStokHargaLog"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
                         android:hint="Stok"
-                        android:textColor="@color/blackcolor"/>
+                        android:textColor="@color/whitecolor"/>
 
                     <TextView
                         android:id="@+id/adapterMinStokHargaLog"
@@ -96,7 +97,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
                         android:hint="Min Stok"
-                        android:textColor="@color/blackcolor"/>
+                        android:textColor="@color/whitecolor"/>
                     <TextView
                         android:id="@+id/createdatpro"
                         android:layout_width="match_parent"
@@ -104,21 +105,21 @@
                         android:layout_marginTop="10dp"
                         android:fontFamily="serif"
                         android:hint="Dibuat "
-                        android:textColor="@color/blackcolor" />
+                        android:textColor="@color/whitecolor" />
                     <TextView
                         android:id="@+id/editedatpro"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
                         android:hint="Diedit "
-                        android:textColor="@color/blackcolor"/>
+                        android:textColor="@color/whitecolor"/>
                     <TextView
                         android:id="@+id/deletedatpro"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
                         android:hint="Dihapus "
-                        android:textColor="@color/blackcolor"/>
+                        android:textColor="@color/whitecolor"/>
 
 
                 </LinearLayout>

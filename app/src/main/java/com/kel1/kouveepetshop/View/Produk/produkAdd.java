@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.Layout;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -69,7 +70,6 @@ public class produkAdd extends AppCompatActivity {
         setContentView(R.layout.produk_add);
         setAtribut();
         getSupplier();
-
         mSpinner.setSelection(1);
         mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -132,8 +132,8 @@ public class produkAdd extends AppCompatActivity {
                 if(response.body()!=null) {
                     mListSupplier = response.body().getMessage();
                     ArrayAdapter<supplierDAO> adapter = new ArrayAdapter<supplierDAO>(produkAdd.this,
-                            android.R.layout.simple_spinner_item, mListSupplier);
-                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                            R.layout.spinner_item, mListSupplier);
+                    adapter.setDropDownViewResource(R.layout.spinner_item);
 
                     mSpinner.setAdapter(adapter);
                 }

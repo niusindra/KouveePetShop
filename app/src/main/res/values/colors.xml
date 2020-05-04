@@ -27,11 +27,13 @@
     <color name="yellow_dark">#d4bb46</color>
     <color name="lime">#BCE24A</color>
     <color name="lime_dark">#9dbf35</color>
+    <color name="sunset">#ff512f</color>
     <color name="green_dark">#36b957</color>
     <color name="blue">#48DFE1</color>
     <color name="blue_dark">#37c4c6</color>
     <color name="darkblue_dark">#417eca</color>
     <color name="darkviolet">#7E50F1</color>
+    <color name="therealpurple">#2a0845</color>
     <color name="darkviolet_dark">#683dd4</color>
     <color name="violet">#D65AEE</color>
     <color name="violet_dark">#b33ec9</color>

@@ -5,79 +5,72 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
-    android:background="@color/kvBackground"
+    android:background="@drawable/background_style"
     tools:context=".View.Admin.pengadaanEdit">
-
+    <ImageView
+        android:id="@+id/backBtnAdaan1"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="start"
+        android:layout_marginLeft="10dp"
+        android:backgroundTint="@color/whitecolor"
+        android:background="@drawable/iconback" />
     <LinearLayout
+        android:id="@+id/idlayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="10dp"
+        android:layout_marginTop="40dp"
         android:gravity="center">
 
-        <ImageView
-            android:id="@+id/backBtnAdaan1"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_gravity="start"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/iconback" />
         <Button
             android:id="@+id/addProdukPengadaan1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/joinbtn"
+            android:background="@drawable/real_border"
             android:gravity="center"
             android:textSize="10sp"
             android:text="Tambah Produk"
             android:textAllCaps="false"
-            android:textColor="@color/testcolorblue" />
+            android:textColor="@color/whitecolor" />
 
         <Button
             android:id="@+id/editPengadaan"
             android:layout_width="wrap_content"
             android:layout_height="45dp"
             android:layout_marginLeft="20dp"
-            android:background="@drawable/joinbtn"
+            android:background="@drawable/real_border"
             android:gravity="center"
             android:textSize="10sp"
             android:text="Edit Pengadaan"
             android:textAllCaps="false"
-            android:textColor="@color/testcolorblue" />
+            android:textColor="@color/whitecolor" />
         <Button
             android:id="@+id/delPengadaan"
             android:layout_width="wrap_content"
             android:layout_height="45dp"
             android:layout_marginLeft="20dp"
-            android:background="@drawable/joinbtn"
+            android:background="@drawable/real_border"
             android:gravity="center"
             android:textSize="10sp"
             android:text="Hapus Pengadaan"
             android:textAllCaps="false"
-            android:textColor="@color/testcolorblue" />
+            android:textColor="@color/whitecolor" />
     </LinearLayout>
 
     <LinearLayout
+        android:layout_below="@id/idlayout1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="285dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="60dp">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:src="@drawable/kouveelogo" />
-        </LinearLayout>
         <TextView
             android:id="@+id/suppTVAdaan1"
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:hint="Supplier:"
+            android:textColorHint="@color/whitecolor"
             android:elevation="5dp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
@@ -90,7 +83,9 @@
             <Spinner
                 android:id="@+id/supplierSpinAdaan1"
                 android:layout_width="280dp"
-                android:layout_height="45dp" />
+                android:layout_height="45dp"
+                android:backgroundTint="@color/whitecolor"
+                android:popupBackground="@drawable/main_gradient"/>
         </RelativeLayout>
 <androidx.recyclerview.widget.RecyclerView
     android:id="@+id/myRc1"

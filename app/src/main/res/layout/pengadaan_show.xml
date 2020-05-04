@@ -3,20 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blackcolor"
+    android:background="@drawable/background_style"
     tools:context=".View.Admin.pengadaanShow">
 
     <LinearLayout
         android:id="@+id/Layout1"
         android:layout_width="300dp"
         android:padding="10dp"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/btn"
-        android:backgroundTint="@color/blackcolor">
+        android:layout_marginTop="10dp">
 
         <ImageView
             android:id="@+id/btnBackAdaan"
@@ -24,7 +21,7 @@
             android:layout_height="30dp"
             android:layout_gravity="top"
             android:background="@drawable/iconback"
-            android:backgroundTint="@color/yello" />
+            android:backgroundTint="@color/whitecolor" />
 
         <TextView
             android:id="@+id/textView27"
@@ -33,43 +30,64 @@
             android:fontFamily="monospace"
             android:text="DAFTAR PENGADAAN"
             android:textAlignment="center"
-            android:textColor="@color/yello"
+            android:textColor="@color/whitecolor"
             android:textSize="20sp"
             android:textStyle="bold" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/linearlayout"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:gravity="center"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal">
-        <Button
-            android:id="@+id/btnPending"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Pending"/>
-        <Button
-            android:id="@+id/btnBelumSampai"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Belum Sampai"/>
-        <Button
-            android:id="@+id/btnSampai"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Sampai"/>
-        <TextView
-            android:layout_width="40dp"
-            android:layout_height="25dp"
-            android:text="LOG"
-            android:textColor="@color/red"/>
-        <Switch
-            android:id="@+id/switchLogAdaan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/red"
-            android:background="@drawable/joinbtn"/>
+        android:orientation="vertical"
+        android:layout_below="@id/Layout1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnPending"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:hint="Pending"
+                android:textColorHint="@color/whitecolor"
+                android:background="@drawable/real_border"/>
+            <Button
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:id="@+id/btnBelumSampai"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:hint="Belum Sampai"
+                android:textColorHint="@color/whitecolor"
+                android:background="@drawable/real_border"/>
+            <Button
+                android:id="@+id/btnSampai"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:hint="Sampai"
+                android:textColorHint="@color/whitecolor"
+                android:background="@drawable/real_border"/>
 
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_margin="10dp">
+            <TextView
+                android:layout_width="30dp"
+                android:layout_height="25dp"
+                android:text="LOG"
+                android:textColor="@color/red"/>
+            <Switch
+                android:id="@+id/switchLogAdaan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/red"
+                android:background="@drawable/joinbtn"/>
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -77,13 +95,13 @@
         android:id="@+id/searchTextHolder"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/kvBackground"
-        android:layout_below="@+id/Layout1">
+        android:background="@drawable/background_style"
+        android:layout_below="@+id/linearlayout">
 
         <ImageView
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:backgroundTint="@color/blackcolor"
+            android:backgroundTint="@color/orange"
             android:background="@drawable/iconsearch"
 
             />
@@ -101,21 +119,13 @@
             android:textColor="@color/blackcolor"
             android:textCursorDrawable="@color/blackcolor" />
     </LinearLayout>
-    <LinearLayout
-        android:id="@+id/LayoutBorder"
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:layout_above="@id/RC_Placeholder"
-        android:layout_marginTop="-60dp"
-        android:background="@color/blackcolor"
-        android:orientation="horizontal"></LinearLayout>
     <androidx.cardview.widget.CardView
         android:id="@+id/RC_Placeholder"
         android:layout_width="match_parent"
         android:layout_height="699dp"
         android:layout_marginBottom="0dp"
         android:layout_below="@+id/searchTextHolder"
-        android:backgroundTint="@color/kvBackground">
+        android:backgroundTint="@color/therealpurple">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/RC_Adaan"
