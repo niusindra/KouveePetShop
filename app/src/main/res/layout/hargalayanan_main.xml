@@ -135,7 +135,7 @@
             android:text="HARGA LAYANAN"
             android:gravity="center"
             android:textAlignment="center"
-            android:textColor="@color/whitecolor"
+            android:textColor="@color/green_kv"
             android:textSize="20sp"/>
     </LinearLayout>
 </LinearLayout>

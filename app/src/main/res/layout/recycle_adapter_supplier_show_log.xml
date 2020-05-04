@@ -23,7 +23,7 @@
                 android:layout_width="51dp"
                 android:layout_height="match_parent"
                 android:layout_marginRight="10dp"
-                android:background="@color/blackcolor">
+                android:background="@color/green_kv">
 
                 <ImageView
                     android:layout_width="25dp"
@@ -31,7 +31,7 @@
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
                     android:background="@drawable/iconsupplier"
-                    android:backgroundTint="@color/orange" />
+                    android:backgroundTint="@color/whitecolor" />
             </LinearLayout>
 
             <LinearLayout
@@ -48,7 +48,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:hint="Nama"
-                    android:textColor="@color/whitecolor"
+                    android:textColor="@color/blackcolor"
                     android:textStyle="bold" />
 
                 <TextView
@@ -57,7 +57,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:hint="Alamat"
-                    android:textColor="@color/whitecolor" />
+                    android:textColor="@color/blackcolor" />
 
                 <TextView
                     android:id="@+id/adapterTelpSuppLog"
@@ -65,7 +65,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:hint="Telp"
-                    android:textColor="@color/whitecolor" />
+                    android:textColor="@color/blackcolor" />
 
                 <TextView
                     android:id="@+id/custcreatedatsup"
@@ -74,7 +74,7 @@
                     android:layout_marginTop="10dp"
                     android:fontFamily="serif"
                     android:hint="Dibuat pada "
-                    android:textColor="@color/whitecolor" />
+                    android:textColor="@color/blackcolor" />
 
                 <TextView
                     android:id="@+id/custeditedatsup"
@@ -82,7 +82,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:hint="Diedit pada "
-                    android:textColor="@color/whitecolor" />
+                    android:textColor="@color/blackcolor" />
 
                 <TextView
                     android:id="@+id/custdeletedatsup"
@@ -90,7 +90,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:hint="Dihapus pada"
-                    android:textColor="@color/whitecolor" />
+                    android:textColor="@color/blackcolor" />
             </LinearLayout>
         </LinearLayout>
     </RelativeLayout>

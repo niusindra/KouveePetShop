@@ -16,14 +16,14 @@
             android:layout_width="match_parent"
             android:layout_height="210dp"
             android:layout_gravity="center"
-            android:background="@drawable/main_gradient"
+            android:background="@color/whitecolor"
             android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="51dp"
                 android:layout_height="match_parent"
                 android:layout_marginRight="10dp"
-                android:background="@color/blackcolor">
+                android:background="@color/green_kv">
 
                 <ImageView
                     android:layout_width="25dp"
@@ -31,7 +31,7 @@
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
                     android:background="@drawable/iconhewan"
-                    android:backgroundTint="@color/orange" />
+                    android:backgroundTint="@color/whitecolor" />
             </LinearLayout>
 
             <LinearLayout
@@ -49,7 +49,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:hint="Nama"
-                    android:textColor="@color/whitecolor"
+                    android:textColor="@color/blackcolor"
                     android:textStyle="bold" />
 
                 <TextView
@@ -58,7 +58,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:hint="Tanggal Lahir"
-                    android:textColor="@color/whitecolor" />
+                    android:textColor="@color/blackcolor" />
 
                 <TextView
                     android:id="@+id/RC_Nama_Pemilik"
@@ -66,7 +66,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:hint="Nama Pemilik"
-                    android:textColor="@color/whitecolor" />
+                    android:textColor="@color/blackcolor" />
 
                 <TextView
                     android:id="@+id/hwncreatedat"
@@ -75,42 +75,42 @@
                     android:layout_marginTop="10dp"
                     android:fontFamily="serif"
                     android:hint="Dibuat pada "
-                    android:textColor="@color/whitecolor" />
+                    android:textColor="@color/blackcolor" />
                 <TextView
                     android:id="@+id/hwncreatedby"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:hint="Dibuat oleh "
-                    android:textColor="@color/whitecolor"/>
+                    android:textColor="@color/blackcolor"/>
                 <TextView
                     android:id="@+id/hwneditedat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:hint="Diedit pada "
-                    android:textColor="@color/whitecolor"/>
+                    android:textColor="@color/blackcolor"/>
                 <TextView
                     android:id="@+id/hwneditedby"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:hint="Diedit oleh "
-                    android:textColor="@color/whitecolor"/>
+                    android:textColor="@color/blackcolor"/>
                 <TextView
                     android:id="@+id/hwndeletedat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:hint="Dihapus pada"
-                    android:textColor="@color/whitecolor"/>
+                    android:textColor="@color/blackcolor"/>
                 <TextView
                     android:id="@+id/hwndeletedby"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:hint="Dihapus oleh"
-                    android:textColor="@color/whitecolor"/>
+                    android:textColor="@color/blackcolor"/>
 
 
 

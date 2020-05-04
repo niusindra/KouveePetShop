@@ -20,7 +20,7 @@
             android:layout_height="20dp"
             android:layout_gravity="start"
             android:layout_marginLeft="10dp"
-            android:backgroundTint="@color/whitecolor"
+            android:backgroundTint="@color/green_kv"
             android:background="@drawable/iconback" />
     </LinearLayout>
 
@@ -37,7 +37,7 @@
             android:text="Supplier:"
             android:textStyle="bold"
             android:elevation="5dp"
-            android:textColor="@color/whitecolor"
+            android:textColor="@color/blackcolor"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:paddingLeft="15dp"/>
@@ -67,7 +67,7 @@
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:text="Nama Produk:"
-            android:textColor="@color/whitecolor"
+            android:textColor="@color/blackcolor"
             android:textStyle="bold"
             android:elevation="5dp"
             android:layout_gravity="center"
@@ -97,7 +97,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="43dp"
                 android:layout_height="43dp"
-                android:backgroundTint="@color/whitecolor"/>
+                android:backgroundTint="@color/green_kv"/>
         </LinearLayout>
         <TextView
             android:layout_width="280dp"
@@ -105,7 +105,7 @@
             android:text="Harga Beli Produk:"
             android:textStyle="bold"
             android:elevation="5dp"
-            android:textColor="@color/whitecolor"
+            android:textColor="@color/blackcolor"
             android:layout_gravity="center"
             android:layout_marginTop="5dp"
             android:paddingLeft="15dp"/>
@@ -135,7 +135,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="43dp"
                 android:layout_height="43dp"
-                android:backgroundTint="@color/whitecolor"/>
+                android:backgroundTint="@color/green_kv"/>
         </LinearLayout>
         <TextView
             android:layout_width="280dp"
@@ -145,7 +145,7 @@
             android:elevation="5dp"
             android:layout_gravity="center"
             android:layout_marginTop="5dp"
-            android:textColor="@color/whitecolor"
+            android:textColor="@color/blackcolor"
             android:paddingLeft="15dp"/>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -174,13 +174,13 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="43dp"
                 android:layout_height="43dp"
-                android:backgroundTint="@color/whitecolor"/>
+                android:backgroundTint="@color/green_kv"/>
         </LinearLayout>
         <TextView
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:text="Stok:"
-            android:textColor="@color/whitecolor"
+            android:textColor="@color/blackcolor"
             android:textStyle="bold"
             android:elevation="5dp"
             android:layout_gravity="center"
@@ -212,13 +212,13 @@
             android:layout_marginLeft="10dp"
             android:layout_width="43dp"
             android:layout_height="43dp"
-            android:backgroundTint="@color/whitecolor"/>
+            android:backgroundTint="@color/green_kv"/>
     </LinearLayout>
         <TextView
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:text="Min Stok"
-            android:textColor="@color/whitecolor"
+            android:textColor="@color/blackcolor"
             android:textStyle="bold"
             android:elevation="5dp"
             android:layout_gravity="center"
@@ -250,7 +250,7 @@
             android:layout_marginLeft="10dp"
             android:layout_width="43dp"
             android:layout_height="43dp"
-            android:backgroundTint="@color/whitecolor"/>
+            android:backgroundTint="@color/green_kv"/>
     </LinearLayout>
         <ImageView
             android:id="@+id/showImageUload1"

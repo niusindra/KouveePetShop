@@ -4,7 +4,7 @@
     tools:context=".View.Produk.produkShow"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_style">
+    android:background="@color/green_kv">
 
     <LinearLayout
         android:id="@+id/Layout1"
@@ -45,13 +45,12 @@
             android:layout_width="40dp"
             android:layout_height="25dp"
             android:text="LOG"
-            android:textColor="@color/red"/>
+            android:textColor="@color/whitecolor"/>
         <Switch
             android:id="@+id/switchLogPro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/red"
-            android:background="@drawable/joinbtn"/>
+            android:background="@drawable/button_border_2"/>
     </LinearLayout>
     <LinearLayout
         android:gravity="center"
@@ -63,7 +62,7 @@
         <ImageView
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:backgroundTint="@color/orange"
+            android:backgroundTint="@color/whitecolor"
             android:background="@drawable/iconsearch"
 
             />
@@ -87,7 +86,7 @@
         android:layout_height="699dp"
         android:layout_marginBottom="0dp"
         android:layout_below="@+id/searchTextHolder"
-        android:backgroundTint="@color/therealpurple">
+        android:backgroundTint="@color/real_green">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/RC_Produk"

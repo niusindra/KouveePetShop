@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_style"
+    android:background="@color/green_kv"
     tools:context=".View.Customer.customerShow">
 
     <LinearLayout
@@ -46,12 +46,12 @@
             android:layout_width="40dp"
             android:layout_height="25dp"
             android:text="LOG"
-            android:textColor="@color/red"/>
+            android:textColor="@color/whitecolor"/>
         <Switch
             android:id="@+id/switchLogCust"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/button_border"/>
+            android:background="@drawable/button_border_2"/>
     </LinearLayout>
     <LinearLayout
         android:gravity="center"
@@ -63,7 +63,7 @@
         <ImageView
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:backgroundTint="@color/red"
+            android:backgroundTint="@color/whitecolor"
             android:background="@drawable/iconsearch"
 
             />
@@ -79,7 +79,7 @@
             android:focusable="auto"
             android:focusedByDefault="true"
             android:textColor="@color/whitecolor"
-            android:textCursorDrawable="@color/colorAccent" />
+            android:textCursorDrawable="@color/whitecolor" />
     </LinearLayout>
     <androidx.cardview.widget.CardView
         android:id="@+id/RC_Placeholder"
@@ -96,7 +96,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="0dp"
-            android:background="@color/therealpurple">
+            android:background="#1A6359">
 
         </androidx.recyclerview.widget.RecyclerView>
     </androidx.cardview.widget.CardView>

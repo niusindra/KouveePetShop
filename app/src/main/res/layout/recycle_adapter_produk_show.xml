@@ -16,14 +16,14 @@
             android:layout_width="match_parent"
             android:layout_height="130dp"
             android:layout_gravity="center"
-            android:background="@drawable/main_gradient"
+            android:background="@color/whitecolor"
             android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="51dp"
                 android:layout_height="match_parent"
                 android:layout_marginRight="10dp"
-                android:background="@color/blackcolor">
+                android:background="@color/green_kv">
 
                 <ImageView
                     android:layout_width="25dp"
@@ -31,7 +31,7 @@
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
                     android:background="@drawable/iconproduk"
-                    android:backgroundTint="@color/orange" />
+                    android:backgroundTint="@color/whitecolor" />
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/RC_Supplier_Event_Parent"
@@ -58,7 +58,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
                         android:hint="Nama Produk"
-                        android:textColor="@color/whitecolor"
+                        android:textColor="@color/blackcolor"
                         android:textStyle="bold" />
                     <TextView
                         android:id="@+id/adaptersuppPro"
@@ -66,7 +66,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
                         android:hint="Nama Supplier"
-                        android:textColor="@color/whitecolor"/>
+                        android:textColor="@color/blackcolor"/>
 
                     <TextView
                         android:id="@+id/adapterHargaB"
@@ -74,7 +74,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
                         android:hint="Harga Beli"
-                        android:textColor="@color/whitecolor"/>
+                        android:textColor="@color/blackcolor"/>
 
                     <TextView
                         android:id="@+id/adapterHargaJ"
@@ -82,14 +82,14 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
                         android:hint="Harga Jual"
-                        android:textColor="@color/whitecolor"/>
+                        android:textColor="@color/blackcolor"/>
                     <TextView
                         android:id="@+id/adapterStok"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
                         android:hint="Stok"
-                        android:textColor="@color/whitecolor"/>
+                        android:textColor="@color/blackcolor"/>
 
                     <TextView
                         android:id="@+id/adapterMinStok"
@@ -97,7 +97,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
                         android:hint="Min Stok"
-                        android:textColor="@color/whitecolor"/>
+                        android:textColor="@color/blackcolor"/>
 
 
                 </LinearLayout>

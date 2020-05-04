@@ -142,7 +142,7 @@
             android:layout_gravity="center"
             android:text="LANDING PAGE"
             android:textAlignment="center"
-            android:textColor="@color/whitecolor"
+            android:textColor="@color/green_kv"
             android:textSize="15sp"
             android:textStyle="bold" />
     </LinearLayout>

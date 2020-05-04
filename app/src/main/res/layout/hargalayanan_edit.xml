@@ -20,7 +20,7 @@
             android:layout_height="20dp"
             android:layout_gravity="start"
             android:layout_marginLeft="10dp"
-            android:backgroundTint="@color/whitecolor"
+            android:backgroundTint="@color/green_kv"
             android:background="@drawable/iconback" />
 
     </LinearLayout>
@@ -46,7 +46,7 @@
             android:layout_height="wrap_content"
             android:hint="Nama Layanan:"
             android:elevation="5dp"
-            android:textColorHint="@color/whitecolor"
+            android:textColorHint="@color/blackcolor"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:paddingLeft="15dp"/>
@@ -59,13 +59,13 @@
                 android:id="@+id/spinnerLayananEdit"
                 android:layout_width="280dp"
                 android:layout_height="45dp"
-                android:backgroundTint="@color/whitecolor"
+                android:backgroundTint="@color/green_kv"
                 android:popupBackground="@drawable/main_gradient"/>
         </RelativeLayout>
         <TextView
             android:layout_width="280dp"
             android:layout_height="wrap_content"
-            android:textColorHint="@color/whitecolor"
+            android:textColorHint="@color/blackcolor"
             android:hint="Nama Jenis Hewan:"
             android:elevation="5dp"
             android:layout_gravity="center"
@@ -80,7 +80,7 @@
                 android:id="@+id/spinnerJenisEdit"
                 android:layout_width="280dp"
                 android:layout_height="45dp"
-                android:backgroundTint="@color/whitecolor"
+                android:backgroundTint="@color/green_kv"
                 android:popupBackground="@drawable/main_gradient" />
         </RelativeLayout>
         <TextView
@@ -91,7 +91,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:paddingLeft="15dp"
-            android:textColorHint="@color/whitecolor"/>
+            android:textColorHint="@color/blackcolor"/>
         <RelativeLayout
             android:layout_width="280dp"
             android:layout_height="45dp"
@@ -101,7 +101,7 @@
                 android:id="@+id/spinnerUkuranEdit"
                 android:layout_width="280dp"
                 android:layout_height="45dp"
-                android:backgroundTint="@color/whitecolor"
+                android:backgroundTint="@color/green_kv"
                 android:popupBackground="@drawable/main_gradient" />
             <TextView
                 android:id="@+id/idSup1"
@@ -124,7 +124,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:paddingLeft="15dp"
-            android:textColorHint="@color/whitecolor"/>
+            android:textColorHint="@color/blackcolor"/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="45dp"

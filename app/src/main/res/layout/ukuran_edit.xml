@@ -20,7 +20,7 @@
             android:layout_height="32dp"
             android:layout_gravity="start"
             android:layout_marginLeft="10dp"
-            android:backgroundTint="@color/whitecolor"
+            android:backgroundTint="@color/green_kv"
             android:background="@drawable/iconback" />
 
     </LinearLayout>
@@ -53,7 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Ukuran Hewan"
-                android:textColor="@color/whitecolor"
+                android:textColor="@color/blackcolor"
                 android:textStyle="bold"
                 android:fontFamily="sans-serif-condensed"/>
             <LinearLayout
@@ -80,7 +80,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_width="43dp"
                     android:layout_height="43dp"
-                    android:backgroundTint="@color/whitecolor"/>
+                    android:backgroundTint="@color/green_kv"/>
             </LinearLayout>
         </LinearLayout>
 

@@ -20,7 +20,7 @@
             android:layout_height="32dp"
             android:layout_gravity="start"
             android:layout_marginLeft="10dp"
-            android:backgroundTint="@color/whitecolor"
+            android:backgroundTint="@color/green_kv"
             android:background="@drawable/iconback" />
 
     </LinearLayout>
@@ -48,7 +48,7 @@
             android:text="Supplier:"
             android:elevation="5dp"
             android:textStyle="bold"
-            android:textColor="@color/whitecolor"
+            android:textColor="@color/blackcolor"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:paddingLeft="15dp"/>
@@ -62,7 +62,7 @@
                 android:id="@+id/supplierSpin"
                 android:layout_width="280dp"
                 android:layout_height="45dp"
-                android:backgroundTint="@color/fullwhite"
+                android:backgroundTint="@color/green_kv"
                 android:popupBackground="@drawable/main_gradient" />
             <TextView
                 android:id="@+id/idSup"

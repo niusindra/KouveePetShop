@@ -20,7 +20,7 @@
             android:layout_height="32dp"
             android:layout_gravity="start"
             android:layout_marginLeft="10dp"
-            android:backgroundTint="@color/whitecolor"
+            android:backgroundTint="@color/green_kv"
             android:background="@drawable/iconback" />
 
     </LinearLayout>
@@ -46,7 +46,7 @@
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:text="Nama Supplier:"
-            android:textColor="@color/whitecolor"
+            android:textColor="@color/blackcolor"
             android:textStyle="bold"
             android:elevation="5dp"
             android:layout_gravity="center"
@@ -76,13 +76,13 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="43dp"
                 android:layout_height="43dp"
-                android:backgroundTint="@color/whitecolor"/>
+                android:backgroundTint="@color/green_kv"/>
         </LinearLayout>
         <TextView
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:text="Alamat Supplier:"
-            android:textColor="@color/whitecolor"
+            android:textColor="@color/blackcolor"
             android:textStyle="bold"
             android:elevation="5dp"
             android:layout_gravity="center"
@@ -113,13 +113,13 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="43dp"
                 android:layout_height="43dp"
-                android:backgroundTint="@color/whitecolor" />
+                android:backgroundTint="@color/green_kv" />
         </LinearLayout>
         <TextView
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:text="Telp Supplier:"
-            android:textColor="@color/whitecolor"
+            android:textColor="@color/blackcolor"
             android:textStyle="bold"
             android:elevation="5dp"
             android:layout_gravity="center"
@@ -150,7 +150,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="43dp"
                 android:layout_height="43dp"
-                android:backgroundTint="@color/whitecolor" />
+                android:backgroundTint="@color/green_kv" />
         </LinearLayout>
 
         <Button

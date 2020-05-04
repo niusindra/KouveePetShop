@@ -135,7 +135,7 @@
             android:layout_height="match_parent"
             android:text="PENGADAAN"
             android:textAlignment="center"
-            android:textColor="@color/whitecolor"
+            android:textColor="@color/green_kv"
             android:textSize="20sp"/>
     </LinearLayout>
 </LinearLayout>

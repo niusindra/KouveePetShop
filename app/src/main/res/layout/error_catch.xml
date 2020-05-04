@@ -36,7 +36,7 @@
                 android:id="@+id/btnError"
                 android:layout_margin="20dp"
                 android:text="COBA LAGI"
-                android:background="@drawable/button_border"
+                android:background="@color/red"
                 android:layout_width="300dp"
                 android:textColor="@color/whitecolor"
                 android:layout_height="wrap_content"

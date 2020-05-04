@@ -4,7 +4,7 @@
     tools:context=".View.Layanan.layananShow"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_style">
+    android:background="@color/green_kv">
 
     <LinearLayout
         android:id="@+id/Layout1"
@@ -45,26 +45,25 @@
             android:layout_width="40dp"
             android:layout_height="25dp"
             android:text="LOG"
-            android:textColor="@color/red"/>
+            android:textColor="@color/whitecolor"/>
         <Switch
             android:id="@+id/switchLogHL"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/red"
-            android:background="@drawable/joinbtn"/>
+            android:background="@drawable/button_border_2"/>
     </LinearLayout>
     <LinearLayout
         android:gravity="center"
         android:id="@+id/searchTextHolder"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@drawable/background_style"
+        android:background="@color/green_kv"
         android:layout_below="@+id/Layout1">
 
         <ImageView
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:backgroundTint="@color/orange"
+            android:backgroundTint="@color/whitecolor"
             android:background="@drawable/iconsearch"
 
             />
@@ -79,8 +78,8 @@
             android:layout_marginBottom="5dp"
             android:focusable="auto"
             android:focusedByDefault="true"
-            android:textColor="@color/blackcolor"
-            android:textCursorDrawable="@color/blackcolor" />
+            android:textColor="@color/whitecolor"
+            android:textCursorDrawable="@color/whitecolor" />
     </LinearLayout>
     <androidx.cardview.widget.CardView
         android:id="@+id/RC_Placeholder"
@@ -88,7 +87,7 @@
         android:layout_height="699dp"
         android:layout_marginBottom="0dp"
         android:layout_below="@+id/searchTextHolder"
-        android:backgroundTint="@color/therealpurple">
+        android:backgroundTint="@color/real_green">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/RecycleHargaLayanan"

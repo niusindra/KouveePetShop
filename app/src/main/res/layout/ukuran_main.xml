@@ -23,7 +23,7 @@
             android:layout_gravity="start"
             android:layout_marginLeft="10dp"
             android:background="@drawable/iconback"
-            android:backgroundTint="@color/whitecolor" />
+            android:backgroundTint="@color/green_kv" />
 
         <ImageView
             android:layout_width="279dp"
@@ -133,7 +133,7 @@
             android:layout_height="match_parent"
             android:text="UKURAN HEWAN"
             android:textAlignment="center"
-            android:textColor="@color/whitecolor"
+            android:textColor="@color/green_kv"
             android:textSize="20sp"/>
     </LinearLayout>
 </LinearLayout>

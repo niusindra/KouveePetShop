@@ -20,7 +20,7 @@
             android:layout_height="32dp"
             android:layout_gravity="start"
             android:layout_marginRight="10dp"
-            android:backgroundTint="@color/whitecolor"
+            android:backgroundTint="@color/green_kv"
             android:background="@drawable/iconback" />
         <Button
             android:id="@+id/addProdukPengadaan"
@@ -32,7 +32,7 @@
             android:textSize="10sp"
             android:text="Tambah Produk"
             android:textAllCaps="false"
-            android:textColor="@color/whitecolor" />
+            android:textColor="@color/green_kv" />
 
         <Button
             android:id="@+id/addPengadaan"
@@ -44,7 +44,7 @@
             android:textSize="10sp"
             android:text="Buat Pengadaan"
             android:textAllCaps="false"
-            android:textColor="@color/whitecolor" />
+            android:textColor="@color/green_kv" />
 
     </LinearLayout>
 
@@ -66,7 +66,7 @@
             android:layout_height="wrap_content"
             android:hint="Supplier:"
             android:elevation="5dp"
-            android:textColorHint="@color/whitecolor"
+            android:textColorHint="@color/blackcolor"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:paddingLeft="15dp"/>
@@ -79,7 +79,7 @@
                 android:id="@+id/supplierSpinAdaan"
                 android:layout_width="280dp"
                 android:layout_height="45dp"
-                android:backgroundTint="@color/whitecolor"
+                android:backgroundTint="@color/green_kv"
                 android:popupBackground="@drawable/main_gradient"/>
             <TextView
                 android:id="@+id/idSup"
