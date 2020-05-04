@@ -84,8 +84,7 @@
                 android:id="@+id/supplierSpinAdaan1"
                 android:layout_width="280dp"
                 android:layout_height="45dp"
-                android:backgroundTint="@color/green_kv"
-                android:popupBackground="@drawable/main_gradient"/>
+                android:backgroundTint="@color/green_kv" />
         </RelativeLayout>
 <androidx.recyclerview.widget.RecyclerView
     android:id="@+id/myRc1"

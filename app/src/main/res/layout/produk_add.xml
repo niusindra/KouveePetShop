@@ -62,8 +62,7 @@
                 android:id="@+id/supplierSpin"
                 android:layout_width="280dp"
                 android:layout_height="45dp"
-                android:backgroundTint="@color/green_kv"
-                android:popupBackground="@drawable/main_gradient" />
+                android:backgroundTint="@color/green_kv" />
             <TextView
                 android:id="@+id/idSup"
                 android:layout_width="0dp"

@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="180dp"
             android:layout_gravity="center"
-            android:background="@drawable/main_gradient"
+            android:background="@color/whitecolor"
             android:orientation="horizontal">
 
             <LinearLayout

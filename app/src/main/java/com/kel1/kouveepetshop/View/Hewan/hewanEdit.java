@@ -71,7 +71,6 @@ public class hewanEdit extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 customerDAO user = (customerDAO) parent.getSelectedItem();
                 idcus = user.getId_customer();
-                Toast.makeText(getApplicationContext(),String.valueOf(idcus),Toast.LENGTH_LONG).show();
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {

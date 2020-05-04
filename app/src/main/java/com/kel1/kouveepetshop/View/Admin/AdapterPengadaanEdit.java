@@ -94,7 +94,7 @@ public class AdapterPengadaanEdit extends RecyclerView.Adapter<AdapterPengadaanE
             removeBtn = itemView.findViewById(R.id.removeBtn1);
 
             ArrayAdapter<produkDAO> adapter = new ArrayAdapter<produkDAO>(context,
-                    R.layout.spinner_item, mListProduk);
+                    R.layout.spinner_item_white, mListProduk);
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
             edtdetPro.setAdapter(adapter);
@@ -109,7 +109,6 @@ public class AdapterPengadaanEdit extends RecyclerView.Adapter<AdapterPengadaanE
                     detailPengadaanDAO.setSubtotal_pengadaan(detailPengadaanDAO.getJml_pengadaan_produk()*hargabeli);
                     arrayList.set(getAdapterPosition(), detailPengadaanDAO);
                     subtotal.setText("Subtotal Produk: Rp "+detailPengadaanDAO.getJml_pengadaan_produk()*hargabeli);
-                    Toast.makeText(context,String.valueOf(detailPengadaanDAO.getId_detail_pengadaan()),Toast.LENGTH_LONG).show();
                 }
 
                 @Override

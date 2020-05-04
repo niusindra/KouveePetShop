@@ -59,8 +59,7 @@
                 android:id="@+id/spinnerLayananEdit"
                 android:layout_width="280dp"
                 android:layout_height="45dp"
-                android:backgroundTint="@color/green_kv"
-                android:popupBackground="@drawable/main_gradient"/>
+                android:backgroundTint="@color/green_kv" />
         </RelativeLayout>
         <TextView
             android:layout_width="280dp"
@@ -80,8 +79,7 @@
                 android:id="@+id/spinnerJenisEdit"
                 android:layout_width="280dp"
                 android:layout_height="45dp"
-                android:backgroundTint="@color/green_kv"
-                android:popupBackground="@drawable/main_gradient" />
+                android:backgroundTint="@color/green_kv" />
         </RelativeLayout>
         <TextView
             android:layout_width="280dp"
@@ -101,8 +99,7 @@
                 android:id="@+id/spinnerUkuranEdit"
                 android:layout_width="280dp"
                 android:layout_height="45dp"
-                android:backgroundTint="@color/green_kv"
-                android:popupBackground="@drawable/main_gradient" />
+                android:backgroundTint="@color/green_kv" />
             <TextView
                 android:id="@+id/idSup1"
                 android:layout_width="0dp"

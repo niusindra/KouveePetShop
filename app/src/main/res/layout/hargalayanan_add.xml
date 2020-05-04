@@ -60,8 +60,7 @@
                 android:id="@+id/layananHLSpin"
                 android:layout_width="280dp"
                 android:layout_height="45dp"
-                android:backgroundTint="@color/green_kv"
-                android:popupBackground="@drawable/main_gradient" />
+                android:backgroundTint="@color/green_kv" />
         </RelativeLayout>
         <TextView
             android:layout_width="280dp"
@@ -81,8 +80,7 @@
                 android:id="@+id/jenisHLSpin"
                 android:layout_width="280dp"
                 android:layout_height="45dp"
-                android:backgroundTint="@color/green_kv"
-                android:popupBackground="@drawable/main_gradient"/>
+                android:backgroundTint="@color/green_kv" />
         </RelativeLayout>
         <TextView
             android:layout_width="280dp"
@@ -103,8 +101,7 @@
                 android:id="@+id/ukuranHLSpin"
                 android:layout_width="280dp"
                 android:layout_height="45dp"
-                android:backgroundTint="@color/green_kv"
-                android:popupBackground="@drawable/main_gradient"/>
+                android:backgroundTint="@color/green_kv" />
         </RelativeLayout>
         <EditText
             android:id="@+id/hargalayananTxt"
