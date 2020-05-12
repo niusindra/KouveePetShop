@@ -96,7 +96,6 @@ public class produkEdit extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 supplierDAO user = (supplierDAO) parent.getSelectedItem();
                 idsup = user.getId_supplier();
-                Toast.makeText(getApplicationContext(),String.valueOf(idsup),Toast.LENGTH_LONG).show();
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {

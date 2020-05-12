@@ -11,7 +11,6 @@ import androidx.cardview.widget.CardView;
 import com.kel1.kouveepetshop.R;
 import com.kel1.kouveepetshop.SessionManager;
 import com.kel1.kouveepetshop.View.Admin.dashboard;
-import com.kel1.kouveepetshop.View.CustomerService.dashboardCS;
 
 import java.util.HashMap;
 
@@ -32,11 +31,6 @@ public class customerMain extends AppCompatActivity {
                 final HashMap<String, String> userDetails = session.getUserDetails();
                 if(userDetails.get(SessionManager.KEY_NAME).equalsIgnoreCase("admin")){
                     Intent intent=new Intent(getApplicationContext(), dashboard.class);
-                    startActivity(intent);
-                }
-                else
-                {
-                    Intent intent=new Intent(getApplicationContext(), dashboardCS.class);
                     startActivity(intent);
                 }
             }
@@ -66,11 +60,6 @@ public class customerMain extends AppCompatActivity {
         final HashMap<String, String> userDetails = session.getUserDetails();
         if(userDetails.get(SessionManager.KEY_NAME).equalsIgnoreCase("admin")){
             Intent intent=new Intent(getApplicationContext(), dashboard.class);
-            startActivity(intent);
-        }
-        else
-        {
-            Intent intent=new Intent(getApplicationContext(), dashboardCS.class);
             startActivity(intent);
         }
     }

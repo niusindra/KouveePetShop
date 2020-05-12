@@ -12,6 +12,8 @@ import com.kel1.kouveepetshop.Respon.readLayanan;
 import com.kel1.kouveepetshop.Respon.readPengadaan;
 import com.kel1.kouveepetshop.Respon.readProduk;
 import com.kel1.kouveepetshop.Respon.readSupplier;
+import com.kel1.kouveepetshop.Respon.readTransLay;
+import com.kel1.kouveepetshop.Respon.readTransPro;
 import com.kel1.kouveepetshop.Respon.readUkuranHewan;
 import com.kel1.kouveepetshop.Respon.verifyPegawai;
 
@@ -47,8 +49,16 @@ public interface ApiInterface {
     Call<readSupplier> getSupplier();
     @GET("pengadaan")
     Call<readPengadaan> getPengadaan();
+    @GET("transaksilayanan")
+    Call<readTransLay> getTransLay();
+    @GET("transaksiproduk")
+    Call<readTransPro> getTransPro();
     @GET("detailpengadaan/{id}")
     Call<readDetailPengadaan> getDetailPengadaan(@Path("id")String id);
+    @GET("detailtl/{id}")
+    Call<readTransLay> getDetailLayanan(@Path("id")String id);
+    @GET("detailtp/{id}")
+    Call<readTransPro> getDetailProduk(@Path("id")String id);
     @GET("produk/bysupplier/{id}")
     Call<readProduk> getProdukbySupplier(@Path("id")int id);
 
@@ -70,6 +80,10 @@ public interface ApiInterface {
     Call<readSupplier> getSupplierLog();
     @GET("pengadaan/log")
     Call<readPengadaan> getPengadaanLog();
+    @GET("transaksilayanan/log")
+    Call<readTransLay> getTransLayLog();
+    @GET("transaksiproduk/log")
+    Call<readProduk> getTransProLog();
 
 
 
@@ -150,12 +164,20 @@ public interface ApiInterface {
     @FormUrlEncoded
     Call<cudDataMaster> addPengadaan(@Field("status_pengadaan")String status_pengadaan);
 
+    @POST("transaksilayanan/")
+    @FormUrlEncoded
+    Call<cudDataMaster> addTransLay(@Field("status_pengadaan")String status_pengadaan);
+
+    @POST("transaksiproduk/")
+    @FormUrlEncoded
+    Call<cudDataMaster> addTransPro(@Field("status_pengadaan")String status_pengadaan);
+
     @POST("detailpengadaan/")
     @FormUrlEncoded
     Call<cudDataMaster> addDetailPengadaan(@Field("id_pengadaan")String id_pengadaan,
                                            @Field("id_produk")int id_produk,
                                            @Field("satuan")String satuan,
-                                     @Field("jml_pengadaan_produk")int jml_pengadaan_produk);
+                                           @Field("jml_pengadaan_produk")int jml_pengadaan_produk);
 
     @POST("device/")
     @FormUrlEncoded

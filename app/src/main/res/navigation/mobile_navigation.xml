@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/transaksi_produk">
+
+    <fragment
+        android:id="@+id/transaksi_produk"
+        android:name="com.kel1.kouveepetshop.View.CustomerService.ui.TransaksiProdukFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_transaksi_produk" />
+
+    <fragment
+        android:id="@+id/cruds_customer"
+        android:name="com.kel1.kouveepetshop.View.CustomerService.ui.CrudsCustomerFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_cruds_customer" />
+
+    <fragment
+        android:id="@+id/cruds_hewan"
+        android:name="com.kel1.kouveepetshop.View.CustomerService.ui.CrudsHewanFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_cruds_hewan" />
+</navigation>

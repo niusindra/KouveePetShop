@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
 
@@ -16,43 +16,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".View.ErrorCatch">
-
-        </activity>
-        <activity android:name=".View.Admin.landingPage">
-
-        </activity>
-        <activity android:name=".View.Admin.dashboard">
-
-        </activity>
-        <activity android:name=".View.CustomerService.dashboardCS">
-
-        </activity>
-        <activity android:name=".View.Admin.login_pegawai">
+        <activity
+            android:name=".View.CustomerService.CS_Dashboard"
+            android:label="@string/title_activity_coba">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".View.Admin.pengadaanAdd">
+        <activity android:name=".View.ErrorCatch"></activity>
+        <activity android:name=".View.Admin.landingPage"></activity>
+        <activity android:name=".View.Admin.dashboard"></activity>
+        <activity android:name=".View.CustomerService.dashboardCS"></activity>
+        <activity android:name=".View.Admin.login_pegawai">
 
         </activity>
-        <activity android:name=".View.Admin.pengadaanMain">
-
-        </activity>
-        <activity android:name=".View.Admin.pengadaanShow">
-        </activity>
-        <activity android:name=".View.Admin.pengadaanEdit"/>
+        <activity android:name=".View.Admin.pengadaanAdd"></activity>
+        <activity android:name=".View.Admin.pengadaanMain"></activity>
+        <activity android:name=".View.Admin.pengadaanShow"></activity>
+        <activity android:name=".View.Admin.pengadaanEdit" />
         <activity android:name=".View.Customer.customerMain" />
-
-        <activity android:name=".View.Customer.customerShow">
-
-        </activity>
-        <activity android:name=".View.Customer.customerAdd">
-
-        </activity>
-        <activity android:name=".View.Customer.customerEdit"/>
+        <activity android:name=".View.Customer.customerShow"></activity>
+        <activity android:name=".View.Customer.customerAdd"></activity>
+        <activity android:name=".View.Customer.customerEdit" />
         <activity android:name=".View.Hewan.hewanAdd" />
         <activity android:name=".View.Hewan.hewanEdit" />
         <activity android:name=".View.Hewan.hewanShow" />
@@ -90,11 +77,11 @@
         <activity android:name=".View.UkuranHewan.RecycleAdapterUkuran" />
         <activity android:name=".View.UkuranHewan.RecycleAdapterUkuranLog" />
         <activity android:name=".View.Admin.detailShow" />
+
         <service
             android:name=".Notification.MyFirebaseMessagingService"
             android:stopWithTask="false">
             <intent-filter>
-
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
