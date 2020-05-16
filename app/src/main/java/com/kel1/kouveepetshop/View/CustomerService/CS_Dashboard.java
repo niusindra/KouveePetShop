@@ -1,6 +1,7 @@
 package com.kel1.kouveepetshop.View.CustomerService;
 
 import android.os.Bundle;
+import android.view.WindowManager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.kel1.kouveepetshop.R;
@@ -16,6 +17,9 @@ public class CS_Dashboard extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setSoftInputMode(
+                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN
+        );
         setContentView(R.layout.activity_cs_dashboard);
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each

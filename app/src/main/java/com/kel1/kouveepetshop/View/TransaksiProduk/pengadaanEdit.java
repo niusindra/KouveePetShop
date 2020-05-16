@@ -1,11 +1,10 @@
-package com.kel1.kouveepetshop.View.Admin;
+package com.kel1.kouveepetshop.View.TransaksiProduk;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -26,6 +25,7 @@ import com.kel1.kouveepetshop.Respon.cudDataMaster;
 import com.kel1.kouveepetshop.Respon.readDetailPengadaan;
 import com.kel1.kouveepetshop.Respon.readProduk;
 import com.kel1.kouveepetshop.Respon.readSupplier;
+import com.kel1.kouveepetshop.View.Pengadaan.AdapterPengadaanEdit;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,8 +54,8 @@ public class pengadaanEdit extends AppCompatActivity {
         setContentView(R.layout.pengadaan_edit);
 
         Intent intent = getIntent();
-        pengadaan = intent.getStringArrayExtra(RecycleAdapterPengadaanShow.EXTRA_TEXT);
-        number = intent.getIntArrayExtra(RecycleAdapterPengadaanShow.EXTRA_NUMBER);
+        pengadaan = intent.getStringArrayExtra(RecycleAdapterTransProShow.EXTRA_TEXT);
+        number = intent.getIntArrayExtra(RecycleAdapterTransProShow.EXTRA_NUMBER);
 
         getSupplier();
 
@@ -71,7 +71,7 @@ public class pengadaanEdit extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),pengadaanShow.class));
+//                startActivity(new Intent(getApplicationContext(), pengadaanShow.class));
             }
         });
         mySpinner.setEnabled(false);
@@ -132,7 +132,7 @@ public class pengadaanEdit extends AppCompatActivity {
                                                             public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response) {
                                                                 if(response.body()!=null) {
                                                                     response.body().getMessage();
-                                                                    startActivity(new Intent(getApplicationContext(),pengadaanShow.class));
+//                                                                    startActivity(new Intent(getApplicationContext(), pengadaanShow.class));
                                                                 }
                                                             }
 
@@ -148,7 +148,7 @@ public class pengadaanEdit extends AppCompatActivity {
                                                             public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response) {
                                                                 if(response.body()!=null) {
                                                                     response.body().getMessage();
-                                                                    startActivity(new Intent(getApplicationContext(),pengadaanShow.class));
+//                                                                    startActivity(new Intent(getApplicationContext(), pengadaanShow.class));
                                                                 }
                                                             }
 
@@ -211,7 +211,7 @@ public class pengadaanEdit extends AppCompatActivity {
                                                     public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response) {
                                                         if(response.body()!=null) {
                                                             response.body().getMessage();
-                                                            startActivity(new Intent(getApplicationContext(),pengadaanShow.class));
+//                                                            startActivity(new Intent(getApplicationContext(), pengadaanShow.class));
                                                         }
                                                     }
 
@@ -247,8 +247,8 @@ public class pengadaanEdit extends AppCompatActivity {
 
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent=new Intent(getApplicationContext(), pengadaanShow.class);
-        startActivity(intent);
+//        Intent intent=new Intent(getApplicationContext(), pengadaanShow.class);
+//        startActivity(intent);
     }
 
     private void getSupplier(){

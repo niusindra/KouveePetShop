@@ -28,14 +28,13 @@
         <activity android:name=".View.ErrorCatch"></activity>
         <activity android:name=".View.Admin.landingPage"></activity>
         <activity android:name=".View.Admin.dashboard"></activity>
-        <activity android:name=".View.CustomerService.dashboardCS"></activity>
         <activity android:name=".View.Admin.login_pegawai">
 
         </activity>
-        <activity android:name=".View.Admin.pengadaanAdd"></activity>
-        <activity android:name=".View.Admin.pengadaanMain"></activity>
-        <activity android:name=".View.Admin.pengadaanShow"></activity>
-        <activity android:name=".View.Admin.pengadaanEdit" />
+        <activity android:name=".View.Pengadaan.pengadaanAdd"></activity>
+        <activity android:name=".View.Pengadaan.pengadaanMain"></activity>
+        <activity android:name=".View.Pengadaan.pengadaanShow"></activity>
+        <activity android:name=".View.Pengadaan.pengadaanEdit" />
         <activity android:name=".View.Customer.customerMain" />
         <activity android:name=".View.Customer.customerShow"></activity>
         <activity android:name=".View.Customer.customerAdd"></activity>
@@ -76,7 +75,8 @@
         <activity android:name=".View.UkuranHewan.ukuranShow" />
         <activity android:name=".View.UkuranHewan.RecycleAdapterUkuran" />
         <activity android:name=".View.UkuranHewan.RecycleAdapterUkuranLog" />
-        <activity android:name=".View.Admin.detailShow" />
+        <activity android:name=".View.Pengadaan.detailShow" />
+        <activity android:name=".View.TransaksiProduk.transProAdd" />
 
         <service
             android:name=".Notification.MyFirebaseMessagingService"

@@ -83,7 +83,7 @@ public interface ApiInterface {
     @GET("transaksilayanan/log")
     Call<readTransLay> getTransLayLog();
     @GET("transaksiproduk/log")
-    Call<readProduk> getTransProLog();
+    Call<readTransPro> getTransProLog();
 
 
 
@@ -167,7 +167,7 @@ public interface ApiInterface {
     @POST("transaksilayanan/")
     @FormUrlEncoded
     Call<cudDataMaster> addTransLay(@Field("status_pengadaan")String status_pengadaan);
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     @POST("transaksiproduk/")
     @FormUrlEncoded
     Call<cudDataMaster> addTransPro(@Field("status_pengadaan")String status_pengadaan);

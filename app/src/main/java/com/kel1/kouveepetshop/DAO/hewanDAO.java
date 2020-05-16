@@ -1,5 +1,7 @@
 package com.kel1.kouveepetshop.DAO;
 
+import androidx.annotation.NonNull;
+
 import com.google.gson.annotations.SerializedName;
 
 public class hewanDAO {
@@ -11,6 +13,12 @@ public class hewanDAO {
 
     @SerializedName("nama_customer")
     private  String nama_customer;
+
+    @SerializedName("telp_customer")
+    private  String telp_customer;
+
+    @SerializedName("alamat_customer")
+    private  String alamat_customer;
 
     @SerializedName("nama_hewan")
     private  String nama_hewan;
@@ -42,6 +50,14 @@ public class hewanDAO {
 
     public String getNama_customer() {
         return nama_customer;
+    }
+
+    public String getTelp_customer() {
+        return telp_customer;
+    }
+
+    public String getAlamat_customer() {
+        return alamat_customer;
     }
 
     public int getId_hewan() {
@@ -80,5 +96,10 @@ public class hewanDAO {
         return hwn_edited_by;
     }
 
+    @NonNull
+    @Override
+    public String toString() {
+        return nama_hewan;
+    }
 
 }

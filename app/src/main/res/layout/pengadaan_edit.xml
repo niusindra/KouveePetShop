@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:padding="10dp"
     android:background="@drawable/background_style"
-    tools:context=".View.Admin.pengadaanEdit">
+    tools:context=".View.Pengadaan.pengadaanEdit">
     <ImageView
         android:id="@+id/backBtnAdaan1"
         android:layout_width="32dp"

@@ -15,9 +15,6 @@ public class detailProdukDAO {
     @SerializedName("nama_produk")
     private  String nama_produk;
 
-    @SerializedName("harga_jual_produk")
-    private  int harga_jual_produk;
-
     @SerializedName("jumlah_beli_produk")
     private  int jumlah_beli_produk;
 
@@ -54,14 +51,6 @@ public class detailProdukDAO {
 
     public void setNama_produk(String nama_produk) {
         this.nama_produk = nama_produk;
-    }
-
-    public int getHarga_jual_produk() {
-        return harga_jual_produk;
-    }
-
-    public void setHarga_jual_produk(int harga_jual_produk) {
-        this.harga_jual_produk = harga_jual_produk;
     }
 
     public int getJumlah_beli_produk() {

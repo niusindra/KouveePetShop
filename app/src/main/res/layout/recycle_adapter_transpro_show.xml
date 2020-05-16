@@ -1,0 +1,85 @@
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:id="@+id/RC_Pengadaan_cardView"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginBottom="10dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:background="#1A6359">
+
+        <LinearLayout
+            android:id="@+id/RC_Pengadaan_Event_Parent"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:layout_gravity="center"
+            android:background="@color/whitecolor"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="51dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:background="@color/green_kv">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/iconhargalayanan"
+                    android:backgroundTint="@color/whitecolor" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="207dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/RC_Pengadaan_Name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:hint="supplier"
+                    android:textColor="@color/blackcolor"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/RC_tglPengadaan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:hint="Tanggal adaan"
+                    android:textColor="@color/blackcolor"/>
+
+                <TextView
+                    android:id="@+id/RC_totalPengadaan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:hint="total adaan"
+                    android:textColor="@color/blackcolor"/>
+
+                <TextView
+                    android:id="@+id/RC_statusPengadaan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:hint="status"
+                    android:textColor="@color/blackcolor"/>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

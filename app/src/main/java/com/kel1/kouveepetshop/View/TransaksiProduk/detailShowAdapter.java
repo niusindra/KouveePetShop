@@ -1,35 +1,19 @@
-package com.kel1.kouveepetshop.View.Admin;
+package com.kel1.kouveepetshop.View.TransaksiProduk;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.kel1.kouveepetshop.Api.ApiClient;
-import com.kel1.kouveepetshop.Api.ApiInterface;
 import com.kel1.kouveepetshop.DAO.detailPengadaanDAO;
 import com.kel1.kouveepetshop.DAO.produkDAO;
 import com.kel1.kouveepetshop.R;
-import com.kel1.kouveepetshop.Respon.cudDataMaster;
 
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class detailShowAdapter extends RecyclerView.Adapter<detailShowAdapter.ViewHolder>{
     private Context context;

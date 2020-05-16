@@ -1,14 +1,11 @@
-package com.kel1.kouveepetshop.View.Admin;
+package com.kel1.kouveepetshop.View.TransaksiProduk;
 
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.media.session.MediaSession;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -17,15 +14,9 @@ import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.firebase.iid.InstanceIdResult;
-import com.kel1.kouveepetshop.FirstPdf;
-import com.kel1.kouveepetshop.MyPdf;
-import com.kel1.kouveepetshop.Notification.MyFirebaseMessagingService;
-import com.kel1.kouveepetshop.Notification.TokenManager;
 import com.kel1.kouveepetshop.R;
 import com.kel1.kouveepetshop.SessionManager;
+import com.kel1.kouveepetshop.View.Admin.landingPage;
 
 public class pengadaanMain extends AppCompatActivity {
     public ImageView back;
@@ -52,15 +43,15 @@ public class pengadaanMain extends AppCompatActivity {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(pengadaanMain.this, pengadaanAdd.class);
+                Intent intent = new Intent(pengadaanMain.this, transProAdd.class);
                 startActivity(intent);
             }
         });
         show.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(pengadaanMain.this, pengadaanShow.class);
-                startActivity(intent);
+//                Intent intent = new Intent(pengadaanMain.this, pengadaanShow.class);
+//                startActivity(intent);
             }
         });
     }

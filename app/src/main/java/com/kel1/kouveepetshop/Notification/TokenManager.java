@@ -2,12 +2,6 @@ package com.kel1.kouveepetshop.Notification;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
-
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.firebase.iid.InstanceIdResult;
-import com.kel1.kouveepetshop.View.Admin.pengadaanMain;
 
 /**
  * Created by delaroy on 10/8/17.

@@ -1,4 +1,4 @@
-package com.kel1.kouveepetshop.View.Admin;
+package com.kel1.kouveepetshop.View.Pengadaan;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -13,7 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.kel1.kouveepetshop.Api.ApiClient;
@@ -23,7 +22,6 @@ import com.kel1.kouveepetshop.DAO.pengadaanDAO;
 import com.kel1.kouveepetshop.R;
 import com.kel1.kouveepetshop.Respon.cudDataMaster;
 import com.kel1.kouveepetshop.Respon.readDetailPengadaan;
-import com.kel1.kouveepetshop.View.Customer.customerEdit;
 
 import java.util.List;
 

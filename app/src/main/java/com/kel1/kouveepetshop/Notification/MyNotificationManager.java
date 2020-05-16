@@ -9,13 +9,10 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
-import com.google.android.gms.config.proto.Config;
 import com.kel1.kouveepetshop.R;
-import com.kel1.kouveepetshop.View.Admin.pengadaanMain;
 
 import android.os.Build;
 import android.text.Html;
-import android.util.Log;
 
 import androidx.core.app.NotificationCompat;
 
