@@ -1,5 +1,7 @@
 package com.kel1.kouveepetshop.View.CustomerService.ui;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -23,6 +25,7 @@ import com.kel1.kouveepetshop.Api.ApiInterface;
 import com.kel1.kouveepetshop.DAO.transaksiProdukDAO;
 import com.kel1.kouveepetshop.R;
 import com.kel1.kouveepetshop.Respon.readTransPro;
+import com.kel1.kouveepetshop.View.Pengadaan.pengadaanShow;
 import com.kel1.kouveepetshop.View.TransaksiProduk.RecycleAdapterTransProShowLog;
 import com.kel1.kouveepetshop.View.TransaksiProduk.RecycleAdapterTransProShow;
 import com.kel1.kouveepetshop.View.ErrorCatch;
@@ -56,7 +59,27 @@ public class TransaksiProdukFragment extends Fragment {
         fabtranspro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(root.getContext(), transProAdd.class));
+                AlertDialog.Builder builder = new AlertDialog.Builder(root.getContext());
+                builder.setMessage("Siliahkan pilih jenis member:")
+                        .setCancelable(false)
+                        .setPositiveButton("MEMBER", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent intent = new Intent(root.getContext(), transProAdd.class);
+                                intent.putExtra("cekMember","member");
+                                startActivity(intent);
+                            }
+                        })
+                        .setNegativeButton("NON MEMBER", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent intent = new Intent(root.getContext(), transProAdd.class);
+                                intent.putExtra("cekMember","non member");
+                                startActivity(intent);
+                            }
+                        });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
             }
         });
         searchTransPro.addTextChangedListener(new TextWatcher() {

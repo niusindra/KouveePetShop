@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:padding="10dp"
     android:background="@drawable/background_style"
-    tools:context=".View.TransaksiProduk.transProAdd">
+    tools:context=".View.TransaksiLayanan.transLayAdd">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -97,7 +97,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Rincian Pembelian Produk"
+                android:text="Rincian Jasa Layanan"
                 android:layout_margin="5dp"
                 android:textStyle="bold"/>
             <androidx.recyclerview.widget.RecyclerView
@@ -112,7 +112,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
-                android:hint="Tambah Produk"/>
+                android:hint="Tambah Layanan"/>
 
         </LinearLayout>
 

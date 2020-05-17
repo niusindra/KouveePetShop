@@ -11,6 +11,12 @@ public class hewanDAO {
     @SerializedName("id_customer")
     private  int id_customer;
 
+    @SerializedName("id_jenis")
+    private  int id_jenis;
+
+    @SerializedName("jenis")
+    private  String jenis;
+
     @SerializedName("nama_customer")
     private  String nama_customer;
 
@@ -94,6 +100,14 @@ public class hewanDAO {
 
     public String getHwn_edited_by() {
         return hwn_edited_by;
+    }
+
+    public String getJenis() {
+        return jenis;
+    }
+
+    public int getId_jenis() {
+        return id_jenis;
     }
 
     @NonNull

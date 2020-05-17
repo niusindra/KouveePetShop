@@ -166,11 +166,17 @@ public interface ApiInterface {
 
     @POST("transaksilayanan/")
     @FormUrlEncoded
-    Call<cudDataMaster> addTransLay(@Field("status_pengadaan")String status_pengadaan);
+    Call<cudDataMaster> addTransLay(@Field("id_pegawai")int id_pegawai,
+                                    @Field("id_hewan")int id_hewan,
+                                    @Field("status_layanan")String status_layanan,
+                                    @Field("translay_created_by")String translay_created_by);
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     @POST("transaksiproduk/")
     @FormUrlEncoded
-    Call<cudDataMaster> addTransPro(@Field("status_pengadaan")String status_pengadaan);
+    Call<cudDataMaster> addTransPro(@Field("id_pegawai")int id_pegawai,
+                                    @Field("id_hewan")int id_hewan,
+                                    @Field("status_penjualan_produk")String status_penjualan_produk,
+                                    @Field("transproduk_created_by")String transproduk_created_by);
 
     @POST("detailpengadaan/")
     @FormUrlEncoded
@@ -178,6 +184,18 @@ public interface ApiInterface {
                                            @Field("id_produk")int id_produk,
                                            @Field("satuan")String satuan,
                                            @Field("jml_pengadaan_produk")int jml_pengadaan_produk);
+
+    @POST("detailtp/")
+    @FormUrlEncoded
+    Call<cudDataMaster> addDetailTransPro(@Field("id_trans_produk")String id_pengadaan,
+                                          @Field("id_produk")int id_produk,
+                                          @Field("jumlah_beli_produk")int jumlah_beli_produk);
+
+    @POST("detailtl/")
+    @FormUrlEncoded
+    Call<cudDataMaster> addDetailTransLay(@Field("id_trans_layanan")String id_pengadaan,
+                                          @Field("id_harga_layanan")int id_produk,
+                                          @Field("jumlah_beli_layanan")int jumlah_beli_layanan);
 
     @POST("device/")
     @FormUrlEncoded

@@ -1,4 +1,4 @@
-package com.kel1.kouveepetshop.View.TransaksiProduk;
+package com.kel1.kouveepetshop.View.TransaksiLayanan;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -36,11 +36,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class transProAdd extends AppCompatActivity {
+public class transLayAdd extends AppCompatActivity {
     private List<detailProdukDAO> detailTransProList = new ArrayList<>();
     private List<produkDAO> produkDAOList = new ArrayList<>();
     private List<hewanDAO> hewanDAOList = new ArrayList<>();
-    private AdapterTransProAdd adapter;
+    private AdapterTransLayAdd adapter;
 
     private AppCompatAutoCompleteTextView cari;
     private TextView namaCust, telpCust, almtCust, namaHwn, jenisHwn, tvcariHewan;
@@ -57,7 +57,7 @@ public class transProAdd extends AppCompatActivity {
                 WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN
         );
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.transpro_add);
+        setContentView(R.layout.translay_add);
         setAtribut();
         getProduk();
         getHewan();
@@ -89,14 +89,14 @@ public class transProAdd extends AppCompatActivity {
         });
         myRc.setHasFixedSize(true);
         myRc.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        adapter = new AdapterTransProAdd(this, detailTransProList, produkDAOList);
+        adapter = new AdapterTransLayAdd(this, detailTransProList, produkDAOList);
         myRc.setAdapter(adapter);
         btnaddProduk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 detailProdukDAO detailProdukDAO = new detailProdukDAO();
                 detailTransProList.add(detailProdukDAO);
-                adapter = new AdapterTransProAdd(getApplicationContext(), detailTransProList, produkDAOList);
+                adapter = new AdapterTransLayAdd(getApplicationContext(), detailTransProList, produkDAOList);
                 myRc.setAdapter(adapter);
                 btnaddProduk.setVisibility(View.GONE);
             }
@@ -199,7 +199,7 @@ public class transProAdd extends AppCompatActivity {
     }
     public void onBackPressed() {
         super.onBackPressed();
-        Intent i = new Intent(transProAdd.this, CS_Dashboard.class);
+        Intent i = new Intent(transLayAdd.this, CS_Dashboard.class);
         i.putExtra("loadFragment",R.id.transaksi_produk);
         startActivity(i);
     }
@@ -213,7 +213,7 @@ public class transProAdd extends AppCompatActivity {
             public void onResponse(Call<readProduk> call, Response<readProduk> response) {
                 if(response.body()!=null) {
                     produkDAOList.addAll(response.body().getMessage());
-                    adapter = new AdapterTransProAdd(getApplicationContext(), detailTransProList, produkDAOList);
+                    adapter = new AdapterTransLayAdd(getApplicationContext(), detailTransProList, produkDAOList);
                     myRc.setAdapter(adapter);
                 }
             }

@@ -1,10 +1,6 @@
-package com.kel1.kouveepetshop.View.TransaksiProduk;
+package com.kel1.kouveepetshop.View.TransaksiLayanan;
 
 import android.content.Context;
-import android.content.Intent;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,26 +19,26 @@ import com.kel1.kouveepetshop.R;
 
 import java.util.List;
 
-public class AdapterTransProAdd extends RecyclerView.Adapter<AdapterTransProAdd.ViewHolder>{
+public class AdapterTransLayAdd extends RecyclerView.Adapter<AdapterTransLayAdd.ViewHolder>{
     private Context context;
     private  List<detailProdukDAO> arrayList;
     private List<produkDAO> mListProduk;
 
-    public AdapterTransProAdd(Context context, List<detailProdukDAO> arrayList, List<produkDAO> mListProduk) {
+    public AdapterTransLayAdd(Context context, List<detailProdukDAO> arrayList, List<produkDAO> mListProduk) {
         this.context = context;
         this.arrayList = arrayList;
         this.mListProduk = mListProduk;
     }
 
     @Override
-    public AdapterTransProAdd.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public AdapterTransLayAdd.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(context).inflate(R.layout.transpro_add_adapter, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.translay_add_adapter, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(final AdapterTransProAdd.ViewHolder holder, final int position) {
+    public void onBindViewHolder(final AdapterTransLayAdd.ViewHolder holder, final int position) {
         detailProdukDAO detailProdukDAO=arrayList.get(position);
         for (int i = 0; i < mListProduk.size(); i++) {
             if(detailProdukDAO.getId_produk()==mListProduk.get(i).getId_produk()){

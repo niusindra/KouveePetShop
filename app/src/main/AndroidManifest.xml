@@ -17,27 +17,24 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".View.CustomerService.CS_Dashboard"
-            android:label="@string/title_activity_coba">
+            android:name=".View.CustomerService.CS_Dashboard">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".View.ErrorCatch"></activity>
-        <activity android:name=".View.Admin.landingPage"></activity>
-        <activity android:name=".View.Admin.dashboard"></activity>
-        <activity android:name=".View.Admin.login_pegawai">
-
-        </activity>
-        <activity android:name=".View.Pengadaan.pengadaanAdd"></activity>
-        <activity android:name=".View.Pengadaan.pengadaanMain"></activity>
-        <activity android:name=".View.Pengadaan.pengadaanShow"></activity>
+        <activity android:name=".View.ErrorCatch" />
+        <activity android:name=".View.Admin.landingPage" />
+        <activity android:name=".View.Admin.dashboard" />
+        <activity android:name=".View.Admin.login_pegawai"></activity>
+        <activity android:name=".View.Pengadaan.pengadaanAdd" />
+        <activity android:name=".View.Pengadaan.pengadaanMain" />
+        <activity android:name=".View.Pengadaan.pengadaanShow" />
         <activity android:name=".View.Pengadaan.pengadaanEdit" />
         <activity android:name=".View.Customer.customerMain" />
-        <activity android:name=".View.Customer.customerShow"></activity>
-        <activity android:name=".View.Customer.customerAdd"></activity>
+        <activity android:name=".View.Customer.customerShow" />
+        <activity android:name=".View.Customer.customerAdd" />
         <activity android:name=".View.Customer.customerEdit" />
         <activity android:name=".View.Hewan.hewanAdd" />
         <activity android:name=".View.Hewan.hewanEdit" />
@@ -77,6 +74,7 @@
         <activity android:name=".View.UkuranHewan.RecycleAdapterUkuranLog" />
         <activity android:name=".View.Pengadaan.detailShow" />
         <activity android:name=".View.TransaksiProduk.transProAdd" />
+        <activity android:name=".View.TransaksiLayanan.transLayAdd" />
 
         <service
             android:name=".Notification.MyFirebaseMessagingService"

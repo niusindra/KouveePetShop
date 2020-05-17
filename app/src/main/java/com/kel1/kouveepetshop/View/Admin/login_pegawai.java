@@ -18,7 +18,6 @@ import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 import com.kel1.kouveepetshop.Api.ApiClient;
 import com.kel1.kouveepetshop.Api.ApiInterface;
-import com.kel1.kouveepetshop.EmailDialog;
 import com.kel1.kouveepetshop.R;
 import com.kel1.kouveepetshop.Respon.cudDataMaster;
 import com.kel1.kouveepetshop.Respon.verifyPegawai;
@@ -144,11 +143,6 @@ public class login_pegawai extends AppCompatActivity {
         Login = findViewById(R.id.loginBtn);
         username = findViewById(R.id.usernameTxt);
         password = findViewById(R.id.passwordTxt);
-    }
-
-    public void openDialog() {
-        EmailDialog emailDialog = new EmailDialog();
-        emailDialog.show(getSupportFragmentManager(),"Email Dialog");
     }
 
 }

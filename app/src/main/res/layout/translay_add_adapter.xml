@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     app:cardUseCompatPadding="true"
     android:background="@drawable/main_gradient"
-    tools:context=".View.TransaksiProduk.AdapterTransProAdd">
+    tools:context=".View.TransaksiLayanan.AdapterTransLayAdd">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,7 +36,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
                         android:gravity="center"
-                        android:hint="Nama Produk"
+                        android:hint="Nama Layanan"
                         android:textColorHint="@color/whitecolor" />
 
                     <TextView
@@ -57,7 +57,7 @@
                     android:orientation="horizontal">
 
                     <AutoCompleteTextView
-                        android:id="@+id/namaProduk"
+                        android:id="@+id/namaLayanan"
                         android:layout_width="205dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
@@ -184,10 +184,10 @@
             android:textSize="20dp"
             android:visibility="gone"/>
         <Button
-            android:id="@+id/btnTambahProduk"
+            android:id="@+id/btnTambahLayanan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Tambah Produk"
+            android:hint="Tambah Layanan"
             android:visibility="gone"
             android:layout_gravity="center"/>
     </LinearLayout>
