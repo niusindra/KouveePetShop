@@ -30,7 +30,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class TabsBelumSelesai extends Fragment {
+public class TabsSelesai extends Fragment {
     private List<transaksiLayananDAO> mListTransLay =new ArrayList<>();
     private RecyclerView recyclerView;
     private RecycleAdapterTransLayShow recycleAdapter;
@@ -39,7 +39,7 @@ public class TabsBelumSelesai extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        final View root = inflater.inflate(R.layout.tabs_belumselesai_fragment, container, false);
+        final View root = inflater.inflate(R.layout.tabs_selesai_fragment, container, false);
 
         mListTransLay =new ArrayList<>();
         setRecycleAdapter(root);
@@ -85,7 +85,7 @@ public class TabsBelumSelesai extends Fragment {
     public void setRecycleView(final View root){
 
         ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
-        Call<readTransLay> TransLayCall = apiService.getTransLayBelumSelesai();
+        Call<readTransLay> TransLayCall = apiService.getTransLaySelesai();
         TransLayCall.enqueue(new Callback<readTransLay>(){
 
             @Override

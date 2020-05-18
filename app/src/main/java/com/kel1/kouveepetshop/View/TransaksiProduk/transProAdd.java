@@ -196,6 +196,7 @@ public class transProAdd extends AppCompatActivity {
         btnaddProduk = findViewById(R.id.btnTambahProduk);
         btnAddTransPro = findViewById(R.id.btnAddTransPro);
         myRc = findViewById(R.id.RC_transpro);
+        tvcariHewan = findViewById(R.id.tvCariHewan);
     }
     public void onBackPressed() {
         super.onBackPressed();

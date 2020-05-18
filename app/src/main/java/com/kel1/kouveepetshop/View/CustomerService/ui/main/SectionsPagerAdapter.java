@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.kel1.kouveepetshop.R;
 import com.kel1.kouveepetshop.View.CustomerService.ui.TabsBelumSelesai;
+import com.kel1.kouveepetshop.View.CustomerService.ui.TabsSelesai;
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
@@ -34,7 +35,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
                 fragment = new TabsBelumSelesai();
                 break;
             case 1:
-                fragment = new TabsBelumSelesai();
+                fragment = new TabsSelesai();
                 break;
         }
         return fragment;

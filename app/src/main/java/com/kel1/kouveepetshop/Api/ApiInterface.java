@@ -49,8 +49,10 @@ public interface ApiInterface {
     Call<readSupplier> getSupplier();
     @GET("pengadaan")
     Call<readPengadaan> getPengadaan();
-    @GET("transaksilayanan")
-    Call<readTransLay> getTransLay();
+    @GET("transaksilayanan/belumselesai")
+    Call<readTransLay> getTransLayBelumSelesai();
+    @GET("transaksilayanan/selesai")
+    Call<readTransLay> getTransLaySelesai();
     @GET("transaksiproduk")
     Call<readTransPro> getTransPro();
     @GET("detailpengadaan/{id}")

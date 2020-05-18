@@ -18,11 +18,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.kel1.kouveepetshop.Api.ApiClient;
 import com.kel1.kouveepetshop.Api.ApiInterface;
+import com.kel1.kouveepetshop.DAO.detailLayananDAO;
 import com.kel1.kouveepetshop.DAO.detailProdukDAO;
+import com.kel1.kouveepetshop.DAO.hargalayananDAO;
 import com.kel1.kouveepetshop.DAO.hewanDAO;
 import com.kel1.kouveepetshop.DAO.produkDAO;
 import com.kel1.kouveepetshop.R;
 import com.kel1.kouveepetshop.Respon.cudDataMaster;
+import com.kel1.kouveepetshop.Respon.readHargaLayanan;
 import com.kel1.kouveepetshop.Respon.readHewan;
 import com.kel1.kouveepetshop.Respon.readProduk;
 import com.kel1.kouveepetshop.SessionManager;
@@ -37,8 +40,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class transLayAdd extends AppCompatActivity {
-    private List<detailProdukDAO> detailTransProList = new ArrayList<>();
-    private List<produkDAO> produkDAOList = new ArrayList<>();
+    private List<detailLayananDAO> detailTransProList = new ArrayList<>();
+    private List<hargalayananDAO> layananDAOList = new ArrayList<>();
     private List<hewanDAO> hewanDAOList = new ArrayList<>();
     private AdapterTransLayAdd adapter;
 
@@ -59,7 +62,7 @@ public class transLayAdd extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.translay_add);
         setAtribut();
-        getProduk();
+        getLayanan();
         getHewan();
         intentExtra = getIntent().getStringExtra("cekMember");
         if(intentExtra.equalsIgnoreCase("non member")){
@@ -89,14 +92,14 @@ public class transLayAdd extends AppCompatActivity {
         });
         myRc.setHasFixedSize(true);
         myRc.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        adapter = new AdapterTransLayAdd(this, detailTransProList, produkDAOList);
+        adapter = new AdapterTransLayAdd(this, detailTransProList, layananDAOList);
         myRc.setAdapter(adapter);
         btnaddProduk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                detailProdukDAO detailProdukDAO = new detailProdukDAO();
-                detailTransProList.add(detailProdukDAO);
-                adapter = new AdapterTransLayAdd(getApplicationContext(), detailTransProList, produkDAOList);
+                detailLayananDAO detailLayananDAO = new detailLayananDAO();
+                detailTransProList.add(detailLayananDAO);
+                adapter = new AdapterTransLayAdd(getApplicationContext(), detailTransProList, layananDAOList);
                 myRc.setAdapter(adapter);
                 btnaddProduk.setVisibility(View.GONE);
             }
@@ -115,11 +118,11 @@ public class transLayAdd extends AppCompatActivity {
 //                    if(detailTransProList.get(i).getJml_pengadaan_produk()==0)
 //                        cekJumlah=1;
 
-                    Log.e("posisi",String.valueOf(i));
-                    Log.e("jml",String.valueOf(detailTransProList.get(i).getJumlah_beli_produk()));
-                    Log.e("id_produk",String.valueOf(detailTransProList.get(i).getId_produk()));
-                    Log.e("harga",String.valueOf(detailTransProList.get(i).getSubtotal_produk()));
-                    Log.e("=======","========================");
+//                    Log.e("posisi",String.valueOf(i));
+//                    Log.e("jml",String.valueOf(detailTransProList.get(i).getJumlah_beli_produk()));
+//                    Log.e("id_produk",String.valueOf(detailTransProList.get(i).getId_produk()));
+//                    Log.e("harga",String.valueOf(detailTransProList.get(i).getSubtotal_produk()));
+//                    Log.e("=======","========================");
                 }
 //                if(detailTransProList.size()==0)
 //                    Toast.makeText(transProAdd.this,"Tambahkan produk terlebih dahulu!",Toast.LENGTH_LONG).show();
@@ -135,17 +138,17 @@ public class transLayAdd extends AppCompatActivity {
 //                                public void onClick(DialogInterface dialogInterface, int i) {
 
                                     ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
-                                    Call<cudDataMaster> TransProCall = apiService.addTransPro(Integer.parseInt(userDetails.get(SessionManager.KEY_ID)),id_hewan,"Belum Lunas",userDetails.get(SessionManager.KEY_NAME));
-                                    TransProCall.enqueue(new Callback<cudDataMaster>(){
+                                    Call<cudDataMaster> TransLayCall = apiService.addTransLay(Integer.parseInt(userDetails.get(SessionManager.KEY_ID)),id_hewan,"Belum Selesai",userDetails.get(SessionManager.KEY_NAME));
+                                    TransLayCall.enqueue(new Callback<cudDataMaster>(){
                                         @Override
                                         public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response) {
                                             if(response.body()!=null) {
                                                 Toast.makeText(getApplicationContext(),response.body().getMessage(),Toast.LENGTH_SHORT).show();
                                                 ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
-                                                List<detailProdukDAO> detailProdukDAOList = adapter.getArrayList();
-                                                for (int i = 0; i < detailProdukDAOList.size(); i++) {
-                                                    Call<cudDataMaster> detailTransProCall = apiService.addDetailTransPro(null,detailProdukDAOList.get(i).getId_produk(),detailProdukDAOList.get(i).getJumlah_beli_produk());
-                                                    detailTransProCall.enqueue(new Callback<cudDataMaster>(){
+                                                List<detailLayananDAO> detailLayananDAOList = adapter.getArrayList();
+                                                for (int i = 0; i < detailLayananDAOList.size(); i++) {
+                                                    Call<cudDataMaster> detailTransLayCall = apiService.addDetailTransLay(null,detailLayananDAOList.get(i).getId_harga_layanan(),detailLayananDAOList.get(i).getJumlah_beli_layanan());
+                                                    detailTransLayCall.enqueue(new Callback<cudDataMaster>(){
                                                         @Override
                                                         public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response) {
                                                             if(response.body()!=null) {
@@ -200,26 +203,26 @@ public class transLayAdd extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         Intent i = new Intent(transLayAdd.this, CS_Dashboard.class);
-        i.putExtra("loadFragment",R.id.transaksi_produk);
+        i.putExtra("loadFragment",R.id.transaksi_layanan);
         startActivity(i);
     }
 
-    public void getProduk(){
+    public void getLayanan(){
         ApiInterface apiService=ApiClient.getClient().create(ApiInterface.class);
-        Call<readProduk> layananCall = apiService.getProduk();
-        layananCall.enqueue(new Callback<readProduk>(){
+        Call<readHargaLayanan> layananCall = apiService.getHargaLayanan();
+        layananCall.enqueue(new Callback<readHargaLayanan>(){
 
             @Override
-            public void onResponse(Call<readProduk> call, Response<readProduk> response) {
+            public void onResponse(Call<readHargaLayanan> call, Response<readHargaLayanan> response) {
                 if(response.body()!=null) {
-                    produkDAOList.addAll(response.body().getMessage());
-                    adapter = new AdapterTransLayAdd(getApplicationContext(), detailTransProList, produkDAOList);
+                    layananDAOList.addAll(response.body().getMessage());
+                    adapter = new AdapterTransLayAdd(getApplicationContext(), detailTransProList, layananDAOList);
                     myRc.setAdapter(adapter);
                 }
             }
 
             @Override
-            public void onFailure(Call<readProduk> call, Throwable t) {
+            public void onFailure(Call<readHargaLayanan> call, Throwable t) {
                 Toast.makeText(getApplicationContext(),"Masalah Koneksi",Toast.LENGTH_SHORT).show();
             }
         });

@@ -77,7 +77,7 @@ public class AdapterTransProAdd extends RecyclerView.Adapter<AdapterTransProAdd.
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView harga,subtotal,total,jumlah;
+        public TextView harga,subtotal,total,jumlah, sisa;
         public AutoCompleteTextView namaProduk;
         public Button addProduk,kurang, tambah;
         public ImageView removeBtn;
@@ -94,6 +94,7 @@ public class AdapterTransProAdd extends RecyclerView.Adapter<AdapterTransProAdd.
             kurang = itemView.findViewById(R.id.btnKurangJml);
             tambah = itemView.findViewById(R.id.btnTambahJml);
             jumlah = itemView.findViewById(R.id.jumlahbeli);
+            sisa = itemView.findViewById(R.id.sisaStok);
 
             ArrayAdapter<produkDAO> adapter = new ArrayAdapter<produkDAO>
                     (context, android.R.layout.select_dialog_item, mListProduk);
@@ -106,6 +107,7 @@ public class AdapterTransProAdd extends RecyclerView.Adapter<AdapterTransProAdd.
                     produkDAO produk = (produkDAO) adapterView.getItemAtPosition(i);
                     hargajual=produk.getHarga_jual_produk();
                     harga.setText("Rp."+hargajual);
+                    sisa.setText(String.valueOf(produk.getStok()));
                     detailProdukDAO detailProdukDAO = arrayList.get(getAdapterPosition());
                     detailProdukDAO.setId_produk(produk.getId_produk());
                     detailProdukDAO.setSubtotal_produk(detailProdukDAO.getJumlah_beli_produk()*hargajual);
@@ -124,6 +126,7 @@ public class AdapterTransProAdd extends RecyclerView.Adapter<AdapterTransProAdd.
                     if(detailProdukDAO.getJumlah_beli_produk()>0){
                         detailProdukDAO.setJumlah_beli_produk(detailProdukDAO.getJumlah_beli_produk()-1);
                         jumlah.setText(String.valueOf(detailProdukDAO.getJumlah_beli_produk()));
+                        sisa.setText(String.valueOf(Integer.parseInt(sisa.getText().toString())+1));
                         detailProdukDAO.setSubtotal_produk(detailProdukDAO.getJumlah_beli_produk()*hargajual);
                         arrayList.set(getAdapterPosition(), detailProdukDAO);
                         subtotal.setText("Rp "+detailProdukDAO.getJumlah_beli_produk()*hargajual);
@@ -140,6 +143,7 @@ public class AdapterTransProAdd extends RecyclerView.Adapter<AdapterTransProAdd.
                     detailProdukDAO detailProdukDAO = arrayList.get(getAdapterPosition());
                     detailProdukDAO.setJumlah_beli_produk(detailProdukDAO.getJumlah_beli_produk()+1);
                     jumlah.setText(String.valueOf(detailProdukDAO.getJumlah_beli_produk()));
+                    sisa.setText(String.valueOf(Integer.parseInt(sisa.getText().toString())-1));
                     detailProdukDAO.setSubtotal_produk(detailProdukDAO.getJumlah_beli_produk()*hargajual);
                     arrayList.set(getAdapterPosition(), detailProdukDAO);
                     subtotal.setText("Rp "+detailProdukDAO.getJumlah_beli_produk()*hargajual);
@@ -164,11 +168,11 @@ public class AdapterTransProAdd extends RecyclerView.Adapter<AdapterTransProAdd.
                 @Override
                 public void onClick(View view) {
                     detailProdukDAO detailProdukDAO = new detailProdukDAO();
-//                    arrayList.add(detailProdukDAO);
-                    arrayList.add(getAdapterPosition()+1,detailProdukDAO);
-//                    notifyItemInserted(g);
-//                    notifyItemRangeChanged(position, arrayList.size());
-//                    notifyDataSetChanged();
+                    arrayList.add(detailProdukDAO);
+//                    arrayList.add(getAdapterPosition(),detailProdukDAO);
+                    notifyItemInserted(getAdapterPosition());
+                    notifyItemRangeChanged(getAdapterPosition(), arrayList.size());
+                    notifyDataSetChanged();
                     addProduk.setVisibility(View.GONE);
                     total.setVisibility(View.GONE);
                 }

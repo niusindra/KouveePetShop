@@ -97,11 +97,38 @@
                     </LinearLayout>
 
                 </LinearLayout>
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="-10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:hint="Stok tersisa"
+                        android:textColor="@color/whitecolor"
+                        android:textColorHint="@color/whitecolor" />
+
+                    <TextView
+                        android:id="@+id/sisaStok"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:gravity="right"
+                        android:hint="0"
+                        android:textColor="@color/whitecolor"
+                        android:textColorHint="@color/whitecolor" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-5dp">
 
                     <TextView
                         android:layout_width="wrap_content"

@@ -62,32 +62,32 @@ public class TransaksiLayananFragment extends Fragment {
 //        setRecycleAdapter(root);
 //        setRecycleView(root);
 //
-//        fabtranspro.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                AlertDialog.Builder builder = new AlertDialog.Builder(root.getContext());
-//                builder.setMessage("Siliahkan pilih jenis member:")
-//                        .setCancelable(false)
-//                        .setPositiveButton("MEMBER", new DialogInterface.OnClickListener() {
-//                            @Override
-//                            public void onClick(DialogInterface dialogInterface, int i) {
-//                                Intent intent = new Intent(root.getContext(), transLayAdd.class);
-//                                intent.putExtra("cekMember","member");
-//                                startActivity(intent);
-//                            }
-//                        })
-//                        .setNegativeButton("NON MEMBER", new DialogInterface.OnClickListener() {
-//                            @Override
-//                            public void onClick(DialogInterface dialogInterface, int i) {
-//                                Intent intent = new Intent(root.getContext(), transLayAdd.class);
-//                                intent.putExtra("cekMember","non member");
-//                                startActivity(intent);
-//                            }
-//                        });
-//                AlertDialog alertDialog = builder.create();
-//                alertDialog.show();
-//            }
-//        });
+        fabtranspro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(root.getContext());
+                builder.setMessage("Siliahkan pilih jenis member:")
+                        .setCancelable(false)
+                        .setPositiveButton("MEMBER", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent intent = new Intent(root.getContext(), transLayAdd.class);
+                                intent.putExtra("cekMember","member");
+                                startActivity(intent);
+                            }
+                        })
+                        .setNegativeButton("NON MEMBER", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent intent = new Intent(root.getContext(), transLayAdd.class);
+                                intent.putExtra("cekMember","non member");
+                                startActivity(intent);
+                            }
+                        });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+            }
+        });
         searchTransPro.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {

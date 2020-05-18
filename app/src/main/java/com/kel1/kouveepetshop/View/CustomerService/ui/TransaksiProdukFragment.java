@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -164,6 +165,8 @@ public class TransaksiProdukFragment extends Fragment {
                     mListTransPro.addAll(response.body().getMessage());
                     recyclerView.setAdapter(recycleAdapter);
                     recycleAdapter.notifyDataSetChanged();
+                    if(mListTransPro.size()==0)
+                        Toast.makeText(root.getContext(),"Belum ada transaksi", Toast.LENGTH_LONG).show();
                 }
             }
 
@@ -188,6 +191,8 @@ public class TransaksiProdukFragment extends Fragment {
                     mListTransPro.addAll(response.body().getMessage());
                     recyclerView.setAdapter(recycleAdapterLog);
                     recycleAdapter.notifyDataSetChanged();
+                    if(mListTransPro.size()==0)
+                        Toast.makeText(root.getContext(),"Belum ada transaksi", Toast.LENGTH_LONG).show();
                 }
             }
 
