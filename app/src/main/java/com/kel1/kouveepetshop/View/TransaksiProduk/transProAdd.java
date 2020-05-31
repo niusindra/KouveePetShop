@@ -149,8 +149,11 @@ public class transProAdd extends AppCompatActivity {
                                                         @Override
                                                         public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response) {
                                                             if(response.body()!=null) {
+                                                                Toast.makeText(getApplicationContext(),response.body().toString(),Toast.LENGTH_SHORT).show();
                                                                 response.body().getMessage();
-//                                                                startActivity(new Intent(getApplicationContext(), pengadaanShow.class));
+                                                                Intent i = new Intent(transProAdd.this, CS_Dashboard.class);
+                                                                i.putExtra("loadFragment",R.id.transaksi_produk);
+                                                                startActivity(i);
                                                             }
                                                         }
 

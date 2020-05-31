@@ -3,11 +3,16 @@ package com.kel1.kouveepetshop.View.CustomerService;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.WindowManager;
+import android.view.inputmethod.EditorInfo;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.kel1.kouveepetshop.R;
+import com.kel1.kouveepetshop.SessionManager;
 import com.kel1.kouveepetshop.View.CustomerService.ui.CrudsCustomerFragment;
 import com.kel1.kouveepetshop.View.CustomerService.ui.CrudsHewanFragment;
 import com.kel1.kouveepetshop.View.CustomerService.ui.TransaksiLayananFragment;
@@ -15,6 +20,7 @@ import com.kel1.kouveepetshop.View.CustomerService.ui.TransaksiProdukFragment;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -63,15 +69,19 @@ public class CS_Dashboard extends AppCompatActivity {
                 Fragment selectedFragment = null;
                 switch (item.getItemId()) {
                     case R.id.transaksi_produk:
+                        setTitle("Transaksi Produk");
                         selectedFragment = new TransaksiProdukFragment();
                         break;
                     case R.id.transaksi_layanan:
+                        setTitle("Transaksi Layanan");
                         selectedFragment = new TransaksiLayananFragment();
                         break;
                     case R.id.cruds_customer:
+                        setTitle("Kelola Customer");
                         selectedFragment = new CrudsCustomerFragment();
                         break;
                     case R.id.cruds_hewan:
+                        setTitle("Kelola Hewan");
                         selectedFragment = new CrudsHewanFragment();
                         break;
                 }
@@ -82,11 +92,25 @@ public class CS_Dashboard extends AppCompatActivity {
                 return true;
             }
         });
+    }
 
-            //I added this if statement to keep the selected fragment when rotating the device
-//        if (savedInstanceState == null) {
-//            getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
-//                    new TransaksiProdukFragment()).commit();
-//        }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        final SessionManager session;
+        session = new SessionManager(getApplicationContext());
+        session.checkLogin();
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_search, menu);
+        MenuItem signOut = menu.findItem(R.id.signoutBtn);
+        SearchView sv = (SearchView) menu.findItem(R.id.action_search).getActionView();
+        signOut.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                session.logoutUser();
+                finish();
+                return false;
+            }
+        });
+        return true;
     }
 }

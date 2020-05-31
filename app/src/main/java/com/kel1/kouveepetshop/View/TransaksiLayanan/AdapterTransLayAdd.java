@@ -42,13 +42,15 @@ public class AdapterTransLayAdd extends RecyclerView.Adapter<AdapterTransLayAdd.
     @Override
     public void onBindViewHolder(final AdapterTransLayAdd.ViewHolder holder, final int position) {
         detailLayananDAO detailLayananDAO=arrayList.get(position);
+        hargalayananDAO hargalayananDAO= new hargalayananDAO();
         for (int i = 0; i < mListLayanan.size(); i++) {
             if(detailLayananDAO.getId_harga_layanan()==mListLayanan.get(i).getId_harga_layanan()){
-                holder.namaLayanan.setText(mListLayanan.get(i).getNama_layananHL());
-                holder.harga.setText("Rp."+mListLayanan.get(i).getId_harga_layanan());
-                holder.hargajual=mListLayanan.get(i).getId_harga_layanan();
+                hargalayananDAO = mListLayanan.get(i);
             }
         }
+        holder.namaLayanan.setText(hargalayananDAO.getNama_layananHL());
+        holder.harga.setText("Rp."+hargalayananDAO.getHarga_Layanan());
+        holder.hargajual=hargalayananDAO.getHarga_Layanan();
         holder.jumlah.setText(String.valueOf(detailLayananDAO.getJumlah_beli_layanan()));
         holder.subtotal.setText(String.valueOf(detailLayananDAO.getSubtotal_layanan()));
 

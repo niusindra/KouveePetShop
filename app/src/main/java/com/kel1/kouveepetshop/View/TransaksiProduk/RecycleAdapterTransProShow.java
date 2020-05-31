@@ -70,6 +70,17 @@ public class RecycleAdapterTransProShow extends RecyclerView.Adapter<RecycleAdap
     public void onBindViewHolder(final MyViewHolder myViewHolder, final int i) {
         final transaksiProdukDAO transaksiProdukDAO=result.get(i);
         myViewHolder.mNama.setText("ID Transaksi\t: "+transaksiProdukDAO.getId_trans_produk());
+        myViewHolder.mParent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context,transProEdit.class);
+                intent.putExtra(EXTRA_TEXT, new String[] {transaksiProdukDAO.getId_trans_produk(), transaksiProdukDAO.getNama_customer(),
+                                transaksiProdukDAO.getAlamat_customer(), transaksiProdukDAO.getTelp_customer(), transaksiProdukDAO.getNama_hewan(),
+                                transaksiProdukDAO.getJenis()});
+                intent.putExtra(EXTRA_NUMBER, new int[] {transaksiProdukDAO.getId_cs(), transaksiProdukDAO.getId_hewan()});
+                context.startActivity(intent);
+            }
+        });
 
     }
 

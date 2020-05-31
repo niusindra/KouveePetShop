@@ -111,7 +111,7 @@ public class transLayAdd extends AppCompatActivity {
 //                AlertDialog.Builder builder = new AlertDialog.Builder(transProAdd.this);
 //                total=0;
 //                detailTransProList=adapter.getArrayList();
-                for (int i = 0; i < detailTransProList.size(); i++) {
+//                for (int i = 0; i < detailTransProList.size(); i++) {
 //                    total+=detailTransProList.get(i).getSubtotal_pengadaan();
 //                    if(detailTransProList.get(i).getSatuan()==null)
 //                        cekSatuan=1;
@@ -123,7 +123,7 @@ public class transLayAdd extends AppCompatActivity {
 //                    Log.e("id_produk",String.valueOf(detailTransProList.get(i).getId_produk()));
 //                    Log.e("harga",String.valueOf(detailTransProList.get(i).getSubtotal_produk()));
 //                    Log.e("=======","========================");
-                }
+//                }
 //                if(detailTransProList.size()==0)
 //                    Toast.makeText(transProAdd.this,"Tambahkan produk terlebih dahulu!",Toast.LENGTH_LONG).show();
 //                if(cekSatuan==1)
@@ -143,7 +143,7 @@ public class transLayAdd extends AppCompatActivity {
                                         @Override
                                         public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response) {
                                             if(response.body()!=null) {
-                                                Toast.makeText(getApplicationContext(),response.body().getMessage(),Toast.LENGTH_SHORT).show();
+//                                                Toast.makeText(getApplicationContext(),response.body().getMessage(),Toast.LENGTH_SHORT).show();
                                                 ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
                                                 List<detailLayananDAO> detailLayananDAOList = adapter.getArrayList();
                                                 for (int i = 0; i < detailLayananDAOList.size(); i++) {
@@ -152,14 +152,17 @@ public class transLayAdd extends AppCompatActivity {
                                                         @Override
                                                         public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response) {
                                                             if(response.body()!=null) {
+                                                                Toast.makeText(getApplicationContext(),response.body().toString(),Toast.LENGTH_SHORT).show();
                                                                 response.body().getMessage();
-//                                                                startActivity(new Intent(getApplicationContext(), pengadaanShow.class));
+                                                                Intent i = new Intent(transLayAdd.this, CS_Dashboard.class);
+                                                                i.putExtra("loadFragment",R.id.transaksi_layanan);
+                                                                startActivity(i);
                                                             }
                                                         }
 
                                                         @Override
                                                         public void onFailure(Call<cudDataMaster> call, Throwable t) {
-                                                            Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
+                                                            Toast.makeText(getApplicationContext(),"Error22",Toast.LENGTH_SHORT).show();
                                                         }
                                                     });
                                                 }
@@ -169,7 +172,7 @@ public class transLayAdd extends AppCompatActivity {
 
                                         @Override
                                         public void onFailure(Call<cudDataMaster> call, Throwable t) {
-                                            Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(getApplicationContext(),"Error11",Toast.LENGTH_SHORT).show();
                                         }
                                     });
 

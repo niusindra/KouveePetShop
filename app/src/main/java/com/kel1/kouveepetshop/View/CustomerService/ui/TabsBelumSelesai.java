@@ -2,9 +2,12 @@ package com.kel1.kouveepetshop.View.CustomerService.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -35,16 +38,13 @@ public class TabsBelumSelesai extends Fragment {
     private RecyclerView recyclerView;
     private RecycleAdapterTransLayShow recycleAdapter;
     private RecycleAdapterTransLayShowLog recycleAdapterLog;
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View root = inflater.inflate(R.layout.tabs_belumselesai_fragment, container, false);
-
         mListTransLay =new ArrayList<>();
         setRecycleAdapter(root);
         setRecycleView(root);
-
         return root;
     }
 
@@ -132,5 +132,9 @@ public class TabsBelumSelesai extends Fragment {
                 startActivity(intent);
             }
         });
+    }
+
+    public RecycleAdapterTransLayShow getRecycleAdapter() {
+        return recycleAdapter;
     }
 }

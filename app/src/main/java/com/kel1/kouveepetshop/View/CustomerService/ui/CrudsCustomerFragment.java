@@ -1,10 +1,15 @@
 package com.kel1.kouveepetshop.View.CustomerService.ui;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -15,6 +20,9 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
+import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -41,14 +49,12 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class CrudsCustomerFragment extends Fragment {
-    private Switch aSwitch;
+public class CrudsCustomerFragment extends Fragment{
     private List<customerDAO> mListCustomer=new ArrayList<>();
     private RecyclerView recyclerView;
     private RecycleAdapter recycleAdapter;
     private RecycleAdapterLog recycleAdapterLog;
     private RecyclerView.LayoutManager layoutManager;
-    private EditText searchCustomer;
     private FloatingActionButton fab;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -66,38 +72,7 @@ public class CrudsCustomerFragment extends Fragment {
 
         mListCustomer=new ArrayList<>();
         setRecycleAdapter(root);
-        searchCustomer = root.findViewById(R.id.CS_searchCustomer);
-
-        searchCustomer.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                filter(editable.toString());
-            }
-        });
         setRecycleView(root);
-        aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(b){
-                    setRecycleViewLog(root);
-                }else{
-                    setRecycleView(root);
-                }
-            }
-        });
-        if(aSwitch.isChecked()){
-            setRecycleViewLog(root);
-        }
 
         return root;
     }
@@ -171,8 +146,30 @@ public class CrudsCustomerFragment extends Fragment {
         });
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+//        inflater.inflate(R.menu.menu_search, menu);
+        MenuItem item = menu.findItem(R.id.action_search);
+        SearchView sv = (SearchView) item.getActionView();
+//        sv.setOnQueryTextListener(this);
+        MenuItemCompat.setShowAsAction(item, MenuItemCompat.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW | MenuItemCompat.SHOW_AS_ACTION_IF_ROOM);
+        MenuItemCompat.setActionView(item, sv);
+        sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filter(newText);
+                return false;
+            }
+        });
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
     public void setAtribut(View root) {
         fab = root.findViewById(R.id.CS_fab_customer);
-        aSwitch = root.findViewById(R.id.CS_switchLogCust);
     }
 }

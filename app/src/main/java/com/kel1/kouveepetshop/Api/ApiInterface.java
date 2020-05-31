@@ -5,6 +5,8 @@ import com.kel1.kouveepetshop.DAO.hargalayananDAO;
 import com.kel1.kouveepetshop.Respon.cudDataMaster;
 import com.kel1.kouveepetshop.Respon.readCustomer;
 import com.kel1.kouveepetshop.Respon.readDetailPengadaan;
+import com.kel1.kouveepetshop.Respon.readDetailTransLay;
+import com.kel1.kouveepetshop.Respon.readDetailTransPro;
 import com.kel1.kouveepetshop.Respon.readHargaLayanan;
 import com.kel1.kouveepetshop.Respon.readHewan;
 import com.kel1.kouveepetshop.Respon.readJenisHewan;
@@ -58,9 +60,9 @@ public interface ApiInterface {
     @GET("detailpengadaan/{id}")
     Call<readDetailPengadaan> getDetailPengadaan(@Path("id")String id);
     @GET("detailtl/{id}")
-    Call<readTransLay> getDetailLayanan(@Path("id")String id);
+    Call<readDetailTransLay> getDetailLayanan(@Path("id")String id);
     @GET("detailtp/{id}")
-    Call<readTransPro> getDetailProduk(@Path("id")String id);
+    Call<readDetailTransPro> getDetailProduk(@Path("id")String id);
     @GET("produk/bysupplier/{id}")
     Call<readProduk> getProdukbySupplier(@Path("id")int id);
 
@@ -189,14 +191,14 @@ public interface ApiInterface {
 
     @POST("detailtp/")
     @FormUrlEncoded
-    Call<cudDataMaster> addDetailTransPro(@Field("id_trans_produk")String id_pengadaan,
+    Call<cudDataMaster> addDetailTransPro(@Field("id_trans_produk")String id_trans_produk,
                                           @Field("id_produk")int id_produk,
                                           @Field("jumlah_beli_produk")int jumlah_beli_produk);
 
     @POST("detailtl/")
     @FormUrlEncoded
-    Call<cudDataMaster> addDetailTransLay(@Field("id_trans_layanan")String id_pengadaan,
-                                          @Field("id_harga_layanan")int id_produk,
+    Call<cudDataMaster> addDetailTransLay(@Field("id_trans_layanan")String id_trans_layanan,
+                                          @Field("id_harga_layanan")int id_harga_layanan,
                                           @Field("jumlah_beli_layanan")int jumlah_beli_layanan);
 
     @POST("device/")
@@ -271,12 +273,25 @@ public interface ApiInterface {
     Call<cudDataMaster> editPengadaan(@Path("id")String id,
                                       @Field("status_pengadaan")String status_pengadaan);
 
+    @POST("transaksiproduk/{id}")
+    @FormUrlEncoded
+    Call<cudDataMaster> editTransPro(@Path("id")String id,
+                                     @Field("id_hewan")int id_hewan,
+                                     @Field("status_penjualan_produk")String status_penjualan_produk,
+                                     @Field("transproduk_edited_by")String transproduk_edited_by);
+
     @POST("detailpengadaan/{id}")
     @FormUrlEncoded
     Call<cudDataMaster> editDetailPengadaan(@Path("id")int id,
                                             @Field("id_produk")int id_produk,
                                             @Field("satuan")String satuan,
                                            @Field("jml_pengadaan_produk")int jml_pengadaan_produk);
+
+    @POST("detailtp/{id}")
+    @FormUrlEncoded
+    Call<cudDataMaster> editDetailTransPro(@Path("id")int id,
+                                           @Field("id_produk")int id_produk,
+                                           @Field("jumlah_beli_produk")int jumlah_beli_produk);
 
 //    =============================DELETE========================================================
     @POST("customer/delete/{id}")
@@ -301,6 +316,14 @@ public interface ApiInterface {
     Call<cudDataMaster> deleteSupplier(@Path("id")int id);
     @POST("pengadaan/delete/{id}")
     Call<cudDataMaster> deletePengadaan(@Path("id")String id);
+    @POST("transaksiproduk/delete/{id}")
+    @FormUrlEncoded
+    Call<cudDataMaster> deleteTransPro(@Path("id")String id,
+                                       @Field("transproduk_deleted_by")String transproduk_deleted_by);
+    @POST("transaksilayanan/delete/{id}")
+    @FormUrlEncoded
+    Call<cudDataMaster> deleteTransLay(@Path("id")String id,
+                                       @Field("translay_deleted_by")String translay_deleted_by);
     @DELETE("detailpengadaan/{id}")
     Call<cudDataMaster> deleteDetailPengadaan(@Path("id")int id);
 }

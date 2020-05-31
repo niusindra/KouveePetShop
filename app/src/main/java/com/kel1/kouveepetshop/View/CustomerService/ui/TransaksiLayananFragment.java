@@ -46,22 +46,18 @@ import retrofit2.Response;
 
 public class TransaksiLayananFragment extends Fragment {
     FloatingActionButton fabtranspro;
-    private Switch aSwitch;
-    private List<transaksiLayananDAO> mListTransLay =new ArrayList<>();
-    private RecyclerView recyclerView;
-    private RecycleAdapterTransLayShow recycleAdapter;
-    private RecycleAdapterTransLayShowLog recycleAdapterLog;
-    private EditText searchTransPro;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         final View root = inflater.inflate(R.layout.fragment_transaksi_layanan, container, false);
 
         setAtribut(root);
-//
-//        mListTransLay =new ArrayList<>();
-//        setRecycleAdapter(root);
-//        setRecycleView(root);
-//
+
+        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(root.getContext(), getChildFragmentManager());
+        ViewPager viewPager = root.findViewById(R.id.view_pager);
+        viewPager.setAdapter(sectionsPagerAdapter);
+        TabLayout tabs = root.findViewById(R.id.tabs);
+        tabs.setupWithViewPager(viewPager);
+
         fabtranspro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,80 +84,10 @@ public class TransaksiLayananFragment extends Fragment {
                 alertDialog.show();
             }
         });
-        searchTransPro.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                TabsBelumSelesai tb = new TabsBelumSelesai();
-                tb.filter(editable.toString());
-            }
-        });
-//        setRecycleView(root);
-//        aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-//                if(b){
-//                    setRecycleViewLog(root);
-//                }else{
-//                    setRecycleView(root);
-//                }
-//            }
-//        });
-//        if(aSwitch.isChecked()){
-//            setRecycleViewLog(root);
-//        }else{
-//            setRecycleView(root);
-//        }
-
-
-        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(root.getContext(), getChildFragmentManager());
-        ViewPager viewPager = root.findViewById(R.id.view_pager);
-        viewPager.setAdapter(sectionsPagerAdapter);
-        TabLayout tabs = root.findViewById(R.id.tabs);
-        tabs.setupWithViewPager(viewPager);
-
         return root;
-    }
-
-
-    private void filter(String text) {
-
-        List<transaksiLayananDAO> filteredList ,temp;
-        filteredList = new ArrayList<>();
-        temp = recycleAdapter.getResult();
-        for (transaksiLayananDAO item : temp) {
-            if (item.getId_trans_layanan().toLowerCase().contains(text.toLowerCase())) {
-                filteredList.add(item);
-            }
-        }
-
-        recycleAdapter.filterList(filteredList);
-        recycleAdapterLog.filterList(filteredList);
-    }
-    private void setListPengadaan(String text) {
-        List<transaksiLayananDAO> filteredList = new ArrayList<>();
-        for (transaksiLayananDAO item : mListTransLay) {
-            if (item.getId_trans_layanan().equalsIgnoreCase(text)) {
-                filteredList.add(item);
-            }
-        }
-
-        recycleAdapter.setResult(filteredList);
-        recycleAdapterLog.setResult(filteredList);
     }
 
     public void setAtribut(View root) {
         fabtranspro = root.findViewById(R.id.CS_fab_translay);
-        aSwitch = root.findViewById(R.id.CS_switchLog_translay);
-        searchTransPro = root.findViewById(R.id.CS_search_translay);
     }
 }

@@ -7,7 +7,7 @@ import com.kel1.kouveepetshop.DAO.detailProdukDAO;
 
 import java.util.List;
 
-public class readDetailProduk {
+public class readDetailTransPro {
 
     @SerializedName("error")
     @Expose

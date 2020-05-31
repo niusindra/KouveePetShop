@@ -1,12 +1,15 @@
 package com.kel1.kouveepetshop.View.CustomerService.ui;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
@@ -15,6 +18,12 @@ import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.view.menu.MenuAdapter;
+import androidx.appcompat.view.menu.MenuView;
+import androidx.appcompat.widget.SearchView;
+import androidx.core.view.MenuCompat;
+import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -26,7 +35,7 @@ import com.kel1.kouveepetshop.Api.ApiInterface;
 import com.kel1.kouveepetshop.DAO.transaksiProdukDAO;
 import com.kel1.kouveepetshop.R;
 import com.kel1.kouveepetshop.Respon.readTransPro;
-import com.kel1.kouveepetshop.View.Pengadaan.pengadaanShow;
+import com.kel1.kouveepetshop.View.CustomerService.CS_Dashboard;
 import com.kel1.kouveepetshop.View.TransaksiProduk.RecycleAdapterTransProShowLog;
 import com.kel1.kouveepetshop.View.TransaksiProduk.RecycleAdapterTransProShow;
 import com.kel1.kouveepetshop.View.ErrorCatch;
@@ -39,21 +48,22 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class TransaksiProdukFragment extends Fragment {
-    FloatingActionButton fabtranspro;
+public class TransaksiProdukFragment extends Fragment implements SearchView.OnQueryTextListener{
+    private FloatingActionButton fabtranspro;
     private Switch aSwitch;
-    private List<transaksiProdukDAO> mListTransPro =new ArrayList<>();
+    private List<transaksiProdukDAO> mListTransPro;
     private RecyclerView recyclerView;
     private RecycleAdapterTransProShow recycleAdapter;
     private RecycleAdapterTransProShowLog recycleAdapterLog;
-    private EditText searchTransPro;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         final View root = inflater.inflate(R.layout.fragment_transaksi_produk, container, false);
 
+        setHasOptionsMenu(true);
         setAtribut(root);
 
-        mListTransPro =new ArrayList<>();
+        mListTransPro = new ArrayList<>();
         setRecycleAdapter(root);
         setRecycleView(root);
 
@@ -83,47 +93,14 @@ public class TransaksiProdukFragment extends Fragment {
                 alertDialog.show();
             }
         });
-        searchTransPro.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                filter(editable.toString());
-            }
-        });
         setRecycleView(root);
-        aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(b){
-                    setRecycleViewLog(root);
-                }else{
-                    setRecycleView(root);
-                }
-            }
-        });
-        if(aSwitch.isChecked()){
-            setRecycleViewLog(root);
-        }else{
-            setRecycleView(root);
-        }
 
         return root;
     }
     private void filter(String text) {
-
-        List<transaksiProdukDAO> filteredList ,temp;
+        List<transaksiProdukDAO> filteredList;
         filteredList = new ArrayList<>();
-        temp = recycleAdapter.getResult();
-        for (transaksiProdukDAO item : temp) {
+        for (transaksiProdukDAO item : mListTransPro) {
             if (item.getId_trans_produk().toLowerCase().contains(text.toLowerCase())) {
                 filteredList.add(item);
             }
@@ -153,7 +130,6 @@ public class TransaksiProdukFragment extends Fragment {
     }
 
     private void setRecycleView(final View root){
-
         ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
         Call<readTransPro> pengadaanCallCall = apiService.getTransPro();
         pengadaanCallCall.enqueue(new Callback<readTransPro>(){
@@ -206,7 +182,26 @@ public class TransaksiProdukFragment extends Fragment {
 
     public void setAtribut(View root) {
         fabtranspro = root.findViewById(R.id.CS_fab_transpro);
-        aSwitch = root.findViewById(R.id.CS_switchLog_transpro);
-        searchTransPro = root.findViewById(R.id.CS_search_transpro);
+//        searchTransPro = root.findViewById(R.id.CS_search_transpro);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+//        inflater.inflate(R.menu.menu_search, menu);
+        MenuItem item = menu.findItem(R.id.action_search);
+        SearchView sv = (SearchView) item.getActionView();
+        sv.setOnQueryTextListener(this);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        filter(newText);
+        return false;
     }
 }

@@ -1,10 +1,15 @@
 package com.kel1.kouveepetshop.View.CustomerService.ui;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
@@ -15,6 +20,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -39,21 +46,21 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class CrudsHewanFragment extends Fragment {
-    public ImageView back;
-    public Switch aSwitch;
+public class CrudsHewanFragment extends Fragment implements SearchView.OnQueryTextListener{
+    private ImageView back;
+    private Switch aSwitch;
     private List<hewanDAO> mListCustomer;
     private RecyclerView recyclerView;
     private RecycleAdapterHewan recycleAdapter;
     private RecycleAdapterHewanLog recycleAdapterHewanLog;
     private RecyclerView.LayoutManager layoutManager;
-    private EditText searchCustomer;
     private FloatingActionButton fab;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         final View root = inflater.inflate(R.layout.fragment_cruds_hewan, container, false);
 
+        setHasOptionsMenu(true);
         setAtribut(root);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,36 +70,7 @@ public class CrudsHewanFragment extends Fragment {
         });
         mListCustomer=new ArrayList<>();
         setRecycleAdapter(root);
-        searchCustomer.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                filter(editable.toString());
-            }
-        });
         setRecycleView(root);
-        aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(b){
-                    setRecycleViewLog(root);
-                }else{
-                    setRecycleView(root);
-                }
-            }
-        });
-        if(aSwitch.isChecked()){
-            setRecycleViewLog(root);
-        }
 
         return root;
     }
@@ -161,14 +139,34 @@ public class CrudsHewanFragment extends Fragment {
             }
         });
     }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+//        inflater.inflate(R.menu.menu_search, menu);
+        MenuItem item = menu.findItem(R.id.action_search);
+        SearchView sv = (SearchView) item.getActionView();
+        sv.setOnQueryTextListener(this);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        filter(newText);
+        return false;
+    }
+
 //    public void onBackPressed() {
 //        super.onBackPressed();
 //        Intent intent=new Intent(getApplicationContext(), hewanMain.class);
 //        startActivity(intent);
 //    }
     public void setAtribut(View root) {
-        aSwitch = root.findViewById(R.id.CS_switchLogHewan);
-        searchCustomer = root.findViewById(R.id.CS_searchHewan);
+//        searchCustomer = root.findViewById(R.id.CS_searchHewan);
         fab = root.findViewById(R.id.CS_fab_hewan);
     }
 }

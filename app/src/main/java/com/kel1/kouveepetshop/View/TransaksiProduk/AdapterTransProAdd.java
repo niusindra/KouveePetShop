@@ -44,15 +44,18 @@ public class AdapterTransProAdd extends RecyclerView.Adapter<AdapterTransProAdd.
     @Override
     public void onBindViewHolder(final AdapterTransProAdd.ViewHolder holder, final int position) {
         detailProdukDAO detailProdukDAO=arrayList.get(position);
+        produkDAO produkDAO = new produkDAO();
         for (int i = 0; i < mListProduk.size(); i++) {
             if(detailProdukDAO.getId_produk()==mListProduk.get(i).getId_produk()){
-                holder.namaProduk.setText(mListProduk.get(i).getNama_produk());
-                holder.harga.setText("Rp."+mListProduk.get(i).getHarga_jual_produk());
-                holder.hargajual=mListProduk.get(i).getHarga_jual_produk();
+                produkDAO = mListProduk.get(i);
             }
         }
+        holder.namaProduk.setText(produkDAO.getNama_produk());
+        holder.harga.setText("Rp."+produkDAO.getHarga_jual_produk());
+        holder.hargajual=produkDAO.getHarga_jual_produk();
         holder.jumlah.setText(String.valueOf(detailProdukDAO.getJumlah_beli_produk()));
         holder.subtotal.setText(String.valueOf(detailProdukDAO.getSubtotal_produk()));
+        holder.sisa.setText(String.valueOf(produkDAO.getStok()-detailProdukDAO.getJumlah_beli_produk()));
 
         if(position==arrayList.size()-1){
             holder.addProduk.setVisibility(View.VISIBLE);
@@ -143,7 +146,8 @@ public class AdapterTransProAdd extends RecyclerView.Adapter<AdapterTransProAdd.
                     detailProdukDAO detailProdukDAO = arrayList.get(getAdapterPosition());
                     detailProdukDAO.setJumlah_beli_produk(detailProdukDAO.getJumlah_beli_produk()+1);
                     jumlah.setText(String.valueOf(detailProdukDAO.getJumlah_beli_produk()));
-                    sisa.setText(String.valueOf(Integer.parseInt(sisa.getText().toString())-1));
+                    if(Integer.parseInt(sisa.getText().toString())>0)
+                        sisa.setText(String.valueOf(Integer.parseInt(sisa.getText().toString())-1));
                     detailProdukDAO.setSubtotal_produk(detailProdukDAO.getJumlah_beli_produk()*hargajual);
                     arrayList.set(getAdapterPosition(), detailProdukDAO);
                     subtotal.setText("Rp "+detailProdukDAO.getJumlah_beli_produk()*hargajual);
@@ -158,6 +162,8 @@ public class AdapterTransProAdd extends RecyclerView.Adapter<AdapterTransProAdd.
                     arrayList.remove(arrayList.get(getAdapterPosition()));
                     namaProduk.setText("");
                     harga.setText("Rp.0");
+                    if(arrayList.size()==0)
+                        addProduk.setVisibility(View.VISIBLE);
                     notifyItemRemoved(getAdapterPosition());
                     notifyItemRangeChanged(getAdapterPosition(), arrayList.size());
                     notifyDataSetChanged();

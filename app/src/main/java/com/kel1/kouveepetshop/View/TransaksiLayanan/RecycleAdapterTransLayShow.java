@@ -7,25 +7,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.kel1.kouveepetshop.Api.ApiClient;
-import com.kel1.kouveepetshop.Api.ApiInterface;
 import com.kel1.kouveepetshop.DAO.detailLayananDAO;
 import com.kel1.kouveepetshop.DAO.transaksiLayananDAO;
 import com.kel1.kouveepetshop.R;
-import com.kel1.kouveepetshop.Respon.cudDataMaster;
-import com.kel1.kouveepetshop.Respon.readDetailLayanan;
-import com.kel1.kouveepetshop.Respon.readDetailPengadaan;
 
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class RecycleAdapterTransLayShow extends RecyclerView.Adapter<RecycleAdapterTransLayShow.MyViewHolder>{
     private Context context;
