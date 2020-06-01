@@ -47,7 +47,7 @@ public class transProAdd extends AppCompatActivity {
     private RecyclerView myRc;
     private Button btnAddTransPro, btnaddProduk;
     private int total;
-    private int id_hewan;
+    private int id_hewan=0;
     private String intentExtra;
     private SessionManager session;
 
@@ -74,7 +74,6 @@ public class transProAdd extends AppCompatActivity {
         }
         session = new SessionManager(getApplicationContext());
         final HashMap<String, String> userDetails = session.getUserDetails();
-
         cari.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -239,7 +238,7 @@ public class transProAdd extends AppCompatActivity {
                 if(response.body()!=null) {
                     hewanDAOList.addAll(response.body().getMessage());
                     ArrayAdapter<hewanDAO> adapter = new ArrayAdapter<hewanDAO>
-                            (getApplicationContext(), android.R.layout.select_dialog_item, hewanDAOList);
+                            (transProAdd.this, R.layout.autocomplete_adapter, R.id.item, hewanDAOList);
                     cari.setThreshold(0); //will start working from first character
                     cari.setAdapter(adapter);
                 }

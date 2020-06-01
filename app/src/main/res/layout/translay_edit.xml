@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:padding="10dp"
     android:background="@drawable/background_style"
-    tools:context=".View.TransaksiProduk.transProEdit">
+    tools:context=".View.TransaksiLayanan.transLayEdit">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -123,7 +123,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Rincian Pembelian Produk"
+                    android:text="Rincian Pembelian Layanan"
                     android:layout_margin="5dp"
                     android:textStyle="bold"/>
                 <TextView
@@ -136,18 +136,18 @@
                     android:gravity="right"/>
             </LinearLayout>
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/RC_transpro"
+                android:id="@+id/RC_translay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"/>
 
             <Button
-                android:id="@+id/btnTambahProduk"
+                android:id="@+id/btnTambahLayanan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
-                android:hint="Tambah Produk"
+                android:hint="Tambah Layanan"
                 android:visibility="gone"/>
 
         </LinearLayout>
@@ -201,12 +201,20 @@
             android:layout_height="wrap_content"
             android:gravity="center">
             <Button
-                android:id="@+id/btnDelTransPro"
+                android:id="@+id/btnDelTransLay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
                 android:hint="Hapus Transaksi" />
+            <Button
+                android:id="@+id/btnSelesaiLay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:hint="Layanan Selesai"
+                android:visibility="gone"/>
 
         </LinearLayout>
     </LinearLayout>

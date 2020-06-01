@@ -129,6 +129,8 @@
             android:theme="@style/NoAB"/>
         <activity android:name=".View.TransaksiLayanan.transLayAdd"
             android:theme="@style/NoAB"/>
+        <activity android:name=".View.TransaksiLayanan.transLayEdit"
+            android:theme="@style/NoAB"/>
 
         <service
             android:name=".Notification.MyFirebaseMessagingService"

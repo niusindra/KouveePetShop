@@ -1,6 +1,7 @@
 package com.kel1.kouveepetshop.View.TransaksiLayanan;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,8 +46,7 @@ public class RecycleAdapterTransLayShow extends RecyclerView.Adapter<RecycleAdap
             super(itemView);
             mNama=itemView.findViewById(R.id.RC_Pengadaan_Name);
             mTanggal=itemView.findViewById(R.id.RC_tglPengadaan);
-            mTotal=itemView.findViewById(R.id.RC_totalPengadaan);
-            mStatus=itemView.findViewById(R.id.RC_statusPengadaan);
+            mTotal=itemView.findViewById(R.id.RC_hewan2);
             mParent=itemView.findViewById(R.id.RC_Pengadaan_Event_Parent);
             context = itemView.getContext();
         }
@@ -56,6 +56,17 @@ public class RecycleAdapterTransLayShow extends RecyclerView.Adapter<RecycleAdap
     public void onBindViewHolder(final MyViewHolder myViewHolder, final int i) {
         final transaksiLayananDAO transaksiLayananDAO=result.get(i);
         myViewHolder.mNama.setText("ID Transaksi\t: "+transaksiLayananDAO.getId_trans_layanan());
+        myViewHolder.mTanggal.setText("Tanggal Transaksi\t: "+transaksiLayananDAO.getTanggal_trans_layanan());
+        myViewHolder.mTotal.setText("Hewan\t: "+transaksiLayananDAO.getNama_hewan()+"-"+transaksiLayananDAO.getJenis());
+        myViewHolder.mParent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context,transLayEdit.class);
+                intent.putExtra(EXTRA_TEXT, new String[] {transaksiLayananDAO.getId_trans_layanan()});
+                intent.putExtra(EXTRA_NUMBER, new int[] {transaksiLayananDAO.getId_cs(), transaksiLayananDAO.getId_hewan()});
+                context.startActivity(intent);
+            }
+        });
 
     }
 
@@ -77,42 +88,6 @@ public class RecycleAdapterTransLayShow extends RecyclerView.Adapter<RecycleAdap
     public List<transaksiLayananDAO> getResult() {
         return result;
     }
-
-//    private void getDetailPengadaan(final String idpengadaan){
-//        ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
-//        Call<readDetailLayanan> layananCall = apiService.getDetailLayanan(idpengadaan);
-//        layananCall.enqueue(new Callback<readDetailLayanan>(){
-//
-//            @Override
-//            public void onResponse(Call<readDetailLayanan> call, Response<readDetailLayanan> response) {
-//                if(response.body()!=null) {
-//                    detailLayananList = response.body().getMessage();
-//                    ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
-//                    for (int i = 0; i < detailLayananList.size(); i++) {
-//                        Call<cudDataMaster> detailLayananCall = apiService.pengadaanProduk(detailLayananList.get(i).getId_produk(),
-//                                detailLayananList.get(i).getJml_pengadaan_produk());
-//                        detailLayananCall.enqueue(new Callback<cudDataMaster>(){
-//                            @Override
-//                            public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response) {
-//                                if(response.body()!=null) {
-//                                    response.body().getMessage();
-//                                }
-//                            }
-//
-//                            @Override
-//                            public void onFailure(Call<cudDataMaster> call, Throwable t) {
-//                                Toast.makeText(context,"Error",Toast.LENGTH_SHORT).show();
-//                            }
-//                        });
-//                    }
-//                }
-//            }
-//            @Override
-//            public void onFailure(Call<readDetailLayanan> call, Throwable t) {
-//                Toast.makeText(context,"Error",Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//    }
 
 
 }

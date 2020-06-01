@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -46,7 +47,7 @@ public class AdapterTransProShow extends RecyclerView.Adapter<AdapterTransProSho
         holder.namaProduk.setText(produkDAO.getNama_produk());
         holder.harga.setText("Rp."+produkDAO.getHarga_jual_produk());
         holder.hargajual=produkDAO.getHarga_jual_produk();
-        holder.jumlah.setText(String.valueOf(detailProdukDAO.getJumlah_beli_produk()));
+        holder.jumlah.setText("x"+String.valueOf(detailProdukDAO.getJumlah_beli_produk()));
         holder.subtotal.setText(String.valueOf(detailProdukDAO.getSubtotal_produk()));
 
         if(arrayList.size()>0 && position==arrayList.size()-1){

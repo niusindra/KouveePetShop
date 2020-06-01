@@ -1,6 +1,8 @@
 package com.kel1.kouveepetshop.View.TransaksiProduk;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -14,14 +16,22 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.kel1.kouveepetshop.Api.ApiClient;
+import com.kel1.kouveepetshop.Api.ApiInterface;
 import com.kel1.kouveepetshop.DAO.detailProdukDAO;
 import com.kel1.kouveepetshop.DAO.produkDAO;
 import com.kel1.kouveepetshop.R;
+import com.kel1.kouveepetshop.Respon.cudDataMaster;
 
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class AdapterTransProAdd extends RecyclerView.Adapter<AdapterTransProAdd.ViewHolder>{
     private Context context;
@@ -100,7 +110,7 @@ public class AdapterTransProAdd extends RecyclerView.Adapter<AdapterTransProAdd.
             sisa = itemView.findViewById(R.id.sisaStok);
 
             ArrayAdapter<produkDAO> adapter = new ArrayAdapter<produkDAO>
-                    (context, android.R.layout.select_dialog_item, mListProduk);
+                    (context, R.layout.autocomplete_adapter, R.id.item, mListProduk);
             namaProduk.setAdapter(adapter);
 
             harga.setText("Rp.0");
@@ -159,14 +169,55 @@ public class AdapterTransProAdd extends RecyclerView.Adapter<AdapterTransProAdd.
             removeBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    arrayList.remove(arrayList.get(getAdapterPosition()));
-                    namaProduk.setText("");
-                    harga.setText("Rp.0");
-                    if(arrayList.size()==0)
-                        addProduk.setVisibility(View.VISIBLE);
-                    notifyItemRemoved(getAdapterPosition());
-                    notifyItemRangeChanged(getAdapterPosition(), arrayList.size());
-                    notifyDataSetChanged();
+                    detailProdukDAO detailProdukDAO = arrayList.get(getAdapterPosition());
+                    if(detailProdukDAO.getId_detail_produk()!=0){
+                        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                        builder.setMessage("Anda yakin menghapus produk ini?")
+                                .setCancelable(false)
+                                .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
+                                        Call<cudDataMaster> pengadaanCall = apiService.deleteDetailPTransPro(arrayList.get(getAdapterPosition()).getId_detail_produk());
+                                        pengadaanCall.enqueue(new Callback<cudDataMaster>(){
+                                            @Override
+                                            public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response) {
+                                                if(response.body()!=null) {
+                                                    Toast.makeText(context,response.body().getMessage(),Toast.LENGTH_SHORT).show();
+                                                }
+                                            }
+
+                                            @Override
+                                            public void onFailure(Call<cudDataMaster> call, Throwable t) {
+                                                Toast.makeText(context,"Error",Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
+
+                                        arrayList.remove(arrayList.get(getAdapterPosition()));
+
+                                        notifyItemRemoved(getAdapterPosition());
+                                        notifyItemRangeChanged(getAdapterPosition(), arrayList.size());
+                                        notifyDataSetChanged();
+                                    }
+                                })
+                                .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        dialogInterface.cancel();
+                                    }
+                                });
+                        AlertDialog alertDialog = builder.create();
+                        alertDialog.show();
+                    }else{
+                        arrayList.remove(arrayList.get(getAdapterPosition()));
+                        namaProduk.setText("");
+                        harga.setText("Rp.0");
+                        if(arrayList.size()==0)
+                            addProduk.setVisibility(View.VISIBLE);
+                        notifyItemRemoved(getAdapterPosition());
+                        notifyItemRangeChanged(getAdapterPosition(), arrayList.size());
+                        notifyDataSetChanged();
+                    }
                 }
             });
 

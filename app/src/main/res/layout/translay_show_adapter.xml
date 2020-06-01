@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     app:cardUseCompatPadding="true"
     android:background="@drawable/main_gradient"
-    tools:context=".View.TransaksiLayanan.AdapterTransLayAdd">
+    tools:context=".View.TransaksiProduk.AdapterTransProAdd">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,7 +20,7 @@
             android:background="@drawable/main_gradient">
 
             <LinearLayout
-                android:layout_width="320dp"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/main_gradient"
                 android:orientation="vertical"
@@ -28,81 +28,30 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
-                        android:gravity="center"
-                        android:hint="Nama Layanan"
-                        android:textColorHint="@color/whitecolor" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="25dp"
-                        android:gravity="right"
-                        android:hint="Jumlah Beli"
-                        android:textColorHint="@color/whitecolor" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <AutoCompleteTextView
+                    <TextView
                         android:id="@+id/namaLayanan"
                         android:layout_width="205dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:completionThreshold="1"
-                        android:imeOptions="actionDone"
-                        android:inputType="text"
-                        android:singleLine="false"
-                        android:dropDownHeight="150dp"/>
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:text="Nama" />
 
-                    <LinearLayout
+                    <TextView
+                        android:id="@+id/jumlahbeli"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="5dp"
-                        android:gravity="right">
-
-                        <Button
-                            android:id="@+id/btnKurangJml"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:layout_gravity="center"
-                            android:text="-" />
-
-                        <TextView
-                            android:id="@+id/jumlahbeli"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_margin="10dp"
-                            android:text="0" />
-
-                        <Button
-                            android:id="@+id/btnTambahJml"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:layout_gravity="center"
-                            android:text="+" />
-
-                    </LinearLayout>
+                        android:layout_margin="10dp"
+                        android:gravity="right"
+                        android:text="0" />
 
                 </LinearLayout>
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="-10dp">
+                    android:layout_marginTop="-5dp">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -160,17 +109,6 @@
 
 
             </LinearLayout>
-            <ImageView
-                android:layout_width="2dp"
-                android:layout_height="match_parent"
-                android:background="@color/whitecolor"/>
-            <ImageView
-                android:id="@+id/btnHapus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/ic_delete_white_24dp"/>
         </LinearLayout>
         <TextView
             android:id="@+id/total"

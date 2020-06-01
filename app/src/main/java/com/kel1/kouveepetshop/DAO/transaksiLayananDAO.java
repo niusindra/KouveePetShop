@@ -24,11 +24,20 @@ public class transaksiLayananDAO {
     @SerializedName("nama_hewan")
     private  String nama_hewan;
 
+    @SerializedName("jenis")
+    private  String jenis;
+
     @SerializedName("id_customer")
     private  int id_customer;
 
     @SerializedName("nama_customer")
     private  String nama_customer;
+
+    @SerializedName("alamat_customer")
+    private  String alamat_customer;
+
+    @SerializedName("telp_customer")
+    private  String telp_customer;
 
     @SerializedName("tanggal_trans_layanan")
     private  String tanggal_trans_layanan;
@@ -136,5 +145,15 @@ public class transaksiLayananDAO {
         return translay_deleted_by;
     }
 
+    public String getJenis() {
+        return jenis;
+    }
 
+    public String getAlamat_customer() {
+        return alamat_customer;
+    }
+
+    public String getTelp_customer() {
+        return telp_customer;
+    }
 }

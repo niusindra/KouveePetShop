@@ -5,7 +5,8 @@
     android:id="@+id/RC_Pengadaan_cardView"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_marginBottom="10dp">
+    android:layout_marginBottom="10dp"
+    tools:context=".View.TransaksiProduk.RecycleAdapterTransProShow">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,7 +16,7 @@
         <LinearLayout
             android:id="@+id/RC_Pengadaan_Event_Parent"
             android:layout_width="match_parent"
-            android:layout_height="130dp"
+            android:layout_height="85dp"
             android:layout_gravity="center"
             android:background="@color/whitecolor"
             android:orientation="horizontal">
@@ -36,7 +37,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="207dp"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
@@ -61,19 +62,11 @@
                     android:textColor="@color/blackcolor"/>
 
                 <TextView
-                    android:id="@+id/RC_totalPengadaan"
+                    android:id="@+id/RC_hewan1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:hint="total adaan"
-                    android:textColor="@color/blackcolor"/>
-
-                <TextView
-                    android:id="@+id/RC_statusPengadaan"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="serif"
-                    android:hint="status"
                     android:textColor="@color/blackcolor"/>
 
 

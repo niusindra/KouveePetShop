@@ -90,6 +90,8 @@ public interface ApiInterface {
     Call<readTransPro> getTransProLog();
 
 
+    @GET("transaksilayanan/konfirmasiselesai/{id}")
+    Call<cudDataMaster> konfirmasiSelesai(@Path("id")String id);
 
 //    =============================SEARCH========================================================
     @GET("customer/{id}")
@@ -108,6 +110,10 @@ public interface ApiInterface {
     Call<customerDAO> getUkuranHewan(@Path("id")int id);
     @GET("supplier/{id}")
     Call<customerDAO> getSupplier(@Path("id")int id);
+    @GET("transaksiproduk/{id}")
+    Call<readTransPro> getTransPro(@Path("id")String id);
+    @GET("transaksilayanan/{id}")
+    Call<readTransLay> getTransLay(@Path("id")String id);
 
 //    =============================CREATE========================================================
     @POST("pegawai/verify")
@@ -326,4 +332,8 @@ public interface ApiInterface {
                                        @Field("translay_deleted_by")String translay_deleted_by);
     @DELETE("detailpengadaan/{id}")
     Call<cudDataMaster> deleteDetailPengadaan(@Path("id")int id);
+    @DELETE("detailtp/{id}")
+    Call<cudDataMaster> deleteDetailPTransPro(@Path("id")int id);
+    @DELETE("detailtl/{id}")
+    Call<cudDataMaster> deleteDetailPTransLay(@Path("id")int id);
 }

@@ -96,7 +96,7 @@ public class AdapterTransLayAdd extends RecyclerView.Adapter<AdapterTransLayAdd.
             jumlah = itemView.findViewById(R.id.jumlahbeli);
 
             ArrayAdapter<hargalayananDAO> adapter = new ArrayAdapter<hargalayananDAO>
-                    (context, android.R.layout.select_dialog_item, mListLayanan);
+                    (context,  R.layout.autocomplete_adapter, R.id.item, mListLayanan);
             namaLayanan.setAdapter(adapter);
 
             harga.setText("Rp.0");

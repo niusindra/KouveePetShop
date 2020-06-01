@@ -59,8 +59,7 @@ public class RecycleAdapterTransProShow extends RecyclerView.Adapter<RecycleAdap
             super(itemView);
             mNama=itemView.findViewById(R.id.RC_Pengadaan_Name);
             mTanggal=itemView.findViewById(R.id.RC_tglPengadaan);
-            mTotal=itemView.findViewById(R.id.RC_totalPengadaan);
-            mStatus=itemView.findViewById(R.id.RC_statusPengadaan);
+            mTotal=itemView.findViewById(R.id.RC_hewan1);
             mParent=itemView.findViewById(R.id.RC_Pengadaan_Event_Parent);
             context = itemView.getContext();
         }
@@ -70,6 +69,8 @@ public class RecycleAdapterTransProShow extends RecyclerView.Adapter<RecycleAdap
     public void onBindViewHolder(final MyViewHolder myViewHolder, final int i) {
         final transaksiProdukDAO transaksiProdukDAO=result.get(i);
         myViewHolder.mNama.setText("ID Transaksi\t: "+transaksiProdukDAO.getId_trans_produk());
+        myViewHolder.mTanggal.setText("Tanggal Transaksi\t: "+transaksiProdukDAO.getTanggal_trans_produk());
+        myViewHolder.mTotal.setText("Hewan\t: "+transaksiProdukDAO.getNama_hewan()+"-"+transaksiProdukDAO.getJenis());
         myViewHolder.mParent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -101,42 +102,6 @@ public class RecycleAdapterTransProShow extends RecyclerView.Adapter<RecycleAdap
 
     public List<transaksiProdukDAO> getResult() {
         return result;
-    }
-
-    private void getDetailPengadaan(final String idpengadaan){
-        ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
-        Call<readDetailPengadaan> produkCall = apiService.getDetailPengadaan(idpengadaan);
-        produkCall.enqueue(new Callback<readDetailPengadaan>(){
-
-            @Override
-            public void onResponse(Call<readDetailPengadaan> call, Response<readDetailPengadaan> response) {
-                if(response.body()!=null) {
-                    detailPengadaanList = response.body().getMessage();
-                    ApiInterface apiService= ApiClient.getClient().create(ApiInterface.class);
-                    for (int i = 0; i < detailPengadaanList.size(); i++) {
-                        Call<cudDataMaster> pengadaanProdukCall = apiService.pengadaanProduk(detailPengadaanList.get(i).getId_produk(),
-                                detailPengadaanList.get(i).getJml_pengadaan_produk());
-                        pengadaanProdukCall.enqueue(new Callback<cudDataMaster>(){
-                            @Override
-                            public void onResponse(Call<cudDataMaster> call, Response<cudDataMaster> response) {
-                                if(response.body()!=null) {
-                                    response.body().getMessage();
-                                }
-                            }
-
-                            @Override
-                            public void onFailure(Call<cudDataMaster> call, Throwable t) {
-                                Toast.makeText(context,"Error",Toast.LENGTH_SHORT).show();
-                            }
-                        });
-                    }
-                }
-            }
-            @Override
-            public void onFailure(Call<readDetailPengadaan> call, Throwable t) {
-                Toast.makeText(context,"Error",Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
 
